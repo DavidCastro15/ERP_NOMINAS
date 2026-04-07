@@ -73,6 +73,51 @@ namespace ERP_NOMINAS.Repositorys
             }
         }
 
+        public List<ListAttendDetailReport> GetAttendDataReport(int ControlNumber)
+        {
+            List<ListAttendDetailReport> list = new List<ListAttendDetailReport>();
+
+            try
+            {
+
+                using (cmd = new SqlCommand("SELECT ls.numero_control,ls.numero_empleado, "+
+                                            "CONCAT(e.nombre, ' ', e.apellido_paterno, ' ', e.apellido_materno) as n_completo, ls.uso, (SELECT TOP 1 d.nombre FROM departamentos d WHERE d.id_deparamento = u.departamento) AS departamento, "+
+                                                "CONCAT(ls.categoria_requerida, '-', c.nombre_categoria)as categoria_requerida ,ls.turno_trabajado,ls.estatus "+
+                                                  "FROM listas_detalle ls "+
+                                            "INNER JOIN empleados e "+
+                                            "ON ls.numero_empleado = e.numero_empleado "+
+                                            "INNER JOIN categorias c "+
+                                            "ON ls.categoria_requerida = c.id_categoria "+
+                                            "INNER JOIN usos u "+
+                                            "ON u.uso = ls.uso "+
+                                            $"WHERE ls.numero_control = {ControlNumber} ORDER BY ls.numero_control DESC", Conex.nomi))
+                {
+                    Conex.OpenNomina();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            list.Add(ShowReportDetails(reader));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error al obtener las listas: " + ex.Message);
+            }
+            finally
+            {
+
+                Conex.CloseNomina();
+            }
+
+            return list;
+        }
+
         public List<ListAttendDetail> GetDetailsAttend(int ControlNumber)
         {
             List<ListAttendDetail> list = new List<ListAttendDetail>();
@@ -211,6 +256,21 @@ namespace ERP_NOMINAS.Repositorys
                 UseWorked = Convert.ToInt32(reader["uso"]),
                 CategoryWorked = Convert.ToInt32(reader["categoria_requerida"]),
                 ShiftWorked = Convert.ToInt32(reader["turno_trabajado"])
+            };
+        }
+
+        private ListAttendDetailReport ShowReportDetails(SqlDataReader reader)
+        {
+            return new ListAttendDetailReport
+            {
+                NumberControl = Convert.ToInt32(reader["numero_control"]),
+                NumberEmployee = Convert.ToInt32(reader["numero_empleado"]),
+                FullName = Convert.ToString(reader["n_completo"]),
+                UseWorked = Convert.ToInt32(reader["uso"]),
+                Department = Convert.ToString(reader["departamento"]),
+                CategoryWorked = Convert.ToString(reader["categoria_requerida"]),
+                ShiftWorked = Convert.ToInt32(reader["turno_trabajado"]),
+                Status = Convert.ToString(reader["estatus"])
             };
         }
     }

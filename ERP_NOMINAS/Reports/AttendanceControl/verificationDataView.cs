@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace ERP_NOMINAS.Reports.AttendanceControl
 {
-    public partial class verificationDataView : BaseForm
+    public partial class verificationDataView : ReportForm
     {
         private AttendanceRepository _repository = new AttendanceRepository();
         public verificationDataView()
@@ -22,43 +22,25 @@ namespace ERP_NOMINAS.Reports.AttendanceControl
             InitializeComponent();
         }
 
-
-
         private void verificationDataView_Shown(object sender, EventArgs e)
         {
-            try
+            // 1. Obtener los datos
+            List<AttendReport> data = _repository.GetAttendDataReport();
+
+            // 2. Configurar los parámetros
+            ReportParameter[] parameters = new ReportParameter[]
             {
-                List<AttendReport> data = _repository.GetAttendDataReport();
+        new ReportParameter("CompanyName", "AZUCARERA SAN JOSE DE ABAJO, S.A DE C.V"),
+        new ReportParameter("ReportTitle", "RELACION DE ASISTENCIAS POR DEPARTAMENTO O USO"),
+        new ReportParameter("DateTimeIssue", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")),
+            };
 
-                // Limpias orígenes previos
-                this.reportViewer1.LocalReport.DataSources.Clear();
-
-
-                ReportParameter[] parameters = new ReportParameter[]
-       {
-            new ReportParameter("CompanyName", "AZUCARERA SAN JOSE DE ABAJO, S.A DE C.V"),
-            new ReportParameter("ReportTitle", "RELACION DE ASISTENCIAS POR DEPARTAMENTO O USO"),
-            new ReportParameter("DateTimeIssue",  DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")),
-       };
-
-                // Pasar los parámetros al reporte
-                this.reportViewer1.LocalReport.SetParameters(parameters);
-
-
-                // "verificationData" -> Nombre del DataSet DENTRO del RDLC
-                // data -> Tu lista de objetos C#
-                ReportDataSource rdc = new ReportDataSource("verificationData", data);
-
-                this.reportViewer1.LocalReport.DataSources.Add(rdc);
-
-                this.reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
-                this.reportViewer1.ZoomMode = ZoomMode.Percent; // Ajusta al ancho de ventana
-                this.reportViewer1.RefreshReport();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al vincular los datos: " + ex.Message);
-            }
+            GenerarReporte(
+                "AttendanceControl.verificationData.rdlc",
+                "verificationData",
+                data,
+                parameters
+            );
         }
 
         private void verificationDataView_Load(object sender, EventArgs e)

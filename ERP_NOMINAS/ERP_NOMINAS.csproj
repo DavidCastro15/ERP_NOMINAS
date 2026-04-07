@@ -106,6 +106,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppConstants.cs" />
     <Compile Include="Components\Buttons\buttonAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -228,6 +229,7 @@
     <Compile Include="Models\Attendance\ListAttendance\IListAttend.cs" />
     <Compile Include="Models\Attendance\ListAttendance\ListAttendC.cs" />
     <Compile Include="Models\Attendance\ListAttendance\ListAttendDetail.cs" />
+    <Compile Include="Models\Attendance\ListAttendance\ListAttendDetailReport.cs" />
     <Compile Include="Models\CategoriesTrained\CategoryTrained.cs" />
     <Compile Include="Models\CategoriesTrained\ICategoryTrained.cs" />
     <Compile Include="Models\Cycles\Cycle.cs" />
@@ -265,6 +267,12 @@
     </Compile>
     <Compile Include="Reports\AttendanceControl\verificationDataView.Designer.cs">
       <DependentUpon>verificationDataView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\AttendanceLists\attendanceListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\AttendanceLists\attendanceListView.Designer.cs">
+      <DependentUpon>attendanceListView.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\ViewsTablesAttendance.cs">
       <DependentUpon>ViewsTablesAttendance.xsd</DependentUpon>
@@ -539,6 +547,12 @@
     <Compile Include="Views\Master\Uses\UseShow.Designer.cs">
       <DependentUpon>UseShow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ReportForm.Designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Components\Buttons\buttonAdd.resx">
       <DependentUpon>buttonAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -615,6 +629,10 @@
     <EmbeddedResource Include="Reports\AttendanceControl\verificationData.rdlc" />
     <EmbeddedResource Include="Reports\AttendanceControl\verificationDataView.resx">
       <DependentUpon>verificationDataView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\AttendanceLists\attendanceList.rdlc" />
+    <EmbeddedResource Include="Reports\AttendanceLists\attendanceListView.resx">
+      <DependentUpon>attendanceListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AttendanceControl\Attendance\AttendMain.resx">
       <DependentUpon>AttendMain.cs</DependentUpon>
@@ -729,6 +747,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Master\Uses\UseShow.resx">
       <DependentUpon>UseShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

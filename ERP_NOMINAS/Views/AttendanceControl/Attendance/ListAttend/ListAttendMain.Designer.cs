@@ -45,9 +45,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.buttonPrint2 = new ERP_NOMINAS.Components.Buttons.buttonPrint();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.buttonPrint2 = new ERP_NOMINAS.Components.Buttons.buttonPrint();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -132,9 +132,9 @@
             // buttonPrint1
             // 
             this.buttonPrint1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonPrint1.Location = new System.Drawing.Point(400, 479);
+            this.buttonPrint1.Location = new System.Drawing.Point(75, 14);
             this.buttonPrint1.Name = "buttonPrint1";
-            this.buttonPrint1.Size = new System.Drawing.Size(74, 55);
+            this.buttonPrint1.Size = new System.Drawing.Size(74, 51);
             this.buttonPrint1.TabIndex = 2;
             this.buttonPrint1.OnBotonPrintClick += new System.EventHandler(this.buttonPrint1_OnBotonPrintClick);
             // 
@@ -197,23 +197,15 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.buttonPrint2);
             this.groupBox2.Controls.Add(this.numericUpDown2);
             this.groupBox2.Controls.Add(this.numericUpDown1);
+            this.groupBox2.Controls.Add(this.buttonPrint1);
             this.groupBox2.Location = new System.Drawing.Point(12, 462);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(155, 71);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informe de Cifras:";
-            // 
-            // buttonPrint2
-            // 
-            this.buttonPrint2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonPrint2.Location = new System.Drawing.Point(74, 17);
-            this.buttonPrint2.Name = "buttonPrint2";
-            this.buttonPrint2.Size = new System.Drawing.Size(74, 51);
-            this.buttonPrint2.TabIndex = 5;
             // 
             // numericUpDown2
             // 
@@ -239,14 +231,23 @@
             this.numericUpDown1.Size = new System.Drawing.Size(32, 20);
             this.numericUpDown1.TabIndex = 0;
             // 
+            // buttonPrint2
+            // 
+            this.buttonPrint2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonPrint2.Location = new System.Drawing.Point(400, 482);
+            this.buttonPrint2.Name = "buttonPrint2";
+            this.buttonPrint2.Size = new System.Drawing.Size(74, 51);
+            this.buttonPrint2.TabIndex = 3;
+            this.buttonPrint2.OnBotonPrintClick += new System.EventHandler(this.buttonPrint2_OnBotonPrintClick);
+            // 
             // ListAttendMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 538);
+            this.Controls.Add(this.buttonPrint2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.buttonPrint1);
             this.Controls.Add(this.kitForm1);
             this.Controls.Add(this.dataGridView1);
             this.Location = new System.Drawing.Point(0, 0);
@@ -282,8 +283,8 @@
         private System.Windows.Forms.Label label1;
         private Components.Buttons.buttonExport buttonExport1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private Components.Buttons.buttonPrint buttonPrint2;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private Components.Buttons.buttonPrint buttonPrint2;
     }
 }

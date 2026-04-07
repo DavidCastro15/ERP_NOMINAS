@@ -1,5 +1,6 @@
 ﻿using ERP_NOMINAS.GlobalFunctions;
 using ERP_NOMINAS.Models.Attendance.ListAttendance;
+using ERP_NOMINAS.Reports.AttendanceLists;
 using ERP_NOMINAS.Repositorys;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance.ListAttend
     public partial class ListAttendMain : BaseForm
     {
 
-        private int ControlNumber;
+        private int ControlNumber = 0;
         private Utilities Util = new Utilities();
         private ListAttendRepository _repository = new ListAttendRepository();
         private AttendMain _loadAttendMain;
@@ -140,7 +141,23 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance.ListAttend
 
         private void buttonPrint1_OnBotonPrintClick(object sender, EventArgs e)
         {
+            
+        }
 
+        private void buttonPrint2_OnBotonPrintClick(object sender, EventArgs e)
+        {
+            if (ControlNumber <= 0)
+            {
+                MessageBox.Show("Seleccione una lista", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            int nControl = (numericUpDown1.Value == 0)
+       ? (int)ControlNumber
+       : int.Parse($"{DateTime.Now.Year}{numericUpDown1.Value}{numericUpDown2.Value}");
+
+            var printReport = new attendanceListView();
+            printReport.ControlNumber = nControl;
+            printReport.ShowDialog();
         }
     }
 }
