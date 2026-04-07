@@ -16,13 +16,58 @@ namespace ERP_NOMINAS.Repositorys
         Utilities Util = new Utilities();
         SqlCommand cmd = new SqlCommand();
 
-        public int DeleteListAttend(int NumberControl)
+        public int AddEmployeeDetails(ListAttendDetail l)
         {
-            string query = $"DELETE FROM listas_encabezado WHERE numero_control = {NumberControl} " +
-                           $"DELETE FROM listas_detalle WHERE numero_control = {NumberControl}";
+            string query = "INSERT INTO listas_detalle(numero_control,asistencia,estatus,id_nomina,numero_empleado,uso,id_categoria,categoria_requerida,turno_periodo,turno_trabajado) " +
+                           "VALUES (@numero_control,@asistencia,@estatus,@id_nomina,@numero_empleado,@uso,@id_categoria,@categoria_requerida,@turno_periodo,@turno_trabajado) ";
 
             using (cmd = new SqlCommand(query, Conex.nomi))
             {
+                // Uso de parámetros para evitar inyección SQL
+                cmd.Parameters.AddWithValue("@numero_control", l.NumberControl);
+                cmd.Parameters.AddWithValue("@asistencia", 1);
+                cmd.Parameters.AddWithValue("@estatus", l.Status);
+                cmd.Parameters.AddWithValue("@id_nomina", l.PayRoll);
+                cmd.Parameters.AddWithValue("@numero_empleado", l.NumberEmployee);
+                cmd.Parameters.AddWithValue("@uso", l.UseWorked);
+                cmd.Parameters.AddWithValue("@id_categoria", l.CategoryWorked);
+                cmd.Parameters.AddWithValue("@categoria_requerida", l.CategoryWorked);
+                cmd.Parameters.AddWithValue("@turno_periodo", l.ShiftWorked);
+                cmd.Parameters.AddWithValue("@turno_trabajado", l.ShiftWorked);
+
+                Conex.OpenNomina();
+                return cmd.ExecuteNonQuery(); // Devuelve 1 si fue exitoso
+            }
+        }
+
+        public int DeleteEmployeeListAttend(int ControlNumber, int NumberEmployee)
+        {
+            string query = $"DELETE FROM listas_detalle WHERE numero_control = {ControlNumber} AND numero_empleado = {NumberEmployee} ";
+
+            using (cmd = new SqlCommand(query, Conex.nomi))
+            {
+                Conex.OpenNomina();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+
+        public int DeleteListAttend(int NumberControl)
+        {
+            string query = @"
+                            BEGIN TRANSACTION;
+                            BEGIN TRY
+                                DELETE FROM listas_detalle WHERE numero_control = @NumberControl;
+                                DELETE FROM listas_encabezado WHERE numero_control = @NumberControl;
+                                COMMIT TRANSACTION;
+                            END TRY
+                            BEGIN CATCH
+                                ROLLBACK TRANSACTION;
+                                THROW;
+                            END CATCH";
+
+            using (cmd = new SqlCommand(query, Conex.nomi))
+            {
+                cmd.Parameters.AddWithValue("@NumberControl", NumberControl);
                 Conex.OpenNomina();
                 return cmd.ExecuteNonQuery();
             }
@@ -61,6 +106,25 @@ namespace ERP_NOMINAS.Repositorys
             }
 
             return list;
+        }
+
+        public ListAttendDetail GetListAttendDetail(int ControlNumber,int NumberEmployee)
+        {
+            using (cmd = new SqlCommand($"SELECT * FROM listas_detalle WHERE numero_control = {ControlNumber} AND numero_empleado = {NumberEmployee} ORDER BY numero_control ASC", Conex.nomi))
+            {
+
+                Conex.OpenNomina();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+
+                    if (reader.Read())
+                    {
+                        return ShowDetails(reader);
+                    }
+                }
+            }
+            return null;
         }
 
         public List<ListAttendC> GetListAttends()
@@ -103,9 +167,23 @@ namespace ERP_NOMINAS.Repositorys
             throw new NotImplementedException();
         }
 
-        public int UpdateListAttend(ListAttendC listAttend)
+        public int UpdateEmployeeListAttend(ListAttendDetail l)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE listas_detalle SET categoria_requerida=@categoria_requerida,uso=@uso,turno_trabajado=@turno_trabajado "+
+                                    "WHERE numero_empleado = @numero_empleado AND numero_control = @numero_control";
+
+            using (cmd = new SqlCommand(query, Conex.nomi))
+            {
+
+                cmd.Parameters.AddWithValue("@numero_control", l.NumberControl);
+                cmd.Parameters.AddWithValue("@numero_empleado", l.NumberEmployee);
+                cmd.Parameters.AddWithValue("@categoria_requerida", l.CategoryWorked);
+                cmd.Parameters.AddWithValue("@uso", l.UseWorked);
+                cmd.Parameters.AddWithValue("@turno_trabajado", l.ShiftWorked);
+
+                Conex.OpenNomina();
+                return cmd.ExecuteNonQuery(); // Devuelve 1 si fue exitoso
+            }
         }
 
         private ListAttendC ShowDataGrid(SqlDataReader reader)
@@ -128,6 +206,7 @@ namespace ERP_NOMINAS.Repositorys
             {
                 NumberControl = Convert.ToInt32(reader["numero_control"]),
                 PayRoll = Convert.ToInt32(reader["id_nomina"]),
+                Status = Convert.ToString(reader["estatus"]),
                 NumberEmployee = Convert.ToInt32(reader["numero_empleado"]),
                 UseWorked = Convert.ToInt32(reader["uso"]),
                 CategoryWorked = Convert.ToInt32(reader["categoria_requerida"]),

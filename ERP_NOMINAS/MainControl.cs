@@ -73,9 +73,13 @@ namespace ERP_NOMINAS
 
         private void gruposToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsMaster.Groups.GroupMain>();
 
-        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsAttend.Attendance.AttendMain>();
+        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsAttend.Attendance.ListAttend.ListAttendMain>();
 
         private void equiposToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsMaster.Equipments.EquipmentMain>();
+
+        private void asistenciaToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsAttend.Attendance.AttendMain>();
+
+        private void listasDeAsistenciaToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsAttend.Attendance.ListAttend.ListAttendMain>();
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e) => Close();
 
@@ -106,8 +110,6 @@ namespace ERP_NOMINAS
         private void subsidioToolStripMenuItem2_Click(object sender, EventArgs e) =>
             OpenForm<FormsMaster.TaxSubsidy.SubsidyRateMain>(f => { f._useTable = "tarifa_mensual_subsidio"; f.type = " Mensual"; });
 
-        private void asistenciaToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsAttend.Attendance.AttendMain>();
-        
     }
 
 }

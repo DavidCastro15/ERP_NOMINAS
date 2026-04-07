@@ -57,6 +57,8 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(605, 504);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // Column1
             // 
@@ -101,6 +103,9 @@
             this.kitForm1.Name = "kitForm1";
             this.kitForm1.Size = new System.Drawing.Size(317, 55);
             this.kitForm1.TabIndex = 1;
+            this.kitForm1.Add += new System.EventHandler(this.kitForm1_Add);
+            this.kitForm1.MEdit += new System.EventHandler(this.kitForm1_MEdit);
+            this.kitForm1.MDelete += new System.EventHandler(this.kitForm1_MDelete);
             // 
             // ListAttendShow
             // 

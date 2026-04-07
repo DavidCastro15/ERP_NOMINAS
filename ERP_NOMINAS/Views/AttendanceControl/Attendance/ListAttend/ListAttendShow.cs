@@ -20,6 +20,7 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance.ListAttend
         private ListAttendMain _loadAttend;
         public bool Edit;
         public int ControlNumber;
+        private int NEmployee;
 
         public ListAttendShow(ListAttendMain loadAttend)
         {
@@ -38,6 +39,76 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance.ListAttend
             var ListAttend = _repository.GetDetailsAttend(ControlNumber);
             Util.ConfigGrid<ListAttendDetail>(dataGridView1);
             dataGridView1.DataSource = new BindingList<ListAttendDetail>(ListAttend);
+        }
+
+        private void kitForm1_Add(object sender, EventArgs e)
+        {
+            var att = new AttendShow(this);
+            att.NumberControl = ControlNumber;
+            att.EditListExists = true;
+            att.ShowDialog();
+        }
+
+        private void kitForm1_MEdit(object sender, EventArgs e)
+        {
+            parametersEdit();
+        }
+
+        private void kitForm1_MDelete(object sender, EventArgs e)
+        {
+            if (NEmployee <= 0)
+            {
+                MessageBox.Show("Seleccione un Empleado", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            string message = "¿Está seguro de que desea eliminar este registro?";
+            string title = "Confirmar Eliminacion";
+            DialogResult ress = MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (ress == DialogResult.Yes)
+            {
+
+                var deleteCategorory = _repository.DeleteEmployeeListAttend(ControlNumber, NEmployee);
+                MessageBox.Show("Registro eliminado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadGrid();
+            }
+            else
+            {
+                MessageBox.Show("Operación cancelada.", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+        }
+
+        private void parametersEdit()
+        {
+
+            if (ControlNumber <= 0)
+            {
+                MessageBox.Show("Seleccione un empleado", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            var editAttend = new AttendShow(this);
+            editAttend.NumberControl = ControlNumber;
+            editAttend.EditListExists = true;
+            editAttend.NEmployee = NEmployee;
+            editAttend.Edit = true;
+            editAttend.ShowDialog();
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                NEmployee = Convert.ToInt32(row.Cells[2].Value);
+            }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            parametersEdit();
         }
     }
 }

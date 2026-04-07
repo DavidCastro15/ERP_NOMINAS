@@ -22,6 +22,11 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance.ListAttend
         private AttendMain _loadAttendMain;
         public string ListType;
 
+        public ListAttendMain() : this(null)
+        {
+
+        }
+
         public ListAttendMain(AttendMain loadAttendMain)
         {
             InitializeComponent();
@@ -32,9 +37,9 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance.ListAttend
 
         private void ListAttendMain_Load(object sender, EventArgs e)
         {
-            if (ListType == "")
+            if (ListType is null)
             {
-              
+             
             }
             else
             {

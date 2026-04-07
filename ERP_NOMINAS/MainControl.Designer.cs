@@ -66,6 +66,7 @@
             this.asistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.listasDeAsistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -346,7 +347,8 @@
             // controlAsistenciaToolStripMenuItem
             // 
             this.controlAsistenciaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.asistenciaToolStripMenuItem});
+            this.asistenciaToolStripMenuItem,
+            this.listasDeAsistenciaToolStripMenuItem});
             this.controlAsistenciaToolStripMenuItem.Name = "controlAsistenciaToolStripMenuItem";
             this.controlAsistenciaToolStripMenuItem.Size = new System.Drawing.Size(115, 20);
             this.controlAsistenciaToolStripMenuItem.Text = "Control Asistencia";
@@ -376,6 +378,13 @@
             this.pictureBox1.Size = new System.Drawing.Size(300, 153);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // listasDeAsistenciaToolStripMenuItem
+            // 
+            this.listasDeAsistenciaToolStripMenuItem.Name = "listasDeAsistenciaToolStripMenuItem";
+            this.listasDeAsistenciaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listasDeAsistenciaToolStripMenuItem.Text = "Listas de Asistencia";
+            this.listasDeAsistenciaToolStripMenuItem.Click += new System.EventHandler(this.listasDeAsistenciaToolStripMenuItem_Click);
             // 
             // MainControl
             // 
@@ -438,5 +447,6 @@
         private System.Windows.Forms.ToolStripMenuItem equiposToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem controlAsistenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asistenciaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listasDeAsistenciaToolStripMenuItem;
     }
 }
