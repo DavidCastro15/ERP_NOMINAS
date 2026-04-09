@@ -13,6 +13,11 @@ namespace ERP_NOMINAS
         public const string CompanyName = "AZUCARERA SAN JOSE DE ABAJO, S.A DE C.V";
         public const string ServerIp = "192.168.2.250";
         public const string User = "sa";
-        public static readonly string Password = ConfigurationManager.AppSettings["DB_PASSWORD"]; //MANERA MAS RAPIDA MENOS SEGURA !!USAR AppConfig para version final
+        public static readonly string Password = "AsjaEvol19";
+        //public static readonly string Password = ConfigurationManager.AppSettings["DB_PASSWORD"]; //MANERA MAS RAPIDA MENOS SEGURA !!USAR AppConfig para version final
+
+        //<appSettings> AGREGAR ESTAS LINEAS AL PROYECTO FINAL EN EL App.Config
+        //  <add key = "DB_PASSWORD" value="AsjaEvol19" />
+        //</appSettings>
     }
 }
