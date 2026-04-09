@@ -227,6 +227,7 @@
     <Compile Include="Models\Attendance\AttendReport.cs" />
     <Compile Include="Models\Attendance\IAttend.cs" />
     <Compile Include="Models\Attendance\ListAttendance\IListAttend.cs" />
+    <Compile Include="Models\Attendance\ListAttendance\ListAttendAddReport.cs" />
     <Compile Include="Models\Attendance\ListAttendance\ListAttendC.cs" />
     <Compile Include="Models\Attendance\ListAttendance\ListAttendDetail.cs" />
     <Compile Include="Models\Attendance\ListAttendance\ListAttendDetailReport.cs" />
@@ -262,16 +263,22 @@
     <Compile Include="Models\UnionCommittee\UnionCom.cs" />
     <Compile Include="Models\Uses\IUse.cs" />
     <Compile Include="Models\Uses\Use.cs" />
-    <Compile Include="Reports\AttendanceControl\verificationDataView.cs">
+    <Compile Include="Reports\Attendance\AddLists\addListView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports\AttendanceControl\verificationDataView.Designer.cs">
+    <Compile Include="Reports\Attendance\AddLists\addListView.Designer.cs">
+      <DependentUpon>addListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Attendance\AttendanceControl\verificationDataView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Attendance\AttendanceControl\verificationDataView.Designer.cs">
       <DependentUpon>verificationDataView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\AttendanceLists\attendanceListView.cs">
+    <Compile Include="Reports\Attendance\AttendanceLists\attendanceListView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports\AttendanceLists\attendanceListView.Designer.cs">
+    <Compile Include="Reports\Attendance\AttendanceLists\attendanceListView.Designer.cs">
       <DependentUpon>attendanceListView.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\ViewsTablesAttendance.cs">
@@ -626,12 +633,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reports\AttendanceControl\verificationData.rdlc" />
-    <EmbeddedResource Include="Reports\AttendanceControl\verificationDataView.resx">
+    <EmbeddedResource Include="Reports\Attendance\AddLists\addList.rdlc" />
+    <EmbeddedResource Include="Reports\Attendance\AddLists\addListView.resx">
+      <DependentUpon>addListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Attendance\AttendanceControl\verificationData.rdlc" />
+    <EmbeddedResource Include="Reports\Attendance\AttendanceControl\verificationDataView.resx">
       <DependentUpon>verificationDataView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\AttendanceLists\attendanceList.rdlc" />
-    <EmbeddedResource Include="Reports\AttendanceLists\attendanceListView.resx">
+    <EmbeddedResource Include="Reports\Attendance\AttendanceLists\attendanceList.rdlc" />
+    <EmbeddedResource Include="Reports\Attendance\AttendanceLists\attendanceListView.resx">
       <DependentUpon>attendanceListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AttendanceControl\Attendance\AttendMain.resx">

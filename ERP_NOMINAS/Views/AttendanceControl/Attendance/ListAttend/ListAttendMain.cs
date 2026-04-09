@@ -1,5 +1,6 @@
 ﻿using ERP_NOMINAS.GlobalFunctions;
 using ERP_NOMINAS.Models.Attendance.ListAttendance;
+using ERP_NOMINAS.Reports.Attendance.AddLists;
 using ERP_NOMINAS.Reports.AttendanceLists;
 using ERP_NOMINAS.Repositorys;
 using System;
@@ -141,7 +142,15 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance.ListAttend
 
         private void buttonPrint1_OnBotonPrintClick(object sender, EventArgs e)
         {
-            
+            if (numericUpDown1.Value <= 0)
+            {
+                MessageBox.Show("Digite una semana de pago", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var printReport = new addListView();
+            printReport.PayWeek = GetPayWeek((int)numericUpDown1.Value, (int)numericUpDown1.Value);
+            printReport.ShowDialog();
         }
 
         private void buttonPrint2_OnBotonPrintClick(object sender, EventArgs e)
@@ -150,14 +159,19 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance.ListAttend
             {
                 MessageBox.Show("Seleccione una lista", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
-            }
-            int nControl = (numericUpDown1.Value == 0)
-       ? (int)ControlNumber
-       : int.Parse($"{DateTime.Now.Year}{numericUpDown1.Value}{numericUpDown2.Value}");
-
+            }       
             var printReport = new attendanceListView();
-            printReport.ControlNumber = nControl;
+            printReport.ControlNumber = ControlNumber;
             printReport.ShowDialog();
+        }
+
+        private int GetPayWeek(int num1,int num2)
+        {
+            int year = DateTime.Now.Year;
+            int week = (int)num1;
+            int extra = (int)num2;
+
+           return (year * 1000) + (week * 10) + extra;
         }
     }
 }

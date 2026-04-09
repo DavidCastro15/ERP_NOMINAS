@@ -12,6 +12,7 @@ namespace ERP_NOMINAS.Models.Attendance.ListAttendance
         List<ListAttendDetail> GetDetailsAttend(int ControlNumber);
         ListAttendDetail GetListAttendDetail(int ControlNumber, int NumberEmployee);
         List<ListAttendDetailReport> GetAttendDataReport(int ControlNumber);
+        List<ListAttendAddReport> GetAttendAddDataReport(int PayWeek);
         int AddEmployeeDetails(ListAttendDetail listAttend);
         int UpdateEmployeeListAttend(ListAttendDetail listAttend);
         int DeleteEmployeeListAttend(int ControlNumber, int NumberEmployee);

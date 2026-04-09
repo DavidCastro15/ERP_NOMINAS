@@ -36,7 +36,7 @@ namespace ERP_NOMINAS.Reports.AttendanceControl
             };
 
             GenerarReporte(
-                "AttendanceControl.verificationData.rdlc",
+                "Attendance.AttendanceControl.verificationData.rdlc",
                 "verificationData",
                 data,
                 parameters

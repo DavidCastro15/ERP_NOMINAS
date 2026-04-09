@@ -118,6 +118,45 @@ namespace ERP_NOMINAS.Repositorys
             return list;
         }
 
+        public List<ListAttendAddReport> GetAttendAddDataReport(int PayWeek)
+        {
+            List<ListAttendAddReport> list = new List<ListAttendAddReport>();
+
+            try
+            {
+
+                using (cmd = new SqlCommand("SELECT le.numero_control,le.fecha,le.turno,le.semana_pago,SUM(ld.numero_empleado) as total_empleado,SUM(ld.categoria_requerida) as total_categoria "+
+                                                "FROM listas_encabezado le "+
+                                                "INNER JOIN listas_detalle ld "+
+                                                "ON le.numero_control = ld.numero_control "+
+                                                $"WHERE le.semana_pago = {PayWeek} GROUP BY le.numero_control,le.fecha,le.turno,le.semana_pago ORDER BY le.fecha,le.turno ASC", Conex.nomi))
+                {
+                    Conex.OpenNomina();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            list.Add(ShowReportAddDetails(reader));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error al obtener las listas: " + ex.Message);
+            }
+            finally
+            {
+
+                Conex.CloseNomina();
+            }
+
+            return list;
+        }
+
         public List<ListAttendDetail> GetDetailsAttend(int ControlNumber)
         {
             List<ListAttendDetail> list = new List<ListAttendDetail>();
@@ -271,6 +310,19 @@ namespace ERP_NOMINAS.Repositorys
                 CategoryWorked = Convert.ToString(reader["categoria_requerida"]),
                 ShiftWorked = Convert.ToInt32(reader["turno_trabajado"]),
                 Status = Convert.ToString(reader["estatus"])
+            };
+        }
+
+        private ListAttendAddReport ShowReportAddDetails(SqlDataReader reader)
+        {
+            return new ListAttendAddReport
+            {
+                NumberControl = Convert.ToInt32(reader["numero_control"]),
+                Date = Convert.ToDateTime(reader["fecha"]),
+                Shift = Convert.ToInt32(reader["turno"]),
+                PayWeek = Convert.ToInt32(reader["semana_pago"]),
+                TotalEmployes = Convert.ToInt32(reader["total_empleado"]),
+                TotalCategory = Convert.ToInt32(reader["total_categoria"])
             };
         }
     }

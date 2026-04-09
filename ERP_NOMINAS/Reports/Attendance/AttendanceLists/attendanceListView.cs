@@ -42,7 +42,7 @@ namespace ERP_NOMINAS.Reports.AttendanceLists
             };
 
             GenerarReporte(
-                "AttendanceLists.attendanceList.rdlc",
+                "Attendance.AttendanceLists.attendanceList.rdlc",
                 "attendanceList",
                 data,
                 parameters
