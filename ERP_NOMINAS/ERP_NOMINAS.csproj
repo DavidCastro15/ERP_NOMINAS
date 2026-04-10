@@ -242,6 +242,8 @@
     <Compile Include="Models\Employees\IEmployee.cs" />
     <Compile Include="Models\Equipments\Equipment.cs" />
     <Compile Include="Models\Equipments\IEquipment.cs" />
+    <Compile Include="Models\ExtraShifts\ExtraShift.cs" />
+    <Compile Include="Models\ExtraShifts\IExtraShift.cs" />
     <Compile Include="Models\Groups\Group.cs" />
     <Compile Include="Models\Groups\IGroup.cs" />
     <Compile Include="Models\Holidays\Holiday.cs" />
@@ -314,6 +316,7 @@
     <Compile Include="Repositorys\DepartmentRepository.cs" />
     <Compile Include="Repositorys\EmployeeRepository.cs" />
     <Compile Include="Repositorys\EquipmentRepository.cs" />
+    <Compile Include="Repositorys\ExtraShiftRepository.cs" />
     <Compile Include="Repositorys\GroupRepository.cs" />
     <Compile Include="Repositorys\HolidayRepository.cs" />
     <Compile Include="Repositorys\IntegratedSalaryRepository.cs" />
@@ -356,6 +359,12 @@
     </Compile>
     <Compile Include="Views\AttendanceControl\Attendance\ListAttend\ListAttendShow.Designer.cs">
       <DependentUpon>ListAttendShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AttendanceControl\ExtraShifts\ExtraShiftMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AttendanceControl\ExtraShifts\ExtraShiftMain.Designer.cs">
+      <DependentUpon>ExtraShiftMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\BaseForm.cs">
       <SubType>Form</SubType>
@@ -660,6 +669,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AttendanceControl\Attendance\ListAttend\ListAttendShow.resx">
       <DependentUpon>ListAttendShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AttendanceControl\ExtraShifts\ExtraShiftMain.resx">
+      <DependentUpon>ExtraShiftMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>

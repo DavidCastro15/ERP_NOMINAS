@@ -73,13 +73,15 @@ namespace ERP_NOMINAS
 
         private void gruposToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsMaster.Groups.GroupMain>();
 
-        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsAttend.Attendance.ListAttend.ListAttendMain>();
-
         private void equiposToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsMaster.Equipments.EquipmentMain>();
 
         private void asistenciaToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsAttend.Attendance.AttendMain>();
 
         private void listasDeAsistenciaToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsAttend.Attendance.ListAttend.ListAttendMain>();
+
+        private void turnosAdicionalesToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsAttend.ExtraShifts.ExtraShiftMain>();
+
+        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsAttend.ExtraShifts.ExtraShiftMain>();
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e) => Close();
 

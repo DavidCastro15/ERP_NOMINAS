@@ -64,9 +64,10 @@
             this.equiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlAsistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listasDeAsistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.listasDeAsistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.turnosAdicionalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -348,7 +349,8 @@
             // 
             this.controlAsistenciaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.asistenciaToolStripMenuItem,
-            this.listasDeAsistenciaToolStripMenuItem});
+            this.listasDeAsistenciaToolStripMenuItem,
+            this.turnosAdicionalesToolStripMenuItem});
             this.controlAsistenciaToolStripMenuItem.Name = "controlAsistenciaToolStripMenuItem";
             this.controlAsistenciaToolStripMenuItem.Size = new System.Drawing.Size(115, 20);
             this.controlAsistenciaToolStripMenuItem.Text = "Control Asistencia";
@@ -359,6 +361,13 @@
             this.asistenciaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.asistenciaToolStripMenuItem.Text = "Asistencia";
             this.asistenciaToolStripMenuItem.Click += new System.EventHandler(this.asistenciaToolStripMenuItem_Click);
+            // 
+            // listasDeAsistenciaToolStripMenuItem
+            // 
+            this.listasDeAsistenciaToolStripMenuItem.Name = "listasDeAsistenciaToolStripMenuItem";
+            this.listasDeAsistenciaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listasDeAsistenciaToolStripMenuItem.Text = "Listas de Asistencia";
+            this.listasDeAsistenciaToolStripMenuItem.Click += new System.EventHandler(this.listasDeAsistenciaToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -379,12 +388,12 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // listasDeAsistenciaToolStripMenuItem
+            // turnosAdicionalesToolStripMenuItem
             // 
-            this.listasDeAsistenciaToolStripMenuItem.Name = "listasDeAsistenciaToolStripMenuItem";
-            this.listasDeAsistenciaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.listasDeAsistenciaToolStripMenuItem.Text = "Listas de Asistencia";
-            this.listasDeAsistenciaToolStripMenuItem.Click += new System.EventHandler(this.listasDeAsistenciaToolStripMenuItem_Click);
+            this.turnosAdicionalesToolStripMenuItem.Name = "turnosAdicionalesToolStripMenuItem";
+            this.turnosAdicionalesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.turnosAdicionalesToolStripMenuItem.Text = "Turnos Adicionales";
+            this.turnosAdicionalesToolStripMenuItem.Click += new System.EventHandler(this.turnosAdicionalesToolStripMenuItem_Click);
             // 
             // MainControl
             // 
@@ -448,5 +457,6 @@
         private System.Windows.Forms.ToolStripMenuItem controlAsistenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asistenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listasDeAsistenciaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem turnosAdicionalesToolStripMenuItem;
     }
 }
