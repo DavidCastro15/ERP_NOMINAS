@@ -117,27 +117,7 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance.ListAttend
 
         private void kitForm1_MDelete(object sender, EventArgs e)
         {
-            if (ControlNumber <= 0)
-            {
-                MessageBox.Show("Seleccione una lista", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            string message = "¿Está seguro de que desea eliminar este registro?";
-            string title = "Confirmar Eliminacion";
-            DialogResult ress = MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (ress == DialogResult.Yes)
-            {
-
-                var deleteList = _repository.DeleteListAttend(ControlNumber);
-                MessageBox.Show("Registro eliminado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadGrid();
-            }
-            else
-            {
-                MessageBox.Show("Operación cancelada.", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            }
+            groupBox3.Visible = true;
         }
 
         private void buttonPrint1_OnBotonPrintClick(object sender, EventArgs e)
@@ -172,6 +152,38 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance.ListAttend
             int extra = (int)num2;
 
            return (year * 1000) + (week * 10) + extra;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //121283
+            if (ControlNumber <= 0)
+            {
+                MessageBox.Show("Seleccione una lista", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (Convert.ToInt32(textBox1.Text) != 121283)
+            {
+                MessageBox.Show("Contraseña Incorrecta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            string message = "¿Está seguro de que desea eliminar este registro?";
+            string title = "Confirmar Eliminacion";
+            DialogResult ress = MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (ress == DialogResult.Yes)
+            {
+
+                var deleteList = _repository.DeleteListAttend(ControlNumber);
+                MessageBox.Show("Registro eliminado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadGrid();
+                groupBox3.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Operación cancelada.", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
         }
     }
 }
