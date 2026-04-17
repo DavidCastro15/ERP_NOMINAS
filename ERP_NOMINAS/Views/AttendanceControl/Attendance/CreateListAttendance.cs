@@ -1,4 +1,5 @@
-﻿using ERP_NOMINAS.Repositorys;
+﻿using ERP_NOMINAS.GlobalFunctions;
+using ERP_NOMINAS.Repositorys;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance
     public partial class CreateListAttendance : BaseForm
     {
         private AttendanceRepository _repository = new AttendanceRepository();
+        private Utilities Util = new Utilities();
 
         public CreateListAttendance()
         {
@@ -29,9 +31,8 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance
         {
 
             var Status = groupBox1.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
-            var Period = groupBox2.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
-            string _payWeek = $"{dateTimePicker1.Value.Year}{numericUpDown1.Value}{numericUpDown2.Value}";
-            int PayWeek = Convert.ToInt32(_payWeek);
+            var Period = groupBox2.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);         
+            int PayWeek = Util.PayWeekNow((int)numericUpDown1.Value,(int)numericUpDown2.Value);
             int Shift = Convert.ToInt32(searchTurn1.SelectedTurntId);
 
             string message = "¿Está seguro de crear la lista?";

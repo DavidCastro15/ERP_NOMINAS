@@ -1,5 +1,6 @@
 ﻿using FormsMaster = ERP_NOMINAS.Views.Master;
 using FormsAttend = ERP_NOMINAS.Views.AttendanceControl;
+using FormsNonAutomatic = ERP_NOMINAS.Views.Non_AutomaticPerceptions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,6 +48,8 @@ namespace ERP_NOMINAS
             }
         }
 
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e) => Close();
+
         private void categoriasToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsMaster.Categories.CategoryMain>();
 
         private void percepcionDeduccionToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsMaster.PerceptionDeductions.PerceptionDeductionMain>();
@@ -81,9 +84,13 @@ namespace ERP_NOMINAS
 
         private void turnosAdicionalesToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsAttend.ExtraShifts.ExtraShiftMain>();
 
-        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsAttend.ExtraShifts.ExtraShiftMain>();
+        private void destajosToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.Pieceworks.PieceWorkMain>();
 
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e) => Close();
+        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.Pieceworks.PieceWorkMain>();
+
+
+
+
 
         // --- Formularios Con Parámetros (Plantillas) ---
         private void reparacionToolStripMenuItem_Click(object sender, EventArgs e) =>

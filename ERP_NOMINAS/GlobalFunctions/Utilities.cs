@@ -28,7 +28,8 @@ namespace ERP_NOMINAS.GlobalFunctions
             Management,
             Group,
             Equipment,
-            TrainedCategories
+            TrainedCategories,
+            Material
         }
        
         public void ConfigGrid<T>(DataGridView dgv)
@@ -167,6 +168,12 @@ namespace ERP_NOMINAS.GlobalFunctions
                     display = "departamentos";
                     value = "id_deparamento";
                     break;
+
+                case TypeCatalog.Material:
+                    query = "SELECT id,material FROM materiales ";
+                    display = "material";
+                    value = "material";
+                    break;
             }
 
             LoadComboBox(combo, query, display, value);
@@ -252,6 +259,13 @@ namespace ERP_NOMINAS.GlobalFunctions
                     display = "n_categoria";
                     value = "id_categoria";
                     break;
+
+                case TypeCatalog.Material:
+                    query = "SELECT id,material FROM materiales " +
+                            $"WHERE material LIKE '%{param}%' ORDER BY material ASC";
+                    display = "material";
+                    value = "material";
+                    break;
             }
 
             LoadComboBox(combo, query, display, value);
@@ -297,6 +311,27 @@ namespace ERP_NOMINAS.GlobalFunctions
                 }
             }
             return dt;
+        }
+
+        public int GetPayWeek(int n)
+        {
+            string number = n.ToString();
+            return int.Parse(number.Substring(4, 2));
+        }
+
+        public int GetPayWeekType(int n)
+        {
+            string number = n.ToString();
+            return int.Parse(number.Substring(6, 1)); // "1");
+        }
+
+        public int PayWeekNow(int num1, int num2)
+        {
+            int year = DateTime.Now.Year;
+            int week = (int)num1;
+            int extra = (int)num2;
+
+            return (year * 1000) + (week * 10) + extra;
         }
 
     }

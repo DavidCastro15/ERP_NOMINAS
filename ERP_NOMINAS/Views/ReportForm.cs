@@ -27,6 +27,7 @@ namespace ERP_NOMINAS.Views
             try
             {
                 string rutaCompleta = $"ERP_NOMINAS.Reports.{rutaRdlc}";
+                //"ERP_NOMINAS.Reports.Non-AutomaticPerceptions.PieceworList.pieceworkList.rdlc"
                 this.reportViewer1.LocalReport.ReportEmbeddedResource = rutaCompleta;
                 this.reportViewer1.LocalReport.DataSources.Clear();
 

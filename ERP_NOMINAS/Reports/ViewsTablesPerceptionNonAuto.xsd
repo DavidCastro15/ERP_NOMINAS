@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ViewsTablesPerceptionNonAuto" targetNamespace="http://tempuri.org/ViewsTablesPerceptionNonAuto.xsd" xmlns:mstns="http://tempuri.org/ViewsTablesPerceptionNonAuto.xsd" xmlns="http://tempuri.org/ViewsTablesPerceptionNonAuto.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ViewsTablesPerceptionNonAuto" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ViewsTablesPerceptionNonAuto" msprop:Generator_UserDSName="ViewsTablesPerceptionNonAuto">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="pieceworkList" msprop:Generator_TableClassName="pieceworkListDataTable" msprop:Generator_TableVarName="tablepieceworkList" msprop:Generator_TablePropName="pieceworkList" msprop:Generator_RowDeletingName="pieceworkListRowDeleting" msprop:Generator_RowChangingName="pieceworkListRowChanging" msprop:Generator_RowEvHandlerName="pieceworkListRowChangeEventHandler" msprop:Generator_RowDeletedName="pieceworkListRowDeleted" msprop:Generator_UserTableName="pieceworkList" msprop:Generator_RowChangedName="pieceworkListRowChanged" msprop:Generator_RowEvArgName="pieceworkListRowChangeEvent" msprop:Generator_RowClassName="pieceworkListRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ReferenceNumber" msprop:Generator_ColumnVarNameInTable="columnReferenceNumber" msprop:Generator_ColumnPropNameInRow="ReferenceNumber" msprop:Generator_ColumnPropNameInTable="ReferenceNumberColumn" msprop:Generator_UserColumnName="ReferenceNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="NumberEmployee" msprop:Generator_ColumnVarNameInTable="columnNumberEmployee" msprop:Generator_ColumnPropNameInRow="NumberEmployee" msprop:Generator_ColumnPropNameInTable="NumberEmployeeColumn" msprop:Generator_UserColumnName="NumberEmployee" type="xs:string" minOccurs="0" />
+              <xs:element name="PayWeek" msprop:Generator_ColumnVarNameInTable="columnPayWeek" msprop:Generator_ColumnPropNameInRow="PayWeek" msprop:Generator_ColumnPropNameInTable="PayWeekColumn" msprop:Generator_UserColumnName="PayWeek" type="xs:string" minOccurs="0" />
+              <xs:element name="Cycle" msprop:Generator_ColumnVarNameInTable="columnCycle" msprop:Generator_ColumnPropNameInRow="Cycle" msprop:Generator_ColumnPropNameInTable="CycleColumn" msprop:Generator_UserColumnName="Cycle" type="xs:string" minOccurs="0" />
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:string" minOccurs="0" />
+              <xs:element name="Shift" msprop:Generator_ColumnVarNameInTable="columnShift" msprop:Generator_ColumnPropNameInRow="Shift" msprop:Generator_ColumnPropNameInTable="ShiftColumn" msprop:Generator_UserColumnName="Shift" type="xs:string" minOccurs="0" />
+              <xs:element name="Material" msprop:Generator_ColumnVarNameInTable="columnMaterial" msprop:Generator_ColumnPropNameInRow="Material" msprop:Generator_ColumnPropNameInTable="MaterialColumn" msprop:Generator_UserColumnName="Material" type="xs:string" minOccurs="0" />
+              <xs:element name="TonRate" msprop:Generator_ColumnVarNameInTable="columnTonRate" msprop:Generator_ColumnPropNameInRow="TonRate" msprop:Generator_ColumnPropNameInTable="TonRateColumn" msprop:Generator_UserColumnName="TonRate" type="xs:string" minOccurs="0" />
+              <xs:element name="TonCharged" msprop:Generator_ColumnVarNameInTable="columnTonCharged" msprop:Generator_ColumnPropNameInRow="TonCharged" msprop:Generator_ColumnPropNameInTable="TonChargedColumn" msprop:Generator_UserColumnName="TonCharged" type="xs:string" minOccurs="0" />
+              <xs:element name="QuantityCharged" msprop:Generator_ColumnVarNameInTable="columnQuantityCharged" msprop:Generator_ColumnPropNameInRow="QuantityCharged" msprop:Generator_ColumnPropNameInTable="QuantityChargedColumn" msprop:Generator_UserColumnName="QuantityCharged" type="xs:string" minOccurs="0" />
+              <xs:element name="Use" msprop:Generator_ColumnVarNameInTable="columnUse" msprop:Generator_ColumnPropNameInRow="Use" msprop:Generator_ColumnPropNameInTable="UseColumn" msprop:Generator_UserColumnName="Use" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

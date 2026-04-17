@@ -256,6 +256,10 @@
     <Compile Include="Models\Materials\Material.cs" />
     <Compile Include="Models\PerceptionDeduction\IPerceptionDeduction.cs" />
     <Compile Include="Models\PerceptionDeduction\PerceptDeduction.cs" />
+    <Compile Include="Models\Pieceworks\IPiecework.cs" />
+    <Compile Include="Models\Pieceworks\Piecework.cs" />
+    <Compile Include="Models\Pieceworks\PieceworkDetail.cs" />
+    <Compile Include="Models\Pieceworks\PieceWorkDetailReport.cs" />
     <Compile Include="Models\SubsidyFees\ISubsidyFee.cs" />
     <Compile Include="Models\SubsidyFees\SubsidyFee.cs" />
     <Compile Include="Models\TaxRates\ITaxRate.cs" />
@@ -284,6 +288,12 @@
     <Compile Include="Reports\Attendance\AttendanceLists\attendanceListView.Designer.cs">
       <DependentUpon>attendanceListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\NonAutomaticPerception\Piecework\pieceworkListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\NonAutomaticPerception\Piecework\pieceworkListView.Designer.cs">
+      <DependentUpon>pieceworkListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ViewsTablesAttendance.cs">
       <DependentUpon>ViewsTablesAttendance.xsd</DependentUpon>
     </Compile>
@@ -291,6 +301,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ViewsTablesAttendance.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ViewsTablesPerceptionNonAuto.cs">
+      <DependentUpon>ViewsTablesPerceptionNonAuto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ViewsTablesPerceptionNonAuto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewsTablesPerceptionNonAuto.xsd</DependentUpon>
     </Compile>
     <Compile Include="Repositorys\AttendanceRepository.cs" />
     <Compile Include="Repositorys\CategoryRepository.cs" />
@@ -324,6 +342,7 @@
     <Compile Include="Repositorys\ManagmentRepository.cs" />
     <Compile Include="Repositorys\MaterialRepository.cs" />
     <Compile Include="Repositorys\PerceptionDeductionRepository.cs" />
+    <Compile Include="Repositorys\PieceworkRepository.cs" />
     <Compile Include="Repositorys\SubsidyFeeRepository.cs" />
     <Compile Include="Repositorys\TaxRateRepository.cs" />
     <Compile Include="Repositorys\TemplateRepository.cs" />
@@ -564,6 +583,18 @@
     <Compile Include="Views\Master\Uses\UseShow.Designer.cs">
       <DependentUpon>UseShow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\Pieceworks\PieceWorkMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\Pieceworks\PieceWorkMain.Designer.cs">
+      <DependentUpon>PieceWorkMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\Pieceworks\PieceWorkShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\Pieceworks\PieceWorkShow.Designer.cs">
+      <DependentUpon>PieceWorkShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -654,6 +685,10 @@
     <EmbeddedResource Include="Reports\Attendance\AttendanceLists\attendanceList.rdlc" />
     <EmbeddedResource Include="Reports\Attendance\AttendanceLists\attendanceListView.resx">
       <DependentUpon>attendanceListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NonAutomaticPerception\Piecework\pieceworkList.rdlc" />
+    <EmbeddedResource Include="Reports\NonAutomaticPerception\Piecework\pieceworkListView.resx">
+      <DependentUpon>pieceworkListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AttendanceControl\Attendance\AttendMain.resx">
       <DependentUpon>AttendMain.cs</DependentUpon>
@@ -772,6 +807,12 @@
     <EmbeddedResource Include="Views\Master\Uses\UseShow.resx">
       <DependentUpon>UseShow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\Pieceworks\PieceWorkMain.resx">
+      <DependentUpon>PieceWorkMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\Pieceworks\PieceWorkShow.resx">
+      <DependentUpon>PieceWorkShow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ReportForm.resx">
       <DependentUpon>ReportForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -802,6 +843,17 @@
     </None>
     <None Include="Reports\ViewsTablesAttendance.xss">
       <DependentUpon>ViewsTablesAttendance.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\ViewsTablesPerceptionNonAuto.xsc">
+      <DependentUpon>ViewsTablesPerceptionNonAuto.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\ViewsTablesPerceptionNonAuto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ViewsTablesPerceptionNonAuto.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\ViewsTablesPerceptionNonAuto.xss">
+      <DependentUpon>ViewsTablesPerceptionNonAuto.xsd</DependentUpon>
     </None>
     <None Include="Resources\icons8-borrar-para-siempre-28.png" />
     <None Include="Resources\icons8-imprimir-28.png" />

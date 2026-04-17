@@ -129,7 +129,7 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance.ListAttend
             }
 
             var printReport = new addListView();
-            printReport.PayWeek = GetPayWeek((int)numericUpDown1.Value, (int)numericUpDown1.Value);
+            printReport.PayWeek = Util.PayWeekNow((int)numericUpDown1.Value, (int)numericUpDown1.Value);
             printReport.ShowDialog();
         }
 
@@ -143,15 +143,6 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance.ListAttend
             var printReport = new attendanceListView();
             printReport.ControlNumber = ControlNumber;
             printReport.ShowDialog();
-        }
-
-        private int GetPayWeek(int num1,int num2)
-        {
-            int year = DateTime.Now.Year;
-            int week = (int)num1;
-            int extra = (int)num2;
-
-           return (year * 1000) + (week * 10) + extra;
         }
 
         private void button1_Click(object sender, EventArgs e)
