@@ -155,6 +155,7 @@
             this.button6.Text = "Exportar";
             this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // kitForm1
             // 
@@ -171,6 +172,7 @@
             // 
             this.filterByT1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.filterByT1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.filterByT1.FilterBy = null;
             this.filterByT1.Location = new System.Drawing.Point(12, 12);
             this.filterByT1.Name = "filterByT1";
             this.filterByT1.Size = new System.Drawing.Size(277, 49);

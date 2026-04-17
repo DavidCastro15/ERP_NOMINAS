@@ -13,6 +13,8 @@ namespace ERP_NOMINAS.Models.Category
         int DeleteCategory(int id);
         List<Category> ShowFilterSearch(string Name);
         int CheckNextId();
+        void ExportToExcel(List<Category> list, string filePath);
+        void PrintCategories();
 
     }
 }

@@ -1,10 +1,13 @@
-﻿using ERP_NOMINAS.Conexion;
+﻿using ClosedXML.Excel;
+using ERP_NOMINAS.Conexion;
 using ERP_NOMINAS.GlobalFunctions;
 using ERP_NOMINAS.Models.Category;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -192,6 +195,61 @@ namespace ERP_NOMINAS.Repositorys
 
         }
 
+        public void ExportToExcel(List<Category> list, string filePath)
+        {
+            using (var workbook = new XLWorkbook())
+            {
+                var ws = workbook.Worksheets.Add("Categorias");
+
+                // 1. Definir tus encabezados personalizados manualmente
+                string[] headers = {
+            "ID", "CATEGORÍA", "SALARIO BASE", "TURNO 1", "TURNO 2", "TURNO 3",
+            "SALARIO PROMEDIO", "SALARIO PROMEDIO T1-T2", "ALIMENTOS", "ALT/TEMP",
+            "TIPO", "RANK", "PRIORIDAD", "CLASIF", "DESGASTE"
+        };
+
+                // 2. Escribir encabezados en la fila 1
+                for (int i = 0; i < headers.Length; i++)
+                {
+                    var cell = ws.Cell(1, i + 1);
+                    cell.Value = headers[i];
+                    cell.Style.Font.Bold = true;
+                    cell.Style.Fill.BackgroundColor = XLColor.FromHtml("#2c3e50"); // Color elegante
+                    cell.Style.Font.FontColor = XLColor.White;
+                }
+
+                // 3. Llenar los datos manualmente fila por fila
+                int row = 2;
+                foreach (var item in list)
+                {
+                    ws.Cell(row, 1).Value = item.IdCategory;
+                    ws.Cell(row, 2).Value = item.Name;
+                    ws.Cell(row, 3).Value = item.Salary;
+                    ws.Cell(row, 4).Value = item.SalaryTurn1;
+                    ws.Cell(row, 5).Value = item.SalaryTurn2;
+                    ws.Cell(row, 6).Value = item.SalaryTurn3;
+                    ws.Cell(row, 7).Value = item.AverageSalary;
+                    ws.Cell(row, 8).Value = item.AverageSalaryT1xT2;
+                    ws.Cell(row, 9).Value = item.Food;
+                    ws.Cell(row, 10).Value = item.HeightsTemperatures;
+                    ws.Cell(row, 11).Value = item.Type;
+                    ws.Cell(row, 12).Value = item.Ranking;
+                    ws.Cell(row, 13).Value = item.Priority;
+                    ws.Cell(row, 14).Value = item.Classified;
+                    ws.Cell(row, 15).Value = item.ToolWear;
+                    row++;
+                }
+
+                // 4. Formato de moneda para salarios (Columnas C a H)
+                ws.Columns("C:H").Style.NumberFormat.Format = "$ #,##0.00";
+
+                // Ajustar columnas
+                ws.Columns().AdjustToContents();
+
+                workbook.SaveAs(filePath);
+            }
+        }
+
         private static Category ShowDataGrid(SqlDataReader reader)
         {
             return new Category
@@ -213,6 +271,8 @@ namespace ERP_NOMINAS.Repositorys
                 ToolWear = Convert.ToString(reader["herramienta"]),
 
             };
-        }    
+        }
+
+       
     }
 }

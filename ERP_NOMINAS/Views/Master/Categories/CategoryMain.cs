@@ -111,6 +111,38 @@ namespace ERP_NOMINAS.Views.Master.Categories
             parametersEdit();
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obtener datos del repositorio
+                var data = _repository.GetCategories();
+
+                if (data == null || data.Count == 0)
+                {
+                    MessageBox.Show("No hay información para exportar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                using (SaveFileDialog sfd = new SaveFileDialog())
+                {
+                    sfd.Filter = "Excel Files (*.xlsx)|*.xlsx";
+                    sfd.FileName = $"Reporte_Categorias_{DateTime.Now:ddMMyyyy}.xlsx";
+
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        // Llamar al método del repositorio
+                        _repository.ExportToExcel(data, sfd.FileName);
+
+                        MessageBox.Show("Archivo Excel generado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 
 }
