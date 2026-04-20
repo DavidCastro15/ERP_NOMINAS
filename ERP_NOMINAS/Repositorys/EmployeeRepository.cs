@@ -1,4 +1,5 @@
-﻿using ERP_NOMINAS.Conexion;
+﻿using ClosedXML.Excel;
+using ERP_NOMINAS.Conexion;
 using ERP_NOMINAS.GlobalFunctions;
 using ERP_NOMINAS.Models.Employees;
 using System;
@@ -296,6 +297,91 @@ namespace ERP_NOMINAS.Repositorys
             }
         }
 
+        public void ExportToExcel(List<EmployeeReport> list, string filePath)
+        {
+            using (var workbook = new XLWorkbook())
+            {
+                var ws = workbook.Worksheets.Add("Empleados");
+
+                // 1. Definir tus encabezados personalizados manualmente
+                string[] headers = {
+            "ID", "NUMERO EMPLEADO", "NOMBRE", "APELLIDO PATERNO", "APELLIDO MATERNO", "IMSS",
+            "CURP","TIPO", "CLASIFICACION", "CATEGORIA ZAFRA", "CATEGORIA REPARACION", "RFC",
+            "ESTATUS"
+        };
+
+                // 2. Escribir encabezados en la fila 1
+                for (int i = 0; i < headers.Length; i++)
+                {
+                    var cell = ws.Cell(1, i + 1);
+                    cell.Value = headers[i];
+                    cell.Style.Font.Bold = true;
+                    cell.Style.Fill.BackgroundColor = XLColor.FromHtml("#2c3e50"); // Color elegante
+                    cell.Style.Font.FontColor = XLColor.White;
+                }
+
+                // 3. Llenar los datos manualmente fila por fila
+                int row = 2;
+                foreach (var item in list)
+                {
+                    ws.Cell(row, 1).Value = item.Id;
+                    ws.Cell(row, 2).Value = item.NumberEmployee;
+                    ws.Cell(row, 3).Value = item.Name;
+                    ws.Cell(row, 4).Value = item.LastnameFather;
+                    ws.Cell(row, 5).Value = item.LastnameMother;
+                    ws.Cell(row, 6).Value = item.Imss;
+                    ws.Cell(row, 7).Value = item.CURP;
+                    ws.Cell(row, 8).Value = item.Type;
+                    ws.Cell(row, 9).Value = item.Classification;
+                    ws.Cell(row, 10).Value = item.CategoryHarvest;
+                    ws.Cell(row, 11).Value = item.CategoryRepair;
+                    ws.Cell(row, 12).Value = item.RFC;
+                    ws.Cell(row, 13).Value = item.Status;
+                    row++;
+                }
+
+                // Ajustar columnas
+                ws.Columns().AdjustToContents();
+
+                workbook.SaveAs(filePath);
+            }
+        }
+
+        public List<EmployeeReport> GetDataPrintEmployees()
+        {
+            List<EmployeeReport> list = new List<EmployeeReport>();
+
+            try
+            {
+
+                using (cmd = new SqlCommand("SELECT * FROM empleados WHERE estatus = 'Activo' ORDER BY numero_empleado ASC", Conex.nomi))
+                {
+                    Conex.OpenNomina();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            list.Add(ShowDataReport(reader));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error al obtener los empleados: " + ex.Message);
+            }
+            finally
+            {
+
+                Conex.CloseNomina();
+            }
+
+            return list;
+        }
+
         private static Employee ShowDataGrid(SqlDataReader reader)
         {
             return new Employee
@@ -314,7 +400,7 @@ namespace ERP_NOMINAS.Repositorys
                 CategoryRepair = Convert.ToInt32(reader["categoria_reparacion"]),
                 Status = Convert.ToString(reader["estatus"]),
                 StatusDate = Convert.ToDateTime(reader["estatus_fecha"]),
-                Type= Convert.ToString(reader["tipo"]),
+                Type = Convert.ToString(reader["tipo"]),
                 Classification = Convert.ToString(reader["clasificacion"]),
                 Area = Convert.ToString(reader["zona"]),
                 Sex = Convert.ToString(reader["sexo"]),
@@ -336,11 +422,11 @@ namespace ERP_NOMINAS.Repositorys
                 YearHarvest = Convert.ToInt32(reader["anios_zafra"]),
                 BonusDaysRepair = Convert.ToInt32(reader["dias_aguinaldo_rep"]),
                 BonusDaysHarvest = Convert.ToInt32(reader["dias_aguinaldo_zaf"]),
-                VacationDaysRepair= Convert.ToInt32(reader["dias_vacaciones_rep"]),
+                VacationDaysRepair = Convert.ToInt32(reader["dias_vacaciones_rep"]),
                 VacationDaysHarvest = Convert.ToInt32(reader["dias_vacaciones_zaf"]),
                 DaysCommission = Convert.ToInt32(reader["dias_comision"]),
                 Declare = Convert.ToString(reader["declara"]),
-                Photo =Convert.ToString(reader["fotografia"]),
+                Photo = Convert.ToString(reader["fotografia"]),
                 Absenteeism = Convert.ToString(reader["ausentismo"]),
                 CURP = Convert.ToString(reader["curp"]),
                 Pattern = Convert.ToString(reader["patron"]),
@@ -354,12 +440,27 @@ namespace ERP_NOMINAS.Repositorys
                 ApplyUnionDues = Convert.ToInt32(reader["aplicar_cuota_sindical"]),
                 DatePlaza = Convert.ToDateTime(reader["fecha_plaza"])
 
-
-
-
-
             };
         }
 
+        private static EmployeeReport ShowDataReport(SqlDataReader reader)
+        {
+            return new EmployeeReport
+            {
+                Id = Convert.ToInt32(reader["id"]),
+                NumberEmployee = Convert.ToInt64(reader["numero_empleado"]),         
+                Name = Convert.ToString(reader["nombre"]),
+                LastnameFather = Convert.ToString(reader["apellido_paterno"]),
+                LastnameMother = Convert.ToString(reader["apellido_materno"]),
+                RFC = Convert.ToString(reader["rfc"]),
+                Imss = Convert.ToString(reader["imss"]),             
+                CategoryHarvest = Convert.ToInt32(reader["categoria_zafra"]),
+                CategoryRepair = Convert.ToInt32(reader["categoria_reparacion"]),
+                Status = Convert.ToString(reader["estatus"]),
+                Type = Convert.ToString(reader["tipo"]),
+                Classification = Convert.ToString(reader["clasificacion"]),          
+                CURP = Convert.ToString(reader["curp"]),
+            };
+        }
     }
 }

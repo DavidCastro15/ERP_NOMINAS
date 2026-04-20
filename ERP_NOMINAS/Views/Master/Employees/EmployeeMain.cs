@@ -1,5 +1,6 @@
 ﻿using ERP_NOMINAS.GlobalFunctions;
 using ERP_NOMINAS.Models.Employees;
+using ERP_NOMINAS.Reports.Master.Employees;
 using ERP_NOMINAS.Repositorys;
 using ERP_NOMINAS.Views.Master.CategoriesTrained;
 using System;
@@ -127,6 +128,45 @@ namespace ERP_NOMINAS.Views.Master.Employees
         private void kitForm1_MEdit(object sender, EventArgs e)
         {
             parametersEdit();
+        }
+
+        private void buttonPrint1_OnBotonPrintClick(object sender, EventArgs e)
+        {
+            var reportPrint = new employeeListView();
+            reportPrint.ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obtener datos del repositorio
+                var data = _repository.GetDataPrintEmployees();
+
+                if (data == null || data.Count == 0)
+                {
+                    MessageBox.Show("No hay información para exportar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                using (SaveFileDialog sfd = new SaveFileDialog())
+                {
+                    sfd.Filter = "Excel Files (*.xlsx)|*.xlsx";
+                    sfd.FileName = $"Reporte_Empleados_{DateTime.Now:ddMMyyyy}.xlsx";
+
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        // Llamar al método del repositorio
+                        _repository.ExportToExcel(data, sfd.FileName);
+
+                        MessageBox.Show("Archivo Excel generado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

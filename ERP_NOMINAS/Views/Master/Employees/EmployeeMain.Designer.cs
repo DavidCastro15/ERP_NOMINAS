@@ -40,12 +40,12 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.kitForm1 = new ERP_NOMINAS.Components.Buttons.KitForm();
             this.filterByT1 = new ERP_NOMINAS.Components.Search.FilterByT();
+            this.buttonPrint1 = new ERP_NOMINAS.Components.Buttons.buttonPrint();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -143,18 +143,6 @@
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
             // 
-            // button9
-            // 
-            this.button9.Image = global::ERP_NOMINAS.Properties.Resources.icons8_imprimir_28;
-            this.button9.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button9.Location = new System.Drawing.Point(12, 550);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(74, 62);
-            this.button9.TabIndex = 10;
-            this.button9.Text = "Imprimir Empleados";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button9.UseVisualStyleBackColor = true;
-            // 
             // button8
             // 
             this.button8.Image = global::ERP_NOMINAS.Properties.Resources.icons8_exportacion_xls_28;
@@ -166,6 +154,7 @@
             this.button8.Text = "Exportar Empleados";
             this.button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
@@ -178,6 +167,7 @@
             this.button7.Text = "Categorias Capacitadas";
             this.button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Visible = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button5
@@ -215,15 +205,24 @@
             this.filterByT1.TabIndex = 12;
             this.filterByT1.TittleChange = "Nombre:";
             // 
+            // buttonPrint1
+            // 
+            this.buttonPrint1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonPrint1.Location = new System.Drawing.Point(12, 557);
+            this.buttonPrint1.Name = "buttonPrint1";
+            this.buttonPrint1.Size = new System.Drawing.Size(74, 49);
+            this.buttonPrint1.TabIndex = 13;
+            this.buttonPrint1.OnBotonPrintClick += new System.EventHandler(this.buttonPrint1_OnBotonPrintClick);
+            // 
             // EmployeeMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1086, 624);
+            this.Controls.Add(this.buttonPrint1);
             this.Controls.Add(this.filterByT1);
             this.Controls.Add(this.kitForm1);
-            this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button5);
@@ -243,7 +242,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -257,5 +255,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private Components.Buttons.KitForm kitForm1;
         private Components.Search.FilterByT filterByT1;
+        private Components.Buttons.buttonPrint buttonPrint1;
     }
 }

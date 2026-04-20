@@ -16,6 +16,7 @@ namespace ERP_NOMINAS.Models.Employees
         int UpdateEmployee(Employee e);
         int DeleteEmployee(int Id);
         bool ExistsId(int Id);
-      
+        void ExportToExcel(List<EmployeeReport> list, string filePath);
+        List<EmployeeReport> GetDataPrintEmployees();
     }
 }
