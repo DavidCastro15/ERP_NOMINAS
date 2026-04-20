@@ -1,16 +1,39 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
-<xs:schema id="ViewsTablesMaster" 
-                  targetNamespace="http://tempuri.org/ViewsTablesMaster.xsd"
-                  elementFormDefault="qualified"
-                  attributeFormDefault="qualified"
-                  xmlns="http://tempuri.org/ViewsTablesMaster.xsd"
-                  xmlns:mstns="http://tempuri.org/ViewsTablesMaster.xsd"
-                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                  xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
-                  xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
-    <xs:element name="ViewsTablesMaster" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true">
-        <xs:complexType>
-            <xs:choice minOccurs="0" maxOccurs="unbounded"></xs:choice>
-        </xs:complexType>
-    </xs:element>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ViewsTablesMaster" targetNamespace="http://tempuri.org/ViewsTablesMaster.xsd" xmlns:mstns="http://tempuri.org/ViewsTablesMaster.xsd" xmlns="http://tempuri.org/ViewsTablesMaster.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ViewsTablesMaster" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ViewsTablesMaster" msprop:Generator_UserDSName="ViewsTablesMaster">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="categoryList" msprop:Generator_TableClassName="categoryListDataTable" msprop:Generator_TableVarName="tablecategoryList" msprop:Generator_RowChangedName="categoryListRowChanged" msprop:Generator_TablePropName="categoryList" msprop:Generator_RowDeletingName="categoryListRowDeleting" msprop:Generator_RowChangingName="categoryListRowChanging" msprop:Generator_RowEvHandlerName="categoryListRowChangeEventHandler" msprop:Generator_RowDeletedName="categoryListRowDeleted" msprop:Generator_RowClassName="categoryListRow" msprop:Generator_UserTableName="categoryList" msprop:Generator_RowEvArgName="categoryListRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdCategory" msprop:Generator_ColumnVarNameInTable="columnIdCategory" msprop:Generator_ColumnPropNameInRow="IdCategory" msprop:Generator_ColumnPropNameInTable="IdCategoryColumn" msprop:Generator_UserColumnName="IdCategory" type="xs:string" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Salary" msprop:Generator_ColumnVarNameInTable="columnSalary" msprop:Generator_ColumnPropNameInRow="Salary" msprop:Generator_ColumnPropNameInTable="SalaryColumn" msprop:Generator_UserColumnName="Salary" type="xs:string" minOccurs="0" />
+              <xs:element name="SalaryTurn1" msprop:Generator_ColumnVarNameInTable="columnSalaryTurn1" msprop:Generator_ColumnPropNameInRow="SalaryTurn1" msprop:Generator_ColumnPropNameInTable="SalaryTurn1Column" msprop:Generator_UserColumnName="SalaryTurn1" type="xs:string" minOccurs="0" />
+              <xs:element name="SalaryTurn2" msprop:Generator_ColumnVarNameInTable="columnSalaryTurn2" msprop:Generator_ColumnPropNameInRow="SalaryTurn2" msprop:Generator_ColumnPropNameInTable="SalaryTurn2Column" msprop:Generator_UserColumnName="SalaryTurn2" type="xs:string" minOccurs="0" />
+              <xs:element name="SalaryTurn3" msprop:Generator_ColumnVarNameInTable="columnSalaryTurn3" msprop:Generator_ColumnPropNameInRow="SalaryTurn3" msprop:Generator_ColumnPropNameInTable="SalaryTurn3Column" msprop:Generator_UserColumnName="SalaryTurn3" type="xs:string" minOccurs="0" />
+              <xs:element name="AverageSalary" msprop:Generator_ColumnVarNameInTable="columnAverageSalary" msprop:Generator_ColumnPropNameInRow="AverageSalary" msprop:Generator_ColumnPropNameInTable="AverageSalaryColumn" msprop:Generator_UserColumnName="AverageSalary" type="xs:string" minOccurs="0" />
+              <xs:element name="AverageSalaryT1xT2" msprop:Generator_ColumnVarNameInTable="columnAverageSalaryT1xT2" msprop:Generator_ColumnPropNameInRow="AverageSalaryT1xT2" msprop:Generator_ColumnPropNameInTable="AverageSalaryT1xT2Column" msprop:Generator_UserColumnName="AverageSalaryT1xT2" type="xs:string" minOccurs="0" />
+              <xs:element name="Food" msprop:Generator_ColumnVarNameInTable="columnFood" msprop:Generator_ColumnPropNameInRow="Food" msprop:Generator_ColumnPropNameInTable="FoodColumn" msprop:Generator_UserColumnName="Food" type="xs:string" minOccurs="0" />
+              <xs:element name="HeightsTemperatures" msprop:Generator_ColumnVarNameInTable="columnHeightsTemperatures" msprop:Generator_ColumnPropNameInRow="HeightsTemperatures" msprop:Generator_ColumnPropNameInTable="HeightsTemperaturesColumn" msprop:Generator_UserColumnName="HeightsTemperatures" type="xs:string" minOccurs="0" />
+              <xs:element name="Type" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_UserColumnName="Type" type="xs:string" minOccurs="0" />
+              <xs:element name="Ranking" msprop:Generator_ColumnVarNameInTable="columnRanking" msprop:Generator_ColumnPropNameInRow="Ranking" msprop:Generator_ColumnPropNameInTable="RankingColumn" msprop:Generator_UserColumnName="Ranking" type="xs:string" minOccurs="0" />
+              <xs:element name="Priority" msprop:Generator_ColumnVarNameInTable="columnPriority" msprop:Generator_ColumnPropNameInRow="Priority" msprop:Generator_ColumnPropNameInTable="PriorityColumn" msprop:Generator_UserColumnName="Priority" type="xs:string" minOccurs="0" />
+              <xs:element name="Classified" msprop:Generator_ColumnVarNameInTable="columnClassified" msprop:Generator_ColumnPropNameInRow="Classified" msprop:Generator_ColumnPropNameInTable="ClassifiedColumn" msprop:Generator_UserColumnName="Classified" type="xs:string" minOccurs="0" />
+              <xs:element name="ToolWear" msprop:Generator_ColumnVarNameInTable="columnToolWear" msprop:Generator_ColumnPropNameInRow="ToolWear" msprop:Generator_ColumnPropNameInTable="ToolWearColumn" msprop:Generator_UserColumnName="ToolWear" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

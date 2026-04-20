@@ -42,7 +42,7 @@ namespace ERP_NOMINAS.Reports.Attendance.AddLists
         new ReportParameter("DateTimeIssue", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")),
             };
 
-            GenerarReporte(
+            ShowReport(
                 "Attendance.AddLists.addList.rdlc",
                 "addList",
                 data,

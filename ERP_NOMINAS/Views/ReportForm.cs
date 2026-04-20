@@ -22,19 +22,19 @@ namespace ERP_NOMINAS.Views
         {
         }
 
-        protected void GenerarReporte<T>(string rutaRdlc, string nombreDataSet, List<T> datos, ReportParameter[] parametros)
+        protected void ShowReport<T>(string rootRdlc, string nameDataSet, List<T> data, ReportParameter[] parameters)
         {
             try
             {
-                string rutaCompleta = $"ERP_NOMINAS.Reports.{rutaRdlc}";
+                string fullRoot = $"ERP_NOMINAS.Reports.{rootRdlc}";
                 //"ERP_NOMINAS.Reports.Non-AutomaticPerceptions.PieceworList.pieceworkList.rdlc"
-                this.reportViewer1.LocalReport.ReportEmbeddedResource = rutaCompleta;
+                this.reportViewer1.LocalReport.ReportEmbeddedResource = fullRoot;
                 this.reportViewer1.LocalReport.DataSources.Clear();
 
-                if (parametros != null)
-                    this.reportViewer1.LocalReport.SetParameters(parametros);
+                if (parameters != null)
+                    this.reportViewer1.LocalReport.SetParameters(parameters);
 
-                ReportDataSource rdc = new ReportDataSource(nombreDataSet, datos);
+                ReportDataSource rdc = new ReportDataSource(nameDataSet, data);
                 this.reportViewer1.LocalReport.DataSources.Add(rdc);
 
                 this.reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);

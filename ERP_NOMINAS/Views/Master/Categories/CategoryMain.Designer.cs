@@ -39,10 +39,10 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.kitForm1 = new ERP_NOMINAS.Components.Buttons.KitForm();
             this.filterByT1 = new ERP_NOMINAS.Components.Search.FilterByT();
+            this.buttonPrint1 = new ERP_NOMINAS.Components.Buttons.buttonPrint();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -132,18 +132,6 @@
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
             // 
-            // button5
-            // 
-            this.button5.Image = global::ERP_NOMINAS.Properties.Resources.icons8_enviar_a_la_impresora_28;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button5.Location = new System.Drawing.Point(12, 471);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(74, 50);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Imprimir";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
             // button6
             // 
             this.button6.Image = global::ERP_NOMINAS.Properties.Resources.icons8_exportacion_xls_28;
@@ -179,16 +167,25 @@
             this.filterByT1.TabIndex = 9;
             this.filterByT1.TittleChange = "Nombre:";
             // 
+            // buttonPrint1
+            // 
+            this.buttonPrint1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonPrint1.Location = new System.Drawing.Point(12, 471);
+            this.buttonPrint1.Name = "buttonPrint1";
+            this.buttonPrint1.Size = new System.Drawing.Size(74, 49);
+            this.buttonPrint1.TabIndex = 10;
+            this.buttonPrint1.OnBotonPrintClick += new System.EventHandler(this.buttonPrint1_OnBotonPrintClick);
+            // 
             // CategoryMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1119, 529);
+            this.Controls.Add(this.buttonPrint1);
             this.Controls.Add(this.filterByT1);
             this.Controls.Add(this.kitForm1);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.dataGridView1);
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "CategoryMain";
@@ -203,7 +200,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -217,5 +213,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private Components.Buttons.KitForm kitForm1;
         private Components.Search.FilterByT filterByT1;
+        private Components.Buttons.buttonPrint buttonPrint1;
     }
 }

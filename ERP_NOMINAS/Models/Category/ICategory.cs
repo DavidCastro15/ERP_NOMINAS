@@ -14,7 +14,7 @@ namespace ERP_NOMINAS.Models.Category
         List<Category> ShowFilterSearch(string Name);
         int CheckNextId();
         void ExportToExcel(List<Category> list, string filePath);
-        void PrintCategories();
+        List<CategoryReport> GetDataPrintCategories();
 
     }
 }

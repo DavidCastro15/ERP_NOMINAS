@@ -1,6 +1,7 @@
 ﻿using ERP_NOMINAS.Conexion;
 using ERP_NOMINAS.GlobalFunctions;
 using ERP_NOMINAS.Models.Category;
+using ERP_NOMINAS.Reports.Master.Categories;
 using ERP_NOMINAS.Repositorys;
 using System;
 using System.Collections.Generic;
@@ -142,6 +143,12 @@ namespace ERP_NOMINAS.Views.Master.Categories
             {
                 MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void buttonPrint1_OnBotonPrintClick(object sender, EventArgs e)
+        {
+            var reportPrint = new categoriesListView();
+            reportPrint.ShowDialog();
         }
     }
 

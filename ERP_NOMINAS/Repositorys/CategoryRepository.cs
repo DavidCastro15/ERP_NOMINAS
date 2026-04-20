@@ -117,7 +117,7 @@ namespace ERP_NOMINAS.Repositorys
             
             return null;
         }
-
+         
         public List<Category> ShowFilterSearch(string Name)
         {
             
@@ -182,6 +182,41 @@ namespace ERP_NOMINAS.Repositorys
                 Conex.OpenNomina();
                 return cmd.ExecuteNonQuery(); // Devuelve 1 si fue exitoso
             }
+        }
+
+        public List<CategoryReport> GetDataPrintCategories()
+        {
+            List<CategoryReport> list = new List<CategoryReport>();
+
+            try
+            {
+
+                using (cmd = new SqlCommand("SELECT * FROM categorias ORDER BY id_categoria ASC", Conex.nomi))
+                {
+                    Conex.OpenNomina();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            list.Add(ShowDataReport(reader));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error al obtener las categorías: " + ex.Message);
+            }
+            finally
+            {
+
+                Conex.CloseNomina();
+            }
+
+            return list;
         }
 
         public int CheckNextId()
@@ -273,6 +308,29 @@ namespace ERP_NOMINAS.Repositorys
             };
         }
 
-       
+        private static CategoryReport ShowDataReport(SqlDataReader reader)
+        {
+            return new CategoryReport
+            {
+                IdCategory = Convert.ToInt32(reader["id_categoria"]),
+                Name = Convert.ToString(reader["nombre_categoria"]),
+                Salary = Convert.ToDecimal(reader["salario"]),
+                Type = Convert.ToString(reader["tipo"]),
+                Food = Convert.ToString(reader["alimentos"]),
+                HeightsTemperatures = Convert.ToString(reader["alturas_temp"]),
+                SalaryTurn1 = Convert.ToDecimal(reader["salario_turno1"]),
+                SalaryTurn2 = Convert.ToDecimal(reader["salario_turno2"]),
+                SalaryTurn3 = Convert.ToDecimal(reader["salario_turno3"]),
+                AverageSalary = Convert.ToDecimal(reader["salario_promedio"]),
+                AverageSalaryT1xT2 = Convert.ToDecimal(reader["salario_promedio_t1y2"]),
+                Ranking = Convert.ToInt32(reader["escalafon"]),
+                Priority = Convert.ToInt32(reader["prioridad"] is DBNull ? null : (int?)reader["prioridad"]),
+                Classified = Convert.ToString(reader["clasificacion"] as string ?? "N/A"),
+                ToolWear = Convert.ToString(reader["herramienta"]),
+
+            };
+        }
+
+
     }
 }

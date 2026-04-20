@@ -1,4 +1,4 @@
-﻿using ERP_NOMINAS.Models.Pieceworks;
+﻿using ERP_NOMINAS.Models.Category;
 using ERP_NOMINAS.Repositorys;
 using ERP_NOMINAS.Views;
 using Microsoft.Reporting.WinForms;
@@ -12,39 +12,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ERP_NOMINAS.Reports.NonAutomaticPerception.Piecework
+namespace ERP_NOMINAS.Reports.Master.Categories
 {
-    public partial class pieceworkListView : ReportForm
+    public partial class categoriesListView : ReportForm
     {
-        public DateTime d1;
-        public DateTime d2;
-        private PieceworkRepository _repository = new PieceworkRepository();
-        public pieceworkListView()
+        private CategoryRepository _repository = new CategoryRepository();
+
+        public categoriesListView()
         {
             InitializeComponent();
         }
 
-        private void pieceworkListView_Load(object sender, EventArgs e)
+        private void categoriesListView_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void pieceworkListView_Shown(object sender, EventArgs e)
+        private void categoriesListView_Shown(object sender, EventArgs e)
         {
             // 1. Obtener los datos
-            List<PieceWorkDetailReport> data = _repository.ShowReportDetail(d1,d2);
+            List<CategoryReport> data = _repository.GetDataPrintCategories();
 
             // 2. Configurar los parámetros
             ReportParameter[] parameters = new ReportParameter[]
             {
         new ReportParameter("CompanyName", "AZUCARERA SAN JOSE DE ABAJO, S.A DE C.V"),
-        new ReportParameter("ReportTitle", "RELACION DE ASISTENCIAS POR DEPARTAMENTO O USO"),
+        new ReportParameter("ReportTitle", "LISTADO DE LAS CATEGORIAS DISPONIBLES"),
         new ReportParameter("DateTimeIssue", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")),
             };
 
             ShowReport(
-                "NonAutomaticPerception.Piecework.pieceworkList.rdlc",
-                "pieceworkList",
+                "Master.Categories.categoriesList.rdlc",
+                "categoryList",
                 data,
                 parameters
             );

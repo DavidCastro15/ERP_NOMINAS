@@ -35,7 +35,7 @@ namespace ERP_NOMINAS.Reports.AttendanceControl
         new ReportParameter("DateTimeIssue", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")),
             };
 
-            GenerarReporte(
+            ShowReport(
                 "Attendance.AttendanceControl.verificationData.rdlc",
                 "verificationData",
                 data,

@@ -41,7 +41,7 @@ namespace ERP_NOMINAS.Reports.AttendanceLists
         new ReportParameter("DateTimeIssue", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")),
             };
 
-            GenerarReporte(
+            ShowReport(
                 "Attendance.AttendanceLists.attendanceList.rdlc",
                 "attendanceList",
                 data,
