@@ -160,7 +160,7 @@
             // 
             this.button7.Image = global::ERP_NOMINAS.Properties.Resources.icons8_exportacion_xls_28;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button7.Location = new System.Drawing.Point(173, 550);
+            this.button7.Location = new System.Drawing.Point(324, 550);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(74, 62);
             this.button7.TabIndex = 8;
@@ -174,7 +174,7 @@
             // 
             this.button5.Image = global::ERP_NOMINAS.Properties.Resources.icons8_asignar_28;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(253, 550);
+            this.button5.Location = new System.Drawing.Point(177, 550);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(103, 62);
             this.button5.TabIndex = 6;

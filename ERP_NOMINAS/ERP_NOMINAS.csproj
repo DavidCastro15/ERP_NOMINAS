@@ -274,6 +274,7 @@
     <Compile Include="Models\Holidays\IHoliday.cs" />
     <Compile Include="Models\IntegratedSalaries\IIntegratedSalary.cs" />
     <Compile Include="Models\IntegratedSalaries\IntegratedSalary.cs" />
+    <Compile Include="Models\IntegratedSalaries\IntegratedSalaryReport.cs" />
     <Compile Include="Models\Managments\IManagment.cs" />
     <Compile Include="Models\Managments\Managment.cs" />
     <Compile Include="Models\Materials\IMaterial.cs" />

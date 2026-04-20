@@ -19,6 +19,7 @@ namespace ERP_NOMINAS.Models.IntegratedSalaries
         int DeleteIntegratedSalary(int Id);
         int StatusEmployee(bool State, int Id);
         void ImportEmployees(DataTable dtCsv);
-
+        void ExportToExcel(List<IntegratedSalaryReport> list, string filePath);
+        List<IntegratedSalaryReport> GetDataPrintIntegratedSalary();
     }
 }

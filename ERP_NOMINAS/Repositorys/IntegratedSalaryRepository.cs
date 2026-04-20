@@ -1,4 +1,5 @@
-﻿using ERP_NOMINAS.Conexion;
+﻿using ClosedXML.Excel;
+using ERP_NOMINAS.Conexion;
 using ERP_NOMINAS.GlobalFunctions;
 using ERP_NOMINAS.Models.IntegratedSalaries;
 using System;
@@ -224,20 +225,6 @@ namespace ERP_NOMINAS.Repositorys
             }
         }
 
-        private static IntegratedSalary ShowDataGrid(SqlDataReader reader)
-        {
-            bool exists = Enumerable.Range(0, reader.FieldCount).Any(i => reader.GetName(i) == "n_completo");
-            return new IntegratedSalary
-            {
-                
-                Id = Convert.ToInt32(reader["id"]),
-                NumberEmployee = Convert.ToInt32(reader["id_empleado"]),
-                NameEmployee = Convert.ToString(exists && reader["n_completo"] != DBNull.Value ? reader["n_completo"] : ""  ),
-                SalaryIntegratedImss= Convert.ToDecimal(reader["salario_integrado_imss"]),
-                SalaryIntegratedInfonavit = Convert.ToDecimal(reader["salario_integrado_infonavit"])
-            };
-        }
-
         public IntegratedSalary GetIntegratedSalary(int Id)
         {
             using (cmd = new SqlCommand("SELECT * FROM salarios_integrados WHERE id = @id", Conex.nomi))
@@ -298,5 +285,115 @@ namespace ERP_NOMINAS.Repositorys
 
             return list;
         }
+
+        public void ExportToExcel(List<IntegratedSalaryReport> list, string filePath)
+        {
+            using (var workbook = new XLWorkbook())
+            {
+                var ws = workbook.Worksheets.Add("Salarios Integrados");
+
+                // 1. Definir tus encabezados personalizados manualmente
+                string[] headers = {
+            "NUMERO EMPLEADO", "NOMBRE COMPLETO", "SALARIO INTEGRADO IMSS", "SALARIO INTEGRADO INFONAVIT"
+        };
+
+                // 2. Escribir encabezados en la fila 1
+                for (int i = 0; i < headers.Length; i++)
+                {
+                    var cell = ws.Cell(1, i + 1);
+                    cell.Value = headers[i];
+                    cell.Style.Font.Bold = true;
+                    cell.Style.Fill.BackgroundColor = XLColor.FromHtml("#2c3e50"); // Color elegante
+                    cell.Style.Font.FontColor = XLColor.White;
+                }
+
+                // 3. Llenar los datos manualmente fila por fila
+                int row = 2;
+                foreach (var item in list)
+                {
+                    ws.Cell(row, 1).Value = item.NumberEmployee;
+                    ws.Cell(row, 2).Value = item.FullName;
+                    ws.Cell(row, 3).Value = item.SalaryIntegratedImss;
+                    ws.Cell(row, 4).Value = item.SalaryIntegratedInfonavit;
+                    row++;
+                }
+
+                // 4. Formato de moneda para salarios (Columnas C a H)
+                ws.Columns("C:D").Style.NumberFormat.Format = "$ #,##0.00";
+
+                // Ajustar columnas
+                ws.Columns().AdjustToContents();
+
+                workbook.SaveAs(filePath); ;
+            }
+        }
+
+        public List<IntegratedSalaryReport> GetDataPrintIntegratedSalary()
+        {
+            List<IntegratedSalaryReport> list = new List<IntegratedSalaryReport>();
+
+            try
+            {
+
+                using (cmd = new SqlCommand("SELECT s.id, s.id_empleado, s.salario_integrado_imss, " +
+                       "s.salario_integrado_infonavit, concat(e.nombre,' ',e.apellido_paterno,' ', e.apellido_materno) as n_completo " +
+                       "FROM empleados e " +
+                       "INNER JOIN salarios_integrados s ON e.numero_empleado = s.id_empleado " +
+                       "ORDER BY s.id_empleado", Conex.nomi))
+                {
+                    Conex.OpenNomina();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            list.Add(ShowDataReport(reader));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error al obtener los salarios integrados: " + ex.Message);
+            }
+            finally
+            {
+
+                Conex.CloseNomina();
+            }
+
+            return list;
+        }
+
+        private static IntegratedSalary ShowDataGrid(SqlDataReader reader)
+        {
+            bool exists = Enumerable.Range(0, reader.FieldCount).Any(i => reader.GetName(i) == "n_completo");
+            return new IntegratedSalary
+            {
+
+                Id = Convert.ToInt32(reader["id"]),
+                NumberEmployee = Convert.ToInt32(reader["id_empleado"]),
+                NameEmployee = Convert.ToString(exists && reader["n_completo"] != DBNull.Value ? reader["n_completo"] : ""),
+                SalaryIntegratedImss = Convert.ToDecimal(reader["salario_integrado_imss"]),
+                SalaryIntegratedInfonavit = Convert.ToDecimal(reader["salario_integrado_infonavit"])
+            };
+        }
+
+        private static IntegratedSalaryReport ShowDataReport(SqlDataReader reader)
+        {
+            bool exists = Enumerable.Range(0, reader.FieldCount).Any(i => reader.GetName(i) == "n_completo");
+            return new IntegratedSalaryReport
+            {
+
+                Id = Convert.ToInt32(reader["id"]),
+                NumberEmployee = Convert.ToInt32(reader["id_empleado"]),
+                FullName = Convert.ToString(exists && reader["n_completo"] != DBNull.Value ? reader["n_completo"] : ""),
+                SalaryIntegratedImss = Convert.ToDecimal(reader["salario_integrado_imss"]),
+                SalaryIntegratedInfonavit = Convert.ToDecimal(reader["salario_integrado_infonavit"])
+            };
+        }
+
     }
 }
