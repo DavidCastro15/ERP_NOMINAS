@@ -232,6 +232,12 @@
     <Compile Include="Components\Deprecated\SearchGroup.Designer.cs">
       <DependentUpon>SearchGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\Search\SearchPayWeek.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Search\SearchPayWeek.Designer.cs">
+      <DependentUpon>SearchPayWeek.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\Search\SearchTurn.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -279,6 +285,9 @@
     <Compile Include="Models\Managments\Managment.cs" />
     <Compile Include="Models\Materials\IMaterial.cs" />
     <Compile Include="Models\Materials\Material.cs" />
+    <Compile Include="Models\Offsets\IOffset.cs" />
+    <Compile Include="Models\Offsets\Offset.cs" />
+    <Compile Include="Models\Offsets\OffSetDetail.cs" />
     <Compile Include="Models\PerceptionDeduction\IPerceptionDeduction.cs" />
     <Compile Include="Models\PerceptionDeduction\PerceptDeduction.cs" />
     <Compile Include="Models\Pieceworks\IPiecework.cs" />
@@ -386,6 +395,7 @@
     <Compile Include="Repositorys\ListAttendRepository.cs" />
     <Compile Include="Repositorys\ManagmentRepository.cs" />
     <Compile Include="Repositorys\MaterialRepository.cs" />
+    <Compile Include="Repositorys\OffsetsRepository.cs" />
     <Compile Include="Repositorys\PerceptionDeductionRepository.cs" />
     <Compile Include="Repositorys\PieceworkRepository.cs" />
     <Compile Include="Repositorys\SubsidyFeeRepository.cs" />
@@ -628,6 +638,24 @@
     <Compile Include="Views\Master\Uses\UseShow.Designer.cs">
       <DependentUpon>UseShow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\Offsets\OffsetEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\Offsets\OffsetEdit.Designer.cs">
+      <DependentUpon>OffsetEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\Offsets\OffsetMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\Offsets\OffsetMain.Designer.cs">
+      <DependentUpon>OffsetMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\Offsets\OffsetShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\Offsets\OffsetShow.Designer.cs">
+      <DependentUpon>OffsetShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Non-AutomaticPerceptions\Pieceworks\PieceWorkMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -696,6 +724,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Components\Deprecated\SearchGroup.resx">
       <DependentUpon>SearchGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Search\SearchPayWeek.resx">
+      <DependentUpon>SearchPayWeek.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\Search\SearchTurn.resx">
       <DependentUpon>SearchTurn.cs</DependentUpon>
@@ -859,6 +890,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Master\Uses\UseShow.resx">
       <DependentUpon>UseShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\Offsets\OffsetEdit.resx">
+      <DependentUpon>OffsetEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\Offsets\OffsetMain.resx">
+      <DependentUpon>OffsetMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\Offsets\OffsetShow.resx">
+      <DependentUpon>OffsetShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Non-AutomaticPerceptions\Pieceworks\PieceWorkMain.resx">
       <DependentUpon>PieceWorkMain.cs</DependentUpon>

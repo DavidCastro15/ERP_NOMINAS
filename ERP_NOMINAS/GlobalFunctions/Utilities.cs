@@ -29,7 +29,8 @@ namespace ERP_NOMINAS.GlobalFunctions
             Group,
             Equipment,
             TrainedCategories,
-            Material
+            Material,
+            PayWeek
         }
        
         public void ConfigGrid<T>(DataGridView dgv)
@@ -173,6 +174,12 @@ namespace ERP_NOMINAS.GlobalFunctions
                     query = "SELECT id,material FROM materiales ";
                     display = "material";
                     value = "material";
+                    break;
+
+                case TypeCatalog.PayWeek:
+                    query = "SELECT DISTINCT no_semana FROM calculos ORDER BY no_semana DESC";
+                    display = "no_semana";
+                    value = "no_semana";
                     break;
             }
 

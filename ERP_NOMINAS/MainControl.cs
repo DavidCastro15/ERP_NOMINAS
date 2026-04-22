@@ -86,10 +86,9 @@ namespace ERP_NOMINAS
 
         private void destajosToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.Pieceworks.PieceWorkMain>();
 
-        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.Pieceworks.PieceWorkMain>();
+        private void compensacionesToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.Offsets.OffsetMain>();
 
-
-
+        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.Offsets.OffsetMain>();
 
 
         // --- Formularios Con Parámetros (Plantillas) ---
@@ -119,6 +118,7 @@ namespace ERP_NOMINAS
         private void subsidioToolStripMenuItem2_Click(object sender, EventArgs e) =>
             OpenForm<FormsMaster.TaxSubsidy.SubsidyRateMain>(f => { f._useTable = "tarifa_mensual_subsidio"; f.type = " Mensual"; });
 
+       
     }
 
 }

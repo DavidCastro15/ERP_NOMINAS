@@ -22,20 +22,20 @@ namespace ERP_NOMINAS.Repositorys
         {
             int rf = CheckNextReferenceNumber();
             Cycle getCycl = _repoCycle.GetCycle();
-            // 1. Query para el encabezado (Tabla destajos)
-            string queryEncabezado = @"INSERT INTO destajos (folio, id_nomina, semana_pago, ciclo, fecha, turno, material, 
+
+            string queryHeader = @"INSERT INTO destajos (folio, id_nomina, semana_pago, ciclo, fecha, turno, material, 
                                tarifa_tonelada, toneladas_cargadas, cantidad_cargadores, uso, id_percepcion) 
                                VALUES (@folio, @id_nomina, @semana_pago, @ciclo, @fecha, @turno, @material, 
                                @tarifa_tonelada, @toneladas_cargadas, @cantidad_cargadores, @uso, @id_percepcion)";
 
             Conex.OpenNomina();
 
-            // Iniciamos una transacción para asegurar que se guarden ambos o ninguno
+
             SqlTransaction tra = Conex.nomi.BeginTransaction();
 
             try
             {
-                using (cmd = new SqlCommand(queryEncabezado, Conex.nomi, tra))
+                using (cmd = new SqlCommand(queryHeader, Conex.nomi, tra))
                 {
                     cmd.Parameters.AddWithValue("@folio", rf);
                     cmd.Parameters.AddWithValue("@id_nomina", p.PayRollId);
@@ -53,12 +53,12 @@ namespace ERP_NOMINAS.Repositorys
                     cmd.ExecuteNonQuery();
                 }
 
-                // 2. Query para los detalles (Tabla destajos_detalle)
-                string queryDetalle = "INSERT INTO destajos_detalle (folio, numero_empleado) VALUES (@folio, @numero_empleado)";
+
+                string queryDettail = "INSERT INTO destajos_detalle (folio, numero_empleado) VALUES (@folio, @numero_empleado)";
 
                 foreach (var det in p.Details)
                 {
-                    using (cmd = new SqlCommand(queryDetalle, Conex.nomi, tra))
+                    using (cmd = new SqlCommand(queryDettail, Conex.nomi, tra))
                     {
                         cmd.Parameters.AddWithValue("@folio", rf);
                         cmd.Parameters.AddWithValue("@numero_empleado", det.NumberEmployee);
@@ -67,7 +67,7 @@ namespace ERP_NOMINAS.Repositorys
                 }
 
                 tra.Commit();
-                return 1; // Éxito
+                return 1;
             }
             catch (Exception)
             {

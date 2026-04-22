@@ -157,6 +157,12 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Pieceworks
             }
         }
 
+        private void searchCatalog2_OnItemSelected(object sender, EventArgs e)
+        {
+            decimal res = _repository.CheckRateTon(searchCatalog2.SelectedValue.ToString());
+            numericUpDown3.Value = res;
+        }
+
         private Piecework ShowPieceWork()
         {
             string _payWeek = $"{dateTimePicker1.Value.Year}{numericUpDown1.Value}{numericUpDown2.Value}";
@@ -177,12 +183,6 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Pieceworks
                 PayRollId = Convert.ToInt32(1),
                 Details = _res.Details
             };
-        }
-
-        private void searchCatalog2_OnItemSelected(object sender, EventArgs e)
-        {
-            decimal res = _repository.CheckRateTon(searchCatalog2.SelectedValue.ToString());
-            numericUpDown3.Value = res;
         }
     }
 }

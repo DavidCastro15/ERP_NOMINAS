@@ -66,10 +66,11 @@
             this.asistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listasDeAsistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.turnosAdicionalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.percepcionesNoAutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.destajosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.compensacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -379,6 +380,22 @@
             this.turnosAdicionalesToolStripMenuItem.Text = "Turnos Adicionales";
             this.turnosAdicionalesToolStripMenuItem.Click += new System.EventHandler(this.turnosAdicionalesToolStripMenuItem_Click);
             // 
+            // percepcionesNoAutoToolStripMenuItem
+            // 
+            this.percepcionesNoAutoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.destajosToolStripMenuItem,
+            this.compensacionesToolStripMenuItem});
+            this.percepcionesNoAutoToolStripMenuItem.Name = "percepcionesNoAutoToolStripMenuItem";
+            this.percepcionesNoAutoToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
+            this.percepcionesNoAutoToolStripMenuItem.Text = "Percepciones No Auto";
+            // 
+            // destajosToolStripMenuItem
+            // 
+            this.destajosToolStripMenuItem.Name = "destajosToolStripMenuItem";
+            this.destajosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.destajosToolStripMenuItem.Text = "Destajos";
+            this.destajosToolStripMenuItem.Click += new System.EventHandler(this.destajosToolStripMenuItem_Click);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(768, 243);
@@ -398,20 +415,12 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // percepcionesNoAutoToolStripMenuItem
+            // compensacionesToolStripMenuItem
             // 
-            this.percepcionesNoAutoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.destajosToolStripMenuItem});
-            this.percepcionesNoAutoToolStripMenuItem.Name = "percepcionesNoAutoToolStripMenuItem";
-            this.percepcionesNoAutoToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
-            this.percepcionesNoAutoToolStripMenuItem.Text = "Percepciones No Auto";
-            // 
-            // destajosToolStripMenuItem
-            // 
-            this.destajosToolStripMenuItem.Name = "destajosToolStripMenuItem";
-            this.destajosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.destajosToolStripMenuItem.Text = "Destajos";
-            this.destajosToolStripMenuItem.Click += new System.EventHandler(this.destajosToolStripMenuItem_Click);
+            this.compensacionesToolStripMenuItem.Name = "compensacionesToolStripMenuItem";
+            this.compensacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.compensacionesToolStripMenuItem.Text = "Compensaciones";
+            this.compensacionesToolStripMenuItem.Click += new System.EventHandler(this.compensacionesToolStripMenuItem_Click);
             // 
             // MainControl
             // 
@@ -478,5 +487,6 @@
         private System.Windows.Forms.ToolStripMenuItem turnosAdicionalesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem percepcionesNoAutoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem destajosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem compensacionesToolStripMenuItem;
     }
 }
