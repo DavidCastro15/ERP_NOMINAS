@@ -39,16 +39,17 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kitForm1 = new ERP_NOMINAS.Components.Buttons.KitForm();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.searchPayWeek1 = new ERP_NOMINAS.Components.Search.SearchPayWeek();
-            this.buttonPrint1 = new ERP_NOMINAS.Components.Buttons.buttonPrint();
             this.filterByT1 = new ERP_NOMINAS.Components.Search.FilterByT();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.searchPayWeek2 = new ERP_NOMINAS.Components.Search.SearchPayWeek();
             this.buttonPrint2 = new ERP_NOMINAS.Components.Buttons.buttonPrint();
+            this.searchPayWeek2 = new ERP_NOMINAS.Components.Search.SearchPayWeek();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.buttonPrint1 = new ERP_NOMINAS.Components.Buttons.buttonPrint();
+            this.searchPayWeek1 = new ERP_NOMINAS.Components.Search.SearchPayWeek();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -143,39 +144,6 @@
             this.kitForm1.MEdit += new System.EventHandler(this.kitForm1_MEdit);
             this.kitForm1.MDelete += new System.EventHandler(this.kitForm1_MDelete);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.searchPayWeek1);
-            this.groupBox2.Controls.Add(this.buttonPrint1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 375);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(218, 68);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Informe Cifras";
-            // 
-            // searchPayWeek1
-            // 
-            this.searchPayWeek1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.searchPayWeek1.Location = new System.Drawing.Point(6, 19);
-            this.searchPayWeek1.Name = "searchPayWeek1";
-            this.searchPayWeek1.SelectedPayWeek = new decimal(new int[] {
-            2026170,
-            0,
-            0,
-            0});
-            this.searchPayWeek1.Size = new System.Drawing.Size(126, 27);
-            this.searchPayWeek1.TabIndex = 1;
-            // 
-            // buttonPrint1
-            // 
-            this.buttonPrint1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonPrint1.Location = new System.Drawing.Point(138, 13);
-            this.buttonPrint1.Name = "buttonPrint1";
-            this.buttonPrint1.Size = new System.Drawing.Size(74, 49);
-            this.buttonPrint1.TabIndex = 0;
-            this.buttonPrint1.OnBotonPrintClick += new System.EventHandler(this.buttonPrint1_OnBotonPrintClick);
-            // 
             // filterByT1
             // 
             this.filterByT1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -191,12 +159,20 @@
             // 
             this.groupBox1.Controls.Add(this.buttonPrint2);
             this.groupBox1.Controls.Add(this.searchPayWeek2);
-            this.groupBox1.Location = new System.Drawing.Point(268, 375);
+            this.groupBox1.Location = new System.Drawing.Point(12, 375);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(242, 68);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Informe Desgaste Herramienta";
+            this.groupBox1.Text = "Informe Cifras";
+            // 
+            // buttonPrint2
+            // 
+            this.buttonPrint2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonPrint2.Location = new System.Drawing.Point(157, 13);
+            this.buttonPrint2.Name = "buttonPrint2";
+            this.buttonPrint2.Size = new System.Drawing.Size(74, 49);
+            this.buttonPrint2.TabIndex = 2;
             // 
             // searchPayWeek2
             // 
@@ -211,22 +187,60 @@
             this.searchPayWeek2.Size = new System.Drawing.Size(126, 27);
             this.searchPayWeek2.TabIndex = 2;
             // 
-            // buttonPrint2
+            // groupBox2
             // 
-            this.buttonPrint2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonPrint2.Location = new System.Drawing.Point(157, 13);
-            this.buttonPrint2.Name = "buttonPrint2";
-            this.buttonPrint2.Size = new System.Drawing.Size(74, 49);
-            this.buttonPrint2.TabIndex = 2;
+            this.groupBox2.Controls.Add(this.buttonPrint1);
+            this.groupBox2.Controls.Add(this.searchPayWeek1);
+            this.groupBox2.Location = new System.Drawing.Point(260, 375);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(242, 68);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Informe Desgaste Herramienta";
+            // 
+            // buttonPrint1
+            // 
+            this.buttonPrint1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonPrint1.Location = new System.Drawing.Point(157, 13);
+            this.buttonPrint1.Name = "buttonPrint1";
+            this.buttonPrint1.Size = new System.Drawing.Size(74, 49);
+            this.buttonPrint1.TabIndex = 2;
+            // 
+            // searchPayWeek1
+            // 
+            this.searchPayWeek1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.searchPayWeek1.Location = new System.Drawing.Point(6, 31);
+            this.searchPayWeek1.Name = "searchPayWeek1";
+            this.searchPayWeek1.SelectedPayWeek = new decimal(new int[] {
+            2026170,
+            0,
+            0,
+            0});
+            this.searchPayWeek1.Size = new System.Drawing.Size(126, 27);
+            this.searchPayWeek1.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Image = global::ERP_NOMINAS.Properties.Resources.icons8_herramienta_28;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Location = new System.Drawing.Point(518, 388);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(84, 49);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "D.Herramienta";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             // 
             // OffsetGratuityMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(975, 445);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.filterByT1);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.kitForm1);
             this.Controls.Add(this.dataGridView1);
             this.Location = new System.Drawing.Point(0, 0);
@@ -234,8 +248,8 @@
             this.Text = "Compensaciones";
             this.Load += new System.EventHandler(this.OffsetMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -244,9 +258,6 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private Components.Buttons.KitForm kitForm1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private Components.Buttons.buttonPrint buttonPrint1;
-        private Components.Search.SearchPayWeek searchPayWeek1;
         private Components.Search.FilterByT filterByT1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -260,5 +271,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private Components.Buttons.buttonPrint buttonPrint2;
         private Components.Search.SearchPayWeek searchPayWeek2;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private Components.Buttons.buttonPrint buttonPrint1;
+        private Components.Search.SearchPayWeek searchPayWeek1;
+        private System.Windows.Forms.Button button1;
     }
 }

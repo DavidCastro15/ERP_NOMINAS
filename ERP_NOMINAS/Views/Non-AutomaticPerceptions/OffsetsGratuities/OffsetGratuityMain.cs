@@ -40,6 +40,8 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.OffsetsGratuities
 
         private void OffsetMain_Load(object sender, EventArgs e)
         {
+            button1.Visible= Table == "compensaciones" ? false : true;
+            groupBox2.Visible = Table == "compensaciones" ? false : true;
             this.Text = Table == "compensaciones" ? "Compensaciones" : "Gratificaciones";
             dataGridView1.AutoGenerateColumns = false;
             LoadGrid();
@@ -47,7 +49,7 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.OffsetsGratuities
 
         public void LoadGrid()
         {
-            groupBox2.Visible = Table == "compensaciones" ? false : true;
+            
             _repository.Table = Table;
             var ListOffset = _repository.GetOffsetsGratuity();
             Util.ConfigGrid<OffSetGratuity>(dataGridView1);
