@@ -43,8 +43,12 @@
             this.searchPayWeek1 = new ERP_NOMINAS.Components.Search.SearchPayWeek();
             this.buttonPrint1 = new ERP_NOMINAS.Components.Buttons.buttonPrint();
             this.filterByT1 = new ERP_NOMINAS.Components.Search.FilterByT();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.searchPayWeek2 = new ERP_NOMINAS.Components.Search.SearchPayWeek();
+            this.buttonPrint2 = new ERP_NOMINAS.Components.Buttons.buttonPrint();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -183,21 +187,55 @@
             this.filterByT1.TabIndex = 4;
             this.filterByT1.TittleChange = "Nombre o Semana Pago:";
             // 
-            // OffsetMain
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.buttonPrint2);
+            this.groupBox1.Controls.Add(this.searchPayWeek2);
+            this.groupBox1.Location = new System.Drawing.Point(268, 375);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(242, 68);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Informe Desgaste Herramienta";
+            // 
+            // searchPayWeek2
+            // 
+            this.searchPayWeek2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.searchPayWeek2.Location = new System.Drawing.Point(6, 31);
+            this.searchPayWeek2.Name = "searchPayWeek2";
+            this.searchPayWeek2.SelectedPayWeek = new decimal(new int[] {
+            2026170,
+            0,
+            0,
+            0});
+            this.searchPayWeek2.Size = new System.Drawing.Size(126, 27);
+            this.searchPayWeek2.TabIndex = 2;
+            // 
+            // buttonPrint2
+            // 
+            this.buttonPrint2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonPrint2.Location = new System.Drawing.Point(157, 13);
+            this.buttonPrint2.Name = "buttonPrint2";
+            this.buttonPrint2.Size = new System.Drawing.Size(74, 49);
+            this.buttonPrint2.TabIndex = 2;
+            // 
+            // OffsetGratuityMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(975, 445);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.filterByT1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.kitForm1);
             this.Controls.Add(this.dataGridView1);
             this.Location = new System.Drawing.Point(0, 0);
-            this.Name = "OffsetMain";
+            this.Name = "OffsetGratuityMain";
             this.Text = "Compensaciones";
             this.Load += new System.EventHandler(this.OffsetMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -219,5 +257,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private Components.Buttons.buttonPrint buttonPrint2;
+        private Components.Search.SearchPayWeek searchPayWeek2;
     }
 }

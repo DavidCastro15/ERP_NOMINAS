@@ -33,6 +33,7 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.OffsetsGratuities
 
         private void OffsetShow_Load(object sender, EventArgs e)
         {
+            this.Text = Table == "compensaciones" ? "Compensacion" : "Gratificacion";
             kitCrud1.VisibleBotonCrud(true);
             dataGridView1.AutoGenerateColumns = false; 
             dataGridView1.DataSource = _bsDetails;
@@ -107,7 +108,7 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.OffsetsGratuities
                 Cycle = Convert.ToString(cicle.Text),
                 PayWeek = Convert.ToInt32(payWeek),
                 Details = _res.Details,
-                IdConcept = Convert.ToInt32(12)               
+                IdConcept = Convert.ToInt32(Table == "compensaciones" ? 12 : 26)               
             };
         }
     }

@@ -29,6 +29,7 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.OffsetsGratuities
 
         private void OffsetEdit_Load(object sender, EventArgs e)
         {
+            this.Text = Table == "compensaciones" ? "Compensacion" : "Gratificacion";
             kitCrud1.VisibleBotonCrud(false);
             _repository.Table = Table;
             var res = _repository.GetOffsetGratuityEmployeeDetail(Id);

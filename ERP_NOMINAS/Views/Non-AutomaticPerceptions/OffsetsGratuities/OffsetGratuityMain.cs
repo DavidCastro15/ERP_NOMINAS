@@ -47,6 +47,7 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.OffsetsGratuities
 
         public void LoadGrid()
         {
+            groupBox2.Visible = Table == "compensaciones" ? false : true;
             _repository.Table = Table;
             var ListOffset = _repository.GetOffsetsGratuity();
             Util.ConfigGrid<OffSetGratuity>(dataGridView1);
