@@ -1,6 +1,6 @@
 ﻿using ERP_NOMINAS.Conexion;
 using ERP_NOMINAS.GlobalFunctions;
-using ERP_NOMINAS.Models.Offsets;
+using ERP_NOMINAS.Models.OffsetsGratuities;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -10,32 +10,33 @@ using System.Threading.Tasks;
 
 namespace ERP_NOMINAS.Repositorys
 {
-    public class OffsetsRepository : IOffset
+    public class OffsetsGratuitiesRepository : IOffsetGratuity
     {
         ConnectorSql Conex = new ConnectorSql();
         Utilities Util = new Utilities();
         SqlCommand cmd = new SqlCommand();
+        public string Table;
 
-        public List<Offset> FilterByValue(string name)
+        public List<OffSetGratuity> FilterByValue(string name)
         {
             string column = "CONCAT(e.nombre, ' ', e.apellido_paterno, ' ', e.apellido_materno)";
             return ExecuteFilter(column, name);
         }
 
-        public List<Offset> FilterByValue(int payWeek)
+        public List<OffSetGratuity> FilterByValue(int payWeek)
         {
             string column = "c.periodo";
             return ExecuteFilter(column, payWeek.ToString());
         }
 
-        private List<Offset> ExecuteFilter(string column, string param)
+        private List<OffSetGratuity> ExecuteFilter(string column, string param)
         {
-            List<Offset> list = new List<Offset>();
+            List<OffSetGratuity> list = new List<OffSetGratuity>();
 
             string query = $@"SELECT c.id, c.id_nomina, c.numero_empleado, 
                     CONCAT(e.nombre, ' ', e.apellido_paterno, ' ', e.apellido_materno) as n_completo, 
                     c.importe, c.ciclo, c.periodo, c.uso, c.comentarios, c.id_concepto 
-                    FROM compensaciones c 
+                    FROM {Table} c 
                     INNER JOIN empleados e ON c.numero_empleado = e.numero_empleado 
                     WHERE {column} LIKE @param";
 
@@ -57,7 +58,7 @@ namespace ERP_NOMINAS.Repositorys
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al obtener las compensaciones: " + ex.Message);
+                throw new Exception($"Error al obtener las {Table}: " + ex.Message);
             }
             finally
             {
@@ -67,15 +68,15 @@ namespace ERP_NOMINAS.Repositorys
             return list;
         }
 
-        public List<Offset> GetOffsets()
+        public List<OffSetGratuity> GetOffsetsGratuity()
         {
-            List<Offset> list = new List<Offset>();
+            List<OffSetGratuity> list = new List<OffSetGratuity>();
 
             try
             {
 
                 using (cmd = new SqlCommand("SELECT TOP(500) c.id,c.id_nomina,c.numero_empleado,CONCAT(e.nombre,' ',e.apellido_paterno,' ',e.apellido_materno) as n_completo,c.importe,c.ciclo,c.periodo,c.uso,c.comentarios,c.id_concepto " +
-                                                "FROM compensaciones c " +
+                                                $"FROM {Table} c " +
                                                 "INNER JOIN empleados e " +
                                                 "ON c.numero_empleado = e.numero_empleado " +
                                                 "ORDER BY c.periodo DESC", Conex.nomi))
@@ -95,7 +96,7 @@ namespace ERP_NOMINAS.Repositorys
             catch (Exception ex)
             {
 
-                throw new Exception("Error al obtener las compensaciones: " + ex.Message);
+                throw new Exception($"Error al obtener las {Table}: " + ex.Message);
             }
             finally
             {
@@ -106,9 +107,9 @@ namespace ERP_NOMINAS.Repositorys
             return list;
         }
 
-        public Offset GetOffsetEmployeeDetail(int Id)
+        public OffSetGratuity GetOffsetGratuityEmployeeDetail(int Id)
         {
-            using (cmd = new SqlCommand("SELECT * FROM compensaciones WHERE id = @id", Conex.nomi))
+            using (cmd = new SqlCommand($"SELECT * FROM {Table} WHERE id = @id", Conex.nomi))
             {
 
                 cmd.Parameters.AddWithValue("@id", Id);
@@ -128,14 +129,14 @@ namespace ERP_NOMINAS.Repositorys
             return null;
         }
 
-        public int CreateOffset(Offset o)
+        public int CreateOffsetGratuity(OffSetGratuity o)
         {
             Conex.OpenNomina();
             SqlTransaction tra = Conex.nomi.BeginTransaction();
             try
             {
 
-                string query = "INSERT INTO compensaciones(id_nomina,numero_empleado,importe,ciclo,periodo,uso,comentarios,id_concepto)" +
+                string query = $"INSERT INTO {Table}(id_nomina,numero_empleado,importe,ciclo,periodo,uso,comentarios,id_concepto)" +
                                         "VALUES(@id_nomina,@numero_empleado,@importe,@ciclo,@periodo,@uso,@comentarios,@id_concepto)";
 
                 foreach (var det in o.Details)
@@ -168,9 +169,9 @@ namespace ERP_NOMINAS.Repositorys
             }
         }
 
-        public int UpdateOffsetEmployeeDetail(Offset o)
+        public int UpdateOffsetGratuityEmployeeDetail(OffSetGratuity o)
         {
-            string query = "UPDATE compensaciones SET id_nomina=@id_nomina,numero_empleado=@numero_empleado,importe=@importe,ciclo=@ciclo,periodo=@periodo,uso=@uso,comentarios=@comentarios,id_concepto=@id_concepto "+
+            string query = $"UPDATE {Table} SET id_nomina=@id_nomina,numero_empleado=@numero_empleado,importe=@importe,ciclo=@ciclo,periodo=@periodo,uso=@uso,comentarios=@comentarios,id_concepto=@id_concepto " +
                                                           " WHERE id = @id";
 
             using (cmd = new SqlCommand(query, Conex.nomi))
@@ -192,7 +193,7 @@ namespace ERP_NOMINAS.Repositorys
             }
         }
 
-        public int DeleteOffset(int Id)
+        public int DeleteOffsetGratuity(int Id)
         {
             Conex.OpenNomina();
             SqlTransaction tra = Conex.nomi.BeginTransaction();
@@ -200,7 +201,7 @@ namespace ERP_NOMINAS.Repositorys
             try
             {
                 // 2. IMPORTANTE: Usa parámetros para evitar Inyección SQL
-                string query = "DELETE FROM compensaciones WHERE id = @id";
+                string query = $"DELETE FROM {Table} WHERE id = @id";
 
                 using (SqlCommand cmd = new SqlCommand(query, Conex.nomi, tra))
                 {
@@ -223,7 +224,7 @@ namespace ERP_NOMINAS.Repositorys
             }
         }
 
-        private Offset ShowDataGrid(SqlDataReader reader)
+        private OffSetGratuity ShowDataGrid(SqlDataReader reader)
         {
             bool HasColumn(string name)
             {
@@ -234,7 +235,7 @@ namespace ERP_NOMINAS.Repositorys
                 return false;
             }
 
-            return new Offset
+            return new OffSetGratuity
             {
                 Id = reader["id"] == DBNull.Value ? 0 : Convert.ToInt32(reader["id"]),
                 PayrollId = reader["id_nomina"] == DBNull.Value ? 0 : Convert.ToInt32(reader["id_nomina"]),

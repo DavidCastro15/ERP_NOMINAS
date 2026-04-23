@@ -1,6 +1,6 @@
-﻿namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Offsets
+﻿namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.OffsetsGratuities
 {
-    partial class OffsetShow
+    partial class OffsetGratuityShow
     {
         /// <summary>
         /// Required designer variable.

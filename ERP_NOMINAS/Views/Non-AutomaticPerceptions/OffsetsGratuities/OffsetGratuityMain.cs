@@ -1,5 +1,5 @@
 ﻿using ERP_NOMINAS.GlobalFunctions;
-using ERP_NOMINAS.Models.Offsets;
+using ERP_NOMINAS.Models.OffsetsGratuities;
 using ERP_NOMINAS.Repositorys;
 using System;
 using System.Collections.Generic;
@@ -11,51 +11,52 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Offsets
+namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.OffsetsGratuities
 {
-    public partial class OffsetMain : BaseForm
+    public partial class OffsetGratuityMain : BaseForm
     {
+        public string Table;
         private Utilities Util = new Utilities();
-        private OffsetsRepository _repository = new OffsetsRepository();
+        private OffsetsGratuitiesRepository _repository = new OffsetsGratuitiesRepository();
         private int Id;
 
-        public OffsetMain()
-        {
+        public OffsetGratuityMain()
+        {          
             InitializeComponent();
             filterByT1.FilterBy = (text) =>
-            {
-                // 1. Intentamos convertir el texto a entero
+            {         
                 if (int.TryParse(text, out int periodo))
                 {
-                    // Si es un número, usamos la sobrecarga de INT (periodo)
-                    dataGridView1.DataSource = new BindingList<Offset>(_repository.FilterByValue(periodo));
+                    _repository.Table = Table;
+                    dataGridView1.DataSource = new BindingList<OffSetGratuity>(_repository.FilterByValue(periodo));
                 }
                 else
                 {
-                    // Si no es número, usamos la sobrecarga de STRING (nombre)
-                    dataGridView1.DataSource = new BindingList<Offset>(_repository.FilterByValue(text));
+                    _repository.Table = Table;
+                    dataGridView1.DataSource = new BindingList<OffSetGratuity>(_repository.FilterByValue(text));
                 }
             };
         }
 
         private void OffsetMain_Load(object sender, EventArgs e)
         {
+            this.Text = Table == "compensaciones" ? "Compensaciones" : "Gratificaciones";
             dataGridView1.AutoGenerateColumns = false;
             LoadGrid();
         }
 
         public void LoadGrid()
         {
-            var ListOffset = _repository.GetOffsets();
-            Util.ConfigGrid<Offset>(dataGridView1);
-            dataGridView1.DataSource = new BindingList<Offset>(ListOffset);
+            _repository.Table = Table;
+            var ListOffset = _repository.GetOffsetsGratuity();
+            Util.ConfigGrid<OffSetGratuity>(dataGridView1);
+            dataGridView1.DataSource = new BindingList<OffSetGratuity>(ListOffset);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 Id = Convert.ToInt32(row.Cells[0].Value);
             }
@@ -68,7 +69,9 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Offsets
 
         private void kitForm1_Add(object sender, EventArgs e)
         {
-            var offSetShow = new OffsetShow(this);
+            _repository.Table = Table;
+            var offSetShow = new OffsetGratuityShow(this);
+            offSetShow.Table = Table;
             offSetShow.ShowDialog();
         }
 
@@ -85,7 +88,9 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Offsets
                 MessageBox.Show("Seleccione una Compensacion", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            var offSetEdit = new OffsetEdit(this);
+            _repository.Table = Table;
+            var offSetEdit = new OffsetGratuityEdit(this);
+            offSetEdit.Table = Table;
             offSetEdit.Id = Id;
             offSetEdit.ShowDialog();
 
@@ -104,8 +109,8 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Offsets
 
             if (ress == DialogResult.Yes)
             {
-
-                var deleteCategorory = _repository.DeleteOffset(Id);
+                _repository.Table = Table;
+                var deleteCategorory = _repository.DeleteOffsetGratuity(Id);
                 MessageBox.Show("Registro eliminado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadGrid();
             }
@@ -114,6 +119,11 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Offsets
                 MessageBox.Show("Operación cancelada.", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
+        }
+
+        private void buttonPrint1_OnBotonPrintClick(object sender, EventArgs e)
+        {
+
         }
     }
 }

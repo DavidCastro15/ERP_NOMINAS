@@ -1,6 +1,6 @@
-﻿namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Offsets
+﻿namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.OffsetsGratuities
 {
-    partial class OffsetMain
+    partial class OffsetGratuityMain
     {
         /// <summary>
         /// Required designer variable.
@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.kitForm1 = new ERP_NOMINAS.Components.Buttons.KitForm();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.searchPayWeek1 = new ERP_NOMINAS.Components.Search.SearchPayWeek();
-            this.buttonPrint1 = new ERP_NOMINAS.Components.Buttons.buttonPrint();
-            this.filterByT1 = new ERP_NOMINAS.Components.Search.FilterByT();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +38,11 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kitForm1 = new ERP_NOMINAS.Components.Buttons.KitForm();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.searchPayWeek1 = new ERP_NOMINAS.Components.Search.SearchPayWeek();
+            this.buttonPrint1 = new ERP_NOMINAS.Components.Buttons.buttonPrint();
+            this.filterByT1 = new ERP_NOMINAS.Components.Search.FilterByT();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -70,60 +70,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            // 
-            // kitForm1
-            // 
-            this.kitForm1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.kitForm1.Location = new System.Drawing.Point(650, 388);
-            this.kitForm1.Name = "kitForm1";
-            this.kitForm1.Size = new System.Drawing.Size(317, 55);
-            this.kitForm1.TabIndex = 2;
-            this.kitForm1.Add += new System.EventHandler(this.kitForm1_Add);
-            this.kitForm1.MEdit += new System.EventHandler(this.kitForm1_MEdit);
-            this.kitForm1.MDelete += new System.EventHandler(this.kitForm1_MDelete);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.searchPayWeek1);
-            this.groupBox2.Controls.Add(this.buttonPrint1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 375);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(218, 68);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Informe Cifras";
-            // 
-            // searchPayWeek1
-            // 
-            this.searchPayWeek1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.searchPayWeek1.Location = new System.Drawing.Point(6, 19);
-            this.searchPayWeek1.Name = "searchPayWeek1";
-            this.searchPayWeek1.SelectedPayWeek = new decimal(new int[] {
-            2026170,
-            0,
-            0,
-            0});
-            this.searchPayWeek1.Size = new System.Drawing.Size(126, 27);
-            this.searchPayWeek1.TabIndex = 1;
-            // 
-            // buttonPrint1
-            // 
-            this.buttonPrint1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonPrint1.Location = new System.Drawing.Point(138, 13);
-            this.buttonPrint1.Name = "buttonPrint1";
-            this.buttonPrint1.Size = new System.Drawing.Size(74, 49);
-            this.buttonPrint1.TabIndex = 0;
-            // 
-            // filterByT1
-            // 
-            this.filterByT1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.filterByT1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.filterByT1.FilterBy = null;
-            this.filterByT1.Location = new System.Drawing.Point(12, 12);
-            this.filterByT1.Name = "filterByT1";
-            this.filterByT1.Size = new System.Drawing.Size(287, 49);
-            this.filterByT1.TabIndex = 4;
-            this.filterByT1.TittleChange = "Nombre o Semana Pago:";
             // 
             // Column9
             // 
@@ -181,6 +127,61 @@
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             this.Column7.Width = 150;
+            // 
+            // kitForm1
+            // 
+            this.kitForm1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.kitForm1.Location = new System.Drawing.Point(650, 388);
+            this.kitForm1.Name = "kitForm1";
+            this.kitForm1.Size = new System.Drawing.Size(317, 55);
+            this.kitForm1.TabIndex = 2;
+            this.kitForm1.Add += new System.EventHandler(this.kitForm1_Add);
+            this.kitForm1.MEdit += new System.EventHandler(this.kitForm1_MEdit);
+            this.kitForm1.MDelete += new System.EventHandler(this.kitForm1_MDelete);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.searchPayWeek1);
+            this.groupBox2.Controls.Add(this.buttonPrint1);
+            this.groupBox2.Location = new System.Drawing.Point(12, 375);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(218, 68);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Informe Cifras";
+            // 
+            // searchPayWeek1
+            // 
+            this.searchPayWeek1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.searchPayWeek1.Location = new System.Drawing.Point(6, 19);
+            this.searchPayWeek1.Name = "searchPayWeek1";
+            this.searchPayWeek1.SelectedPayWeek = new decimal(new int[] {
+            2026170,
+            0,
+            0,
+            0});
+            this.searchPayWeek1.Size = new System.Drawing.Size(126, 27);
+            this.searchPayWeek1.TabIndex = 1;
+            // 
+            // buttonPrint1
+            // 
+            this.buttonPrint1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonPrint1.Location = new System.Drawing.Point(138, 13);
+            this.buttonPrint1.Name = "buttonPrint1";
+            this.buttonPrint1.Size = new System.Drawing.Size(74, 49);
+            this.buttonPrint1.TabIndex = 0;
+            this.buttonPrint1.OnBotonPrintClick += new System.EventHandler(this.buttonPrint1_OnBotonPrintClick);
+            // 
+            // filterByT1
+            // 
+            this.filterByT1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.filterByT1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.filterByT1.FilterBy = null;
+            this.filterByT1.Location = new System.Drawing.Point(12, 12);
+            this.filterByT1.Name = "filterByT1";
+            this.filterByT1.Size = new System.Drawing.Size(287, 49);
+            this.filterByT1.TabIndex = 4;
+            this.filterByT1.TittleChange = "Nombre o Semana Pago:";
             // 
             // OffsetMain
             // 

@@ -285,9 +285,9 @@
     <Compile Include="Models\Managments\Managment.cs" />
     <Compile Include="Models\Materials\IMaterial.cs" />
     <Compile Include="Models\Materials\Material.cs" />
-    <Compile Include="Models\Offsets\IOffset.cs" />
-    <Compile Include="Models\Offsets\Offset.cs" />
-    <Compile Include="Models\Offsets\OffSetDetail.cs" />
+    <Compile Include="Models\OffsetsGratuities\IOffsetGratuity.cs" />
+    <Compile Include="Models\OffsetsGratuities\OffsetGratuity.cs" />
+    <Compile Include="Models\OffsetsGratuities\OffSetGratuityDetail.cs" />
     <Compile Include="Models\PerceptionDeduction\IPerceptionDeduction.cs" />
     <Compile Include="Models\PerceptionDeduction\PerceptDeduction.cs" />
     <Compile Include="Models\Pieceworks\IPiecework.cs" />
@@ -395,7 +395,7 @@
     <Compile Include="Repositorys\ListAttendRepository.cs" />
     <Compile Include="Repositorys\ManagmentRepository.cs" />
     <Compile Include="Repositorys\MaterialRepository.cs" />
-    <Compile Include="Repositorys\OffsetsRepository.cs" />
+    <Compile Include="Repositorys\OffsetsGratuitiesRepository.cs" />
     <Compile Include="Repositorys\PerceptionDeductionRepository.cs" />
     <Compile Include="Repositorys\PieceworkRepository.cs" />
     <Compile Include="Repositorys\SubsidyFeeRepository.cs" />
@@ -638,23 +638,23 @@
     <Compile Include="Views\Master\Uses\UseShow.Designer.cs">
       <DependentUpon>UseShow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Non-AutomaticPerceptions\Offsets\OffsetEdit.cs">
+    <Compile Include="Views\Non-AutomaticPerceptions\OffsetsGratuities\OffsetGratuityEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Non-AutomaticPerceptions\Offsets\OffsetEdit.Designer.cs">
-      <DependentUpon>OffsetEdit.cs</DependentUpon>
+    <Compile Include="Views\Non-AutomaticPerceptions\OffsetsGratuities\OffsetGratuityEdit.Designer.cs">
+      <DependentUpon>OffsetGratuityEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Non-AutomaticPerceptions\Offsets\OffsetMain.cs">
+    <Compile Include="Views\Non-AutomaticPerceptions\OffsetsGratuities\OffsetGratuityMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Non-AutomaticPerceptions\Offsets\OffsetMain.Designer.cs">
-      <DependentUpon>OffsetMain.cs</DependentUpon>
+    <Compile Include="Views\Non-AutomaticPerceptions\OffsetsGratuities\OffsetGratuityMain.Designer.cs">
+      <DependentUpon>OffsetGratuityMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Non-AutomaticPerceptions\Offsets\OffsetShow.cs">
+    <Compile Include="Views\Non-AutomaticPerceptions\OffsetsGratuities\OffsetGratuityShow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Non-AutomaticPerceptions\Offsets\OffsetShow.Designer.cs">
-      <DependentUpon>OffsetShow.cs</DependentUpon>
+    <Compile Include="Views\Non-AutomaticPerceptions\OffsetsGratuities\OffsetGratuityShow.Designer.cs">
+      <DependentUpon>OffsetGratuityShow.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Non-AutomaticPerceptions\Pieceworks\PieceWorkMain.cs">
       <SubType>Form</SubType>
@@ -891,14 +891,14 @@
     <EmbeddedResource Include="Views\Master\Uses\UseShow.resx">
       <DependentUpon>UseShow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\Offsets\OffsetEdit.resx">
-      <DependentUpon>OffsetEdit.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\OffsetsGratuities\OffsetGratuityEdit.resx">
+      <DependentUpon>OffsetGratuityEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\Offsets\OffsetMain.resx">
-      <DependentUpon>OffsetMain.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\OffsetsGratuities\OffsetGratuityMain.resx">
+      <DependentUpon>OffsetGratuityMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\Offsets\OffsetShow.resx">
-      <DependentUpon>OffsetShow.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\OffsetsGratuities\OffsetGratuityShow.resx">
+      <DependentUpon>OffsetGratuityShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Non-AutomaticPerceptions\Pieceworks\PieceWorkMain.resx">
       <DependentUpon>PieceWorkMain.cs</DependentUpon>

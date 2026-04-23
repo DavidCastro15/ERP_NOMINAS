@@ -68,9 +68,10 @@
             this.turnosAdicionalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.percepcionesNoAutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.destajosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compensacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.compensacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gratificacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -384,7 +385,8 @@
             // 
             this.percepcionesNoAutoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.destajosToolStripMenuItem,
-            this.compensacionesToolStripMenuItem});
+            this.compensacionesToolStripMenuItem,
+            this.gratificacionesToolStripMenuItem});
             this.percepcionesNoAutoToolStripMenuItem.Name = "percepcionesNoAutoToolStripMenuItem";
             this.percepcionesNoAutoToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
             this.percepcionesNoAutoToolStripMenuItem.Text = "Percepciones No Auto";
@@ -395,6 +397,13 @@
             this.destajosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.destajosToolStripMenuItem.Text = "Destajos";
             this.destajosToolStripMenuItem.Click += new System.EventHandler(this.destajosToolStripMenuItem_Click);
+            // 
+            // compensacionesToolStripMenuItem
+            // 
+            this.compensacionesToolStripMenuItem.Name = "compensacionesToolStripMenuItem";
+            this.compensacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.compensacionesToolStripMenuItem.Text = "Compensaciones";
+            this.compensacionesToolStripMenuItem.Click += new System.EventHandler(this.compensacionesToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -415,12 +424,12 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // compensacionesToolStripMenuItem
+            // gratificacionesToolStripMenuItem
             // 
-            this.compensacionesToolStripMenuItem.Name = "compensacionesToolStripMenuItem";
-            this.compensacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.compensacionesToolStripMenuItem.Text = "Compensaciones";
-            this.compensacionesToolStripMenuItem.Click += new System.EventHandler(this.compensacionesToolStripMenuItem_Click);
+            this.gratificacionesToolStripMenuItem.Name = "gratificacionesToolStripMenuItem";
+            this.gratificacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gratificacionesToolStripMenuItem.Text = "Gratificaciones";
+            this.gratificacionesToolStripMenuItem.Click += new System.EventHandler(this.gratificacionesToolStripMenuItem_Click);
             // 
             // MainControl
             // 
@@ -488,5 +497,6 @@
         private System.Windows.Forms.ToolStripMenuItem percepcionesNoAutoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem destajosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem compensacionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gratificacionesToolStripMenuItem;
     }
 }

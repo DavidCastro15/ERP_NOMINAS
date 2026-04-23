@@ -1,13 +1,14 @@
-﻿using System;
+﻿using ERP_NOMINAS.Models.OffsetsGratuities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERP_NOMINAS.Models.Offsets
+namespace ERP_NOMINAS.Models.OffsetsGratuities
 {
-    public class Offset
+    public class OffSetGratuity
     {
         [DisplayName("Id")]
         public int Id { get; set; }
@@ -29,6 +30,6 @@ namespace ERP_NOMINAS.Models.Offsets
         public string Comments { get; set; }
       
         public int IdConcept { get; set; }
-        public List<OffSetDetail> Details { get; set; }
+        public List<OffSetGratuityDetail> Details { get; set; }
     }
 }

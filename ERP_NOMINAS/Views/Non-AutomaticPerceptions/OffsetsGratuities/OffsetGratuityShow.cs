@@ -1,5 +1,5 @@
 ﻿using ERP_NOMINAS.GlobalFunctions;
-using ERP_NOMINAS.Models.Offsets;
+using ERP_NOMINAS.Models.OffsetsGratuities;
 using ERP_NOMINAS.Repositorys;
 using System;
 using System.Collections.Generic;
@@ -11,22 +11,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Offsets
+namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.OffsetsGratuities
 {
-    public partial class OffsetShow : BaseForm
+    public partial class OffsetGratuityShow : BaseForm
     {
-        private OffsetsRepository _repository = new OffsetsRepository();
+        public string Table;
+        private OffsetsGratuitiesRepository _repository = new OffsetsGratuitiesRepository();
         private Utilities Util = new Utilities();
         private BindingSource _bsDetails = new BindingSource();
-        private Offset _res;
-        private OffsetMain _loadOffset;
+        private OffSetGratuity _res;
+        private OffsetGratuityMain _loadOffset;
 
-        public OffsetShow(OffsetMain offsetMain)
+        public OffsetGratuityShow(OffsetGratuityMain offsetMain)
         {
             InitializeComponent();
             _loadOffset = offsetMain;
-            _res = new Offset();
-            _res.Details = new List<OffSetDetail>();
+            _res = new OffSetGratuity();
+            _res.Details = new List<OffSetGratuityDetail>();
             _bsDetails.DataSource = _res.Details;
         }
 
@@ -39,7 +40,7 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Offsets
 
         private void buttonAdd1_OnBotonAddClick(object sender, EventArgs e)
         {
-            OffSetDetail nuevoDetalle = new OffSetDetail
+            OffSetGratuityDetail nuevoDetalle = new OffSetGratuityDetail
             {
                 NumberEmployee = Convert.ToInt32(searchCatalog1.SelectedValue),
                 Amount = Convert.ToDecimal(numericUpDown3.Value),
@@ -58,7 +59,7 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Offsets
         {
             if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                var detail = (OffSetDetail)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+                var detail = (OffSetGratuityDetail)dataGridView1.Rows[e.RowIndex].DataBoundItem;
 
                 _bsDetails.Remove(detail);
             }
@@ -74,10 +75,12 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Offsets
             {
                 if (ress == DialogResult.Yes)
                 {
-                    Offset of = ShowOffset();
-                    var res = _repository.CreateOffset(of);
+                    OffSetGratuity of = ShowOffset();
+                    _repository.Table = Table;
+                    var res = _repository.CreateOffsetGratuity(of);
                     MessageBox.Show("Registro guardado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
+                    _loadOffset.Table = Table;
                     _loadOffset.LoadGrid();
                 }
                 else
@@ -93,11 +96,11 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Offsets
             }
         }
 
-        private Offset ShowOffset()
+        private OffSetGratuity ShowOffset()
         {
             int payWeek = Util.PayWeekNow(Convert.ToInt32(numericUpDown1.Value), Convert.ToInt32(numericUpDown2.Value));
             var cicle = groupBox1.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
-            return new Offset
+            return new OffSetGratuity
             {
                 Id = Convert.ToInt32(0),
                 PayrollId = Convert.ToInt32(1),

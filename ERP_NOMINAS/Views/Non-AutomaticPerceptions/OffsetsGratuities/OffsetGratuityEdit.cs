@@ -1,5 +1,5 @@
 ﻿using ERP_NOMINAS.GlobalFunctions;
-using ERP_NOMINAS.Models.Offsets;
+using ERP_NOMINAS.Models.OffsetsGratuities;
 using ERP_NOMINAS.Repositorys;
 using System;
 using System.Collections.Generic;
@@ -11,16 +11,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Offsets
+namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.OffsetsGratuities
 {
-    public partial class OffsetEdit : BaseForm
+    public partial class OffsetGratuityEdit : BaseForm
     {
+        public string Table;
         private Utilities Util = new Utilities();
-        private OffsetsRepository _repository = new OffsetsRepository();
-        private OffsetMain _loadOffset;
+        private OffsetsGratuitiesRepository _repository = new OffsetsGratuitiesRepository();
+        private OffsetGratuityMain _loadOffset;
         public int Id;
 
-        public OffsetEdit(OffsetMain loadOffset)
+        public OffsetGratuityEdit(OffsetGratuityMain loadOffset)
         {
             InitializeComponent();
             _loadOffset = loadOffset;
@@ -29,8 +30,8 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Offsets
         private void OffsetEdit_Load(object sender, EventArgs e)
         {
             kitCrud1.VisibleBotonCrud(false);
-
-            var res = _repository.GetOffsetEmployeeDetail(Id);
+            _repository.Table = Table;
+            var res = _repository.GetOffsetGratuityEmployeeDetail(Id);
 
             searchCatalog1.SelectedValue = res.NumberEmployee;
             searchCatalog2.SelectedValue = res.Use;
@@ -52,8 +53,9 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Offsets
             {
                 if (ress == DialogResult.Yes)
                 {
-                    Offset of = ShowOffset();
-                    var res = _repository.UpdateOffsetEmployeeDetail(of);
+                    OffSetGratuity of = ShowOffset();
+                    _repository.Table = Table;
+                    var res = _repository.UpdateOffsetGratuityEmployeeDetail(of);
                     MessageBox.Show("Registro editado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
                     _loadOffset.LoadGrid();
@@ -71,11 +73,11 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Offsets
             }
         }
 
-        private Offset ShowOffset()
+        private OffSetGratuity ShowOffset()
         {
             int payWeek = Util.PayWeekNow(Convert.ToInt32(numericUpDown2.Value), Convert.ToInt32(numericUpDown3.Value));
             var cicle = groupBox1.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
-            return new Offset
+            return new OffSetGratuity
             {
                 Id = Convert.ToInt32(Id),
                 PayrollId = Convert.ToInt32(1),             
