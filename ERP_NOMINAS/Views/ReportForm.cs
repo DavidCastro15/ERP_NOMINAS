@@ -18,16 +18,19 @@ namespace ERP_NOMINAS.Views
             InitializeComponent();
         }
 
-        private void ReportForm_Load(object sender, EventArgs e)
-        {
-        }
-
         protected void ShowReport<T>(string rootRdlc, string nameDataSet, List<T> data, ReportParameter[] parameters)
         {
             try
             {
+                if (data == null || data.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron registros.", "Reporte Vacío", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.Close();
+                    return;
+                }
+
                 string fullRoot = $"ERP_NOMINAS.Reports.{rootRdlc}";
-                //"ERP_NOMINAS.Reports.Non-AutomaticPerceptions.PieceworList.pieceworkList.rdlc"
                 this.reportViewer1.LocalReport.ReportEmbeddedResource = fullRoot;
                 this.reportViewer1.LocalReport.DataSources.Clear();
 

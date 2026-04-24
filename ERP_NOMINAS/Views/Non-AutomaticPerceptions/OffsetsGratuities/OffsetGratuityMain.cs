@@ -1,5 +1,6 @@
 ﻿using ERP_NOMINAS.GlobalFunctions;
 using ERP_NOMINAS.Models.OffsetsGratuities;
+using ERP_NOMINAS.Reports.NonAutomaticPerception.OffsetsGratuities;
 using ERP_NOMINAS.Repositorys;
 using System;
 using System.Collections.Generic;
@@ -125,6 +126,14 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.OffsetsGratuities
         }
 
         private void buttonPrint1_OnBotonPrintClick(object sender, EventArgs e)
+        {
+            var reportShow = new offsetsGratuityListView();
+            reportShow.Table = Table;
+            reportShow.PayWeek = Convert.ToInt32(searchPayWeek1.SelectedValue);
+            reportShow.ShowDialog();
+        }
+
+        private void buttonPrint2_OnBotonPrintClick(object sender, EventArgs e)
         {
 
         }

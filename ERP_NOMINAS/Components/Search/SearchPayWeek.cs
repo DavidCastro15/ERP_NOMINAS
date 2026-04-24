@@ -32,7 +32,7 @@ namespace ERP_NOMINAS.Components.Search
             OnPayWeekSelected?.Invoke(this, e);
         }
 
-        public object SelectedPayWeek
+        public object SelectedValue
         {
             get => comboBox1.SelectedValue;
             set

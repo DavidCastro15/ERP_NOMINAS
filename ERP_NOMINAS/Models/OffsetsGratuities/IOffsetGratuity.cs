@@ -11,6 +11,7 @@ namespace ERP_NOMINAS.Models.OffsetsGratuities
         List<OffSetGratuity> GetOffsetsGratuity();
         List<OffSetGratuity> FilterByValue(string name);
         List<OffSetGratuity> FilterByValue(int payWeek);
+        List<OffsetGratuityReport> ShowDataReport(int payWeek);
         int CreateOffsetGratuity(OffSetGratuity o);
         OffSetGratuity GetOffsetGratuityEmployeeDetail(int Id);
         int UpdateOffsetGratuityEmployeeDetail(OffSetGratuity o);

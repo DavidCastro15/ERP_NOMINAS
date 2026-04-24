@@ -107,6 +107,47 @@ namespace ERP_NOMINAS.Repositorys
             return list;
         }
 
+        public List<OffsetGratuityReport> ShowDataReport(int payWeek)
+        {
+            List<OffsetGratuityReport> list = new List<OffsetGratuityReport>();
+
+            try
+            {
+
+                using (cmd = new SqlCommand("SELECT c.id,c.id_nomina,c.numero_empleado,CONCAT(e.nombre,' ',e.apellido_paterno,' ',e.apellido_materno) as n_completo,c.importe,c.ciclo,c.periodo,c.uso,c.comentarios,c.id_concepto " +
+                                                $"FROM {Table} c " +
+                                                "INNER JOIN empleados e " +
+                                                "ON c.numero_empleado = e.numero_empleado " +
+                                                "WHERE c.periodo = @payWeek " +
+                                                "ORDER BY c.periodo DESC", Conex.nomi))
+                {
+                    cmd.Parameters.AddWithValue("@payWeek", payWeek);
+                    Conex.OpenNomina();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            list.Add(ShowDataReport(reader));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception($"Error al obtener las {Table}: " + ex.Message);
+            }
+            finally
+            {
+
+                Conex.CloseNomina();
+            }
+
+            return list;
+        }
+
         public OffSetGratuity GetOffsetGratuityEmployeeDetail(int Id)
         {
             using (cmd = new SqlCommand($"SELECT * FROM {Table} WHERE id = @id", Conex.nomi))
@@ -250,7 +291,20 @@ namespace ERP_NOMINAS.Repositorys
             };
         }
 
-
+        private OffsetGratuityReport ShowDataReport(SqlDataReader reader)
+        {
+            return new OffsetGratuityReport
+            {
+                NumberEmployee = Convert.ToInt32(reader["numero_empleado"]),
+                FullName = Convert.ToString(reader["n_completo"]),
+                Amount = Convert.ToDecimal(reader["importe"]),
+                Cycle = Convert.ToString(reader["ciclo"]),
+                PayWeek = Convert.ToInt32(reader["periodo"]),
+                Use = Convert.ToInt32(reader["uso"]),
+                IdConcept = Convert.ToInt32(reader["id_concepto"])
+            };
+        }
+        
     }
 
 
