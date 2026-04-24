@@ -196,16 +196,22 @@
     <Compile Include="Components\Buttons\KitForm.Designer.cs">
       <DependentUpon>KitForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Components\Search\FilterByT.cs">
+    <Compile Include="Components\ItemForms\DateRange.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Components\Search\FilterByT.Designer.cs">
+    <Compile Include="Components\ItemForms\DateRange.Designer.cs">
+      <DependentUpon>DateRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ItemForms\FilterByT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\ItemForms\FilterByT.Designer.cs">
       <DependentUpon>FilterByT.cs</DependentUpon>
     </Compile>
-    <Compile Include="Components\Search\SearchCatalog.cs">
+    <Compile Include="Components\ItemForms\Search\SearchCatalog.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Components\Search\SearchCatalog.Designer.cs">
+    <Compile Include="Components\ItemForms\Search\SearchCatalog.Designer.cs">
       <DependentUpon>SearchCatalog.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\Deprecated\SearchCategories.cs">
@@ -232,16 +238,16 @@
     <Compile Include="Components\Deprecated\SearchGroup.Designer.cs">
       <DependentUpon>SearchGroup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Components\Search\SearchPayWeek.cs">
+    <Compile Include="Components\ItemForms\Search\SearchPayWeek.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Components\Search\SearchPayWeek.Designer.cs">
+    <Compile Include="Components\ItemForms\Search\SearchPayWeek.Designer.cs">
       <DependentUpon>SearchPayWeek.cs</DependentUpon>
     </Compile>
-    <Compile Include="Components\Search\SearchTurn.cs">
+    <Compile Include="Components\ItemForms\Search\SearchTurn.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Components\Search\SearchTurn.Designer.cs">
+    <Compile Include="Components\ItemForms\Search\SearchTurn.Designer.cs">
       <DependentUpon>SearchTurn.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\Deprecated\SearchUse.cs">
@@ -249,6 +255,12 @@
     </Compile>
     <Compile Include="Components\Deprecated\SearchUse.Designer.cs">
       <DependentUpon>SearchUse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ItemForms\SelectPayWeek.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\ItemForms\SelectPayWeek.Designer.cs">
+      <DependentUpon>SelectPayWeek.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexion\ConnectorSql.cs" />
     <Compile Include="MenuToolStripRender.cs" />
@@ -276,6 +288,10 @@
     <Compile Include="Models\ExtraShifts\IExtraShift.cs" />
     <Compile Include="Models\Groups\Group.cs" />
     <Compile Include="Models\Groups\IGroup.cs" />
+    <Compile Include="Models\HeightsTemperatures\HeightTemperatureDetail.cs" />
+    <Compile Include="Models\HeightsTemperatures\HeightTemperature.cs" />
+    <Compile Include="Models\HeightsTemperatures\HeightTemperatureReport.cs" />
+    <Compile Include="Models\HeightsTemperatures\IHeightTemperature.cs" />
     <Compile Include="Models\Holidays\Holiday.cs" />
     <Compile Include="Models\Holidays\IHoliday.cs" />
     <Compile Include="Models\IntegratedSalaries\IIntegratedSalary.cs" />
@@ -397,6 +413,7 @@
     <Compile Include="Repositorys\EquipmentRepository.cs" />
     <Compile Include="Repositorys\ExtraShiftRepository.cs" />
     <Compile Include="Repositorys\GroupRepository.cs" />
+    <Compile Include="Repositorys\HeightTemperatureRepository.cs" />
     <Compile Include="Repositorys\HolidayRepository.cs" />
     <Compile Include="Repositorys\IntegratedSalaryRepository.cs" />
     <Compile Include="Repositorys\ListAttendRepository.cs" />
@@ -645,6 +662,18 @@
     <Compile Include="Views\Master\Uses\UseShow.Designer.cs">
       <DependentUpon>UseShow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\HeightsTemperatures\HeightTemperatureMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\HeightsTemperatures\HeightTemperatureMain.Designer.cs">
+      <DependentUpon>HeightTemperatureMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\HeightsTemperatures\HeightTemperatureShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\HeightsTemperatures\HeightTemperatureShow.Designer.cs">
+      <DependentUpon>HeightTemperatureShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Non-AutomaticPerceptions\OffsetsGratuities\OffsetGratuityEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -714,10 +743,13 @@
     <EmbeddedResource Include="Components\Buttons\KitForm.resx">
       <DependentUpon>KitForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Components\Search\FilterByT.resx">
+    <EmbeddedResource Include="Components\ItemForms\DateRange.resx">
+      <DependentUpon>DateRange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ItemForms\FilterByT.resx">
       <DependentUpon>FilterByT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Components\Search\SearchCatalog.resx">
+    <EmbeddedResource Include="Components\ItemForms\Search\SearchCatalog.resx">
       <DependentUpon>SearchCatalog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\Deprecated\SearchCategories.resx">
@@ -732,14 +764,17 @@
     <EmbeddedResource Include="Components\Deprecated\SearchGroup.resx">
       <DependentUpon>SearchGroup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Components\Search\SearchPayWeek.resx">
+    <EmbeddedResource Include="Components\ItemForms\Search\SearchPayWeek.resx">
       <DependentUpon>SearchPayWeek.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Components\Search\SearchTurn.resx">
+    <EmbeddedResource Include="Components\ItemForms\Search\SearchTurn.resx">
       <DependentUpon>SearchTurn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\Deprecated\SearchUse.resx">
       <DependentUpon>SearchUse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ItemForms\SelectPayWeek.resx">
+      <DependentUpon>SelectPayWeek.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -901,6 +936,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Master\Uses\UseShow.resx">
       <DependentUpon>UseShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\HeightsTemperatures\HeightTemperatureMain.resx">
+      <DependentUpon>HeightTemperatureMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\HeightsTemperatures\HeightTemperatureShow.resx">
+      <DependentUpon>HeightTemperatureShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Non-AutomaticPerceptions\OffsetsGratuities\OffsetGratuityEdit.resx">
       <DependentUpon>OffsetGratuityEdit.cs</DependentUpon>

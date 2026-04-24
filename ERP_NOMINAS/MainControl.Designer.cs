@@ -69,9 +69,10 @@
             this.percepcionesNoAutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.destajosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compensacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gratificacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.gratificacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alturasYTemperaturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -386,7 +387,8 @@
             this.percepcionesNoAutoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.destajosToolStripMenuItem,
             this.compensacionesToolStripMenuItem,
-            this.gratificacionesToolStripMenuItem});
+            this.gratificacionesToolStripMenuItem,
+            this.alturasYTemperaturasToolStripMenuItem});
             this.percepcionesNoAutoToolStripMenuItem.Name = "percepcionesNoAutoToolStripMenuItem";
             this.percepcionesNoAutoToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
             this.percepcionesNoAutoToolStripMenuItem.Text = "Percepciones No Auto";
@@ -394,16 +396,23 @@
             // destajosToolStripMenuItem
             // 
             this.destajosToolStripMenuItem.Name = "destajosToolStripMenuItem";
-            this.destajosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.destajosToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.destajosToolStripMenuItem.Text = "Destajos";
             this.destajosToolStripMenuItem.Click += new System.EventHandler(this.destajosToolStripMenuItem_Click);
             // 
             // compensacionesToolStripMenuItem
             // 
             this.compensacionesToolStripMenuItem.Name = "compensacionesToolStripMenuItem";
-            this.compensacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.compensacionesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.compensacionesToolStripMenuItem.Text = "Compensaciones";
             this.compensacionesToolStripMenuItem.Click += new System.EventHandler(this.compensacionesToolStripMenuItem_Click);
+            // 
+            // gratificacionesToolStripMenuItem
+            // 
+            this.gratificacionesToolStripMenuItem.Name = "gratificacionesToolStripMenuItem";
+            this.gratificacionesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.gratificacionesToolStripMenuItem.Text = "Gratificaciones";
+            this.gratificacionesToolStripMenuItem.Click += new System.EventHandler(this.gratificacionesToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -424,12 +433,12 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // gratificacionesToolStripMenuItem
+            // alturasYTemperaturasToolStripMenuItem
             // 
-            this.gratificacionesToolStripMenuItem.Name = "gratificacionesToolStripMenuItem";
-            this.gratificacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.gratificacionesToolStripMenuItem.Text = "Gratificaciones";
-            this.gratificacionesToolStripMenuItem.Click += new System.EventHandler(this.gratificacionesToolStripMenuItem_Click);
+            this.alturasYTemperaturasToolStripMenuItem.Name = "alturasYTemperaturasToolStripMenuItem";
+            this.alturasYTemperaturasToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.alturasYTemperaturasToolStripMenuItem.Text = "Alturas y Temperaturas";
+            this.alturasYTemperaturasToolStripMenuItem.Click += new System.EventHandler(this.alturasYTemperaturasToolStripMenuItem_Click);
             // 
             // MainControl
             // 
@@ -498,5 +507,6 @@
         private System.Windows.Forms.ToolStripMenuItem destajosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem compensacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gratificacionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alturasYTemperaturasToolStripMenuItem;
     }
 }

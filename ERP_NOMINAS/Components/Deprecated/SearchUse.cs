@@ -12,6 +12,7 @@ using static ERP_NOMINAS.GlobalFunctions.Utilities;
 
 namespace ERP_NOMINAS.Components
 {
+    [DesignTimeVisible(false)]
     [Obsolete("Component DONT USE obsolete and not optimized, Please use SearchCatalog for now")]
     public partial class SearchUse : UserControl
     {

@@ -413,26 +413,6 @@ namespace ERP_NOMINAS.Repositorys
             };
         }
 
-        private Piecework MapPiecework(SqlDataReader reader)
-        {
-            return new Piecework
-            {
-                ReferenceNumber = Convert.ToInt32(reader["folio"]),
-                PayRollId = Convert.ToInt32(1),
-                PayWeek = Convert.ToInt32(reader["semana_pago"]),
-                Cycle = Convert.ToString(reader["ciclo"]),
-                Date = Convert.ToDateTime(reader["fecha"]),
-                Shift = Convert.ToInt32(reader["turno"]),
-                Material = Convert.ToString(reader["material"]),
-                TonRate = Convert.ToDecimal(reader["tarifa_tonelada"]),
-                TonCharged = Convert.ToDecimal(reader["tarifa_tonelada"]),
-                QuantityCharged = Convert.ToInt32(reader["cantidad_cargadores"]),
-                Use = Convert.ToInt32(reader["uso"]),
-                PercepctionId = Convert.ToInt32(20),
-                Details = new List<PieceworkDetail>()
-            };
-        }
-
         private PieceworkDetail ShowDetail(SqlDataReader reader)
         {
             return new PieceworkDetail

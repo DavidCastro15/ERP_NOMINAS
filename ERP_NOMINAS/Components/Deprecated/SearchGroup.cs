@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace ERP_NOMINAS.Components.Search
 {
+    [DesignTimeVisible(false)]
     [Obsolete("Component DONT USE obsolete and not optimized, Please use SearchCatalog for now")]
     public partial class SearchGroup : UserControl
     {

@@ -331,6 +331,5 @@ namespace ERP_NOMINAS.Repositorys
             };
         }
 
-
     }
 }

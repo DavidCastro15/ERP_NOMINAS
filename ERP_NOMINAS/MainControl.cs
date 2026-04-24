@@ -86,7 +86,9 @@ namespace ERP_NOMINAS
 
         private void destajosToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.Pieceworks.PieceWorkMain>();
 
-        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.OffsetsGratuities.OffsetGratuityMain>();
+        private void alturasYTemperaturasToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.HeightsTemperatures.HeightTemperatureMain>();
+
+        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.HeightsTemperatures.HeightTemperatureMain>();
 
         // --- Formularios Con Parámetros (Plantillas) ---
         private void reparacionToolStripMenuItem_Click(object sender, EventArgs e) =>
@@ -122,8 +124,8 @@ namespace ERP_NOMINAS
         private void gratificacionesToolStripMenuItem_Click(object sender, EventArgs e) =>
             OpenForm<FormsNonAutomatic.OffsetsGratuities.OffsetGratuityMain>(f => { f.Table = "gratificaciones"; });
 
-
-
+        
+        
     }
 
 }
