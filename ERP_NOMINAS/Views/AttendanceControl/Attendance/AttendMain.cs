@@ -26,26 +26,13 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance
             InitializeComponent();
             filterByT1.FilterBy = (text) =>
             {
-                // 1. Usar string.IsNullOrWhiteSpace es más seguro que ""
-                if (string.IsNullOrWhiteSpace(text))
+                if (int.TryParse(text, out int NumberEmployee))
                 {
-                    LoadGrid();
-                    return;
-                }
-
-                // 2. TryParse evita que la app se cierre si escriben letras
-                if (int.TryParse(text, out int id))
-                {
-                    var res = _repository.FilterByNumberEmployee(id);
-
-                    // 3. Evitamos el NullReferenceException si el repo devuelve null
-                    // y refrescamos el DataSource de forma eficiente
-                    dataGridView1.DataSource = new BindingList<Attend>(res ?? new List<Attend>());
+                    dataGridView1.DataSource = new BindingList<Attend>(_repository.FilterByValue(NumberEmployee));
                 }
                 else
                 {
-                    // Opcional: Si no es un número, podrías limpiar el grid o no hacer nada
-                    dataGridView1.DataSource = new BindingList<Attend>();
+                    dataGridView1.DataSource = new BindingList<Attend>(_repository.FilterByValue(text));
                 }
             };
         }

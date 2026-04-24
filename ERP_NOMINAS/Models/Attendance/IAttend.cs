@@ -9,7 +9,8 @@ namespace ERP_NOMINAS.Models.Attendance
     public interface IAttend
     {
         List<Attend> GetDataFilterAttend(DateTime entryDate, TimeSpan entryTime, TimeSpan departureTime);
-        List<Attend> FilterByNumberEmployee(int NumberEmployee);
+        List<Attend> FilterByValue(int NumberEmployee);
+        List<Attend> FilterByValue(string NameEmployee);
         List<Attend> GetAttends();
         int CreateAttendanceList(string Status, string Period, int PayWeek, DateTime dateList, int Shift);
         int GetListAttendByDetails(int ControlNumber);

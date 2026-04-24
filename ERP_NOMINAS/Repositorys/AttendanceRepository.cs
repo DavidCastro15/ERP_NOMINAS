@@ -37,13 +37,25 @@ namespace ERP_NOMINAS.Repositorys
             }
         }
 
-        public List<Attend> FilterByNumberEmployee(int NumberEmployee)
+        public List<Attend> FilterByValue(string NameEmployee)
+        {
+            string column = "CONCAT(nombre, ' ',apellidos)";
+            return ExecuteFilter(column, NameEmployee.ToString());
+        }
+
+        public List<Attend> FilterByValue(int NumberEmployee)
+        {
+            string column = "id_empleado";
+            return ExecuteFilter(column, NumberEmployee.ToString());
+        }
+
+        private List<Attend> ExecuteFilter(string column, string param)
         {
             List<Attend> list = new List<Attend>();
 
             try
             {
-                using (cmd = new SqlCommand("SELECT * FROM asistencia WHERE id_empleado LIKE '%" + NumberEmployee + @"%'", Conex.nomi))
+                using (cmd = new SqlCommand($"SELECT * FROM asistencia WHERE {column} LIKE '%" + param + @"%'", Conex.nomi))
                 {
                     Conex.OpenNomina();
 
@@ -586,5 +598,7 @@ namespace ERP_NOMINAS.Repositorys
                 Status = Convert.ToString(reader["estatus"])
             };
         }
+
+
     }
 }

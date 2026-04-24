@@ -246,9 +246,9 @@
             this.filterByT1.FilterBy = null;
             this.filterByT1.Location = new System.Drawing.Point(12, 104);
             this.filterByT1.Name = "filterByT1";
-            this.filterByT1.Size = new System.Drawing.Size(268, 49);
+            this.filterByT1.Size = new System.Drawing.Size(279, 49);
             this.filterByT1.TabIndex = 1;
-            this.filterByT1.TittleChange = "No. Empleado:";
+            this.filterByT1.TittleChange = "N°/Nombre de  Empleado:";
             // 
             // groupBox1
             // 
