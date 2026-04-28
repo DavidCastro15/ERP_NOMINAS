@@ -158,7 +158,7 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.HeightsTemperatures
 
                 int count = _bsDetails.Count;
                 textBox2.Text = count.ToString();
-                searchCatalog3.Focus();
+                searchCatalog1.Focus();
             }
         }
 
