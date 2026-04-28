@@ -11,6 +11,7 @@ namespace ERP_NOMINAS.Models.HeightsTemperatures
         public int Id { get; set; }
         public int ReferenceNumber { get; set; }
         public int NumberEmployee { get; set; }
+        public string FullName { get; set; }
         public string Cycle { get; set; }
         public DateTime Date { get; set; }
         public int CategoryId { get; set; }

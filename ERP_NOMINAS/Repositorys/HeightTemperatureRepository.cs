@@ -171,15 +171,7 @@ namespace ERP_NOMINAS.Repositorys
                 {
                     if (reader.Read())
                     {
-                        record = new HeightTemperature
-                        {
-                            ReferenceNumber = Convert.ToInt32(reader["folio"]),
-                            PayrollId = Convert.ToInt32(reader["id_nomina"]),
-                            PayWeek = Convert.ToInt32(reader["semana_pago"]),
-                            Cycle = reader["ciclo"].ToString(),
-                            Date = Convert.ToDateTime(reader["fecha"]),
-                            IdConcept = Convert.ToInt32(reader["id_percepcion"])
-                        };
+                        record = ShowDataGrid(reader);
                     }
                 }
             }
@@ -217,7 +209,7 @@ namespace ERP_NOMINAS.Repositorys
 
         private List<HeightTemperatureDetail> GetHeightTemperatureDetails(int folio)
         {
-            var detalles = new List<HeightTemperatureDetail>();
+            var list = new List<HeightTemperatureDetail>();
 
             string queryDet = @"SELECT d.id, d.numero_empleado, d.id_categoria, d.horas, d.uso,
                                CONCAT(e.nombre, ' ', e.apellido_paterno, ' ', e.apellido_materno) AS nombre_completo
@@ -233,7 +225,7 @@ namespace ERP_NOMINAS.Repositorys
                 {
                     while (reader.Read())
                     {
-                        detalles.Add(new HeightTemperatureDetail
+                        list.Add(new HeightTemperatureDetail
                         {
                             Id = Convert.ToInt32(reader["id"]),
                             NumberEmployee = Convert.ToInt32(reader["numero_empleado"]),
@@ -245,7 +237,53 @@ namespace ERP_NOMINAS.Repositorys
                     }
                 }
             }
-            return detalles;
+            return list;
+        }
+
+        public List<HeightTemperatureReport> ShowReportDetail(DateTime d1, DateTime d2)
+        {
+            List<HeightTemperatureReport> list = new List<HeightTemperatureReport>();
+
+            try
+            {
+
+                using (cmd = new SqlCommand(@"SELECT ate.id,ate.folio,atd.numero_empleado,CONCAT(e.nombre,' ',e.apellido_paterno,' ',e.apellido_materno) AS n_completo,ate.ciclo,ate.fecha,atd.id_categoria,atd.horas,atd.uso,(c.salario/8) * atd.horas AS importe
+                                                FROM alturas_temp_encabezado ate
+                                                INNER JOIN alturas_temp_detalle atd
+                                                ON ate.folio = atd.folio
+                                                INNER JOIN empleados e
+                                                ON atd.numero_empleado = e.numero_empleado
+                                                INNER JOIN categorias c
+                                                ON atd.id_categoria = c.id_categoria
+                                                WHERE ate.fecha BETWEEN @start AND @end", Conex.nomi))
+                {
+                    cmd.Parameters.AddWithValue("@start", d1);
+                    cmd.Parameters.AddWithValue("@end", d2);
+                    Conex.OpenNomina();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            list.Add(ReportDataDetails(reader));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error al obtener las alturas y temperaturas: " + ex.Message);
+            }
+            finally
+            {
+
+                Conex.CloseNomina();
+            }
+
+
+            return list;
         }
 
         public List<HeightTemperature> GetHeightTemperatureHeads()
@@ -384,6 +422,21 @@ namespace ERP_NOMINAS.Repositorys
             };
         }
 
-      
+        private HeightTemperatureReport ReportDataDetails (SqlDataReader reader)
+        {
+            return new HeightTemperatureReport
+            {
+                Id = Convert.ToInt32(reader["id"]),
+                ReferenceNumber = Convert.ToInt32(reader["folio"]),
+                NumberEmployee = Convert.ToInt32(reader["numero_empleado"]),
+                FullName= Convert.ToString(reader["n_completo"]),
+                Cycle = Convert.ToString(reader["ciclo"]),
+                Date = Convert.ToDateTime(reader["fecha"]),
+                CategoryId = Convert.ToInt32(reader["id_categoria"]),
+                Hours = Convert.ToDecimal(reader["horas"]),
+                Use = Convert.ToInt32(reader["uso"]),
+                Amount = Convert.ToDecimal(reader["importe"])
+            };
+        }
     }
 }

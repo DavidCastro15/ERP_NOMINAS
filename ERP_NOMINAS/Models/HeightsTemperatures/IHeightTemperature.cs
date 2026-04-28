@@ -10,6 +10,7 @@ namespace ERP_NOMINAS.Models.HeightsTemperatures
     {
         List<HeightTemperature> GetHeightTemperatureHeads();
         List<HeightTemperature> FilterByReferenceNumber(int rf);
+        List<HeightTemperatureReport> ShowReportDetail(DateTime d1, DateTime d2);     
         HeightTemperature GetHeightTemperature(int rf);
         HeightTemperatureDetail GetDetailEmployee(int NumberEmployee);
         int CreateHeightTemperature(HeightTemperature data);

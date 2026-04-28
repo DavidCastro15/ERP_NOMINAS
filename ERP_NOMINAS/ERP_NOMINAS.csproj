@@ -351,6 +351,12 @@
     <Compile Include="Reports\Master\Employees\employeeListView.Designer.cs">
       <DependentUpon>employeeListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\NonAutomaticPerception\HeightTemperatures\heightTemperatureListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\NonAutomaticPerception\HeightTemperatures\heightTemperatureListView.Designer.cs">
+      <DependentUpon>heightTemperatureListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\NonAutomaticPerception\OffsetsGratuities\offsetsGratuityListView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -811,6 +817,10 @@
     <EmbeddedResource Include="Reports\Master\Employees\employeeList.rdlc" />
     <EmbeddedResource Include="Reports\Master\Employees\employeeListView.resx">
       <DependentUpon>employeeListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NonAutomaticPerception\HeightTemperatures\heightTemperatureList.rdlc" />
+    <EmbeddedResource Include="Reports\NonAutomaticPerception\HeightTemperatures\heightTemperatureListView.resx">
+      <DependentUpon>heightTemperatureListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\NonAutomaticPerception\OffsetsGratuities\offsetsGratuityList.rdlc" />
     <EmbeddedResource Include="Reports\NonAutomaticPerception\OffsetsGratuities\offsetsGratuityListView.resx">

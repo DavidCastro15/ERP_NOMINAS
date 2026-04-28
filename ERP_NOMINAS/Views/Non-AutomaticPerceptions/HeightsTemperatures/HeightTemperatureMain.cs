@@ -1,5 +1,6 @@
 ﻿using ERP_NOMINAS.GlobalFunctions;
 using ERP_NOMINAS.Models.HeightsTemperatures;
+using ERP_NOMINAS.Reports.NonAutomaticPerception.HeightTemperatures;
 using ERP_NOMINAS.Repositorys;
 using System;
 using System.Collections.Generic;
@@ -125,6 +126,14 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.HeightsTemperatures
             heightTemp.Edit = true;
             heightTemp.ShowDialog();
 
+        }
+
+        private void buttonPrint1_OnBotonPrintClick(object sender, EventArgs e)
+        {
+            var printReport = new heightTemperatureListView();
+            printReport.d1 = dateRange1.StartDate;
+            printReport.d2 = dateRange1.EndDate;
+            printReport.ShowDialog();
         }
     }
 }
