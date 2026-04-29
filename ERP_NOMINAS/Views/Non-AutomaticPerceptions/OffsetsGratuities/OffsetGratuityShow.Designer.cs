@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonAdd1 = new ERP_NOMINAS.Components.Buttons.buttonAdd();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -49,80 +43,12 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.kitCrud1 = new ERP_NOMINAS.Components.Buttons.KitCrud();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.selectCycle1 = new ERP_NOMINAS.Components.ItemForms.SelectCycle();
+            this.selectPayWeek1 = new ERP_NOMINAS.Components.ItemForms.SelectPayWeek();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 25);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(145, 40);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ciclo";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(62, 19);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(80, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Reparación";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(50, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Zafra";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(440, 44);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            52,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(48, 20);
-            this.numericUpDown1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(388, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Periodo:";
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(494, 44);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            9,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(48, 20);
-            this.numericUpDown2.TabIndex = 3;
             // 
             // groupBox2
             // 
@@ -276,43 +202,47 @@
             this.kitCrud1.TabIndex = 6;
             this.kitCrud1.Save += new System.EventHandler(this.kitCrud1_Save);
             // 
-            // OffsetShow
+            // selectCycle1
+            // 
+            this.selectCycle1.Location = new System.Drawing.Point(18, 12);
+            this.selectCycle1.Name = "selectCycle1";
+            this.selectCycle1.SelectValue = "Zafra";
+            this.selectCycle1.Size = new System.Drawing.Size(92, 59);
+            this.selectCycle1.TabIndex = 7;
+            // 
+            // selectPayWeek1
+            // 
+            this.selectPayWeek1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.selectPayWeek1.Location = new System.Drawing.Point(116, 31);
+            this.selectPayWeek1.Name = "selectPayWeek1";
+            this.selectPayWeek1.PayWeek = 0;
+            this.selectPayWeek1.PayWeekType = 0;
+            this.selectPayWeek1.Size = new System.Drawing.Size(126, 28);
+            this.selectPayWeek1.TabIndex = 8;
+            // 
+            // OffsetGratuityShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 521);
+            this.Controls.Add(this.selectPayWeek1);
+            this.Controls.Add(this.selectCycle1);
             this.Controls.Add(this.kitCrud1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.groupBox1);
             this.Location = new System.Drawing.Point(0, 0);
-            this.Name = "OffsetShow";
+            this.Name = "OffsetGratuityShow";
             this.Text = "Compensacion";
             this.Load += new System.EventHandler(this.OffsetShow_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.GroupBox groupBox2;
         private Components.Buttons.buttonAdd buttonAdd1;
         private System.Windows.Forms.RichTextBox richTextBox1;
@@ -328,5 +258,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewButtonColumn Column5;
+        private Components.ItemForms.SelectCycle selectCycle1;
+        private Components.ItemForms.SelectPayWeek selectPayWeek1;
     }
 }

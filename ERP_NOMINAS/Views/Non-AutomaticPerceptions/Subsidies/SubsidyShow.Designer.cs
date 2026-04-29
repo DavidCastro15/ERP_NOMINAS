@@ -123,7 +123,7 @@
             // 
             // selectCycle1
             // 
-            this.selectCycle1.Location = new System.Drawing.Point(410, 32);
+            this.selectCycle1.Location = new System.Drawing.Point(410, 27);
             this.selectCycle1.Name = "selectCycle1";
             this.selectCycle1.SelectValue = "Zafra";
             this.selectCycle1.Size = new System.Drawing.Size(92, 59);

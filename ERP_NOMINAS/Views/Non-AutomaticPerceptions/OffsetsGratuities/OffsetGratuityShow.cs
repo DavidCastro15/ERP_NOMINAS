@@ -98,15 +98,13 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.OffsetsGratuities
         }
 
         private OffSetGratuity ShowOffset()
-        {
-            int payWeek = Util.PayWeekNow(Convert.ToInt32(numericUpDown1.Value), Convert.ToInt32(numericUpDown2.Value));
-            var cicle = groupBox1.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
+        {          
             return new OffSetGratuity
             {
                 Id = Convert.ToInt32(0),
                 PayrollId = Convert.ToInt32(1),
-                Cycle = Convert.ToString(cicle.Text),
-                PayWeek = Convert.ToInt32(payWeek),
+                Cycle = Convert.ToString(selectCycle1.SelectValue),
+                PayWeek = Convert.ToInt32(Util.PayWeekNow(selectPayWeek1.PayWeek, selectPayWeek1.PayWeekType)),
                 Details = _res.Details,
                 IdConcept = Convert.ToInt32(Table == "compensaciones" ? 12 : 26)               
             };

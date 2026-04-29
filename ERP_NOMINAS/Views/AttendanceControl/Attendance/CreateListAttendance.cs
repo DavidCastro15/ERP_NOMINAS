@@ -30,9 +30,7 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance
         private void button1_Click(object sender, EventArgs e)
         {
 
-            var Status = groupBox1.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
-            var Period = groupBox2.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);         
-            int PayWeek = Util.PayWeekNow((int)numericUpDown1.Value,(int)numericUpDown2.Value);
+            var Status = groupBox1.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);            
             int Shift = Convert.ToInt32(searchTurn1.SelectedTurntId);
 
             string message = "¿Está seguro de crear la lista?";
@@ -43,7 +41,7 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance
             {
                 if (ress == DialogResult.Yes)
                 {
-                    _repository.CreateAttendanceList(Status.Text,Period.Text, PayWeek,dateTimePicker1.Value,Shift);
+                    _repository.CreateAttendanceList(Status.Text, Convert.ToString(selectCycle1.SelectValue), Convert.ToInt32(Util.PayWeekNow(selectPayWeek1.PayWeek, selectPayWeek1.PayWeekType)), dateTimePicker1.Value,Shift);
                     MessageBox.Show("Lista creada con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
                 }

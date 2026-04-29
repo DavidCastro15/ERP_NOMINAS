@@ -38,9 +38,6 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.searchCatalog1 = new ERP_NOMINAS.Components.Search.SearchCatalog();
             this.searchCatalog2 = new ERP_NOMINAS.Components.Search.SearchCatalog();
-            this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.searchTurn1 = new ERP_NOMINAS.Components.SearchTurn();
@@ -52,9 +49,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.kitCrud1 = new ERP_NOMINAS.Components.Buttons.KitCrud();
+            this.selectPayWeek1 = new ERP_NOMINAS.Components.ItemForms.SelectPayWeek();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -159,39 +155,6 @@
             this.searchCatalog2.TabIndex = 6;
             this.searchCatalog2.TittleChange = "Material:";
             this.searchCatalog2.OnItemSelected += new System.EventHandler(this.searchCatalog2_OnItemSelected);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(190, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 26);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Semana \r\nPago:";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(245, 19);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            52,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(38, 20);
-            this.numericUpDown1.TabIndex = 8;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(289, 19);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            9,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(38, 20);
-            this.numericUpDown2.TabIndex = 9;
             // 
             // label3
             // 
@@ -311,11 +274,22 @@
             this.kitCrud1.Save += new System.EventHandler(this.kitCrud1_Save);
             this.kitCrud1.Edit += new System.EventHandler(this.kitCrud1_Edit);
             // 
+            // selectPayWeek1
+            // 
+            this.selectPayWeek1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.selectPayWeek1.Location = new System.Drawing.Point(190, 12);
+            this.selectPayWeek1.Name = "selectPayWeek1";
+            this.selectPayWeek1.PayWeek = 0;
+            this.selectPayWeek1.PayWeekType = 0;
+            this.selectPayWeek1.Size = new System.Drawing.Size(126, 28);
+            this.selectPayWeek1.TabIndex = 19;
+            // 
             // PieceWorkShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(535, 485);
+            this.ClientSize = new System.Drawing.Size(537, 485);
+            this.Controls.Add(this.selectPayWeek1);
             this.Controls.Add(this.kitCrud1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label5);
@@ -325,9 +299,6 @@
             this.Controls.Add(this.searchTurn1);
             this.Controls.Add(this.numericUpDown3);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.searchCatalog2);
             this.Controls.Add(this.searchCatalog1);
             this.Controls.Add(this.dateTimePicker1);
@@ -338,8 +309,6 @@
             this.Text = "Destajo";
             this.Load += new System.EventHandler(this.PieceWorkShow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -355,9 +324,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private Components.Search.SearchCatalog searchCatalog1;
         private Components.Search.SearchCatalog searchCatalog2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
         private Components.SearchTurn searchTurn1;
@@ -374,5 +340,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewButtonColumn Column5;
+        private Components.ItemForms.SelectPayWeek selectPayWeek1;
     }
 }

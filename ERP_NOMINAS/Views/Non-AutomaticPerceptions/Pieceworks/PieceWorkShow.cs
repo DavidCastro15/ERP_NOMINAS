@@ -49,8 +49,8 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Pieceworks
                 dateTimePicker1.Value = _res.Date;
                 searchCatalog1.SelectedValue = _res.Use;
                 searchCatalog2.SelectedValue = _res.Material;
-                numericUpDown1.Value = Util.GetPayWeek(_res.PayWeek);
-                numericUpDown2.Value = Util.GetPayWeekType(_res.PayWeek);
+                selectPayWeek1.PayWeek = Util.GetPayWeek(_res.PayWeek);
+                selectPayWeek1.PayWeekType = Util.GetPayWeekType(_res.PayWeek);
                 numericUpDown3.Value = _res.TonRate;
                 numericUpDown4.Value = _res.TonCharged;
                 textBox1.Text = _res.QuantityCharged.ToString();
@@ -165,8 +165,6 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Pieceworks
 
         private Piecework ShowPieceWork()
         {
-            string _payWeek = $"{dateTimePicker1.Value.Year}{numericUpDown1.Value}{numericUpDown2.Value}";
-
             return new Piecework
             {
                 ReferenceNumber = Convert.ToInt32(RefetenceN),
@@ -176,7 +174,7 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Pieceworks
                 TonRate = Convert.ToDecimal(numericUpDown3.Value),
                 TonCharged = Convert.ToDecimal(numericUpDown4.Value),
                 QuantityCharged = Convert.ToInt32(textBox1.Text),
-                PayWeek = Convert.ToInt32(Util.PayWeekNow((int)numericUpDown1.Value, (int)numericUpDown2.Value)),
+                PayWeek = Convert.ToInt32(Util.PayWeekNow(selectPayWeek1.PayWeek, selectPayWeek1.PayWeekType)),
                 Cycle = Convert.ToString(""),
                 Use = Convert.ToInt32(searchCatalog1.SelectedValue),
                 PercepctionId = Convert.ToInt32(20),

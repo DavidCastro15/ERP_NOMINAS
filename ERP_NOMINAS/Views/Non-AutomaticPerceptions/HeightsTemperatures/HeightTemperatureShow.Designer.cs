@@ -31,9 +31,6 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.selectPayWeek1 = new ERP_NOMINAS.Components.ItemForms.SelectPayWeek();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonAdd1 = new ERP_NOMINAS.Components.Buttons.buttonAdd();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -42,11 +39,6 @@
             this.searchCatalog2 = new ERP_NOMINAS.Components.Search.SearchCatalog();
             this.searchCatalog1 = new ERP_NOMINAS.Components.Search.SearchCatalog();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.kitCrud1 = new ERP_NOMINAS.Components.Buttons.KitCrud();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +46,12 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.groupBox1.SuspendLayout();
+            this.kitCrud1 = new ERP_NOMINAS.Components.Buttons.KitCrud();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.selectCycle1 = new ERP_NOMINAS.Components.ItemForms.SelectCycle();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -89,39 +86,6 @@
             this.selectPayWeek1.PayWeekType = 0;
             this.selectPayWeek1.Size = new System.Drawing.Size(126, 28);
             this.selectPayWeek1.TabIndex = 2;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(299, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(137, 36);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ciclo";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(56, 16);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(80, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.Text = "Reparación";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 16);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(50, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Zafra";
-            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -224,53 +188,6 @@
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // kitCrud1
-            // 
-            this.kitCrud1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.kitCrud1.Location = new System.Drawing.Point(548, 445);
-            this.kitCrud1.Name = "kitCrud1";
-            this.kitCrud1.Size = new System.Drawing.Size(152, 52);
-            this.kitCrud1.TabIndex = 6;
-            this.kitCrud1.Save += new System.EventHandler(this.kitCrud1_Save);
-            this.kitCrud1.Edit += new System.EventHandler(this.kitCrud1_Edit);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Location = new System.Drawing.Point(583, 12);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(116, 48);
-            this.groupBox3.TabIndex = 7;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Folio:";
-            this.groupBox3.Visible = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(10, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.textBox2);
-            this.groupBox4.Location = new System.Drawing.Point(586, 103);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(116, 50);
-            this.groupBox4.TabIndex = 8;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Empleados Totales:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(10, 24);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
-            // 
             // Column7
             // 
             this.Column7.DataPropertyName = "Id";
@@ -323,17 +240,72 @@
             this.Column6.Text = "Eliminar";
             this.Column6.UseColumnTextForButtonValue = true;
             // 
+            // kitCrud1
+            // 
+            this.kitCrud1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.kitCrud1.Location = new System.Drawing.Point(548, 445);
+            this.kitCrud1.Name = "kitCrud1";
+            this.kitCrud1.Size = new System.Drawing.Size(152, 52);
+            this.kitCrud1.TabIndex = 6;
+            this.kitCrud1.Save += new System.EventHandler(this.kitCrud1_Save);
+            this.kitCrud1.Edit += new System.EventHandler(this.kitCrud1_Edit);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Location = new System.Drawing.Point(583, 12);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(116, 48);
+            this.groupBox3.TabIndex = 7;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Folio:";
+            this.groupBox3.Visible = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(10, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.textBox2);
+            this.groupBox4.Location = new System.Drawing.Point(586, 138);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(116, 50);
+            this.groupBox4.TabIndex = 8;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Empleados Totales:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(10, 24);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 1;
+            // 
+            // selectCycle1
+            // 
+            this.selectCycle1.Location = new System.Drawing.Point(301, 5);
+            this.selectCycle1.Name = "selectCycle1";
+            this.selectCycle1.SelectValue = "Zafra";
+            this.selectCycle1.Size = new System.Drawing.Size(92, 59);
+            this.selectCycle1.TabIndex = 9;
+            // 
             // HeightTemperatureShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 500);
+            this.Controls.Add(this.selectCycle1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.kitCrud1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.selectPayWeek1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePicker1);
@@ -341,8 +313,6 @@
             this.Name = "HeightTemperatureShow";
             this.Text = "Alturas y Temperaturas";
             this.Load += new System.EventHandler(this.HeightTemperatureShow_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -361,9 +331,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
         private Components.ItemForms.SelectPayWeek selectPayWeek1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.GroupBox groupBox2;
         private Components.Search.SearchCatalog searchCatalog3;
         private Components.Search.SearchCatalog searchCatalog2;
@@ -384,5 +351,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewButtonColumn Column6;
+        private Components.ItemForms.SelectCycle selectCycle1;
     }
 }

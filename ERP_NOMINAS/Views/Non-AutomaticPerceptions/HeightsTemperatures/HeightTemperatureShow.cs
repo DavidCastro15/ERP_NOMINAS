@@ -56,10 +56,8 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.HeightsTemperatures
                 dateTimePicker1.Value = _res.Date;
                 selectPayWeek1.PayWeek = Util.GetPayWeek(_res.PayWeek);
                 selectPayWeek1.PayWeekType = Util.GetPayWeekType(_res.PayWeek);
-                radioButton1.Checked = _res.Cycle == "Zafra";
-                radioButton2.Checked = _res.Cycle != "Zafra";
+                selectCycle1.SelectValue = _res.Cycle;
                 textBox1.Text = RefetenceN.ToString();
-
                 _bsDetails.DataSource = _res.Details;
                 textBox2.Text = _res.Details.Count.ToString();
             }
@@ -164,14 +162,12 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.HeightsTemperatures
 
         private HeightTemperature ShowHeightTemperatur()
         {
-            string _cycle = groupBox1.Controls.OfType<RadioButton>()
-                               .FirstOrDefault(r => r.Checked)?.Text;
             return new HeightTemperature
             {
                 ReferenceNumber = Convert.ToInt32(RefetenceN),
                 PayrollId = Convert.ToInt32(1),
                 PayWeek = Convert.ToInt32(Util.PayWeekNow(selectPayWeek1.PayWeek, selectPayWeek1.PayWeekType)),
-                Cycle = Convert.ToString(_cycle),
+                Cycle = Convert.ToString(selectCycle1.SelectValue),
                 Date = Convert.ToDateTime(dateTimePicker1.Value),
                 IdConcept = Convert.ToInt32(40),
                 Details = _res.Details
