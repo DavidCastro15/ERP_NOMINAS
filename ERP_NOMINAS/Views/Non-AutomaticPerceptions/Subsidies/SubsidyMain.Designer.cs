@@ -160,6 +160,7 @@
             this.buttonPrint1.Name = "buttonPrint1";
             this.buttonPrint1.Size = new System.Drawing.Size(74, 49);
             this.buttonPrint1.TabIndex = 1;
+            this.buttonPrint1.OnBotonPrintClick += new System.EventHandler(this.buttonPrint1_OnBotonPrintClick);
             // 
             // searchPayWeek1
             // 

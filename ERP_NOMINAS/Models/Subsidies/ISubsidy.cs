@@ -11,7 +11,7 @@ namespace ERP_NOMINAS.Models.Subsidies
         List<Subsidy> GetSubsidies();
         List<Subsidy> FilterByValue(int pw);
         List<Subsidy> FilterByValue(string Name);
-        List<Subsidy> ShowDataReport(int pw);
+        List<SubsidyReport> ShowDataReport(int pw);
         Subsidy GetSubsidy(int Id);
         int CreateSubsidy(Subsidy s);
         int UpdateSubsidy(Subsidy s);

@@ -378,6 +378,12 @@
     <Compile Include="Reports\NonAutomaticPerception\Piecework\pieceworkListView.Designer.cs">
       <DependentUpon>pieceworkListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\NonAutomaticPerception\Subsidies\subsidyListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\NonAutomaticPerception\Subsidies\subsidyListView.Designer.cs">
+      <DependentUpon>subsidyListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ViewsTablesAttendance.cs">
       <DependentUpon>ViewsTablesAttendance.xsd</DependentUpon>
     </Compile>
@@ -854,6 +860,10 @@
     <EmbeddedResource Include="Reports\NonAutomaticPerception\Piecework\pieceworkList.rdlc" />
     <EmbeddedResource Include="Reports\NonAutomaticPerception\Piecework\pieceworkListView.resx">
       <DependentUpon>pieceworkListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NonAutomaticPerception\Subsidies\subsidyList.rdlc" />
+    <EmbeddedResource Include="Reports\NonAutomaticPerception\Subsidies\subsidyListView.resx">
+      <DependentUpon>subsidyListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AttendanceControl\Attendance\AttendMain.resx">
       <DependentUpon>AttendMain.cs</DependentUpon>

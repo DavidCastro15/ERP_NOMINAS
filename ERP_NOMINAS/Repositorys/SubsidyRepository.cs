@@ -184,9 +184,45 @@ namespace ERP_NOMINAS.Repositorys
             return null;
         }
 
-        public List<Subsidy> ShowDataReport(int pw)
+        public List<SubsidyReport> ShowDataReport(int pw)
         {
-            throw new NotImplementedException();
+            List<SubsidyReport> list = new List<SubsidyReport>();
+
+            try
+            {
+
+                using (cmd = new SqlCommand(@"SELECT s.id,s.id_nomina,s.periodo,s.semana_pago,s.numero_empleado,CONCAT(e.nombre,' ',e.apellido_paterno,' ',e.apellido_materno) as n_completo,s.importe,s.uso,s.id_percepcion,s.comentarios
+                                                            FROM subsidios s
+                                                            INNER JOIN empleados e
+                                                            ON e.numero_empleado = s.numero_empleado
+                                                            WHERE s.semana_pago = @semana_pago
+                                                            ORDER BY s.numero_empleado ASC", Conex.nomi))
+                {
+                    cmd.Parameters.AddWithValue("@semana_pago", pw);
+                    Conex.OpenNomina();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            list.Add(ShowDataReport(reader));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception($"Error al obtener los subsidios: " + ex.Message);
+            }
+            finally
+            {
+
+                Conex.CloseNomina();
+            }
+
+            return list;
         }
 
         public int UpdateSubsidy(Subsidy s)
@@ -225,6 +261,21 @@ namespace ERP_NOMINAS.Repositorys
                 Comments = Convert.ToString(reader["comentarios"]),
                 ConceptId = Convert.ToInt32(25)
 
+            };
+        }
+
+        private SubsidyReport ShowDataReport(SqlDataReader reader)
+        {
+            return new SubsidyReport
+            {
+
+                Cycle = Convert.ToString(reader["periodo"]),
+                PayWeek = Convert.ToInt32(reader["semana_pago"]),
+                NumberEmployee = Convert.ToInt32(reader["numero_empleado"]),
+                FullName = Convert.ToString(reader["n_completo"]),
+                Amount = Convert.ToDecimal(reader["importe"]),
+                Use = reader["uso"] == DBNull.Value ? 0 : Convert.ToInt32(reader["uso"]),
+                Comments = Convert.ToString(reader["comentarios"]),
             };
         }
     }

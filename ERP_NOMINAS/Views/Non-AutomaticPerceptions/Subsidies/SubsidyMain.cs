@@ -1,5 +1,6 @@
 ﻿using ERP_NOMINAS.GlobalFunctions;
 using ERP_NOMINAS.Models.Subsidies;
+using ERP_NOMINAS.Reports.NonAutomaticPerception.Subsidies;
 using ERP_NOMINAS.Repositorys;
 using System;
 using System.Collections.Generic;
@@ -112,6 +113,13 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.Subsidies
             piecehow.Edit = true;
             piecehow.ShowDialog();
 
+        }
+
+        private void buttonPrint1_OnBotonPrintClick(object sender, EventArgs e)
+        {
+            var report = new subsidyListView();
+            report.PayWeek = Convert.ToInt32(searchPayWeek1.SelectedValue);
+            report.ShowDialog();
         }
     }
 }

@@ -8,5 +8,13 @@ namespace ERP_NOMINAS.Models.Subsidies
 {
     public class SubsidyReport
     {
+
+        public int NumberEmployee { get; set; }
+        public string FullName { get; set; }
+        public string Cycle { get; set; } 
+        public int PayWeek { get; set; }     
+        public decimal Amount { get; set; }     
+        public int Use { get; set; }
+        public string Comments { get; set; }
     }
 }
