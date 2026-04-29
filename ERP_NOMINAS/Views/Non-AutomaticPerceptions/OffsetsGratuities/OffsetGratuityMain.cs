@@ -26,10 +26,10 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.OffsetsGratuities
             InitializeComponent();
             filterByT1.FilterBy = (text) =>
             {         
-                if (int.TryParse(text, out int periodo))
+                if (int.TryParse(text, out int payweek))
                 {
                     _repository.Table = Table;
-                    dataGridView1.DataSource = new BindingList<OffSetGratuity>(_repository.FilterByValue(periodo));
+                    dataGridView1.DataSource = new BindingList<OffSetGratuity>(_repository.FilterByValue(payweek));
                 }
                 else
                 {

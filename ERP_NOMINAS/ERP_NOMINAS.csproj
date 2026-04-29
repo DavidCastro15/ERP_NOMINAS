@@ -256,6 +256,12 @@
     <Compile Include="Components\Deprecated\SearchUse.Designer.cs">
       <DependentUpon>SearchUse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\ItemForms\SelectCycle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\ItemForms\SelectCycle.Designer.cs">
+      <DependentUpon>SelectCycle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\ItemForms\SelectPayWeek.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -311,6 +317,9 @@
     <Compile Include="Models\Pieceworks\Piecework.cs" />
     <Compile Include="Models\Pieceworks\PieceworkDetail.cs" />
     <Compile Include="Models\Pieceworks\PieceWorkDetailReport.cs" />
+    <Compile Include="Models\Subsidies\ISubsidy.cs" />
+    <Compile Include="Models\Subsidies\Subsidy.cs" />
+    <Compile Include="Models\Subsidies\SubsidyReport.cs" />
     <Compile Include="Models\SubsidyFees\ISubsidyFee.cs" />
     <Compile Include="Models\SubsidyFees\SubsidyFee.cs" />
     <Compile Include="Models\TaxRates\ITaxRate.cs" />
@@ -429,6 +438,7 @@
     <Compile Include="Repositorys\PerceptionDeductionRepository.cs" />
     <Compile Include="Repositorys\PieceworkRepository.cs" />
     <Compile Include="Repositorys\SubsidyFeeRepository.cs" />
+    <Compile Include="Repositorys\SubsidyRepository.cs" />
     <Compile Include="Repositorys\TaxRateRepository.cs" />
     <Compile Include="Repositorys\TemplateRepository.cs" />
     <Compile Include="Repositorys\UnionCommitteeRepository.cs" />
@@ -710,6 +720,18 @@
     <Compile Include="Views\Non-AutomaticPerceptions\Pieceworks\PieceWorkShow.Designer.cs">
       <DependentUpon>PieceWorkShow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\Subsidies\SubsidyMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\Subsidies\SubsidyMain.Designer.cs">
+      <DependentUpon>SubsidyMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\Subsidies\SubsidyShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\Subsidies\SubsidyShow.Designer.cs">
+      <DependentUpon>SubsidyShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -778,6 +800,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Components\Deprecated\SearchUse.resx">
       <DependentUpon>SearchUse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ItemForms\SelectCycle.resx">
+      <DependentUpon>SelectCycle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\ItemForms\SelectPayWeek.resx">
       <DependentUpon>SelectPayWeek.cs</DependentUpon>
@@ -967,6 +992,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Non-AutomaticPerceptions\Pieceworks\PieceWorkShow.resx">
       <DependentUpon>PieceWorkShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\Subsidies\SubsidyMain.resx">
+      <DependentUpon>SubsidyMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\Subsidies\SubsidyShow.resx">
+      <DependentUpon>SubsidyShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ReportForm.resx">
       <DependentUpon>ReportForm.cs</DependentUpon>

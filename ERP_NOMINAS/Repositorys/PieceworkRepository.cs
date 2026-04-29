@@ -159,23 +159,38 @@ namespace ERP_NOMINAS.Repositorys
 
         public int DeletePieceWork(int rf)
         {
-            string query = @"
-                            BEGIN TRANSACTION;
-                            BEGIN TRY
-                                DELETE FROM destajos WHERE folio = @folio;
-                                DELETE FROM destajos_detalle WHERE folio = @folio;
-                                COMMIT TRANSACTION;
-                            END TRY
-                            BEGIN CATCH
-                                ROLLBACK TRANSACTION;
-                                THROW;
-                            END CATCH";
+            Conex.OpenNomina();
 
-            using (cmd = new SqlCommand(query, Conex.nomi))
+            using (SqlTransaction tra = Conex.nomi.BeginTransaction())
             {
-                cmd.Parameters.AddWithValue("@folio", rf);
-                Conex.OpenNomina();
-                return cmd.ExecuteNonQuery();
+                try
+                {
+                    string queryDetail = "DELETE FROM destajos_detalle WHERE folio = @folio";
+                    using (var cmdDetail = new SqlCommand(queryDetail, Conex.nomi, tra))
+                    {
+                        cmdDetail.Parameters.AddWithValue("@folio", rf);
+                        cmdDetail.ExecuteNonQuery();
+                    }
+
+                    string queryHeader = "DELETE FROM destajos WHERE folio = @folio";
+                    using (var cmdHeader = new SqlCommand(queryHeader, Conex.nomi, tra))
+                    {
+                        cmdHeader.Parameters.AddWithValue("@folio", rf);
+                        int rowsAffected = cmdHeader.ExecuteNonQuery();
+
+                        tra.Commit();
+                        return rowsAffected; 
+                    }
+                }
+                catch (Exception)
+                {
+                    tra.Rollback();
+                    throw;
+                }
+                finally
+                {
+                    Conex.nomi.Close();
+                }
             }
         }
 
