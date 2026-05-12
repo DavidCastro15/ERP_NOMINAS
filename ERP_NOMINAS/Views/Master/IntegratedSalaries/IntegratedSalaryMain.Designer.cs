@@ -42,9 +42,9 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.filterByT1 = new ERP_NOMINAS.Components.Search.FilterByT();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.buttonExport1 = new ERP_NOMINAS.Components.Buttons.buttonExport();
+            this.button3 = new System.Windows.Forms.Button();
+            this.buttonImport1 = new ERP_NOMINAS.Components.Buttons.buttonImport();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,11 +150,19 @@
             this.filterByT1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.filterByT1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.filterByT1.FilterBy = null;
-            this.filterByT1.Location = new System.Drawing.Point(12, 71);
+            this.filterByT1.Location = new System.Drawing.Point(12, 67);
             this.filterByT1.Name = "filterByT1";
             this.filterByT1.Size = new System.Drawing.Size(268, 49);
             this.filterByT1.TabIndex = 8;
             this.filterByT1.TittleChange = "N°. Empleado:";
+            // 
+            // buttonExport1
+            // 
+            this.buttonExport1.Location = new System.Drawing.Point(12, 608);
+            this.buttonExport1.Name = "buttonExport1";
+            this.buttonExport1.Size = new System.Drawing.Size(69, 54);
+            this.buttonExport1.TabIndex = 9;
+            this.buttonExport1.Load += new System.EventHandler(this.buttonExport1_Load);
             // 
             // button3
             // 
@@ -169,26 +177,14 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // buttonImport1
             // 
-            this.button2.Image = global::ERP_NOMINAS.Properties.Resources.icons8_importar_csv_28;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(385, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(58, 49);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Importar";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // buttonExport1
-            // 
-            this.buttonExport1.Location = new System.Drawing.Point(12, 608);
-            this.buttonExport1.Name = "buttonExport1";
-            this.buttonExport1.Size = new System.Drawing.Size(69, 54);
-            this.buttonExport1.TabIndex = 9;
-            this.buttonExport1.Load += new System.EventHandler(this.buttonExport1_Load);
+            this.buttonImport1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonImport1.Location = new System.Drawing.Point(385, 12);
+            this.buttonImport1.Name = "buttonImport1";
+            this.buttonImport1.Size = new System.Drawing.Size(58, 49);
+            this.buttonImport1.TabIndex = 10;
+            this.buttonImport1.OnBotonImportClick += new System.EventHandler(this.buttonImport1_OnBotonImportClick);
             // 
             // IntegratedSalaryMain
             // 
@@ -196,11 +192,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(610, 667);
+            this.Controls.Add(this.buttonImport1);
             this.Controls.Add(this.buttonExport1);
             this.Controls.Add(this.filterByT1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.kitForm1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
@@ -222,7 +218,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -234,5 +229,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private Components.Search.FilterByT filterByT1;
         private Components.Buttons.buttonExport buttonExport1;
+        private Components.Buttons.buttonImport buttonImport1;
     }
 }

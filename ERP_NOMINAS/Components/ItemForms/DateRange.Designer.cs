@@ -81,6 +81,7 @@
             this.Controls.Add(this.label1);
             this.Name = "DateRange";
             this.Size = new System.Drawing.Size(133, 51);
+            this.Load += new System.EventHandler(this.DateRange_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

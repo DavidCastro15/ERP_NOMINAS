@@ -160,6 +160,12 @@
     <Compile Include="Components\Buttons\buttonFEdit.Designer.cs">
       <DependentUpon>buttonFEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\Buttons\buttonImport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Buttons\buttonImport.Designer.cs">
+      <DependentUpon>buttonImport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\Buttons\buttonMDelete.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -278,6 +284,12 @@
     <Compile Include="Models\Attendance\ListAttendance\ListAttendC.cs" />
     <Compile Include="Models\Attendance\ListAttendance\ListAttendDetail.cs" />
     <Compile Include="Models\Attendance\ListAttendance\ListAttendDetailReport.cs" />
+    <Compile Include="Models\AwardPunctPre\AwardPPF.cs" />
+    <Compile Include="Models\AwardPunctPre\AwardReport.cs" />
+    <Compile Include="Models\AwardPunctPre\IAwardPP.cs" />
+    <Compile Include="Models\AwardPunctPre\LastAward.cs" />
+    <Compile Include="Models\AwardPunctPre\ListAttend.cs" />
+    <Compile Include="Models\AwardPunctPre\PieceworkAward.cs" />
     <Compile Include="Models\CategoriesTrained\CategoryTrained.cs" />
     <Compile Include="Models\CategoriesTrained\ICategoryTrained.cs" />
     <Compile Include="Models\Category\CategoryReport.cs" />
@@ -360,6 +372,12 @@
     <Compile Include="Reports\Master\Employees\employeeListView.Designer.cs">
       <DependentUpon>employeeListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\NonAutomaticPerception\AwardsPPF\awardsPPFListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\NonAutomaticPerception\AwardsPPF\awardsPPFListView.Designer.cs">
+      <DependentUpon>awardsPPFListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\NonAutomaticPerception\HeightTemperatures\heightTemperatureListView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -409,6 +427,7 @@
       <DependentUpon>ViewsTablesPerceptionNonAuto.xsd</DependentUpon>
     </Compile>
     <Compile Include="Repositorys\AttendanceRepository.cs" />
+    <Compile Include="Repositorys\AwardPPRepository.cs" />
     <Compile Include="Repositorys\CategoryRepository.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -684,6 +703,24 @@
     <Compile Include="Views\Master\Uses\UseShow.Designer.cs">
       <DependentUpon>UseShow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\AwardPunctPre\AwardPPMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\AwardPunctPre\AwardPPMain.Designer.cs">
+      <DependentUpon>AwardPPMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\AwardPunctPre\AwardPPShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\AwardPunctPre\AwardPPShow.Designer.cs">
+      <DependentUpon>AwardPPShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\AwardPunctPre\PieceworkAwardMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\AwardPunctPre\PieceworkAwardMain.Designer.cs">
+      <DependentUpon>PieceworkAwardMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Non-AutomaticPerceptions\HeightsTemperatures\HeightTemperatureMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -758,6 +795,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Components\Buttons\buttonFEDIT.resx">
       <DependentUpon>buttonFEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Buttons\buttonImport.resx">
+      <DependentUpon>buttonImport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\Buttons\buttonMDelete.resx">
       <DependentUpon>buttonMDelete.cs</DependentUpon>
@@ -848,6 +888,10 @@
     <EmbeddedResource Include="Reports\Master\Employees\employeeList.rdlc" />
     <EmbeddedResource Include="Reports\Master\Employees\employeeListView.resx">
       <DependentUpon>employeeListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NonAutomaticPerception\AwardsPPF\awardsPPFList.rdlc" />
+    <EmbeddedResource Include="Reports\NonAutomaticPerception\AwardsPPF\awardsPPFListView.resx">
+      <DependentUpon>awardsPPFListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\NonAutomaticPerception\HeightTemperatures\heightTemperatureList.rdlc" />
     <EmbeddedResource Include="Reports\NonAutomaticPerception\HeightTemperatures\heightTemperatureListView.resx">
@@ -981,6 +1025,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Master\Uses\UseShow.resx">
       <DependentUpon>UseShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\AwardPunctPre\AwardPPMain.resx">
+      <DependentUpon>AwardPPMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\AwardPunctPre\AwardPPShow.resx">
+      <DependentUpon>AwardPPShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\AwardPunctPre\PieceworkAwardMain.resx">
+      <DependentUpon>PieceworkAwardMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Non-AutomaticPerceptions\HeightsTemperatures\HeightTemperatureMain.resx">
       <DependentUpon>HeightTemperatureMain.cs</DependentUpon>

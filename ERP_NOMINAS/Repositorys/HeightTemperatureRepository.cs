@@ -107,7 +107,7 @@ namespace ERP_NOMINAS.Repositorys
                 tra.Commit();
                 return 1;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 tra.Rollback();
                 
@@ -379,7 +379,7 @@ namespace ERP_NOMINAS.Repositorys
                 tra.Commit();
                 return 1;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 tra.Rollback();
                 throw;

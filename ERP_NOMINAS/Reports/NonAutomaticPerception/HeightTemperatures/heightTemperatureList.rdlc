@@ -670,8 +670,8 @@
             <DataSetName>heightTemperatureList</DataSetName>
             <Top>0.43188cm</Top>
             <Left>0.28787cm</Left>
-            <Height>0.53854cm</Height>
-            <Width>18.94168cm</Width>
+            <Height>0.53855cm</Height>
+            <Width>18.94167cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -679,7 +679,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>0.97042cm</Height>
+        <Height>0.97043cm</Height>
         <Style />
       </Body>
       <Width>20.18771cm</Width>

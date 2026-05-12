@@ -71,9 +71,10 @@
             this.compensacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gratificacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alturasYTemperaturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.subsidiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.premioPFYPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.subsidiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -390,7 +391,8 @@
             this.compensacionesToolStripMenuItem,
             this.gratificacionesToolStripMenuItem,
             this.alturasYTemperaturasToolStripMenuItem,
-            this.subsidiosToolStripMenuItem});
+            this.subsidiosToolStripMenuItem,
+            this.premioPFYPToolStripMenuItem});
             this.percepcionesNoAutoToolStripMenuItem.Name = "percepcionesNoAutoToolStripMenuItem";
             this.percepcionesNoAutoToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
             this.percepcionesNoAutoToolStripMenuItem.Text = "Percepciones No Auto";
@@ -423,6 +425,20 @@
             this.alturasYTemperaturasToolStripMenuItem.Text = "Alturas y Temperaturas";
             this.alturasYTemperaturasToolStripMenuItem.Click += new System.EventHandler(this.alturasYTemperaturasToolStripMenuItem_Click);
             // 
+            // subsidiosToolStripMenuItem
+            // 
+            this.subsidiosToolStripMenuItem.Name = "subsidiosToolStripMenuItem";
+            this.subsidiosToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.subsidiosToolStripMenuItem.Text = "Subsidios";
+            this.subsidiosToolStripMenuItem.Click += new System.EventHandler(this.subsidiosToolStripMenuItem_Click);
+            // 
+            // premioPFYPToolStripMenuItem
+            // 
+            this.premioPFYPToolStripMenuItem.Name = "premioPFYPToolStripMenuItem";
+            this.premioPFYPToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.premioPFYPToolStripMenuItem.Text = "Premio PF y P";
+            this.premioPFYPToolStripMenuItem.Click += new System.EventHandler(this.premioPFYPToolStripMenuItem_Click);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(768, 243);
@@ -441,13 +457,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(300, 153);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // subsidiosToolStripMenuItem
-            // 
-            this.subsidiosToolStripMenuItem.Name = "subsidiosToolStripMenuItem";
-            this.subsidiosToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.subsidiosToolStripMenuItem.Text = "Subsidios";
-            this.subsidiosToolStripMenuItem.Click += new System.EventHandler(this.subsidiosToolStripMenuItem_Click);
             // 
             // MainControl
             // 
@@ -518,5 +527,6 @@
         private System.Windows.Forms.ToolStripMenuItem gratificacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alturasYTemperaturasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem subsidiosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem premioPFYPToolStripMenuItem;
     }
 }

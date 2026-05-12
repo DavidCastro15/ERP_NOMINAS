@@ -15,8 +15,8 @@ namespace ERP_NOMINAS.GlobalFunctions
     public class Utilities
     {
         ConnectorSql Conex = new ConnectorSql();
-        readonly SqlCommand cmd = new SqlCommand();
-
+        SqlCommand cmd = new SqlCommand();
+ 
         public enum TypeCatalog
         {
             Employee,
@@ -84,21 +84,6 @@ namespace ERP_NOMINAS.GlobalFunctions
             {
                 MessageBox.Show("Error al cargar datos: " + ex.Message);
             }
-
-
-
-            //Conex.OpenNomina();
-            //try
-            //{
-            //    SqlDataAdapter da = new SqlDataAdapter(query, Conex.nomi);
-               
-
-             
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error al cargar datos: " + ex.Message);
-            //}
 
         }
 
@@ -298,26 +283,44 @@ namespace ERP_NOMINAS.GlobalFunctions
         public DataTable GetDataCSV(string root)
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("c1", typeof(int));
-            dt.Columns.Add("c2", typeof(decimal));
-            dt.Columns.Add("c3", typeof(decimal));
 
             string[] lines = File.ReadAllLines(root);
+            if (lines.Length == 0) return dt;
+
+            string[] firstLineCells = lines[0].Split(',');
+            int columnCount = firstLineCells.Length;
+
+            dt.Columns.Add("c1", typeof(int));
+            for (int i = 1; i < columnCount; i++)
+            {
+                dt.Columns.Add("c" + (i + 1), typeof(decimal));
+            }
+
             foreach (string line in lines)
             {
                 if (string.IsNullOrWhiteSpace(line)) continue;
 
-                string[] datos = line.Split(',');
-                if (datos.Length >= 3)
+                string[] rowData = line.Split(',');
+                DataRow row = dt.NewRow();
+
+                try
                 {
-                    DataRow row = dt.NewRow();
-                    row["c1"] = int.Parse(datos[0].Trim());
-                    row["c2"] = decimal.Parse(datos[1].Trim());
-                    row["c3"] = decimal.Parse(datos[2].Trim());
+                    row[0] = int.Parse(rowData[0].Trim());
+
+                    for (int i = 1; i < rowData.Length && i < columnCount; i++)
+                    {
+                        row[i] = decimal.Parse(rowData[i].Trim());
+                    }
+
                     dt.Rows.Add(row);
                 }
+                catch (Exception)
+                {
+                   
+                }
             }
-            return dt;
+
+            return dt;    
         }
 
         public int GetPayWeek(int n)
@@ -340,6 +343,60 @@ namespace ERP_NOMINAS.GlobalFunctions
 
             return (year * 1000) + (week * 10) + extra;
         }
+
+        private int GetBusinessDays(DateTime Start, DateTime End)
+        {
+            int flag = 0;
+            TimeSpan Dif = End.Subtract(Start);
+            Dictionary<string, string> book = new Dictionary<string, string>();
+
+            // Usamos .Date para asegurarnos de que la hora no afecte el cálculo de TotalDays
+            DateTime startDate = Start.Date;
+
+            for (int i = 0; i <= Dif.TotalDays; i++)
+            {
+                DateTime dt = startDate.AddDays(i);
+
+                if (!(dt.DayOfWeek == DayOfWeek.Saturday || dt.DayOfWeek == DayOfWeek.Sunday))
+                {
+                    string nameMonth = dt.ToString("MMMM", System.Globalization.CultureInfo.CurrentCulture);
+
+                    if (book.ContainsKey(nameMonth))
+                    {
+                        book[nameMonth] += ", " + dt.ToString("dd");
+                    }
+                    else
+                    {
+                        book.Add(nameMonth, dt.ToString("dd"));
+                    }
+                    flag++;
+                }
+            }
+            return flag;
+        }
+
+        public int PublicHoliday(DateTime Start, DateTime End)
+        {
+            // 1. Calculamos los días de lunes a viernes
+            int businessDays = GetBusinessDays(Start, End);
+
+            // 2. Contamos feriados que NO caen en fin de semana
+            string query = $@"SELECT COUNT(fecha) 
+                      FROM festivos 
+                      WHERE fecha BETWEEN '{Start:yyyy-MM-dd}' AND '{End:yyyy-MM-dd}'
+                      AND DATEPART(dw, fecha) NOT IN (1, 7)";
+
+            int holidaysCount = 0;
+            using (SqlCommand cmd = new SqlCommand(query, Conex.nomi))
+            {
+                Conex.OpenNomina();
+                holidaysCount = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+
+            // 3. Restamos los feriados a los días hábiles
+            return businessDays - holidaysCount;
+        }
+
 
     }
 }

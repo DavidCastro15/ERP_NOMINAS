@@ -15,6 +15,8 @@ namespace ERP_NOMINAS.Components.Search
         public DateRange()
         {
             InitializeComponent();
+            dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker2.Value = DateTime.Now;
         }
 
         public DateTime StartDate
@@ -27,6 +29,15 @@ namespace ERP_NOMINAS.Components.Search
         {
             get { return dateTimePicker2.Value; }
             set { dateTimePicker2.Value = value; }
+        }
+
+        private void DateRange_Load(object sender, EventArgs e)
+        {
+            if (!this.DesignMode)
+            {
+                dateTimePicker1.Value = DateTime.Today;
+                dateTimePicker2.Value = DateTime.Today;
+            }
         }
     }
 }

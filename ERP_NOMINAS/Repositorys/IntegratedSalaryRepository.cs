@@ -157,27 +157,23 @@ namespace ERP_NOMINAS.Repositorys
 
         public void ImportEmployees(DataTable dtCsv)
         {
-            ConnectorSql db = new ConnectorSql();
-            db.OpenNomina(); // Abre la conexión 'nomi'
+            Conex.OpenNomina();
 
-
-            // VALIDACIÓN PREVIA: Si el DataTable no tiene filas, abortamos antes de tocar la BD
             if (dtCsv == null || dtCsv.Rows.Count == 0)
                 {
                     throw new Exception("El archivo CSV no contiene datos válidos para importar.");
                 }
-
-            
-            using (SqlTransaction trans = db.nomi.BeginTransaction())
+         
+            using (SqlTransaction trans = Conex.nomi.BeginTransaction())
             {
                 try
                 {
-                    using (SqlCommand cmd = new SqlCommand("TRUNCATE TABLE salarios_integrados", db.nomi, trans))
+                    using (SqlCommand cmd = new SqlCommand("TRUNCATE TABLE salarios_integrados", Conex.nomi, trans))
                     {
                         cmd.ExecuteNonQuery();
                     }
 
-                    using (SqlBulkCopy bulk = new SqlBulkCopy(db.nomi, SqlBulkCopyOptions.Default, trans))
+                    using (SqlBulkCopy bulk = new SqlBulkCopy(Conex.nomi, SqlBulkCopyOptions.Default, trans))
                     {
                         bulk.DestinationTableName = "salarios_integrados";
                         // LÍMPIA CUALQUIER MAPEO PREVIO
@@ -201,10 +197,9 @@ namespace ERP_NOMINAS.Repositorys
                 }
                 finally
                 {
-                    db.CloseNomina();
+                    Conex.CloseNomina();
                 }
             }
-
 
         }
 
