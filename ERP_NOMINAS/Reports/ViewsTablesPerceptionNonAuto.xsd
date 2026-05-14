@@ -85,6 +85,16 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="foodVaucherSupportTransportationList" msprop:Generator_TableClassName="foodVaucherSupportTransportationListDataTable" msprop:Generator_TableVarName="tablefoodVaucherSupportTransportationList" msprop:Generator_RowChangedName="foodVaucherSupportTransportationListRowChanged" msprop:Generator_TablePropName="foodVaucherSupportTransportationList" msprop:Generator_RowDeletingName="foodVaucherSupportTransportationListRowDeleting" msprop:Generator_RowChangingName="foodVaucherSupportTransportationListRowChanging" msprop:Generator_RowEvHandlerName="foodVaucherSupportTransportationListRowChangeEventHandler" msprop:Generator_RowDeletedName="foodVaucherSupportTransportationListRowDeleted" msprop:Generator_RowClassName="foodVaucherSupportTransportationListRow" msprop:Generator_UserTableName="foodVaucherSupportTransportationList" msprop:Generator_RowEvArgName="foodVaucherSupportTransportationListRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NumberEmployee" msprop:Generator_ColumnVarNameInTable="columnNumberEmployee" msprop:Generator_ColumnPropNameInRow="NumberEmployee" msprop:Generator_ColumnPropNameInTable="NumberEmployeeColumn" msprop:Generator_UserColumnName="NumberEmployee" type="xs:string" minOccurs="0" />
+              <xs:element name="FullName" msprop:Generator_ColumnVarNameInTable="columnFullName" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" msprop:Generator_UserColumnName="FullName" type="xs:string" minOccurs="0" />
+              <xs:element name="WorkDays" msprop:Generator_ColumnVarNameInTable="columnWorkDays" msprop:Generator_ColumnPropNameInRow="WorkDays" msprop:Generator_ColumnPropNameInTable="WorkDaysColumn" msprop:Generator_UserColumnName="WorkDays" type="xs:string" minOccurs="0" />
+              <xs:element name="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_UserColumnName="Amount" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

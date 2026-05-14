@@ -10,17 +10,18 @@ using System.Windows.Forms;
 
 namespace ERP_NOMINAS.Components.Buttons
 {
-    public partial class buttonExport : UserControl
+    public partial class buttonImportDb : UserControl
     {
-        public event EventHandler OnBotonExportClick;
-        public buttonExport()
+        public event EventHandler OnBotonImportDbClick;
+
+        public buttonImportDb()
         {
             InitializeComponent();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            OnBotonExportClick?.Invoke(this, e);
+            OnBotonImportDbClick?.Invoke(this, e);
         }
     }
 }

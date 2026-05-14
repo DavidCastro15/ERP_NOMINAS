@@ -50,7 +50,6 @@
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.filterByT1 = new ERP_NOMINAS.Components.Search.FilterByT();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -67,6 +66,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.buttonImportDb1 = new ERP_NOMINAS.Components.Buttons.buttonImportDb();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -252,8 +252,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonImportDb1);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.dateTimePicker3);
             this.groupBox1.Controls.Add(this.label2);
@@ -265,19 +265,6 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar";
-            // 
-            // button1
-            // 
-            this.button1.Image = global::ERP_NOMINAS.Properties.Resources.icons8_data_migration_28;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(203, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(59, 53);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Importar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox2
             // 
@@ -455,6 +442,15 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // buttonImportDb1
+            // 
+            this.buttonImportDb1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonImportDb1.Location = new System.Drawing.Point(204, 19);
+            this.buttonImportDb1.Name = "buttonImportDb1";
+            this.buttonImportDb1.Size = new System.Drawing.Size(58, 53);
+            this.buttonImportDb1.TabIndex = 8;
+            this.buttonImportDb1.OnBotonImportDbClick += new System.EventHandler(this.buttonImportDb1_OnBotonImportDbClick);
+            // 
             // AttendMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -507,7 +503,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button3;
@@ -525,5 +520,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button9;
         private Components.SearchTurn searchTurn1;
+        private Components.Buttons.buttonImportDb buttonImportDb1;
     }
 }

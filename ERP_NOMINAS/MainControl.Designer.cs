@@ -75,6 +75,7 @@
             this.premioPFYPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.valesDespensaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -392,7 +393,8 @@
             this.gratificacionesToolStripMenuItem,
             this.alturasYTemperaturasToolStripMenuItem,
             this.subsidiosToolStripMenuItem,
-            this.premioPFYPToolStripMenuItem});
+            this.premioPFYPToolStripMenuItem,
+            this.valesDespensaToolStripMenuItem});
             this.percepcionesNoAutoToolStripMenuItem.Name = "percepcionesNoAutoToolStripMenuItem";
             this.percepcionesNoAutoToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
             this.percepcionesNoAutoToolStripMenuItem.Text = "Percepciones No Auto";
@@ -457,6 +459,13 @@
             this.pictureBox1.Size = new System.Drawing.Size(300, 153);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // valesDespensaToolStripMenuItem
+            // 
+            this.valesDespensaToolStripMenuItem.Name = "valesDespensaToolStripMenuItem";
+            this.valesDespensaToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.valesDespensaToolStripMenuItem.Text = "Vales Despensa";
+            this.valesDespensaToolStripMenuItem.Click += new System.EventHandler(this.valesDespensaToolStripMenuItem_Click);
             // 
             // MainControl
             // 
@@ -528,5 +537,6 @@
         private System.Windows.Forms.ToolStripMenuItem alturasYTemperaturasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem subsidiosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem premioPFYPToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem valesDespensaToolStripMenuItem;
     }
 }

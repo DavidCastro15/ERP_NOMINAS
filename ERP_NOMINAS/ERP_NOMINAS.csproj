@@ -166,6 +166,12 @@
     <Compile Include="Components\Buttons\buttonImport.Designer.cs">
       <DependentUpon>buttonImport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\Buttons\buttonImportDb.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Buttons\buttonImportDb.Designer.cs">
+      <DependentUpon>buttonImportDb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\Buttons\buttonMDelete.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -304,6 +310,10 @@
     <Compile Include="Models\Equipments\IEquipment.cs" />
     <Compile Include="Models\ExtraShifts\ExtraShift.cs" />
     <Compile Include="Models\ExtraShifts\IExtraShift.cs" />
+    <Compile Include="Models\FoodVauchers\FoodVaucher.cs" />
+    <Compile Include="Models\FoodVauchers\FoodVaucherReport.cs" />
+    <Compile Include="Models\FoodVauchers\FoodVaucherReportExcel.cs" />
+    <Compile Include="Models\FoodVauchers\IFoodVaucher.cs" />
     <Compile Include="Models\Groups\Group.cs" />
     <Compile Include="Models\Groups\IGroup.cs" />
     <Compile Include="Models\HeightsTemperatures\HeightTemperatureDetail.cs" />
@@ -377,6 +387,12 @@
     </Compile>
     <Compile Include="Reports\NonAutomaticPerception\AwardsPPF\awardsPPFListView.Designer.cs">
       <DependentUpon>awardsPPFListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\NonAutomaticPerception\FoodVaucherSupportTransportation\foodVaucherSuportTransportationListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\NonAutomaticPerception\FoodVaucherSupportTransportation\foodVaucherSuportTransportationListView.Designer.cs">
+      <DependentUpon>foodVaucherSuportTransportationListView.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\NonAutomaticPerception\HeightTemperatures\heightTemperatureListView.cs">
       <SubType>Form</SubType>
@@ -452,6 +468,7 @@
     <Compile Include="Repositorys\EmployeeRepository.cs" />
     <Compile Include="Repositorys\EquipmentRepository.cs" />
     <Compile Include="Repositorys\ExtraShiftRepository.cs" />
+    <Compile Include="Repositorys\FoodVaucherRepository.cs" />
     <Compile Include="Repositorys\GroupRepository.cs" />
     <Compile Include="Repositorys\HeightTemperatureRepository.cs" />
     <Compile Include="Repositorys\HolidayRepository.cs" />
@@ -721,6 +738,18 @@
     <Compile Include="Views\Non-AutomaticPerceptions\AwardPunctPre\PieceworkAwardMain.Designer.cs">
       <DependentUpon>PieceworkAwardMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\FoodVauchers\FoodVaucherMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\FoodVauchers\FoodVaucherMain.Designer.cs">
+      <DependentUpon>FoodVaucherMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\FoodVauchers\FoodVaucherShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\FoodVauchers\FoodVaucherShow.Designer.cs">
+      <DependentUpon>FoodVaucherShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Non-AutomaticPerceptions\HeightsTemperatures\HeightTemperatureMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -798,6 +827,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Components\Buttons\buttonImport.resx">
       <DependentUpon>buttonImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Buttons\buttonImportDb.resx">
+      <DependentUpon>buttonImportDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\Buttons\buttonMDelete.resx">
       <DependentUpon>buttonMDelete.cs</DependentUpon>
@@ -893,6 +925,10 @@
     <EmbeddedResource Include="Reports\NonAutomaticPerception\AwardsPPF\awardsPPFListView.resx">
       <DependentUpon>awardsPPFListView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NonAutomaticPerception\FoodVaucherSupportTransportation\foodVaucherSuportTransportationListView.resx">
+      <DependentUpon>foodVaucherSuportTransportationListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NonAutomaticPerception\FoodVaucherSupportTransportation\foodVaucherSupportTransportationList.rdlc" />
     <EmbeddedResource Include="Reports\NonAutomaticPerception\HeightTemperatures\heightTemperatureList.rdlc" />
     <EmbeddedResource Include="Reports\NonAutomaticPerception\HeightTemperatures\heightTemperatureListView.resx">
       <DependentUpon>heightTemperatureListView.cs</DependentUpon>
@@ -1034,6 +1070,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Non-AutomaticPerceptions\AwardPunctPre\PieceworkAwardMain.resx">
       <DependentUpon>PieceworkAwardMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\FoodVauchers\FoodVaucherMain.resx">
+      <DependentUpon>FoodVaucherMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\FoodVauchers\FoodVaucherShow.resx">
+      <DependentUpon>FoodVaucherShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Non-AutomaticPerceptions\HeightsTemperatures\HeightTemperatureMain.resx">
       <DependentUpon>HeightTemperatureMain.cs</DependentUpon>

@@ -46,6 +46,15 @@ namespace ERP_NOMINAS.Components.Search
             }
         }
 
+        public string SelectedText
+        {
+            get => comboBox1.Text;
+            set
+            {
+                comboBox1.Text = value;          
+            }
+        }
+
         public SearchCatalog()
         {
             InitializeComponent();
@@ -118,7 +127,6 @@ namespace ERP_NOMINAS.Components.Search
             }
         }
 
-        // USA SOLO ESTE MÉTODO PARA EL EVENTO
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             try

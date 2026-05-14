@@ -92,7 +92,9 @@ namespace ERP_NOMINAS
 
         private void premioPFYPToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.AwardPunctPre.AwardPPMain>();
 
-        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.AwardPunctPre.AwardPPMain>();
+        private void valesDespensaToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.FoodVauchers.FoodVaucherMain>();
+
+        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.FoodVauchers.FoodVaucherMain>();
 
         // --- Formularios Con Parámetros (Plantillas) ---
         private void reparacionToolStripMenuItem_Click(object sender, EventArgs e) =>
@@ -128,7 +130,7 @@ namespace ERP_NOMINAS
         private void gratificacionesToolStripMenuItem_Click(object sender, EventArgs e) =>
             OpenForm<FormsNonAutomatic.OffsetsGratuities.OffsetGratuityMain>(f => { f.Table = "gratificaciones"; });
 
-
+   
     }
 
 }

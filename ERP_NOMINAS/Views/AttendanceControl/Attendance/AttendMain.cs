@@ -115,9 +115,9 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonImportDb1_OnBotonImportDbClick(object sender, EventArgs e)
         {
-            var res = _repository.GetDataFilterAttend(dateTimePicker1.Value,dateTimePicker2.Value.TimeOfDay,dateTimePicker3.Value.TimeOfDay);
+            var res = _repository.GetDataFilterAttend(dateTimePicker1.Value, dateTimePicker2.Value.TimeOfDay, dateTimePicker3.Value.TimeOfDay);
             Util.ConfigGrid<Attend>(dataGridView1);
             dataGridView1.DataSource = new BindingList<Attend>(res);
         }
@@ -310,5 +310,7 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance
             var report = new verificationDataView();
             report.ShowDialog();
         }
+
+
     }
 }
