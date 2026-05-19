@@ -226,6 +226,9 @@
   <data name="icons8-recargar-151" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-recargar-151.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-asistencia-28" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-asistencia-28.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-data-migration-28" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-data-migration-28.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -256,9 +259,6 @@
   <data name="icons8-casilla-de-verificación-desactivada-28" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-casilla-de-verificación-desactivada-28.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-cambiar-15" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-cambiar-15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icons8-atrás-28" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-atrás-28.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -267,6 +267,9 @@
   </data>
   <data name="icons8-importar-csv-28" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-importar-csv-28.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-vista-lateral-del-semirremolque-28" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-vista-lateral-del-semirremolque-28.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-imprimir-28" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-imprimir-28.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -298,8 +301,8 @@
   <data name="icons8-cambiar-28" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-cambiar-28.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-vista-lateral-del-semirremolque-28" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-vista-lateral-del-semirremolque-28.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-cambiar-15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-cambiar-15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-borrar-para-siempre-28" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-borrar-para-siempre-28.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -322,7 +325,7 @@
   <data name="icons8-crear-28" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-crear-28.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-asistencia-28" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-asistencia-28.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-aprobación-281" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-aprobación-281.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -344,6 +344,12 @@
     <Compile Include="Models\Subsidies\SubsidyReport.cs" />
     <Compile Include="Models\SubsidyFees\ISubsidyFee.cs" />
     <Compile Include="Models\SubsidyFees\SubsidyFee.cs" />
+    <Compile Include="Models\SupportTransportations\AuthorizeTransport.cs" />
+    <Compile Include="Models\SupportTransportations\IAuthorizeTransport.cs" />
+    <Compile Include="Models\SupportTransportations\ISupportTransportation.cs" />
+    <Compile Include="Models\SupportTransportations\SupportTransportation.cs" />
+    <Compile Include="Models\SupportTransportations\SupportTransportationReportExcel.cs" />
+    <Compile Include="Models\SupportTransportations\SupportTransportationReport.cs" />
     <Compile Include="Models\TaxRates\ITaxRate.cs" />
     <Compile Include="Models\TaxRates\TaxRate.cs" />
     <Compile Include="Models\Templates\ITemplate.cs" />
@@ -481,6 +487,7 @@
     <Compile Include="Repositorys\PieceworkRepository.cs" />
     <Compile Include="Repositorys\SubsidyFeeRepository.cs" />
     <Compile Include="Repositorys\SubsidyRepository.cs" />
+    <Compile Include="Repositorys\SupportTransportationRepository.cs" />
     <Compile Include="Repositorys\TaxRateRepository.cs" />
     <Compile Include="Repositorys\TemplateRepository.cs" />
     <Compile Include="Repositorys\UnionCommitteeRepository.cs" />
@@ -804,6 +811,24 @@
     <Compile Include="Views\Non-AutomaticPerceptions\Subsidies\SubsidyShow.Designer.cs">
       <DependentUpon>SubsidyShow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\SupportTransportations\AuthorizeTransports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\SupportTransportations\AuthorizeTransports.Designer.cs">
+      <DependentUpon>AuthorizeTransports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\SupportTransportations\SupportTransportationMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\SupportTransportations\SupportTransportationMain.Designer.cs">
+      <DependentUpon>SupportTransportationMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\SupportTransportations\SupportTransportationShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\SupportTransportations\SupportTransportationShow.Designer.cs">
+      <DependentUpon>SupportTransportationShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1104,6 +1129,15 @@
     <EmbeddedResource Include="Views\Non-AutomaticPerceptions\Subsidies\SubsidyShow.resx">
       <DependentUpon>SubsidyShow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\SupportTransportations\AuthorizeTransports.resx">
+      <DependentUpon>AuthorizeTransports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\SupportTransportations\SupportTransportationMain.resx">
+      <DependentUpon>SupportTransportationMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\SupportTransportations\SupportTransportationShow.resx">
+      <DependentUpon>SupportTransportationShow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ReportForm.resx">
       <DependentUpon>ReportForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1164,6 +1198,7 @@
     <None Include="Resources\icons8-data-migration-28.png" />
     <None Include="Resources\icons8-cambiar-15.png" />
     <None Include="Resources\icons8-asistencia-28.png" />
+    <None Include="Resources\icons8-aprobación-281.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
