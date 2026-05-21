@@ -397,6 +397,52 @@ namespace ERP_NOMINAS.GlobalFunctions
             return businessDays - holidaysCount;
         }
 
+        public string ExtractPart(string text, string delimiter, string defaultValue)
+        {
+            if (string.IsNullOrEmpty(text)) return defaultValue;
+
+            int index = text.IndexOf(delimiter);
+            if (index == -1) return defaultValue;
+
+            int startIndex = index + delimiter.Length;
+            string part = text.Substring(startIndex).Trim();
+
+            return string.IsNullOrEmpty(part) ? defaultValue : part;
+        }
+
+        /// <summary>
+        /// Valida si una columna existe en el SqlDataReader.
+        /// </summary>
+        public bool HasColumn(SqlDataReader reader, string columnName)
+        {
+            for (int i = 0; i < reader.FieldCount; i++)
+            {
+                if (reader.GetName(i).Equals(columnName, StringComparison.OrdinalIgnoreCase))
+                    return true;
+            }
+            return false;
+        }
+
+        public T GetValueSafe<T>(SqlDataReader reader, string columnName, T defaultValue = default(T)) where T : struct
+        {
+            if (HasColumn(reader, columnName) && reader[columnName] != DBNull.Value)
+            {
+                return (T)Convert.ChangeType(reader[columnName], typeof(T));
+            }
+            return defaultValue;
+        }
+
+        /// <summary>
+        /// Obtiene de forma segura un texto (string).
+        /// </summary>
+        public string GetStringSafe(SqlDataReader reader, string columnName, string defaultValue = "")
+        {
+            if (HasColumn(reader, columnName) && reader[columnName] != DBNull.Value)
+            {
+                return Convert.ToString(reader[columnName]);
+            }
+            return defaultValue;
+        }
 
     }
 }

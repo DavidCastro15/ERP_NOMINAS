@@ -96,7 +96,9 @@ namespace ERP_NOMINAS
 
         private void apoyoTransporteToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.SupportTransportations.SupportTransportationMain>();
 
-        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.SupportTransportations.SupportTransportationMain>();
+        private void desgasteHerramientaToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.ToolWears.ToolWearMain>();
+
+        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.ToolWears.ToolWearMain>();
 
         // --- Formularios Con Parámetros (Plantillas) ---
         private void reparacionToolStripMenuItem_Click(object sender, EventArgs e) =>
@@ -131,7 +133,6 @@ namespace ERP_NOMINAS
 
         private void gratificacionesToolStripMenuItem_Click(object sender, EventArgs e) =>
             OpenForm<FormsNonAutomatic.OffsetsGratuities.OffsetGratuityMain>(f => { f.Table = "gratificaciones"; });
-
 
     }
 

@@ -74,9 +74,10 @@
             this.subsidiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.premioPFYPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valesDespensaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.apoyoTransporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.apoyoTransporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.desgasteHerramientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -396,7 +397,8 @@
             this.subsidiosToolStripMenuItem,
             this.premioPFYPToolStripMenuItem,
             this.valesDespensaToolStripMenuItem,
-            this.apoyoTransporteToolStripMenuItem});
+            this.apoyoTransporteToolStripMenuItem,
+            this.desgasteHerramientaToolStripMenuItem});
             this.percepcionesNoAutoToolStripMenuItem.Name = "percepcionesNoAutoToolStripMenuItem";
             this.percepcionesNoAutoToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
             this.percepcionesNoAutoToolStripMenuItem.Text = "Percepciones No Auto";
@@ -450,6 +452,13 @@
             this.valesDespensaToolStripMenuItem.Text = "Vales Despensa";
             this.valesDespensaToolStripMenuItem.Click += new System.EventHandler(this.valesDespensaToolStripMenuItem_Click);
             // 
+            // apoyoTransporteToolStripMenuItem
+            // 
+            this.apoyoTransporteToolStripMenuItem.Name = "apoyoTransporteToolStripMenuItem";
+            this.apoyoTransporteToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.apoyoTransporteToolStripMenuItem.Text = "Apoyo Transporte";
+            this.apoyoTransporteToolStripMenuItem.Click += new System.EventHandler(this.apoyoTransporteToolStripMenuItem_Click);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(768, 243);
@@ -469,12 +478,12 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // apoyoTransporteToolStripMenuItem
+            // desgasteHerramientaToolStripMenuItem
             // 
-            this.apoyoTransporteToolStripMenuItem.Name = "apoyoTransporteToolStripMenuItem";
-            this.apoyoTransporteToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.apoyoTransporteToolStripMenuItem.Text = "Apoyo Transporte";
-            this.apoyoTransporteToolStripMenuItem.Click += new System.EventHandler(this.apoyoTransporteToolStripMenuItem_Click);
+            this.desgasteHerramientaToolStripMenuItem.Name = "desgasteHerramientaToolStripMenuItem";
+            this.desgasteHerramientaToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.desgasteHerramientaToolStripMenuItem.Text = "Desgaste Herramienta";
+            this.desgasteHerramientaToolStripMenuItem.Click += new System.EventHandler(this.desgasteHerramientaToolStripMenuItem_Click);
             // 
             // MainControl
             // 
@@ -548,5 +557,6 @@
         private System.Windows.Forms.ToolStripMenuItem premioPFYPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem valesDespensaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem apoyoTransporteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem desgasteHerramientaToolStripMenuItem;
     }
 }

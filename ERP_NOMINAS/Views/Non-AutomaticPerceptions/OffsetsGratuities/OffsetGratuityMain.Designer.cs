@@ -42,10 +42,10 @@
             this.filterByT1 = new ERP_NOMINAS.Components.Search.FilterByT();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonPrint1 = new ERP_NOMINAS.Components.Buttons.buttonPrint();
+            this.searchPayWeek1 = new ERP_NOMINAS.Components.Search.SearchPayWeek();
             this.searchPayWeek2 = new ERP_NOMINAS.Components.Search.SearchPayWeek();
             this.buttonPrint2 = new ERP_NOMINAS.Components.Buttons.buttonPrint();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.searchPayWeek1 = new ERP_NOMINAS.Components.Search.SearchPayWeek();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -175,13 +175,26 @@
             this.buttonPrint1.TabIndex = 2;
             this.buttonPrint1.OnBotonPrintClick += new System.EventHandler(this.buttonPrint1_OnBotonPrintClick);
             // 
+            // searchPayWeek1
+            // 
+            this.searchPayWeek1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.searchPayWeek1.Location = new System.Drawing.Point(6, 31);
+            this.searchPayWeek1.Name = "searchPayWeek1";
+            this.searchPayWeek1.SelectedValue = new decimal(new int[] {
+            2026216,
+            0,
+            0,
+            0});
+            this.searchPayWeek1.Size = new System.Drawing.Size(126, 27);
+            this.searchPayWeek1.TabIndex = 2;
+            // 
             // searchPayWeek2
             // 
             this.searchPayWeek2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.searchPayWeek2.Location = new System.Drawing.Point(19, 31);
             this.searchPayWeek2.Name = "searchPayWeek2";
             this.searchPayWeek2.SelectedValue = new decimal(new int[] {
-            2026170,
+            2026216,
             0,
             0,
             0});
@@ -208,24 +221,11 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informe Desgaste Herramienta";
             // 
-            // searchPayWeek1
-            // 
-            this.searchPayWeek1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.searchPayWeek1.Location = new System.Drawing.Point(6, 31);
-            this.searchPayWeek1.Name = "searchPayWeek1";
-            this.searchPayWeek1.SelectedValue = new decimal(new int[] {
-            2026170,
-            0,
-            0,
-            0});
-            this.searchPayWeek1.Size = new System.Drawing.Size(126, 27);
-            this.searchPayWeek1.TabIndex = 2;
-            // 
             // button1
             // 
             this.button1.Image = global::ERP_NOMINAS.Properties.Resources.icons8_herramienta_28;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(498, 388);
+            this.button1.Location = new System.Drawing.Point(517, 388);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 49);
             this.button1.TabIndex = 7;

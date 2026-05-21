@@ -354,6 +354,9 @@
     <Compile Include="Models\TaxRates\TaxRate.cs" />
     <Compile Include="Models\Templates\ITemplate.cs" />
     <Compile Include="Models\Templates\Template.cs" />
+    <Compile Include="Models\ToolWears\IToolWear.cs" />
+    <Compile Include="Models\ToolWears\ToolWear.cs" />
+    <Compile Include="Models\ToolWears\ToolWearReport.cs" />
     <Compile Include="Models\UnionCommittee\IUnionCom.cs" />
     <Compile Include="Models\UnionCommittee\UnionCom.cs" />
     <Compile Include="Models\Uses\IUse.cs" />
@@ -424,6 +427,12 @@
     <Compile Include="Reports\NonAutomaticPerception\Subsidies\subsidyListView.Designer.cs">
       <DependentUpon>subsidyListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\NonAutomaticPerception\ToolWears\toolWearListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\NonAutomaticPerception\ToolWears\toolWearListView.Designer.cs">
+      <DependentUpon>toolWearListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ViewsTablesAttendance.cs">
       <DependentUpon>ViewsTablesAttendance.xsd</DependentUpon>
     </Compile>
@@ -490,6 +499,7 @@
     <Compile Include="Repositorys\SupportTransportationRepository.cs" />
     <Compile Include="Repositorys\TaxRateRepository.cs" />
     <Compile Include="Repositorys\TemplateRepository.cs" />
+    <Compile Include="Repositorys\ToolWearRepository.cs" />
     <Compile Include="Repositorys\UnionCommitteeRepository.cs" />
     <Compile Include="Repositorys\UseRepository.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -829,6 +839,18 @@
     <Compile Include="Views\Non-AutomaticPerceptions\SupportTransportations\SupportTransportationShow.Designer.cs">
       <DependentUpon>SupportTransportationShow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\ToolWears\ToolWearMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\ToolWears\ToolWearMain.Designer.cs">
+      <DependentUpon>ToolWearMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\ToolWears\ToolWearShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\ToolWears\ToolWearShow.Designer.cs">
+      <DependentUpon>ToolWearShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -969,6 +991,10 @@
     <EmbeddedResource Include="Reports\NonAutomaticPerception\Subsidies\subsidyList.rdlc" />
     <EmbeddedResource Include="Reports\NonAutomaticPerception\Subsidies\subsidyListView.resx">
       <DependentUpon>subsidyListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NonAutomaticPerception\ToolWears\toolWearList.rdlc" />
+    <EmbeddedResource Include="Reports\NonAutomaticPerception\ToolWears\toolWearListView.resx">
+      <DependentUpon>toolWearListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AttendanceControl\Attendance\AttendMain.resx">
       <DependentUpon>AttendMain.cs</DependentUpon>
@@ -1137,6 +1163,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Non-AutomaticPerceptions\SupportTransportations\SupportTransportationShow.resx">
       <DependentUpon>SupportTransportationShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\ToolWears\ToolWearMain.resx">
+      <DependentUpon>ToolWearMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\ToolWears\ToolWearShow.resx">
+      <DependentUpon>ToolWearShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ReportForm.resx">
       <DependentUpon>ReportForm.cs</DependentUpon>

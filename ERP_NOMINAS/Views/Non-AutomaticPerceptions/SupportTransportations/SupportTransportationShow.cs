@@ -112,8 +112,8 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.SupportTransportations
                     NumberEmployee = Convert.ToInt32(searchCatalog1.SelectedValue),
                     FullName = fullName,
                     WorkedDays = Convert.ToInt32(numericUpDown1.Value),
-                    PorcAnt = Convert.ToInt32(numericUpDown2.Value),
-                    PorcAct = Convert.ToInt32(numericUpDown3.Value),
+                    PorcAnt = Convert.ToDecimal(numericUpDown2.Value),
+                    PorcAct = Convert.ToDecimal(numericUpDown3.Value),
                     Amount = Convert.ToDecimal(numericUpDown4.Value)
             };
 
