@@ -162,7 +162,7 @@
             this.buttonExport1.Name = "buttonExport1";
             this.buttonExport1.Size = new System.Drawing.Size(69, 54);
             this.buttonExport1.TabIndex = 9;
-            this.buttonExport1.Load += new System.EventHandler(this.buttonExport1_Load);
+            this.buttonExport1.OnBotonExportClick += new System.EventHandler(this.buttonExport1_OnBotonExportClick);
             // 
             // button3
             // 

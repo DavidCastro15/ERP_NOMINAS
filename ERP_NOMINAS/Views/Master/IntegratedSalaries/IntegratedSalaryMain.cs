@@ -171,7 +171,33 @@ namespace ERP_NOMINAS.Views.Master.IntegratedSalaries
 
         }
 
-        private void buttonExport1_Load(object sender, EventArgs e)
+        private void buttonImport1_OnBotonImportClick(object sender, EventArgs e)
+        {
+            string message = "¿Está seguro de que importar este archivo? \nTodos los registros anteriores seran borrados!!!!!!!";
+            string title = "Importar Salarios Integrados";
+            DialogResult ress = MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (ress == DialogResult.Yes)
+            {
+                try
+                {
+                    DataTable dt = Util.GetDataCSV(openFileDialog1.FileName);
+                    _repository.ImportEmployees(dt);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                MessageBox.Show("Importacion masiva con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadGrid();
+            }
+            else
+            {
+                MessageBox.Show("Operación cancelada.", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void buttonExport1_OnBotonExportClick(object sender, EventArgs e)
         {
             try
             {
@@ -201,32 +227,6 @@ namespace ERP_NOMINAS.Views.Master.IntegratedSalaries
             catch (Exception ex)
             {
                 MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void buttonImport1_OnBotonImportClick(object sender, EventArgs e)
-        {
-            string message = "¿Está seguro de que importar este archivo? \nTodos los registros anteriores seran borrados!!!!!!!";
-            string title = "Importar Salarios Integrados";
-            DialogResult ress = MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (ress == DialogResult.Yes)
-            {
-                try
-                {
-                    DataTable dt = Util.GetDataCSV(openFileDialog1.FileName);
-                    _repository.ImportEmployees(dt);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-                MessageBox.Show("Importacion masiva con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadGrid();
-            }
-            else
-            {
-                MessageBox.Show("Operación cancelada.", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

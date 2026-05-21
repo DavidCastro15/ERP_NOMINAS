@@ -33,18 +33,13 @@ namespace ERP_NOMINAS.Views.Master.Materials
             dataGridView1.AutoGenerateColumns = false;
             LoadGrid();
         }
+
         public void LoadGrid()
         {
             var ListMaterial = _repository.GetMaterials();
             Util.ConfigGrid<Material>(dataGridView1);
             dataGridView1.DataSource = new BindingList<Material>(ListMaterial);
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            var searchFilter = _repository.FilterByName(textBox1.Text.ToString());
-            dataGridView1.DataSource = new BindingList<Material>(searchFilter);
-        }
+        }    
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {

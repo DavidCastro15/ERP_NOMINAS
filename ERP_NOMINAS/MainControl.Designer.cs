@@ -75,9 +75,9 @@
             this.premioPFYPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valesDespensaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.apoyoTransporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.desgasteHerramientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.desgasteHerramientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -459,13 +459,20 @@
             this.apoyoTransporteToolStripMenuItem.Text = "Apoyo Transporte";
             this.apoyoTransporteToolStripMenuItem.Click += new System.EventHandler(this.apoyoTransporteToolStripMenuItem_Click);
             // 
+            // desgasteHerramientaToolStripMenuItem
+            // 
+            this.desgasteHerramientaToolStripMenuItem.Name = "desgasteHerramientaToolStripMenuItem";
+            this.desgasteHerramientaToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.desgasteHerramientaToolStripMenuItem.Text = "Desgaste Herramienta";
+            this.desgasteHerramientaToolStripMenuItem.Click += new System.EventHandler(this.desgasteHerramientaToolStripMenuItem_Click);
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(768, 243);
+            this.button1.Location = new System.Drawing.Point(784, 259);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 109);
             this.button1.TabIndex = 2;
-            this.button1.Text = "AA";
+            this.button1.Text = "PRUEBAS";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -477,13 +484,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(300, 153);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // desgasteHerramientaToolStripMenuItem
-            // 
-            this.desgasteHerramientaToolStripMenuItem.Name = "desgasteHerramientaToolStripMenuItem";
-            this.desgasteHerramientaToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.desgasteHerramientaToolStripMenuItem.Text = "Desgaste Herramienta";
-            this.desgasteHerramientaToolStripMenuItem.Click += new System.EventHandler(this.desgasteHerramientaToolStripMenuItem_Click);
             // 
             // MainControl
             // 
