@@ -323,6 +323,8 @@
     <Compile Include="Models\HeightsTemperatures\IHeightTemperature.cs" />
     <Compile Include="Models\Holidays\Holiday.cs" />
     <Compile Include="Models\Holidays\IHoliday.cs" />
+    <Compile Include="Models\Incentives\IIncentive.cs" />
+    <Compile Include="Models\Incentives\Incentive.cs" />
     <Compile Include="Models\IntegratedSalaries\IIntegratedSalary.cs" />
     <Compile Include="Models\IntegratedSalaries\IntegratedSalary.cs" />
     <Compile Include="Models\IntegratedSalaries\IntegratedSalaryReport.cs" />
@@ -488,6 +490,7 @@
     <Compile Include="Repositorys\GroupRepository.cs" />
     <Compile Include="Repositorys\HeightTemperatureRepository.cs" />
     <Compile Include="Repositorys\HolidayRepository.cs" />
+    <Compile Include="Repositorys\IncentiveRepository.cs" />
     <Compile Include="Repositorys\IntegratedSalaryRepository.cs" />
     <Compile Include="Repositorys\ListAttendRepository.cs" />
     <Compile Include="Repositorys\ManagmentRepository.cs" />
@@ -779,6 +782,12 @@
     </Compile>
     <Compile Include="Views\Non-AutomaticPerceptions\HeightsTemperatures\HeightTemperatureShow.Designer.cs">
       <DependentUpon>HeightTemperatureShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\Incentives\IncentiveMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\Incentives\IncentiveMain.Designer.cs">
+      <DependentUpon>IncentiveMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Non-AutomaticPerceptions\OffsetsGratuities\OffsetGratuityEdit.cs">
       <SubType>Form</SubType>
@@ -1134,6 +1143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Non-AutomaticPerceptions\HeightsTemperatures\HeightTemperatureShow.resx">
       <DependentUpon>HeightTemperatureShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\Incentives\IncentiveMain.resx">
+      <DependentUpon>IncentiveMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Non-AutomaticPerceptions\OffsetsGratuities\OffsetGratuityEdit.resx">
       <DependentUpon>OffsetGratuityEdit.cs</DependentUpon>

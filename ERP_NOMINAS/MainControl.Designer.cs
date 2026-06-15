@@ -76,6 +76,7 @@
             this.valesDespensaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.apoyoTransporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.desgasteHerramientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estimulo61ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
@@ -398,7 +399,8 @@
             this.premioPFYPToolStripMenuItem,
             this.valesDespensaToolStripMenuItem,
             this.apoyoTransporteToolStripMenuItem,
-            this.desgasteHerramientaToolStripMenuItem});
+            this.desgasteHerramientaToolStripMenuItem,
+            this.estimulo61ToolStripMenuItem});
             this.percepcionesNoAutoToolStripMenuItem.Name = "percepcionesNoAutoToolStripMenuItem";
             this.percepcionesNoAutoToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
             this.percepcionesNoAutoToolStripMenuItem.Text = "Percepciones No Auto";
@@ -465,6 +467,13 @@
             this.desgasteHerramientaToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.desgasteHerramientaToolStripMenuItem.Text = "Desgaste Herramienta";
             this.desgasteHerramientaToolStripMenuItem.Click += new System.EventHandler(this.desgasteHerramientaToolStripMenuItem_Click);
+            // 
+            // estimulo61ToolStripMenuItem
+            // 
+            this.estimulo61ToolStripMenuItem.Name = "estimulo61ToolStripMenuItem";
+            this.estimulo61ToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.estimulo61ToolStripMenuItem.Text = "Estimulo 61";
+            this.estimulo61ToolStripMenuItem.Click += new System.EventHandler(this.estimulo61ToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -558,5 +567,6 @@
         private System.Windows.Forms.ToolStripMenuItem valesDespensaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem apoyoTransporteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem desgasteHerramientaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem estimulo61ToolStripMenuItem;
     }
 }

@@ -98,7 +98,9 @@ namespace ERP_NOMINAS
 
         private void desgasteHerramientaToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.ToolWears.ToolWearMain>();
 
-        private void button1_Click(object sender, EventArgs e) => OpenForm<Form1>();
+        private void estimulo61ToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.Incentives.IncentiveMain>();
+
+        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.Incentives.IncentiveMain>();
 
         // --- Formularios Con Parámetros (Plantillas) ---
         private void reparacionToolStripMenuItem_Click(object sender, EventArgs e) =>
