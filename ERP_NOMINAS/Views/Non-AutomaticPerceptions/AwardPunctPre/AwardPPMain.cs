@@ -153,7 +153,7 @@ namespace ERP_NOMINAS.Views.Non_AutomaticPerceptions.AwardPunctPre
             catch (Exception)
             {
 
-                MessageBox.Show("Error en cargar los premios");
+                MessageBox.Show("Error en cargar los premios, no hay informacion existente");
             } 
         }
 

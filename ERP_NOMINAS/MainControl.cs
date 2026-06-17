@@ -100,7 +100,9 @@ namespace ERP_NOMINAS
 
         private void estimulo61ToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.Incentives.IncentiveMain>();
 
-        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.Incentives.IncentiveMain>();
+        private void toposToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.Tunneling.TunnelMain>();
+
+        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.Tunneling.TunnelMain>();
 
         // --- Formularios Con Parámetros (Plantillas) ---
         private void reparacionToolStripMenuItem_Click(object sender, EventArgs e) =>

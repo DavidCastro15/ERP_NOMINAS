@@ -79,6 +79,7 @@
             this.estimulo61ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -400,7 +401,8 @@
             this.valesDespensaToolStripMenuItem,
             this.apoyoTransporteToolStripMenuItem,
             this.desgasteHerramientaToolStripMenuItem,
-            this.estimulo61ToolStripMenuItem});
+            this.estimulo61ToolStripMenuItem,
+            this.toposToolStripMenuItem});
             this.percepcionesNoAutoToolStripMenuItem.Name = "percepcionesNoAutoToolStripMenuItem";
             this.percepcionesNoAutoToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
             this.percepcionesNoAutoToolStripMenuItem.Text = "Percepciones No Auto";
@@ -494,6 +496,13 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // toposToolStripMenuItem
+            // 
+            this.toposToolStripMenuItem.Name = "toposToolStripMenuItem";
+            this.toposToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.toposToolStripMenuItem.Text = "Topos";
+            this.toposToolStripMenuItem.Click += new System.EventHandler(this.toposToolStripMenuItem_Click);
+            // 
             // MainControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -568,5 +577,6 @@
         private System.Windows.Forms.ToolStripMenuItem apoyoTransporteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem desgasteHerramientaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estimulo61ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toposToolStripMenuItem;
     }
 }

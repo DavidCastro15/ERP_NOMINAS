@@ -360,6 +360,9 @@
     <Compile Include="Models\ToolWears\IToolWear.cs" />
     <Compile Include="Models\ToolWears\ToolWear.cs" />
     <Compile Include="Models\ToolWears\ToolWearReport.cs" />
+    <Compile Include="Models\Tunneling\ITunnel.cs" />
+    <Compile Include="Models\Tunneling\Tunnel.cs" />
+    <Compile Include="Models\Tunneling\TunnelReport.cs" />
     <Compile Include="Models\UnionCommittee\IUnionCom.cs" />
     <Compile Include="Models\UnionCommittee\UnionCom.cs" />
     <Compile Include="Models\Uses\IUse.cs" />
@@ -436,6 +439,12 @@
     <Compile Include="Reports\NonAutomaticPerception\ToolWears\toolWearListView.Designer.cs">
       <DependentUpon>toolWearListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\NonAutomaticPerception\Tunneling\tunnelListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\NonAutomaticPerception\Tunneling\tunnelListView.Designer.cs">
+      <DependentUpon>tunnelListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ViewsTablesAttendance.cs">
       <DependentUpon>ViewsTablesAttendance.xsd</DependentUpon>
     </Compile>
@@ -504,6 +513,7 @@
     <Compile Include="Repositorys\TaxRateRepository.cs" />
     <Compile Include="Repositorys\TemplateRepository.cs" />
     <Compile Include="Repositorys\ToolWearRepository.cs" />
+    <Compile Include="Repositorys\TunnelRepository.cs" />
     <Compile Include="Repositorys\UnionCommitteeRepository.cs" />
     <Compile Include="Repositorys\UseRepository.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -861,6 +871,12 @@
     <Compile Include="Views\Non-AutomaticPerceptions\ToolWears\ToolWearShow.Designer.cs">
       <DependentUpon>ToolWearShow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\Tunneling\TunnelMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticPerceptions\Tunneling\TunnelMain.Designer.cs">
+      <DependentUpon>TunnelMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1005,6 +1021,10 @@
     <EmbeddedResource Include="Reports\NonAutomaticPerception\ToolWears\toolWearList.rdlc" />
     <EmbeddedResource Include="Reports\NonAutomaticPerception\ToolWears\toolWearListView.resx">
       <DependentUpon>toolWearListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NonAutomaticPerception\Tunneling\tunnelList.rdlc" />
+    <EmbeddedResource Include="Reports\NonAutomaticPerception\Tunneling\tunnelListView.resx">
+      <DependentUpon>tunnelListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AttendanceControl\Attendance\AttendMain.resx">
       <DependentUpon>AttendMain.cs</DependentUpon>
@@ -1182,6 +1202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Non-AutomaticPerceptions\ToolWears\ToolWearShow.resx">
       <DependentUpon>ToolWearShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticPerceptions\Tunneling\TunnelMain.resx">
+      <DependentUpon>TunnelMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ReportForm.resx">
       <DependentUpon>ReportForm.cs</DependentUpon>

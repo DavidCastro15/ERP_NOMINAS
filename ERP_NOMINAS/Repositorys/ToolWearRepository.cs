@@ -146,7 +146,7 @@ namespace ERP_NOMINAS.Repositorys
             catch (Exception ex)
             {
 
-                throw new Exception("Error al obtener las asistencias: " + ex.Message);
+                throw new Exception("Error al obtener el desgaste de herramienta: " + ex.Message);
             }
             finally
             {
