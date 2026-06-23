@@ -1,4 +1,4 @@
-﻿using ERP_NOMINAS.Conexion;
+﻿using ERP_SHARED.Conexion;
 using ERP_NOMINAS.Models.ExtraShifts;
 using System;
 using System.Collections.Generic;

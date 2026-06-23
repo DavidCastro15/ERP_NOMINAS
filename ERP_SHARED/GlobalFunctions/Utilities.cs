@@ -1,4 +1,5 @@
-﻿using ERP_NOMINAS.Conexion;
+﻿
+using ERP_SHARED.GlobalFunctions.Enums;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,30 +10,14 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-namespace ERP_NOMINAS.GlobalFunctions
+using ERP_SHARED.Conexion;
+namespace ERP_SHARED.GlobalFunctions
 {
     public class Utilities
     {
         ConnectorSql Conex = new ConnectorSql();
         SqlCommand cmd = new SqlCommand();
- 
-        public enum TypeCatalog
-        {
-            Employee,
-            Use,
-            Category,
-            Turn,
-            Concept,
-            Department,
-            Management,
-            Group,
-            Equipment,
-            TrainedCategories,
-            Material,
-            PayWeek
-        }
-       
+      
         public void ConfigGrid<T>(DataGridView dgv)
         {       
             PropertyInfo[] propiedades = typeof(T).GetProperties();
@@ -165,7 +150,7 @@ namespace ERP_NOMINAS.GlobalFunctions
                     query = "SELECT DISTINCT no_semana FROM calculos ORDER BY no_semana DESC";
                     display = "no_semana";
                     value = "no_semana";
-                    break;
+                    break;              
             }
 
             LoadComboBox(combo, query, display, value);

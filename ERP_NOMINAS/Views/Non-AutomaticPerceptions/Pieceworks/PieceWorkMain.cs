@@ -1,4 +1,4 @@
-﻿using ERP_NOMINAS.GlobalFunctions;
+﻿using ERP_SHARED.GlobalFunctions;
 using ERP_NOMINAS.Models.Pieceworks;
 using ERP_NOMINAS.Reports.NonAutomaticPerception.Piecework;
 using ERP_NOMINAS.Repositorys;

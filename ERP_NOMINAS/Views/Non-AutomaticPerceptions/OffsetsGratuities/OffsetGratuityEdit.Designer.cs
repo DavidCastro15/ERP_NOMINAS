@@ -42,7 +42,7 @@
             // 
             // searchCatalog1
             // 
-            this.searchCatalog1._TypeCatalog = ERP_NOMINAS.GlobalFunctions.Utilities.TypeCatalog.Employee;
+            this.searchCatalog1._TypeCatalog = ERP_SHARED.GlobalFunctions.Enums.TypeCatalog.Employee;
             this.searchCatalog1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.searchCatalog1.Enabled = false;
             this.searchCatalog1.Location = new System.Drawing.Point(12, 23);
@@ -54,7 +54,7 @@
             // 
             // searchCatalog2
             // 
-            this.searchCatalog2._TypeCatalog = ERP_NOMINAS.GlobalFunctions.Utilities.TypeCatalog.Use;
+            this.searchCatalog2._TypeCatalog = ERP_SHARED.GlobalFunctions.Enums.TypeCatalog.Use;
             this.searchCatalog2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.searchCatalog2.Location = new System.Drawing.Point(12, 58);
             this.searchCatalog2.Name = "searchCatalog2";

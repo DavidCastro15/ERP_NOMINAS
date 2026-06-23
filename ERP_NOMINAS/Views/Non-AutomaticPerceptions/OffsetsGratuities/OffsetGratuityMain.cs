@@ -1,4 +1,4 @@
-﻿using ERP_NOMINAS.GlobalFunctions;
+﻿using ERP_SHARED.GlobalFunctions;
 using ERP_NOMINAS.Models.OffsetsGratuities;
 using ERP_NOMINAS.Reports.NonAutomaticPerception.OffsetsGratuities;
 using ERP_NOMINAS.Reports.NonAutomaticPerception.ToolWears;

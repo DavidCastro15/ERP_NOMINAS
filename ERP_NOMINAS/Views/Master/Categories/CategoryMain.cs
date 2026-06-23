@@ -1,5 +1,5 @@
-﻿using ERP_NOMINAS.Conexion;
-using ERP_NOMINAS.GlobalFunctions;
+﻿using ERP_SHARED.Conexion;
+using ERP_SHARED.GlobalFunctions;
 using ERP_NOMINAS.Models.Category;
 using ERP_NOMINAS.Reports.Master.Categories;
 using ERP_NOMINAS.Repositorys;
@@ -149,6 +149,7 @@ namespace ERP_NOMINAS.Views.Master.Categories
         {
             var reportPrint = new categoriesListView();
             reportPrint.ShowDialog();
+
         }
     }
 

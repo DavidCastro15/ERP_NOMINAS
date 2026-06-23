@@ -80,7 +80,7 @@
             // 
             // searchCatalog1
             // 
-            this.searchCatalog1._TypeCatalog = ERP_NOMINAS.GlobalFunctions.Utilities.TypeCatalog.Management;
+            this.searchCatalog1._TypeCatalog = ERP_SHARED.GlobalFunctions.Enums.TypeCatalog.Management;
             this.searchCatalog1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.searchCatalog1.Location = new System.Drawing.Point(12, 92);
             this.searchCatalog1.Name = "searchCatalog1";

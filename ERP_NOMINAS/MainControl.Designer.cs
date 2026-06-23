@@ -77,9 +77,9 @@
             this.apoyoTransporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.desgasteHerramientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estimulo61ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -477,6 +477,13 @@
             this.estimulo61ToolStripMenuItem.Text = "Estimulo 61";
             this.estimulo61ToolStripMenuItem.Click += new System.EventHandler(this.estimulo61ToolStripMenuItem_Click);
             // 
+            // toposToolStripMenuItem
+            // 
+            this.toposToolStripMenuItem.Name = "toposToolStripMenuItem";
+            this.toposToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.toposToolStripMenuItem.Text = "Topos";
+            this.toposToolStripMenuItem.Click += new System.EventHandler(this.toposToolStripMenuItem_Click);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(784, 259);
@@ -495,13 +502,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(300, 153);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // toposToolStripMenuItem
-            // 
-            this.toposToolStripMenuItem.Name = "toposToolStripMenuItem";
-            this.toposToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.toposToolStripMenuItem.Text = "Topos";
-            this.toposToolStripMenuItem.Click += new System.EventHandler(this.toposToolStripMenuItem_Click);
             // 
             // MainControl
             // 

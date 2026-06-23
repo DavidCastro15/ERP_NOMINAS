@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ERP_NOMINAS.Views
+namespace ERP_NOMINAS
 {
     public partial class BaseForm : Form
     {
@@ -22,16 +22,65 @@ namespace ERP_NOMINAS.Views
 
         public BaseForm()
         {
+            // 1. 🔥 PROTECCIÓN ANTIDESIGNER NIVEL 1: 
+            // Si Visual Studio está intentando dibujar la pantalla en el editor,
+            // ejecutamos ÚNICAMENTE los componentes visuales mínimos y salimos de inmediato.
+            // Esto evita que choquen los servicios internos de Windows Forms.
+            bool modoDiseñoActivo = LicenseManager.UsageMode == LicenseUsageMode.Designtime || this.DesignMode;
+
+            if (modoDiseñoActivo)
+            {
+                InitializeComponent();
+                return; // Detiene la ejecución para que el diseñador visual no truene
+            }
+
+            // 2. Ejecución Normal (Esto solo correrá cuando el usuario final abra el ERP real)
+            this.Load += BaseForm_Load;
             this.StartPosition = FormStartPosition.CenterScreen;
-            InitializeComponent();     
+            InitializeComponent();
             this.DoubleBuffered = true;
             this.BackColor = Color.White;
-            
+
             this.Paint += GlobalForm_Paint;
             this.HeaderColor = Color.LightGreen;
             ChangeColorHead(ColorSelect);
             SetDefaultBorderColor(ColorSelect);
         }
+
+
+
+
+        private void BaseForm_Load(object sender, EventArgs e)
+        {
+            // 🔥 PROTECCIÓN ANTIDESIGNER NIVEL 2:
+            if (this.DesignMode || LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
+
+            try
+            {
+                // Forzamos la inyección directa de auditoría de forma segura
+                ERP_SHARED.GlobalFunctions.Logs.Auditor.RegistrarPantallaHija(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fallo de auditoría en la pantalla {this.GetType().Name}:\n\n{ex.Message}\n\n{ex.StackTrace}",
+                   "Alerta de Bitácora", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            // Tu lógica de diseño y centrado original permanece intacta
+            AutoDetectDesignGrids(this);
+
+            if (this.StartPosition == FormStartPosition.CenterScreen)
+            {
+                Screen screen = Screen.FromControl(this);
+                Rectangle workingArea = screen.WorkingArea;
+
+                this.Location = new Point(
+                    workingArea.Left + (workingArea.Width - this.Width) / 2,
+                    workingArea.Top + (workingArea.Height - this.Height) / 2
+                );
+            }
+        
+    }
 
         private void ChangeColorHead(Color color)
         {
@@ -79,26 +128,86 @@ namespace ERP_NOMINAS.Views
 
         }
      
-        private void BaseForm_Load(object sender, EventArgs e)
-        {
-            // Ejecuta el escáner automático en todo el formulario
-            AutoDetectDesignGrids(this);
-        }
-
         private void AutoDetectDesignGrids(Control contenedor)
         {
             foreach (Control control in contenedor.Controls)
             {
                 if (control is DataGridView dgv)
                 {
-                    ApplyTailwindGrid(dgv); // Si encuentra uno, le aplica el diseño
+                    ApplyTailwindGrid(dgv);
                 }
+                //else if (control is TextBox txt)
+                //{
+                //    ApplyModernTextBoxStyle(txt); // NUEVO: Aplica el efecto de línea inferior al TextBox
+                //}
                 else if (control.HasChildren)
                 {
-                    // Si el control tiene hijos (ej. un Panel), busca también adentro de él
                     AutoDetectDesignGrids(control);
                 }
             }
+        }
+
+        private void ApplyModernTextBoxStyle(TextBox txt)
+        {
+            // 1. Quitamos el borde 3D antiguo de Windows para evitar la línea azul marino
+            txt.BorderStyle = BorderStyle.None;
+
+            Control contenedorLinea = txt.Parent;
+
+            // 2. IMPORTANTE: Dejamos un margen sutil para que el texto no se pegue a los nuevos bordes planos
+            txt.Margin = new Padding(6);
+
+            // Al tomar el foco (Hacer Click / Escribir)
+            txt.Enter += (sender, e) =>
+            {
+                if (contenedorLinea != null && contenedorLinea != this)
+                {
+                    contenedorLinea.BackColor = Color.FromArgb(248, 250, 252); // Fondo Slate-50 muy sutil
+                }
+                contenedorLinea.Invalidate(); // Fuerza el redibujado inmediato del borde activo
+            };
+
+            // Al perder el foco (Salir del campo)
+            txt.Leave += (sender, e) =>
+            {
+                if (contenedorLinea != null && contenedorLinea != this)
+                {
+                    contenedorLinea.BackColor = Color.White;
+                }
+                contenedorLinea.Invalidate(); // Fuerza el redibujado inmediato del borde en reposo
+            };
+
+            // 3. Dibujado inteligente de un contenedor perimetral plano (Estilo Tailwind Input)
+            contenedorLinea.Paint += (sender, e) =>
+            {
+                // Si tiene el foco usamos LightSkyBlue (grosor 2px). Si no lo tiene, un gris Slate-300 muy claro (grosor 1px).
+                Color colorBorde = txt.Focused ? ColorSelect : Color.FromArgb(203, 213, 225);
+                int grosor = txt.Focused ? 2 : 1;
+
+                using (Pen pen = new Pen(colorBorde, grosor))
+                {
+                    if (contenedorLinea == this)
+                    {
+                        // CASO A: TextBox sueltos en otros formularios.
+                        // Dibujamos un rectángulo perfecto a su alrededor para simular un borde plano moderno.
+                        int x = txt.Left - 4;
+                        int y = txt.Top - 4;
+                        int ancho = txt.Width + 8;
+                        int alto = txt.Height + 8;
+
+                        e.Graphics.DrawRectangle(pen, x, y, ancho, alto);
+                    }
+                    else
+                    {
+                        // CASO B: En tu Login (donde el TextBox está protegido dentro de un Panel).
+                        // Dibujamos el rectángulo plano siguiendo exactamente el límite exterior de tu Panel.
+                        e.Graphics.DrawRectangle(pen, 0, 0, contenedorLinea.Width - 1, contenedorLinea.Height - 1);
+                    }
+                }
+            };
+
+            // 4. Provocamos que el formulario se entere de los nuevos bordes inmediatamente al abrirse
+            contenedorLinea.Invalidate();
         }
 
         private void ApplyTailwindGrid(DataGridView dgv)
@@ -163,5 +272,6 @@ namespace ERP_NOMINAS.Views
             };
 
         }
+
     }
 }

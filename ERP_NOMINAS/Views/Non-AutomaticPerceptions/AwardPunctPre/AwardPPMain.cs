@@ -1,4 +1,4 @@
-﻿using ERP_NOMINAS.GlobalFunctions;
+﻿using ERP_SHARED.GlobalFunctions;
 using ERP_NOMINAS.Models.AwardPunctPre;
 using ERP_NOMINAS.Reports.NonAutomaticPerception.AwardsPPF;
 using ERP_NOMINAS.Repositorys;

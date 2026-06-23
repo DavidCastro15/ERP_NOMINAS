@@ -1,4 +1,4 @@
-﻿using ERP_NOMINAS.GlobalFunctions;
+﻿using ERP_SHARED.GlobalFunctions;
 using ERP_NOMINAS.Models.HeightsTemperatures;
 using ERP_NOMINAS.Reports.NonAutomaticPerception.HeightTemperatures;
 using ERP_NOMINAS.Repositorys;

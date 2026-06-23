@@ -1,4 +1,4 @@
-﻿using ERP_NOMINAS.GlobalFunctions;
+﻿using ERP_SHARED.GlobalFunctions;
 using ERP_NOMINAS.Models.SupportTransportations;
 using ERP_NOMINAS.Reports.NonAutomaticPerception.FoodVaucherSupportTransportation;
 using ERP_NOMINAS.Repositorys;

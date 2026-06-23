@@ -11,13 +11,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using ERP_NOMINAS.Views;
+using ERP_SHARED.Auth;
+using System.IO;
+using System.Diagnostics;
 
 namespace ERP_NOMINAS
 {
     public partial class MainControl : BaseForm
     {
-
         public MainControl()
         {
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -32,25 +33,155 @@ namespace ERP_NOMINAS
             }
             this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
                           (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
+
+             
         }
 
         private void MainControl_Load(object sender, EventArgs e)
         {
+            try
+            {
+                // 1. Validamos que la sesión no sea nula para evitar caídas
+                if (ERP_SHARED.Auth.Sesion.UserIsLoggin != null)
+                {
+                    // 2. Extraemos el rol forzándolo a String para evitar el conflicto con .Equals
+                    string rolUsuario = ERP_SHARED.Auth.Sesion.UserIsLoggin.NameRole.ToString();
 
+                    // 3. Hacemos la comparación clásica de textos de forma segura
+                    if (rolUsuario.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
+                    {
+                        // 🟢 SI ES ADMINISTRADOR: Simplemente salimos de la función.
+                        // No llamamos a TrackForms, el radar global ya está vigilando esta pantalla.
+                        return;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al validar rol de usuario: {ex.Message}");
+            }
+
+            // 4. Si no es administrador, aplica tus filtros de menú de siempre
+            ApplyFilterSecurity();
+
+            // 🟢 NOTA: Quitamos la línea final de TrackForms(this) de aquí abajo también.
+        }
+
+        private void ApplyFilterSecurity()
+        {
+            // Convertimos la lista de permitidos a un HashSet para búsquedas eficientes
+            var allowed = new HashSet<string>(Sesion.AuthorizedCatalogs, StringComparer.OrdinalIgnoreCase);
+
+            // Recorremos los menús de la barra principal (Ej: Archivo, Catálogos, Asistencias)
+            foreach (ToolStripItem item in menuStrip1.Items)
+            {
+                if (item is ToolStripMenuItem menuItem)
+                {
+                    // Evaluamos de forma recursiva si el menú o sus hijos deben mostrarse
+                    menuItem.Visible = EvaluatePermissionsMenu(menuItem, allowed);
+                }
+            }
+        }
+
+        private bool EvaluatePermissionsMenu(ToolStripMenuItem menuItem, HashSet<string> allowed)
+        {
+            // No filtramos nunca la opción de salir
+            if (menuItem.Name == "salirToolStripMenuItem") return true;
+
+            // CASO 1: Tiene submenús (Es una pestaña padre o contenedor)
+            if (menuItem.HasDropDownItems)
+            {
+                bool childrenVisible = false;
+
+                foreach (ToolStripItem subItem in menuItem.DropDownItems)
+                {
+                    if (subItem is ToolStripMenuItem subMenuItem)
+                    {
+                        // Llamada recursiva para evaluar al hijo
+                        bool childrenAllowed = EvaluatePermissionsMenu(subMenuItem, allowed);
+                        subMenuItem.Visible = childrenAllowed;
+
+                        if (childrenAllowed)
+                        {
+                            childrenVisible = true; // Registramos que este padre tiene contenido útil
+                        }
+                    }
+                    else if (subItem is ToolStripSeparator)
+                    {
+                        // Opcional: Mantener separadores visuales si deseas, o ignorar
+                        subItem.Visible = true;
+                    }
+                }
+
+                // El menú padre será visible SOLOS si al menos uno de sus hijos se va a mostrar
+                return childrenVisible;
+            }
+
+            // CASO 2: Es un botón final (Un catálogo directo, no tiene hijos)
+            // Es visible si su nombre exacto está en la lista de la base de datos
+            return allowed.Contains(menuItem.Name);
         }
 
         private void OpenForm<T>(Action<T> setup = null) where T : Form, new()
         {
-            using (T form = new T())
+             using (T form = new T())
+    {
+        setup?.Invoke(form);
+
+        try
+        {
+            // 1. Registramos la apertura en la base de datos (Lo que ya funciona súper bien)
+            ERP_SHARED.GlobalFunctions.Logs.Auditor.RegistrarPantallaHija(form);
+
+            // 2. 🔥 LA MAGIA DE LOS CLICS: Le decimos al Auditor que recorra la pantalla 
+            // e inyecte el rastreador de clics a todos los botones que encuentre adentro.
+            // Para asegurar que los botones ya existan en memoria, nos colgamos a su evento HandleCreated del hijo.
+            form.HandleCreated += (sender, e) =>
             {
-                setup?.Invoke(form);
-                form.ShowDialog();
+                string nombrePantallaReal = form.GetType().Name;
+                // Llamamos a tu método recursivo que ya programamos en SHARED
+                ERP_SHARED.GlobalFunctions.Logs.Auditor.MapearControlesRecursivo(form.Controls, nombrePantallaReal);
+            };
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine("Error al auditar componentes en OpenForm: " + ex.Message);
+        }
+
+        form.ShowDialog(); 
+    }
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                ERP_SHARED.Auth.Sesion.UserIsLoggin = null;
+                ERP_SHARED.Auth.Sesion.AuthorizedCatalogs = null;
+
+                string rutaLogin = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ERP_LOGIN.exe");
+
+                if (File.Exists(rutaLogin))
+                {
+                    Process.Start(rutaLogin); 
+                    Application.Exit();      
+                }
+                else
+                {
+                    MessageBox.Show("Error: No se encontró el módulo de Login.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cerrar sesión: {ex.Message}");
             }
         }
 
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e) => Close();
-
-        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsMaster.Categories.CategoryMain>();
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenForm<FormsMaster.Categories.CategoryMain>();
+        }
 
         private void percepcionDeduccionToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsMaster.PerceptionDeductions.PerceptionDeductionMain>();
 

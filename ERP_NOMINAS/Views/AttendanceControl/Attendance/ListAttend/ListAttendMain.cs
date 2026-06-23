@@ -1,4 +1,4 @@
-﻿using ERP_NOMINAS.GlobalFunctions;
+﻿using ERP_SHARED.GlobalFunctions;
 using ERP_NOMINAS.Models.Attendance.ListAttendance;
 using ERP_NOMINAS.Reports.Attendance.AddLists;
 using ERP_NOMINAS.Reports.AttendanceLists;

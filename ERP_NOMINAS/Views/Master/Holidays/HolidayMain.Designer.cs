@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +59,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(305, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(305, 180);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -72,8 +72,8 @@
             // 
             // Column2
             // 
-            dataGridViewCellStyle1.Format = "yyyy-MM-dd";
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "yyyy-MM-dd";
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column2.HeaderText = "Dia";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -92,7 +92,7 @@
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(62, 25);
+            this.groupBox1.Location = new System.Drawing.Point(58, 38);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(194, 136);
             this.groupBox1.TabIndex = 4;
@@ -146,7 +146,7 @@
             // buttonAdd1
             // 
             this.buttonAdd1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonAdd1.Location = new System.Drawing.Point(85, 167);
+            this.buttonAdd1.Location = new System.Drawing.Point(85, 198);
             this.buttonAdd1.Name = "buttonAdd1";
             this.buttonAdd1.Size = new System.Drawing.Size(74, 50);
             this.buttonAdd1.TabIndex = 3;
@@ -155,7 +155,7 @@
             // buttonFDelete1
             // 
             this.buttonFDelete1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonFDelete1.Location = new System.Drawing.Point(165, 168);
+            this.buttonFDelete1.Location = new System.Drawing.Point(165, 199);
             this.buttonFDelete1.Name = "buttonFDelete1";
             this.buttonFDelete1.Size = new System.Drawing.Size(73, 50);
             this.buttonFDelete1.TabIndex = 2;
@@ -164,7 +164,7 @@
             // buttonClose1
             // 
             this.buttonClose1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonClose1.Location = new System.Drawing.Point(244, 168);
+            this.buttonClose1.Location = new System.Drawing.Point(244, 199);
             this.buttonClose1.Name = "buttonClose1";
             this.buttonClose1.Size = new System.Drawing.Size(73, 49);
             this.buttonClose1.TabIndex = 1;
@@ -174,16 +174,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(320, 219);
+            this.ClientSize = new System.Drawing.Size(327, 260);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonAdd1);
             this.Controls.Add(this.buttonFDelete1);
             this.Controls.Add(this.buttonClose1);
             this.Controls.Add(this.dataGridView1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "HolidayMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "HolidayMain";
+            this.Text = "Dias Festivos";
             this.Load += new System.EventHandler(this.HolidayMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);

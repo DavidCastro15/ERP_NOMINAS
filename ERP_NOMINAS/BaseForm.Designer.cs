@@ -1,4 +1,4 @@
-﻿namespace ERP_NOMINAS.Views
+﻿namespace ERP_NOMINAS
 {
     partial class BaseForm
     {

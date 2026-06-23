@@ -1,5 +1,5 @@
-﻿using ERP_NOMINAS.Conexion;
-using ERP_NOMINAS.GlobalFunctions;
+﻿using ERP_SHARED.Conexion;
+using ERP_SHARED.GlobalFunctions;
 using ERP_NOMINAS.Models.AwardPunctPre;
 using System;
 using System.Collections.Generic;

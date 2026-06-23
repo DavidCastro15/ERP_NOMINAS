@@ -1,4 +1,4 @@
-﻿using ERP_NOMINAS.GlobalFunctions;
+﻿using ERP_SHARED.GlobalFunctions;
 using ERP_NOMINAS.Models.Employees;
 using ERP_NOMINAS.Reports.Master.Employees;
 using ERP_NOMINAS.Repositorys;

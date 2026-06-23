@@ -1,4 +1,4 @@
-﻿using ERP_NOMINAS.GlobalFunctions;
+﻿using ERP_SHARED.GlobalFunctions;
 using ERP_NOMINAS.Models.Templates;
 using ERP_NOMINAS.Repositorys;
 using System;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static ERP_NOMINAS.GlobalFunctions.Utilities;
+
 
 namespace ERP_NOMINAS.Views.Master.Templates
 {

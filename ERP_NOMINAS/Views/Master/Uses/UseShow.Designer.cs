@@ -85,7 +85,7 @@
             // 
             // searchCatalog1
             // 
-            this.searchCatalog1._TypeCatalog = ERP_NOMINAS.GlobalFunctions.Utilities.TypeCatalog.Management;
+            this.searchCatalog1._TypeCatalog = ERP_SHARED.GlobalFunctions.Enums.TypeCatalog.Management;
             this.searchCatalog1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.searchCatalog1.Location = new System.Drawing.Point(15, 93);
             this.searchCatalog1.Name = "searchCatalog1";
@@ -96,7 +96,7 @@
             // 
             // searchCatalog2
             // 
-            this.searchCatalog2._TypeCatalog = ERP_NOMINAS.GlobalFunctions.Utilities.TypeCatalog.Department;
+            this.searchCatalog2._TypeCatalog = ERP_SHARED.GlobalFunctions.Enums.TypeCatalog.Department;
             this.searchCatalog2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.searchCatalog2.Location = new System.Drawing.Point(15, 128);
             this.searchCatalog2.Name = "searchCatalog2";
@@ -107,7 +107,7 @@
             // 
             // searchCatalog3
             // 
-            this.searchCatalog3._TypeCatalog = ERP_NOMINAS.GlobalFunctions.Utilities.TypeCatalog.Group;
+            this.searchCatalog3._TypeCatalog = ERP_SHARED.GlobalFunctions.Enums.TypeCatalog.Group;
             this.searchCatalog3.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.searchCatalog3.Location = new System.Drawing.Point(15, 163);
             this.searchCatalog3.Name = "searchCatalog3";
@@ -118,7 +118,7 @@
             // 
             // searchCatalog4
             // 
-            this.searchCatalog4._TypeCatalog = ERP_NOMINAS.GlobalFunctions.Utilities.TypeCatalog.Equipment;
+            this.searchCatalog4._TypeCatalog = ERP_SHARED.GlobalFunctions.Enums.TypeCatalog.Equipment;
             this.searchCatalog4.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.searchCatalog4.Location = new System.Drawing.Point(12, 198);
             this.searchCatalog4.Name = "searchCatalog4";

@@ -1,6 +1,6 @@
 ﻿using ClosedXML.Excel;
-using ERP_NOMINAS.Conexion;
-using ERP_NOMINAS.GlobalFunctions;
+using ERP_SHARED.Conexion;
+using ERP_SHARED.GlobalFunctions;
 using ERP_NOMINAS.Models.Employees;
 using System;
 using System.Collections.Generic;
@@ -213,7 +213,6 @@ namespace ERP_NOMINAS.Repositorys
             }
             catch (Exception ex)
             {
-
                 throw new Exception("Error al obtener los empleados: " + ex.Message);
             }
             finally

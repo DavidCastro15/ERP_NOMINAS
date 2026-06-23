@@ -216,7 +216,7 @@
             // 
             // searchCatalog4
             // 
-            this.searchCatalog4._TypeCatalog = ERP_NOMINAS.GlobalFunctions.Utilities.TypeCatalog.Use;
+            this.searchCatalog4._TypeCatalog = ERP_SHARED.GlobalFunctions.Enums.TypeCatalog.Use;
             this.searchCatalog4.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.searchCatalog4.Location = new System.Drawing.Point(360, 250);
             this.searchCatalog4.Name = "searchCatalog4";
@@ -227,7 +227,7 @@
             // 
             // searchCatalog3
             // 
-            this.searchCatalog3._TypeCatalog = ERP_NOMINAS.GlobalFunctions.Utilities.TypeCatalog.Use;
+            this.searchCatalog3._TypeCatalog = ERP_SHARED.GlobalFunctions.Enums.TypeCatalog.Use;
             this.searchCatalog3.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.searchCatalog3.Location = new System.Drawing.Point(360, 215);
             this.searchCatalog3.Name = "searchCatalog3";
@@ -238,7 +238,7 @@
             // 
             // searchCatalog2
             // 
-            this.searchCatalog2._TypeCatalog = ERP_NOMINAS.GlobalFunctions.Utilities.TypeCatalog.Category;
+            this.searchCatalog2._TypeCatalog = ERP_SHARED.GlobalFunctions.Enums.TypeCatalog.Category;
             this.searchCatalog2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.searchCatalog2.Location = new System.Drawing.Point(360, 131);
             this.searchCatalog2.Name = "searchCatalog2";
@@ -249,7 +249,7 @@
             // 
             // searchCatalog1
             // 
-            this.searchCatalog1._TypeCatalog = ERP_NOMINAS.GlobalFunctions.Utilities.TypeCatalog.Category;
+            this.searchCatalog1._TypeCatalog = ERP_SHARED.GlobalFunctions.Enums.TypeCatalog.Category;
             this.searchCatalog1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.searchCatalog1.Location = new System.Drawing.Point(360, 96);
             this.searchCatalog1.Name = "searchCatalog1";

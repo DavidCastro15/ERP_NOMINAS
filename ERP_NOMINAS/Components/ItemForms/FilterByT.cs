@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ERP_NOMINAS.GlobalFunctions;
+using ERP_SHARED.GlobalFunctions;
 
 namespace ERP_NOMINAS.Components.Search
 {

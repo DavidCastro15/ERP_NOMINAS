@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.36617.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP_NOMINAS", "ERP_NOMINAS\ERP_NOMINAS.csproj", "{A8317D51-3D04-4832-BA3D-B9BE047F3D1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP_LOGIN", "ERP_LOGIN\ERP_LOGIN.csproj", "{60CC3C2D-9F7B-4CE5-A8F1-D336A5B3DA38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP_SHARED", "ERP_SHARED\ERP_SHARED.csproj", "{105BD3DE-0466-42B7-98F2-4AAA28E8BBDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{A8317D51-3D04-4832-BA3D-B9BE047F3D1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8317D51-3D04-4832-BA3D-B9BE047F3D1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8317D51-3D04-4832-BA3D-B9BE047F3D1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60CC3C2D-9F7B-4CE5-A8F1-D336A5B3DA38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60CC3C2D-9F7B-4CE5-A8F1-D336A5B3DA38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60CC3C2D-9F7B-4CE5-A8F1-D336A5B3DA38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60CC3C2D-9F7B-4CE5-A8F1-D336A5B3DA38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{105BD3DE-0466-42B7-98F2-4AAA28E8BBDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{105BD3DE-0466-42B7-98F2-4AAA28E8BBDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{105BD3DE-0466-42B7-98F2-4AAA28E8BBDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{105BD3DE-0466-42B7-98F2-4AAA28E8BBDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
