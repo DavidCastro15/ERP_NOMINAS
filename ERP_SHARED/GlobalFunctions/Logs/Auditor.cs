@@ -11,42 +11,43 @@ namespace ERP_SHARED.GlobalFunctions.Logs
     {
  
             // Lista en memoria para evitar registros duplicados en la misma ventana abierta
-            private static readonly HashSet<Form> _formulariosRegistrados = new HashSet<Form>();
+            private static readonly HashSet<Form> _registeredForm = new HashSet<Form>();
 
-            // 🟢 ESTE MÉTODO SERÁ LLAMADO DIRECTAMENTE POR EL BASEFORM
-            public static void RegistrarPantallaHija(Form formulario)
+            // ESTE MÉTODO SERÁ LLAMADO DIRECTAMENTE POR EL BASEFORM
+            public static void RegisterChildScreen(Form form)
             {
-                if (formulario == null) return;
+                if (form == null) return;
 
                 try
                 {
                     // Si este formulario ya se registró en esta apertura, no hacemos nada
-                    if (_formulariosRegistrados.Contains(formulario)) return;
-                    _formulariosRegistrados.Add(formulario);
+                    if (_registeredForm.Contains(form)) return;
+                _registeredForm.Add(form);
 
-                    string nombrePantallaReal = formulario.GetType().Name;
-                    if (nombrePantallaReal == "FormLogin") return; // Ignoramos el login aquí
+                    string nameDisplayReal = form.GetType().Name;
+                    if (nameDisplayReal == "FormLogin") return; // Ignoramos el login aquí
 
-                    string tituloPantalla = string.IsNullOrEmpty(formulario.Text) ? nombrePantallaReal : formulario.Text;
+                    string titleDisplay = string.IsNullOrEmpty(form.Text) ? nameDisplayReal : form.Text;
 
                     // 1. Registro directo e inmediato en la base de datos de auditoría
                     ERP_SHARED.GlobalFunctions.Logs.DataLogsService.Register(
                         "OPEN",
-                        nombrePantallaReal,
-                        nombrePantallaReal,
-                        $"El usuario abrió la pantalla: {tituloPantalla}"
+                        nameDisplayReal,
+                        nameDisplayReal,
+                        $"El usuario abrió la pantalla: {titleDisplay}"
+
                     );
 
                     // 2. Mapeo profundo e inmediato de los botones
-                    if (formulario.Controls != null && formulario.Controls.Count > 0)
+                    if (form.Controls != null && form.Controls.Count > 0)
                     {
-                        MapearControlesRecursivo(formulario.Controls, nombrePantallaReal);
+                    MapControlRecursive(form.Controls, nameDisplayReal);
                     }
 
-                    // Si se cierra la pantalla, la quitamos de la lista para permitir futuros registros
-                    formulario.FormClosed += (s, e) =>
+                // Si se cierra la pantalla, la quitamos de la lista para permitir futuros registros
+                form.FormClosed += (s, e) =>
                     {
-                        _formulariosRegistrados.Remove(formulario);
+                        _registeredForm.Remove(form);
                     };
                 }
                 catch (Exception ex)
@@ -55,11 +56,11 @@ namespace ERP_SHARED.GlobalFunctions.Logs
                 }
             }
 
-            public static void MapearControlesRecursivo(Control.ControlCollection controles, string nombrePantalla)
+            public static void MapControlRecursive(Control.ControlCollection controls, string nameDisplay)
             {
-                if (controles == null) return;
+                if (controls == null) return;
 
-                foreach (Control control in controles)
+                foreach (Control control in controls)
                 {
                     if (control is Button boton)
                     {
@@ -68,7 +69,7 @@ namespace ERP_SHARED.GlobalFunctions.Logs
                         {
                             ERP_SHARED.GlobalFunctions.Logs.DataLogsService.Register(
                                 "CLICK",
-                                nombrePantalla,
+                                nameDisplay,
                                 boton.Name,
                                 $"Clic en botón: {boton.Text}"
                             );
@@ -77,7 +78,7 @@ namespace ERP_SHARED.GlobalFunctions.Logs
 
                     if (control.HasChildren || control.Controls.Count > 0)
                     {
-                        MapearControlesRecursivo(control.Controls, nombrePantalla);
+                    MapControlRecursive(control.Controls, nameDisplay);
                     }
                 }
             }

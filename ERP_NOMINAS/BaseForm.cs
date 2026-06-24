@@ -47,9 +47,6 @@ namespace ERP_NOMINAS
             SetDefaultBorderColor(ColorSelect);
         }
 
-
-
-
         private void BaseForm_Load(object sender, EventArgs e)
         {
             // 🔥 PROTECCIÓN ANTIDESIGNER NIVEL 2:
@@ -58,7 +55,7 @@ namespace ERP_NOMINAS
             try
             {
                 // Forzamos la inyección directa de auditoría de forma segura
-                ERP_SHARED.GlobalFunctions.Logs.Auditor.RegistrarPantallaHija(this);
+                ERP_SHARED.GlobalFunctions.Logs.Auditor.RegisterChildScreen(this);
             }
             catch (Exception ex)
             {

@@ -20,6 +20,7 @@ namespace ERP_LOGIN
     {
         private LoadDataCombo Util = new LoadDataCombo();
         private LoginRepository _repository = new LoginRepository();
+
         public Login()
         {
             InitializeComponent();
@@ -52,15 +53,12 @@ namespace ERP_LOGIN
                     },
                     Permissions = new PermissionsRepository().GetNameMenuXUser(res.Id),
                     DataBaseEnable = Convert.ToString(comboBox1.SelectedValue),
-
-                    // // 🟢 ENVIAMOS LAS CREDENCIALES ACTIVAS DE TU CLASE APPCONSTANTS
-                    //ServerIp = AppConstants.ServerIp,
-                    //DbUser = AppConstants.User,
-                    //DbPassword = AppConstants.Password
+                    
                 };
 
                 // Serializamos el paquete completo a texto y luego a Base64
                 ERP_SHARED.Auth.Sesion.UserIsLoggin = package.User;
+                ERP_SHARED.Auth.Sesion.DataBaseName = Convert.ToString(comboBox1.SelectedValue);
                 ERP_SHARED.GlobalFunctions.Logs.DataLogsService.Register("LOGIN", "FormLogin", "button1", "Inicio de sesión correcto en el sistema.");
                 string jsonFull = Newtonsoft.Json.JsonConvert.SerializeObject(package);
                 string txtSecure = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(jsonFull));

@@ -14,23 +14,31 @@ namespace ERP_SHARED.GlobalFunctions.Logs
     {
         public static void Register(string action, string display, string component, string description)
         {
-            int idUsuario = 1; // Valor de respaldo por si la sesión está vacía un milisegundo
-            string nombreUsuario = "Sistema/Anónimo";
+            int idUser = 1; // Valor de respaldo por si la sesión está vacía un milisegundo
+            string nameUser = "Sistema/Anónimo";
+            string DataBaseNameActive = "DB/Anónimo";
 
             try
             {
                 if (ERP_SHARED.Auth.Sesion.UserIsLoggin != null)
                 {
-                    idUsuario = Convert.ToInt32(ERP_SHARED.Auth.Sesion.UserIsLoggin.Id);
-                    nombreUsuario = ERP_SHARED.Auth.Sesion.UserIsLoggin.Username.ToString();
+                    idUser = Convert.ToInt32(ERP_SHARED.Auth.Sesion.UserIsLoggin.Id);
+                    nameUser = ERP_SHARED.Auth.Sesion.UserIsLoggin.Username.ToString();
+                  
+                }
+
+                // 🟢 LEEMOS LA BASE DE DATOS QUE ESTÁ EN MEMORIA GLOBAL
+                if (!string.IsNullOrEmpty(ERP_SHARED.Auth.Sesion.DataBaseName))
+                {
+                    DataBaseNameActive = ERP_SHARED.Auth.Sesion.DataBaseName;
                 }
             }
             catch { /* Evita caídas por lectura */ }
 
-            string modulo = AppDomain.CurrentDomain.FriendlyName.Replace(".exe", "");
+            string module = AppDomain.CurrentDomain.FriendlyName.Replace(".exe", "");
 
-            string query = @"INSERT INTO erp_bitacora (id_usuario, nombre_usuario, modulo_programa, pantalla, componente, accion, descripcion, fecha_registro) 
-                 VALUES (@id_usuario, @nombre_usuario, @modulo, @pantalla, @componente, @action, @description, GETDATE())";
+            string query = @"INSERT INTO erp_bitacora (id_usuario, nombre_usuario, modulo_programa, pantalla, componente, accion, descripcion, fecha_registro,dbuse) 
+                 VALUES (@id_usuario, @nombre_usuario, @modulo, @pantalla, @componente, @action, @description, GETDATE(),@dbuse)";
 
             try
             {
@@ -46,13 +54,14 @@ namespace ERP_SHARED.GlobalFunctions.Logs
                     using (SqlCommand cmd = new SqlCommand(query, cn))
                     {
                         // 2. Pasamos los parámetros asegurando que si van vacíos no rompan la base de datos
-                        cmd.Parameters.AddWithValue("@id_usuario", idUsuario);
-                        cmd.Parameters.AddWithValue("@nombre_usuario", nombreUsuario ?? (object)DBNull.Value);
-                        cmd.Parameters.AddWithValue("@modulo", modulo ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@id_usuario", idUser);
+                        cmd.Parameters.AddWithValue("@nombre_usuario", nameUser ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@modulo", module ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("@pantalla", display ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("@componente", component ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("@action", action ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("@description", description ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@dbuse", DataBaseNameActive ?? (object)DBNull.Value);
 
                         cmd.ExecuteNonQuery(); // Ejecuta el comando de forma obligatoria
                     }

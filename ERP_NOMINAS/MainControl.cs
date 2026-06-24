@@ -26,7 +26,6 @@ namespace ERP_NOMINAS
             menuStrip1.Renderer = new MenuToolStripRender();
             menuStrip1.BackColor = Color.White;
 
-            // Darle espacio a los botones para que los rectángulos luzcan mejor
             foreach (ToolStripMenuItem item in menuStrip1.Items)
             {
                 item.Margin = new Padding(2, 1, 2, 1);
@@ -34,7 +33,6 @@ namespace ERP_NOMINAS
             this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
                           (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
 
-             
         }
 
         private void MainControl_Load(object sender, EventArgs e)
@@ -45,10 +43,10 @@ namespace ERP_NOMINAS
                 if (ERP_SHARED.Auth.Sesion.UserIsLoggin != null)
                 {
                     // 2. Extraemos el rol forzándolo a String para evitar el conflicto con .Equals
-                    string rolUsuario = ERP_SHARED.Auth.Sesion.UserIsLoggin.NameRole.ToString();
+                    string rolUser = ERP_SHARED.Auth.Sesion.UserIsLoggin.NameRole.ToString();
 
                     // 3. Hacemos la comparación clásica de textos de forma segura
-                    if (rolUsuario.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
+                    if (rolUser.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
                     {
                         // 🟢 SI ES ADMINISTRADOR: Simplemente salimos de la función.
                         // No llamamos a TrackForms, el radar global ya está vigilando esta pantalla.
@@ -61,10 +59,8 @@ namespace ERP_NOMINAS
                 MessageBox.Show($"Error al validar rol de usuario: {ex.Message}");
             }
 
-            // 4. Si no es administrador, aplica tus filtros de menú de siempre
             ApplyFilterSecurity();
 
-            // 🟢 NOTA: Quitamos la línea final de TrackForms(this) de aquí abajo también.
         }
 
         private void ApplyFilterSecurity()
@@ -124,32 +120,29 @@ namespace ERP_NOMINAS
 
         private void OpenForm<T>(Action<T> setup = null) where T : Form, new()
         {
-             using (T form = new T())
-    {
-        setup?.Invoke(form);
-
-        try
-        {
-            // 1. Registramos la apertura en la base de datos (Lo que ya funciona súper bien)
-            ERP_SHARED.GlobalFunctions.Logs.Auditor.RegistrarPantallaHija(form);
-
-            // 2. 🔥 LA MAGIA DE LOS CLICS: Le decimos al Auditor que recorra la pantalla 
-            // e inyecte el rastreador de clics a todos los botones que encuentre adentro.
-            // Para asegurar que los botones ya existan en memoria, nos colgamos a su evento HandleCreated del hijo.
-            form.HandleCreated += (sender, e) =>
+            using (T form = new T())
             {
-                string nombrePantallaReal = form.GetType().Name;
-                // Llamamos a tu método recursivo que ya programamos en SHARED
-                ERP_SHARED.GlobalFunctions.Logs.Auditor.MapearControlesRecursivo(form.Controls, nombrePantallaReal);
-            };
-        }
-        catch (Exception ex)
-        {
-            System.Diagnostics.Debug.WriteLine("Error al auditar componentes en OpenForm: " + ex.Message);
-        }
+                setup?.Invoke(form);
 
-        form.ShowDialog(); 
-    }
+                try
+                {
+                    // 1. Registramos la apertura en la base de datos (Lo que ya funciona súper bien)
+                    ERP_SHARED.GlobalFunctions.Logs.Auditor.RegisterChildScreen(form);
+
+                    form.HandleCreated += (sender, e) =>
+                    {
+                        string nombrePantallaReal = form.GetType().Name;
+                // Llamamos a tu método recursivo que ya programamos en SHARED
+                ERP_SHARED.GlobalFunctions.Logs.Auditor.MapControlRecursive(form.Controls, nombrePantallaReal);
+                    };
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("Error al auditar componentes en OpenForm: " + ex.Message);
+                }
+
+                form.ShowDialog();
+            }
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -269,6 +262,41 @@ namespace ERP_NOMINAS
         private void gratificacionesToolStripMenuItem_Click(object sender, EventArgs e) =>
             OpenForm<FormsNonAutomatic.OffsetsGratuities.OffsetGratuityMain>(f => { f.Table = "gratificaciones"; });
 
+        private void MainControl_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // 1. Validamos la razón del cierre. 
+            // Si el cierre fue provocado por el código (ej. cuando usas Application.Exit() en el botón Salir), 
+            // dejamos que el flujo continúe normal para evitar bucles infinitos.
+            if (e.CloseReason == CloseReason.ApplicationExitCall) return;
+
+            try
+            {
+                // 2. Ejecutamos exactamente la misma lógica de limpieza que tu botón de menú
+                ERP_SHARED.Auth.Sesion.UserIsLoggin = null;
+                ERP_SHARED.Auth.Sesion.AuthorizedCatalogs = null;
+
+                string rutaLogin = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ERP_LOGIN.exe");
+
+                if (File.Exists(rutaLogin))
+                {
+                    // Lanzamos el Login limpio antes de que esta pantalla muera
+                    Process.Start(rutaLogin);
+
+                    // 3. Le decimos a Windows: "Cancela el cierre ordinario de este Form, 
+                    // nosotros nos encargaremos de apagar la aplicación de forma limpia"
+                    e.Cancel = false;
+                    Application.Exit();
+                }
+                else
+                {
+                    MessageBox.Show("Error: No se encontró el módulo de Login.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cerrar el sistema desde la X: {ex.Message}");
+            }
+        }
     }
 
 }

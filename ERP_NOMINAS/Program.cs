@@ -37,6 +37,7 @@ namespace ERP_NOMINAS
                     ERP_SHARED.Auth.Sesion.UserIsLoggin = package.User;
                     ERP_SHARED.Auth.Sesion.AuthorizedCatalogs = package.Permissions;
                     ERP_SHARED.Conexion.ConnectorSql.NameBd = package.DataBaseEnable;
+                    ERP_SHARED.Auth.Sesion.DataBaseName = package.DataBaseEnable;
                 }
                 else
                 {
