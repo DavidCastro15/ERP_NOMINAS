@@ -89,6 +89,11 @@ namespace ERP_LOGIN
             {
                 MessageBox.Show($"Ocurrió un error dentro del botón de Login:\n\n{ex.Message}\n\n{ex.StackTrace}", "Error de código", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }       
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
