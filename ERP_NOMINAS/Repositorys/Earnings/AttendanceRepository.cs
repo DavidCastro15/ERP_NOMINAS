@@ -357,73 +357,73 @@ namespace ERP_NOMINAS.Repositorys
 
         private int ImportListAttend(DateTime entryDate, TimeSpan entryTime, TimeSpan departureTime)
         {
-            string query = "DECLARE @horaActual AS TIME; " +
-                "SET @horaActual = DATEADD(MINUTE, 5, GETDATE()); " +
+            string query = $@"
+        DECLARE @horaActual AS TIME; 
+        SET @horaActual = DATEADD(MINUTE, 5, GETDATE()); 
 
-                "DECLARE @ciclo AS VARCHAR(50); " +
-                "SET @ciclo = (SELECT TOP 1 ciclo FROM azsja_nomina.dbo.ciclo); " +
-                "TRUNCATE TABLE azsja_nomina.dbo.asistencia;" +
+        DECLARE @ciclo AS VARCHAR(50); 
+        SET @ciclo = (SELECT TOP 1 ciclo FROM azsja_nomina.dbo.ciclo); 
+        TRUNCATE TABLE azsja_nomina.dbo.asistencia;
 
-                "INSERT INTO azsja_nomina.dbo.asistencia " +
-                "SELECT DISTINCT " +
-                "t1.NUMEROEMPLEADO, " +
-                "t1.NOMBRE, " +
-                "CONCAT(t1.APELLIDOPATERNO, ' ', t1.APELLIDOMATERNO) AS apellidos, " +
-                "NULL, " +
-                "'Ent', " +
-                "t2.hora_entrada AS 'hora_entrada', " +
-                "t2.hora_salida AS 'hora_salida', " +
-                "t2.fecha_entrada AS 'fecha_entrada', " +
-                "NULL, " +
-                "NULL, " +
-                "NULL, " +
-                "CONCAT(t1.CLASIFICACION, ' ', t1.TIPO) AS 'tipo_empleado', " +
-                "CASE " +
-                    "WHEN @ciclo = 'Zafra' THEN IIF(pu_zafra.uso IS NULL, 0, pu_zafra.uso) " +
-                    "ELSE IIF(pu_rep.uso IS NULL, 0, pu_rep.uso) " +
-                "END AS uso_original, " +
-                "CASE " +
-                    "WHEN @ciclo = 'Zafra' THEN IIF(pu_zafra.uso IS NULL, 0, pu_zafra.uso) " +
-                    "ELSE IIF(pu_rep.uso IS NULL, 0, pu_rep.uso) " +
-                "END AS uso_trabajado, " +
-                "NULL, " +
-                "NULL, " +
-                "t2.turno AS 'turno_original', " +
-                "t2.turno AS 'turno_trabajado', " +
-                "CASE " +
-                    "WHEN @ciclo = 'Zafra' THEN e.categoria_zafra " +
-                    "ELSE e.categoria_reparacion " +
-                "END AS categoria_original, " +
-                "CASE " +
-                    "WHEN @ciclo = 'Zafra' THEN e.categoria_zafra " +
-                    "ELSE e.categoria_reparacion " +
-                "END AS categoria_trabajada, " +
-                "NULL, " +
-                "NULL, " +
-                "NULL, " +
-                "NULL, " +
-                "NULL, " +
-                "NULL " +
-                "FROM empleados t1 " +
-                "INNER JOIN incidencias t2 " +
-                "ON t2.numeroempleado = t1.NUMEROEMPLEADO " +
-                "INNER JOIN azsja_nomina.dbo.empleados e " +
-                "ON e.numero_empleado = t1.NUMEROEMPLEADO " +
-                "LEFT JOIN azsja_nomina.dbo.plantilla_zafra pu_zafra " +
-                "ON e.numero_empleado = pu_zafra.numero_empleado " +
-                "LEFT JOIN azsja_nomina.dbo.plantilla_reparacion pu_rep " +
-                "ON e.numero_empleado = pu_rep.numero_empleado " +
-                "WHERE t1.CLASIFICACION LIKE 'SINDICALIZADO' " +
-                $"AND t2.fecha_entrada = '{entryDate}' " +
-                $"AND t2.hora_entrada BETWEEN '{entryTime}' AND '{departureTime}' " +
-                "AND t2.estatus = 1 ";
+        INSERT INTO azsja_nomina.dbo.asistencia 
+        SELECT DISTINCT 
+            t1.NUMEROEMPLEADO, 
+            t1.NOMBRE, 
+            CONCAT(t1.APELLIDOPATERNO, ' ', t1.APELLIDOMATERNO) AS apellidos, 
+            NULL, 
+            'Ent', 
+            t2.hora_entrada AS 'hora_entrada', 
+            t2.hora_salida AS 'hora_salida', 
+            t2.fecha_entrada AS 'fecha_entrada', 
+            NULL, 
+            NULL, 
+            NULL, 
+            CONCAT(t1.CLASIFICACION, ' ', t1.TIPO) AS 'tipo_empleado', 
+            CASE 
+                WHEN @ciclo = 'Zafra' THEN IIF(pu_zafra.uso IS NULL, 0, pu_zafra.uso) 
+                ELSE IIF(pu_rep.uso IS NULL, 0, pu_rep.uso) 
+            END AS uso_original, 
+            CASE 
+                WHEN @ciclo = 'Zafra' THEN IIF(pu_zafra.uso IS NULL, 0, pu_zafra.uso) 
+                ELSE IIF(pu_rep.uso IS NULL, 0, pu_rep.uso) 
+            END AS uso_trabajado, 
+            NULL, 
+            NULL, 
+            t2.turno AS 'turno_original', 
+            t2.turno AS 'turno_trabajado', 
+            CASE 
+                WHEN @ciclo = 'Zafra' THEN e.categoria_zafra 
+                ELSE e.categoria_reparacion 
+            END AS categoria_original, 
+            CASE 
+                WHEN @ciclo = 'Zafra' THEN e.categoria_zafra 
+                ELSE e.categoria_reparacion 
+            END AS categoria_trabajada, 
+            NULL, 
+            NULL, 
+            NULL, 
+            NULL, 
+            NULL, 
+            NULL 
+        FROM empleados t1 
+        INNER JOIN incidencias t2 ON t2.numeroempleado = t1.NUMEROEMPLEADO 
+        INNER JOIN azsja_nomina.dbo.empleados e ON e.numero_empleado = t1.NUMEROEMPLEADO 
+        LEFT JOIN azsja_nomina.dbo.plantilla_zafra pu_zafra ON e.numero_empleado = pu_zafra.numero_empleado 
+        LEFT JOIN azsja_nomina.dbo.plantilla_reparacion pu_rep ON e.numero_empleado = pu_rep.numero_empleado 
+        WHERE t1.CLASIFICACION LIKE 'SINDICALIZADO' 
+          AND t2.fecha_entrada = @fechaEntrada 
+          AND t2.hora_entrada BETWEEN @horaInicio AND @horaFin 
+          AND t2.estatus = 1;";
 
-            using (cmd = new SqlCommand(query, Conex.asis))
+            using (SqlCommand cmd = new SqlCommand(query, Conex.asis))
             {
-                // Uso de parámetros para evitar inyección SQL
+                // 2. Asignamos los tipos de datos nativos de SQL Server y pasamos las variables de C#
+                cmd.Parameters.Add("@fechaEntrada", System.Data.SqlDbType.Date).Value = entryDate;
+                cmd.Parameters.Add("@horaInicio", System.Data.SqlDbType.Time).Value = entryTime;
+                cmd.Parameters.Add("@horaFin", System.Data.SqlDbType.Time).Value = departureTime;
 
                 Conex.OpenAsistencia();
-                return cmd.ExecuteNonQuery(); // Devuelve 1 si fue exitoso
+                return cmd.ExecuteNonQuery();
             }
         }
 
@@ -598,7 +598,6 @@ namespace ERP_NOMINAS.Repositorys
                 Status = Convert.ToString(reader["estatus"])
             };
         }
-
 
     }
 }
