@@ -1,6 +1,7 @@
 ﻿using FormsMaster = ERP_NOMINAS.Views.Master;
 using FormsAttend = ERP_NOMINAS.Views.AttendanceControl;
 using FormsNonAutomatic = ERP_NOMINAS.Views.Non_AutomaticPerceptions;
+using FormsNonAutomaticDeduction = ERP_NOMINAS.Views.Non_AutomaticDeductions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -226,7 +227,9 @@ namespace ERP_NOMINAS
 
         private void toposToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.Tunneling.TunnelMain>();
 
-        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.Tunneling.TunnelMain>();
+        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.ChildSupports.ChildSupportMain>();
+
+        private void pensionAlimenticiaToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.ChildSupports.ChildSupportMain>();
 
         // --- Formularios Con Parámetros (Plantillas) ---
         private void reparacionToolStripMenuItem_Click(object sender, EventArgs e) =>
@@ -297,6 +300,7 @@ namespace ERP_NOMINAS
                 MessageBox.Show($"Error al cerrar el sistema desde la X: {ex.Message}");
             }
         }
+        
     }
 
 }

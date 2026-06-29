@@ -78,6 +78,8 @@
             this.desgasteHerramientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estimulo61ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deduccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pensionAlimenticiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
@@ -91,7 +93,8 @@
             this.archivoToolStripMenuItem,
             this.maestrosToolStripMenuItem,
             this.controlAsistenciaToolStripMenuItem,
-            this.percepcionesNoAutoToolStripMenuItem});
+            this.percepcionesNoAutoToolStripMenuItem,
+            this.deduccionesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1164, 24);
@@ -484,6 +487,21 @@
             this.toposToolStripMenuItem.Text = "Topos";
             this.toposToolStripMenuItem.Click += new System.EventHandler(this.toposToolStripMenuItem_Click);
             // 
+            // deduccionesToolStripMenuItem
+            // 
+            this.deduccionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pensionAlimenticiaToolStripMenuItem});
+            this.deduccionesToolStripMenuItem.Name = "deduccionesToolStripMenuItem";
+            this.deduccionesToolStripMenuItem.Size = new System.Drawing.Size(135, 20);
+            this.deduccionesToolStripMenuItem.Text = "Deducciones No Auto";
+            // 
+            // pensionAlimenticiaToolStripMenuItem
+            // 
+            this.pensionAlimenticiaToolStripMenuItem.Name = "pensionAlimenticiaToolStripMenuItem";
+            this.pensionAlimenticiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pensionAlimenticiaToolStripMenuItem.Text = "Pension Alimenticia";
+            this.pensionAlimenticiaToolStripMenuItem.Click += new System.EventHandler(this.pensionAlimenticiaToolStripMenuItem_Click);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(784, 259);
@@ -578,5 +596,7 @@
         private System.Windows.Forms.ToolStripMenuItem desgasteHerramientaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estimulo61ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toposToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deduccionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pensionAlimenticiaToolStripMenuItem;
     }
 }

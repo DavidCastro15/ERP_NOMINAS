@@ -294,90 +294,93 @@
       <DependentUpon>SelectPayWeek.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuToolStripRender.cs" />
-    <Compile Include="Models\Attendance\Attend.cs" />
-    <Compile Include="Models\Attendance\AttendReport.cs" />
-    <Compile Include="Models\Attendance\IAttend.cs" />
-    <Compile Include="Models\Attendance\ListAttendance\IListAttend.cs" />
-    <Compile Include="Models\Attendance\ListAttendance\ListAttendAddReport.cs" />
-    <Compile Include="Models\Attendance\ListAttendance\ListAttendC.cs" />
-    <Compile Include="Models\Attendance\ListAttendance\ListAttendDetail.cs" />
-    <Compile Include="Models\Attendance\ListAttendance\ListAttendDetailReport.cs" />
-    <Compile Include="Models\AwardPunctPre\AwardPPF.cs" />
-    <Compile Include="Models\AwardPunctPre\AwardReport.cs" />
-    <Compile Include="Models\AwardPunctPre\IAwardPP.cs" />
-    <Compile Include="Models\AwardPunctPre\LastAward.cs" />
-    <Compile Include="Models\AwardPunctPre\ListAttend.cs" />
-    <Compile Include="Models\AwardPunctPre\PieceworkAward.cs" />
-    <Compile Include="Models\CategoriesTrained\CategoryTrained.cs" />
-    <Compile Include="Models\CategoriesTrained\ICategoryTrained.cs" />
-    <Compile Include="Models\Category\CategoryReport.cs" />
-    <Compile Include="Models\Cycles\Cycle.cs" />
-    <Compile Include="Models\Cycles\ICycle.cs" />
-    <Compile Include="Models\Departments\Department.cs" />
-    <Compile Include="Models\Departments\IDepartment.cs" />
-    <Compile Include="Models\Employees\Employee.cs" />
-    <Compile Include="Models\Employees\EmployeeReport.cs" />
-    <Compile Include="Models\Employees\IEmployee.cs" />
-    <Compile Include="Models\Equipments\Equipment.cs" />
-    <Compile Include="Models\Equipments\IEquipment.cs" />
-    <Compile Include="Models\ExtraShifts\ExtraShift.cs" />
-    <Compile Include="Models\ExtraShifts\IExtraShift.cs" />
-    <Compile Include="Models\FoodVauchers\FoodVaucher.cs" />
-    <Compile Include="Models\FoodVauchers\FoodVaucherReport.cs" />
-    <Compile Include="Models\FoodVauchers\FoodVaucherReportExcel.cs" />
-    <Compile Include="Models\FoodVauchers\IFoodVaucher.cs" />
-    <Compile Include="Models\Groups\Group.cs" />
-    <Compile Include="Models\Groups\IGroup.cs" />
-    <Compile Include="Models\HeightsTemperatures\HeightTemperatureDetail.cs" />
-    <Compile Include="Models\HeightsTemperatures\HeightTemperature.cs" />
-    <Compile Include="Models\HeightsTemperatures\HeightTemperatureReport.cs" />
-    <Compile Include="Models\HeightsTemperatures\IHeightTemperature.cs" />
-    <Compile Include="Models\Holidays\Holiday.cs" />
-    <Compile Include="Models\Holidays\IHoliday.cs" />
-    <Compile Include="Models\Incentives\IIncentive.cs" />
-    <Compile Include="Models\Incentives\Incentive.cs" />
-    <Compile Include="Models\IntegratedSalaries\IIntegratedSalary.cs" />
-    <Compile Include="Models\IntegratedSalaries\IntegratedSalary.cs" />
-    <Compile Include="Models\IntegratedSalaries\IntegratedSalaryReport.cs" />
-    <Compile Include="Models\Managments\IManagment.cs" />
-    <Compile Include="Models\Managments\Managment.cs" />
-    <Compile Include="Models\Materials\IMaterial.cs" />
-    <Compile Include="Models\Materials\Material.cs" />
-    <Compile Include="Models\OffsetsGratuities\IOffsetGratuity.cs" />
-    <Compile Include="Models\OffsetsGratuities\OffsetGratuity.cs" />
-    <Compile Include="Models\OffsetsGratuities\OffSetGratuityDetail.cs" />
-    <Compile Include="Models\OffsetsGratuities\OffsetGratuityReport.cs" />
-    <Compile Include="Models\PerceptionDeduction\IPerceptionDeduction.cs" />
-    <Compile Include="Models\PerceptionDeduction\PerceptDeduction.cs" />
-    <Compile Include="Models\Pieceworks\IPiecework.cs" />
-    <Compile Include="Models\Pieceworks\Piecework.cs" />
-    <Compile Include="Models\Pieceworks\PieceworkDetail.cs" />
-    <Compile Include="Models\Pieceworks\PieceWorkDetailReport.cs" />
-    <Compile Include="Models\Subsidies\ISubsidy.cs" />
-    <Compile Include="Models\Subsidies\Subsidy.cs" />
-    <Compile Include="Models\Subsidies\SubsidyReport.cs" />
-    <Compile Include="Models\SubsidyFees\ISubsidyFee.cs" />
-    <Compile Include="Models\SubsidyFees\SubsidyFee.cs" />
-    <Compile Include="Models\SupportTransportations\AuthorizeTransport.cs" />
-    <Compile Include="Models\SupportTransportations\IAuthorizeTransport.cs" />
-    <Compile Include="Models\SupportTransportations\ISupportTransportation.cs" />
-    <Compile Include="Models\SupportTransportations\SupportTransportation.cs" />
-    <Compile Include="Models\SupportTransportations\SupportTransportationReportExcel.cs" />
-    <Compile Include="Models\SupportTransportations\SupportTransportationReport.cs" />
-    <Compile Include="Models\TaxRates\ITaxRate.cs" />
-    <Compile Include="Models\TaxRates\TaxRate.cs" />
-    <Compile Include="Models\Templates\ITemplate.cs" />
-    <Compile Include="Models\Templates\Template.cs" />
-    <Compile Include="Models\ToolWears\IToolWear.cs" />
-    <Compile Include="Models\ToolWears\ToolWear.cs" />
-    <Compile Include="Models\ToolWears\ToolWearReport.cs" />
-    <Compile Include="Models\Tunneling\ITunnel.cs" />
-    <Compile Include="Models\Tunneling\Tunnel.cs" />
-    <Compile Include="Models\Tunneling\TunnelReport.cs" />
-    <Compile Include="Models\UnionCommittee\IUnionCom.cs" />
-    <Compile Include="Models\UnionCommittee\UnionCom.cs" />
-    <Compile Include="Models\Uses\IUse.cs" />
-    <Compile Include="Models\Uses\Use.cs" />
+    <Compile Include="Models\Deductions\ChildSupport\CSupport.cs" />
+    <Compile Include="Models\Deductions\ChildSupport\CSupportReport.cs" />
+    <Compile Include="Models\Deductions\ChildSupport\ICSupport.cs" />
+    <Compile Include="Models\Earnings\Attendance\Attend.cs" />
+    <Compile Include="Models\Earnings\Attendance\AttendReport.cs" />
+    <Compile Include="Models\Earnings\Attendance\IAttend.cs" />
+    <Compile Include="Models\Earnings\Attendance\ListAttendance\IListAttend.cs" />
+    <Compile Include="Models\Earnings\Attendance\ListAttendance\ListAttendAddReport.cs" />
+    <Compile Include="Models\Earnings\Attendance\ListAttendance\ListAttendC.cs" />
+    <Compile Include="Models\Earnings\Attendance\ListAttendance\ListAttendDetail.cs" />
+    <Compile Include="Models\Earnings\Attendance\ListAttendance\ListAttendDetailReport.cs" />
+    <Compile Include="Models\Earnings\AwardPunctPre\AwardPPF.cs" />
+    <Compile Include="Models\Earnings\AwardPunctPre\AwardReport.cs" />
+    <Compile Include="Models\Earnings\AwardPunctPre\IAwardPP.cs" />
+    <Compile Include="Models\Earnings\AwardPunctPre\LastAward.cs" />
+    <Compile Include="Models\Earnings\AwardPunctPre\ListAttend.cs" />
+    <Compile Include="Models\Earnings\AwardPunctPre\PieceworkAward.cs" />
+    <Compile Include="Models\Earnings\CategoriesTrained\CategoryTrained.cs" />
+    <Compile Include="Models\Earnings\CategoriesTrained\ICategoryTrained.cs" />
+    <Compile Include="Models\Earnings\Category\CategoryReport.cs" />
+    <Compile Include="Models\Earnings\Cycles\Cycle.cs" />
+    <Compile Include="Models\Earnings\Cycles\ICycle.cs" />
+    <Compile Include="Models\Earnings\Departments\Department.cs" />
+    <Compile Include="Models\Earnings\Departments\IDepartment.cs" />
+    <Compile Include="Models\Earnings\Employees\Employee.cs" />
+    <Compile Include="Models\Earnings\Employees\EmployeeReport.cs" />
+    <Compile Include="Models\Earnings\Employees\IEmployee.cs" />
+    <Compile Include="Models\Earnings\Equipments\Equipment.cs" />
+    <Compile Include="Models\Earnings\Equipments\IEquipment.cs" />
+    <Compile Include="Models\Earnings\ExtraShifts\ExtraShift.cs" />
+    <Compile Include="Models\Earnings\ExtraShifts\IExtraShift.cs" />
+    <Compile Include="Models\Earnings\FoodVauchers\FoodVaucher.cs" />
+    <Compile Include="Models\Earnings\FoodVauchers\FoodVaucherReport.cs" />
+    <Compile Include="Models\Earnings\FoodVauchers\FoodVaucherReportExcel.cs" />
+    <Compile Include="Models\Earnings\FoodVauchers\IFoodVaucher.cs" />
+    <Compile Include="Models\Earnings\Groups\Group.cs" />
+    <Compile Include="Models\Earnings\Groups\IGroup.cs" />
+    <Compile Include="Models\Earnings\HeightsTemperatures\HeightTemperatureDetail.cs" />
+    <Compile Include="Models\Earnings\HeightsTemperatures\HeightTemperature.cs" />
+    <Compile Include="Models\Earnings\HeightsTemperatures\HeightTemperatureReport.cs" />
+    <Compile Include="Models\Earnings\HeightsTemperatures\IHeightTemperature.cs" />
+    <Compile Include="Models\Earnings\Holidays\Holiday.cs" />
+    <Compile Include="Models\Earnings\Holidays\IHoliday.cs" />
+    <Compile Include="Models\Earnings\Incentives\IIncentive.cs" />
+    <Compile Include="Models\Earnings\Incentives\Incentive.cs" />
+    <Compile Include="Models\Earnings\IntegratedSalaries\IIntegratedSalary.cs" />
+    <Compile Include="Models\Earnings\IntegratedSalaries\IntegratedSalary.cs" />
+    <Compile Include="Models\Earnings\IntegratedSalaries\IntegratedSalaryReport.cs" />
+    <Compile Include="Models\Earnings\Managments\IManagment.cs" />
+    <Compile Include="Models\Earnings\Managments\Managment.cs" />
+    <Compile Include="Models\Earnings\Materials\IMaterial.cs" />
+    <Compile Include="Models\Earnings\Materials\Material.cs" />
+    <Compile Include="Models\Earnings\OffsetsGratuities\IOffsetGratuity.cs" />
+    <Compile Include="Models\Earnings\OffsetsGratuities\OffsetGratuity.cs" />
+    <Compile Include="Models\Earnings\OffsetsGratuities\OffSetGratuityDetail.cs" />
+    <Compile Include="Models\Earnings\OffsetsGratuities\OffsetGratuityReport.cs" />
+    <Compile Include="Models\Earnings\PerceptionDeduction\IPerceptionDeduction.cs" />
+    <Compile Include="Models\Earnings\PerceptionDeduction\PerceptDeduction.cs" />
+    <Compile Include="Models\Earnings\Pieceworks\IPiecework.cs" />
+    <Compile Include="Models\Earnings\Pieceworks\Piecework.cs" />
+    <Compile Include="Models\Earnings\Pieceworks\PieceworkDetail.cs" />
+    <Compile Include="Models\Earnings\Pieceworks\PieceWorkDetailReport.cs" />
+    <Compile Include="Models\Earnings\Subsidies\ISubsidy.cs" />
+    <Compile Include="Models\Earnings\Subsidies\Subsidy.cs" />
+    <Compile Include="Models\Earnings\Subsidies\SubsidyReport.cs" />
+    <Compile Include="Models\Earnings\SubsidyFees\ISubsidyFee.cs" />
+    <Compile Include="Models\Earnings\SubsidyFees\SubsidyFee.cs" />
+    <Compile Include="Models\Earnings\SupportTransportations\AuthorizeTransport.cs" />
+    <Compile Include="Models\Earnings\SupportTransportations\IAuthorizeTransport.cs" />
+    <Compile Include="Models\Earnings\SupportTransportations\ISupportTransportation.cs" />
+    <Compile Include="Models\Earnings\SupportTransportations\SupportTransportation.cs" />
+    <Compile Include="Models\Earnings\SupportTransportations\SupportTransportationReportExcel.cs" />
+    <Compile Include="Models\Earnings\SupportTransportations\SupportTransportationReport.cs" />
+    <Compile Include="Models\Earnings\TaxRates\ITaxRate.cs" />
+    <Compile Include="Models\Earnings\TaxRates\TaxRate.cs" />
+    <Compile Include="Models\Earnings\Templates\ITemplate.cs" />
+    <Compile Include="Models\Earnings\Templates\Template.cs" />
+    <Compile Include="Models\Earnings\ToolWears\IToolWear.cs" />
+    <Compile Include="Models\Earnings\ToolWears\ToolWear.cs" />
+    <Compile Include="Models\Earnings\ToolWears\ToolWearReport.cs" />
+    <Compile Include="Models\Earnings\Tunneling\ITunnel.cs" />
+    <Compile Include="Models\Earnings\Tunneling\Tunnel.cs" />
+    <Compile Include="Models\Earnings\Tunneling\TunnelReport.cs" />
+    <Compile Include="Models\Earnings\UnionCommittee\IUnionCom.cs" />
+    <Compile Include="Models\Earnings\UnionCommittee\UnionCom.cs" />
+    <Compile Include="Models\Earnings\Uses\IUse.cs" />
+    <Compile Include="Models\Earnings\Uses\Use.cs" />
     <Compile Include="Reports\Attendance\AddLists\addListView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -480,9 +483,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ViewsTablesPerceptionNonAuto.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Repositorys\AttendanceRepository.cs" />
-    <Compile Include="Repositorys\AwardPPRepository.cs" />
-    <Compile Include="Repositorys\CategoryRepository.cs" />
+    <Compile Include="Repositorys\Deductions\ChildSupportRepository.cs" />
+    <Compile Include="Repositorys\Earnings\AttendanceRepository.cs" />
+    <Compile Include="Repositorys\Earnings\AwardPPRepository.cs" />
+    <Compile Include="Repositorys\Earnings\CategoryRepository.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -495,37 +499,37 @@
     <Compile Include="MainControl.Designer.cs">
       <DependentUpon>MainControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Category\Category.cs" />
-    <Compile Include="Models\Category\ICategory.cs" />
+    <Compile Include="Models\Earnings\Category\Category.cs" />
+    <Compile Include="Models\Earnings\Category\ICategory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositorys\CategoryTrainedRepository.cs" />
-    <Compile Include="Repositorys\CycleRepository.cs" />
-    <Compile Include="Repositorys\DepartmentRepository.cs" />
-    <Compile Include="Repositorys\EmployeeRepository.cs" />
-    <Compile Include="Repositorys\EquipmentRepository.cs" />
-    <Compile Include="Repositorys\ExtraShiftRepository.cs" />
-    <Compile Include="Repositorys\FoodVaucherRepository.cs" />
-    <Compile Include="Repositorys\GroupRepository.cs" />
-    <Compile Include="Repositorys\HeightTemperatureRepository.cs" />
-    <Compile Include="Repositorys\HolidayRepository.cs" />
-    <Compile Include="Repositorys\IncentiveRepository.cs" />
-    <Compile Include="Repositorys\IntegratedSalaryRepository.cs" />
-    <Compile Include="Repositorys\ListAttendRepository.cs" />
-    <Compile Include="Repositorys\ManagmentRepository.cs" />
-    <Compile Include="Repositorys\MaterialRepository.cs" />
-    <Compile Include="Repositorys\OffsetsGratuitiesRepository.cs" />
-    <Compile Include="Repositorys\PerceptionDeductionRepository.cs" />
-    <Compile Include="Repositorys\PieceworkRepository.cs" />
-    <Compile Include="Repositorys\SubsidyFeeRepository.cs" />
-    <Compile Include="Repositorys\SubsidyRepository.cs" />
-    <Compile Include="Repositorys\SupportTransportationRepository.cs" />
-    <Compile Include="Repositorys\TaxRateRepository.cs" />
-    <Compile Include="Repositorys\TemplateRepository.cs" />
-    <Compile Include="Repositorys\ToolWearRepository.cs" />
-    <Compile Include="Repositorys\TunnelRepository.cs" />
-    <Compile Include="Repositorys\UnionCommitteeRepository.cs" />
-    <Compile Include="Repositorys\UseRepository.cs" />
+    <Compile Include="Repositorys\Earnings\CategoryTrainedRepository.cs" />
+    <Compile Include="Repositorys\Earnings\CycleRepository.cs" />
+    <Compile Include="Repositorys\Earnings\DepartmentRepository.cs" />
+    <Compile Include="Repositorys\Earnings\EmployeeRepository.cs" />
+    <Compile Include="Repositorys\Earnings\EquipmentRepository.cs" />
+    <Compile Include="Repositorys\Earnings\ExtraShiftRepository.cs" />
+    <Compile Include="Repositorys\Earnings\FoodVaucherRepository.cs" />
+    <Compile Include="Repositorys\Earnings\GroupRepository.cs" />
+    <Compile Include="Repositorys\Earnings\HeightTemperatureRepository.cs" />
+    <Compile Include="Repositorys\Earnings\HolidayRepository.cs" />
+    <Compile Include="Repositorys\Earnings\IncentiveRepository.cs" />
+    <Compile Include="Repositorys\Earnings\IntegratedSalaryRepository.cs" />
+    <Compile Include="Repositorys\Earnings\ListAttendRepository.cs" />
+    <Compile Include="Repositorys\Earnings\ManagmentRepository.cs" />
+    <Compile Include="Repositorys\Earnings\MaterialRepository.cs" />
+    <Compile Include="Repositorys\Earnings\OffsetsGratuitiesRepository.cs" />
+    <Compile Include="Repositorys\Earnings\PerceptionDeductionRepository.cs" />
+    <Compile Include="Repositorys\Earnings\PieceworkRepository.cs" />
+    <Compile Include="Repositorys\Earnings\SubsidyFeeRepository.cs" />
+    <Compile Include="Repositorys\Earnings\SubsidyRepository.cs" />
+    <Compile Include="Repositorys\Earnings\SupportTransportationRepository.cs" />
+    <Compile Include="Repositorys\Earnings\TaxRateRepository.cs" />
+    <Compile Include="Repositorys\Earnings\TemplateRepository.cs" />
+    <Compile Include="Repositorys\Earnings\ToolWearRepository.cs" />
+    <Compile Include="Repositorys\Earnings\TunnelRepository.cs" />
+    <Compile Include="Repositorys\Earnings\UnionCommitteeRepository.cs" />
+    <Compile Include="Repositorys\Earnings\UseRepository.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Views\AttendanceControl\Attendance\AttendMain.cs">
       <SubType>Form</SubType>
@@ -761,6 +765,18 @@
     <Compile Include="Views\Master\Uses\UseShow.Designer.cs">
       <DependentUpon>UseShow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\ChildSupports\ChildSupportMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\ChildSupports\ChildSupportMain.Designer.cs">
+      <DependentUpon>ChildSupportMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\ChildSupports\ChildSupportShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\ChildSupports\ChildSupportShow.Designer.cs">
+      <DependentUpon>ChildSupportShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Non-AutomaticPerceptions\AwardPunctPre\AwardPPMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -887,10 +903,10 @@
     <Compile Include="Views\Non-AutomaticPerceptions\Tunneling\TunnelMain.Designer.cs">
       <DependentUpon>TunnelMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ReportForm.cs">
+    <Compile Include="Reports\ReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\ReportForm.Designer.cs">
+    <Compile Include="Reports\ReportForm.Designer.cs">
       <DependentUpon>ReportForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Components\Buttons\buttonAdd.resx">
@@ -1153,6 +1169,12 @@
     <EmbeddedResource Include="Views\Master\Uses\UseShow.resx">
       <DependentUpon>UseShow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticDeductions\ChildSupports\ChildSupportMain.resx">
+      <DependentUpon>ChildSupportMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticDeductions\ChildSupports\ChildSupportShow.resx">
+      <DependentUpon>ChildSupportShow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Non-AutomaticPerceptions\AwardPunctPre\AwardPPMain.resx">
       <DependentUpon>AwardPPMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -1216,7 +1238,7 @@
     <EmbeddedResource Include="Views\Non-AutomaticPerceptions\Tunneling\TunnelMain.resx">
       <DependentUpon>TunnelMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ReportForm.resx">
+    <EmbeddedResource Include="Reports\ReportForm.resx">
       <DependentUpon>ReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -1359,6 +1381,7 @@
       <Name>ERP_SHARED</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.ValueTuple.4.6.2\build\net471\System.ValueTuple.targets" Condition="Exists('..\packages\System.ValueTuple.4.6.2\build\net471\System.ValueTuple.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
