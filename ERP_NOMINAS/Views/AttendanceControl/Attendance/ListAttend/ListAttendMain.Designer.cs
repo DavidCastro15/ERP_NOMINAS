@@ -49,9 +49,9 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.buttonPrint2 = new ERP_NOMINAS.Components.Buttons.buttonPrint();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -258,22 +258,6 @@
             this.groupBox3.Text = "Eliminar Lista";
             this.groupBox3.Visible = false;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 41);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Contraseña:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(78, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 20);
-            this.textBox1.TabIndex = 1;
-            // 
             // button1
             // 
             this.button1.Image = global::ERP_NOMINAS.Properties.Resources.icons8_desbloquear_28;
@@ -287,6 +271,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(78, 34);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(163, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Contraseña:";
+            // 
             // ListAttendMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -298,7 +298,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.kitForm1);
             this.Controls.Add(this.dataGridView1);
-            this.Location = new System.Drawing.Point(0, 0);
             this.Name = "ListAttendMain";
             this.Text = "Listas de Asistencia";
             this.Load += new System.EventHandler(this.ListAttendMain_Load);

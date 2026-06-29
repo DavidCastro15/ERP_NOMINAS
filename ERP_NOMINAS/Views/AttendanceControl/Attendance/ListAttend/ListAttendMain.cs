@@ -129,7 +129,7 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance.ListAttend
             }
 
             var printReport = new addListView();
-            printReport.PayWeek = Util.PayWeekNow((int)numericUpDown1.Value, (int)numericUpDown1.Value);
+            printReport.PayWeek = Util.PayWeekNow((int)numericUpDown1.Value, (int)numericUpDown2.Value);
             printReport.ShowDialog();
         }
 
