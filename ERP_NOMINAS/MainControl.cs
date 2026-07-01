@@ -38,6 +38,7 @@ namespace ERP_NOMINAS
 
         private void MainControl_Load(object sender, EventArgs e)
         {
+
             try
             {
                 // 1. Validamos que la sesión no sea nula para evitar caídas
@@ -227,9 +228,11 @@ namespace ERP_NOMINAS
 
         private void toposToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomatic.Tunneling.TunnelMain>();
 
-        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.ChildSupports.ChildSupportMain>();
-
         private void pensionAlimenticiaToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.ChildSupports.ChildSupportMain>();
+
+        private void infonavitToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.Infonavit.InfonavitMain>();
+
+        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.Infonavit.InfonavitMain>();
 
         // --- Formularios Con Parámetros (Plantillas) ---
         private void reparacionToolStripMenuItem_Click(object sender, EventArgs e) =>
@@ -300,7 +303,7 @@ namespace ERP_NOMINAS
                 MessageBox.Show($"Error al cerrar el sistema desde la X: {ex.Message}");
             }
         }
-        
+
     }
 
 }

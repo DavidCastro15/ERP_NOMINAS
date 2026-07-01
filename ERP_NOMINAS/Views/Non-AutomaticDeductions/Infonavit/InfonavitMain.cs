@@ -1,4 +1,4 @@
-﻿using ERP_NOMINAS.Models.Deductions.ChildSupport;
+﻿using ERP_NOMINAS.Models.Deductions.Infonavit;
 using ERP_NOMINAS.Repositorys.Deductions;
 using ERP_SHARED.GlobalFunctions;
 using System;
@@ -11,41 +11,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ERP_NOMINAS.Views.Non_AutomaticDeductions.ChildSupports
+namespace ERP_NOMINAS.Views.Non_AutomaticDeductions.Infonavit
 {
-    public partial class ChildSupportMain : BaseForm
+    public partial class InfonavitMain : BaseForm
     {
         private Utilities Util = new Utilities();
-        private ChildSupportRepository _repository = new ChildSupportRepository();
+        private InfonavitRepository _repository = new InfonavitRepository();
         private int Id;
 
-        public ChildSupportMain()
+        public InfonavitMain()
         {
             InitializeComponent();
-            filterByT1.FilterBy = (text) =>
-            {
-                if (int.TryParse(text, out int NumberEmployee))
-                {
-                    dataGridView1.DataSource = new BindingList<CSupport>(_repository.FilterByValue(NumberEmployee));
-                }
-                else
-                {
-                    dataGridView1.DataSource = new BindingList<CSupport>(_repository.FilterByValue(text));
-                }
-            };
         }
 
-        private void ChildSupportMain_Load(object sender, EventArgs e)
+        private void InfonavitMain_Load(object sender, EventArgs e)
         {
+            dataGridView1.Columns["Column7"].DefaultCellStyle.Format = "yyyy-MM-dd";
+            dataGridView1.Columns["Column8"].DefaultCellStyle.Format = "yyyy-MM-dd";
             dataGridView1.AutoGenerateColumns = false;
             LoadGrid();
         }
 
         public void LoadGrid()
         {
-            var listCs = _repository.GetCSupports();
-            Util.ConfigGrid<CSupport>(dataGridView1);
-            dataGridView1.DataSource = new BindingList<CSupport>(listCs);
+            var listInf = _repository.GetDInfonavits();
+            Util.ConfigGrid<DInfonavit>(dataGridView1);
+            dataGridView1.DataSource = new BindingList<DInfonavit>(listInf);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -68,19 +59,19 @@ namespace ERP_NOMINAS.Views.Non_AutomaticDeductions.ChildSupports
 
             if (Id <= 0)
             {
-                MessageBox.Show("Seleccione un Destajo", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Seleccione un empleado", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            var csShow = new ChildSupportShow(this);
-            csShow.Id = Id;
-            csShow.Edit = true;
-            csShow.ShowDialog();
+            var ifs = new InfonavitShow(this);
+            ifs.Id = Id;
+            ifs.Edit = true;
+            ifs.ShowDialog();
         }
 
         private void kitForm1_Add(object sender, EventArgs e)
         {
-            var cs = new ChildSupportShow(this);
-            cs.ShowDialog();
+            var ifs = new InfonavitShow(this);
+            ifs.ShowDialog();
         }
 
         private void kitForm1_MEdit(object sender, EventArgs e)
@@ -92,7 +83,7 @@ namespace ERP_NOMINAS.Views.Non_AutomaticDeductions.ChildSupports
         {
             if (Id <= 0)
             {
-                MessageBox.Show("Seleccione una pension", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Seleccione un empleado", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             string message = "¿Está seguro de que desea eliminar este registro?";
@@ -102,7 +93,7 @@ namespace ERP_NOMINAS.Views.Non_AutomaticDeductions.ChildSupports
             if (ress == DialogResult.Yes)
             {
 
-                var deleteCs = _repository.DeleteCSupport(Id);
+                var deleteCs = _repository.DeleteInfonavit(Id);
                 MessageBox.Show("Registro eliminado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadGrid();
             }

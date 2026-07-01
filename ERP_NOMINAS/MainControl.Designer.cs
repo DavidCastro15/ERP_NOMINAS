@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,11 +82,29 @@
             this.toposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deduccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pensionAlimenticiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.menuStrip1.SuspendLayout();
+            this.infonavitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(784, 259);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(86, 109);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "PRUEBAS";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ERP_NOMINAS.Properties.Resources.AZSJA;
+            this.pictureBox1.Location = new System.Drawing.Point(403, 243);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(300, 153);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // menuStrip1
             // 
@@ -490,7 +510,8 @@
             // deduccionesToolStripMenuItem
             // 
             this.deduccionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pensionAlimenticiaToolStripMenuItem});
+            this.pensionAlimenticiaToolStripMenuItem,
+            this.infonavitToolStripMenuItem});
             this.deduccionesToolStripMenuItem.Name = "deduccionesToolStripMenuItem";
             this.deduccionesToolStripMenuItem.Size = new System.Drawing.Size(135, 20);
             this.deduccionesToolStripMenuItem.Text = "Deducciones No Auto";
@@ -502,24 +523,12 @@
             this.pensionAlimenticiaToolStripMenuItem.Text = "Pension Alimenticia";
             this.pensionAlimenticiaToolStripMenuItem.Click += new System.EventHandler(this.pensionAlimenticiaToolStripMenuItem_Click);
             // 
-            // button1
+            // infonavitToolStripMenuItem
             // 
-            this.button1.Location = new System.Drawing.Point(784, 259);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 109);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "PRUEBAS";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ERP_NOMINAS.Properties.Resources.AZSJA;
-            this.pictureBox1.Location = new System.Drawing.Point(403, 243);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(300, 153);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.infonavitToolStripMenuItem.Name = "infonavitToolStripMenuItem";
+            this.infonavitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.infonavitToolStripMenuItem.Text = "Infonavit";
+            this.infonavitToolStripMenuItem.Click += new System.EventHandler(this.infonavitToolStripMenuItem_Click);
             // 
             // MainControl
             // 
@@ -534,9 +543,9 @@
             this.Name = "MainControl";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainControl_FormClosing);
             this.Load += new System.EventHandler(this.MainControl_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -598,5 +607,6 @@
         private System.Windows.Forms.ToolStripMenuItem toposToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deduccionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pensionAlimenticiaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem infonavitToolStripMenuItem;
     }
 }

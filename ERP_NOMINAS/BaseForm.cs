@@ -22,27 +22,31 @@ namespace ERP_NOMINAS
 
         public BaseForm()
         {
-            // 1. 🔥 PROTECCIÓN ANTIDESIGNER NIVEL 1: 
-            // Si Visual Studio está intentando dibujar la pantalla en el editor,
-            // ejecutamos ÚNICAMENTE los componentes visuales mínimos y salimos de inmediato.
-            // Esto evita que choquen los servicios internos de Windows Forms.
+            // 1. Siempre inicializar componentes primero (Es obligatorio para el Diseñador de VS)
+            InitializeComponent();
+
+            // 2. Configuraciones estéticas base (Esto SÍ debe ejecutarlo el Diseñador para mostrar tus iconos/estilos)
+            this.DoubleBuffered = true;
+            this.BackColor = Color.White;
+            this.Paint += GlobalForm_Paint;
+            this.HeaderColor = Color.LightGreen;
+
+            // 3. 🔥 CONTROL DE DISEÑO SEGURO:
+            // Evaluamos si estamos dentro de Visual Studio antes de ejecutar APIs nativas de Windows o lógica de negocio.
             bool modoDiseñoActivo = LicenseManager.UsageMode == LicenseUsageMode.Designtime || this.DesignMode;
 
             if (modoDiseñoActivo)
             {
-                InitializeComponent();
-                return; // Detiene la ejecución para que el diseñador visual no truene
+                // Si es el diseñador, nos detenemos aquí de forma segura.
+                // Los iconos y el evento Paint ya están vinculados, por lo que Visual Studio SÍ los dibujará.
+                return;
             }
 
-            // 2. Ejecución Normal (Esto solo correrá cuando el usuario final abra el ERP real)
+            // 4. Ejecución Exclusiva en Producción (Solo corre cuando el usuario abre el ERP real)
             this.Load += BaseForm_Load;
             this.StartPosition = FormStartPosition.CenterScreen;
-            InitializeComponent();
-            this.DoubleBuffered = true;
-            this.BackColor = Color.White;
 
-            this.Paint += GlobalForm_Paint;
-            this.HeaderColor = Color.LightGreen;
+            // Cambios de color de barra de título nativa de Windows (DWM solo funciona en ejecución)
             ChangeColorHead(ColorSelect);
             SetDefaultBorderColor(ColorSelect);
         }
