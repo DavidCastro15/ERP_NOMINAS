@@ -232,7 +232,9 @@ namespace ERP_NOMINAS
 
         private void infonavitToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.Infonavit.InfonavitMain>();
 
-        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.Infonavit.InfonavitMain>();
+        private void iSRVariable50ToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.IsrVariable.IsrVariableMain>();
+
+        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.IsrVariable.IsrVariableMain>();
 
         // --- Formularios Con Parámetros (Plantillas) ---
         private void reparacionToolStripMenuItem_Click(object sender, EventArgs e) =>

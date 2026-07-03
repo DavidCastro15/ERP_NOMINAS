@@ -68,7 +68,7 @@ namespace ERP_NOMINAS.Views.Non_AutomaticDeductions.ChildSupports
 
             if (Id <= 0)
             {
-                MessageBox.Show("Seleccione un Destajo", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Seleccione un empleado", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             var csShow = new ChildSupportShow(this);

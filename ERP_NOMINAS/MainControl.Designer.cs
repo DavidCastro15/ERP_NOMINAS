@@ -83,6 +83,7 @@
             this.deduccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pensionAlimenticiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infonavitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iSRVariable50ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -511,7 +512,8 @@
             // 
             this.deduccionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pensionAlimenticiaToolStripMenuItem,
-            this.infonavitToolStripMenuItem});
+            this.infonavitToolStripMenuItem,
+            this.iSRVariable50ToolStripMenuItem});
             this.deduccionesToolStripMenuItem.Name = "deduccionesToolStripMenuItem";
             this.deduccionesToolStripMenuItem.Size = new System.Drawing.Size(135, 20);
             this.deduccionesToolStripMenuItem.Text = "Deducciones No Auto";
@@ -529,6 +531,13 @@
             this.infonavitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.infonavitToolStripMenuItem.Text = "Infonavit";
             this.infonavitToolStripMenuItem.Click += new System.EventHandler(this.infonavitToolStripMenuItem_Click);
+            // 
+            // iSRVariable50ToolStripMenuItem
+            // 
+            this.iSRVariable50ToolStripMenuItem.Name = "iSRVariable50ToolStripMenuItem";
+            this.iSRVariable50ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.iSRVariable50ToolStripMenuItem.Text = "ISR Variable(C50)";
+            this.iSRVariable50ToolStripMenuItem.Click += new System.EventHandler(this.iSRVariable50ToolStripMenuItem_Click);
             // 
             // MainControl
             // 
@@ -608,5 +617,6 @@
         private System.Windows.Forms.ToolStripMenuItem deduccionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pensionAlimenticiaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem infonavitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iSRVariable50ToolStripMenuItem;
     }
 }

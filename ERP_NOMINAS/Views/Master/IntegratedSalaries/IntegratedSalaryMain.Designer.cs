@@ -117,6 +117,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(68, 27);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(281, 20);
             this.textBox2.TabIndex = 2;
             // 
@@ -201,7 +202,6 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
-            this.Location = new System.Drawing.Point(0, 0);
             this.Name = "IntegratedSalaryMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Salarios Integrados";
