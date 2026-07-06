@@ -20,6 +20,7 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance
         AttendanceRepository _repository = new AttendanceRepository();
         private int Id = 0;
         private int NEmployee = 0;
+        private bool StatusE;
 
         public AttendMain()
         {
@@ -61,6 +62,7 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 Id = Convert.ToInt32(row.Cells[0].Value);
                 NEmployee = Convert.ToInt32(row.Cells[1].Value);
+                StatusE = (row.Cells[13].Value != null && row.Cells[13].Value.ToString() == "Activo") ? true : false;
             }
         }
 
@@ -256,6 +258,7 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance
                 if (ress == DialogResult.Yes)
                 {
                     _repository.GetListAttendByDetails(Convert.ToInt32(textBox1.Text));
+                    dataGridView1.Rows.Clear();
                     MessageBox.Show("Lista importada con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadGrid();
                 }
@@ -283,6 +286,7 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance
                 if (ress == DialogResult.Yes)
                 {
                     _repository.UpdateListAttendByDetails(Convert.ToInt32(textBox2.Text));
+                    dataGridView1.Rows.Clear();
                     MessageBox.Show("Lista actualizada con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadGrid();
                 }
@@ -311,6 +315,16 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance
             report.ShowDialog();
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (_repository.UpdateStatus(NEmployee, StatusE ? false:true) >= 1)
+            {
+                LoadGrid();
+            }
+            else
+            {
+                MessageBox.Show("Ocurrio un error");
+            }
+        }
     }
 }

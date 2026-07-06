@@ -179,7 +179,8 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance
                 TurnWorked = Convert.ToInt32(searchTurn1.SelectedTurntId),
                 EntryDate = Convert.ToDateTime(dateTimePicker1.Value),
                 EntryTime = DateTime.Today,
-                DepartureTime = DateTime.Today
+                DepartureTime = DateTime.Today,
+                Status = Convert.ToString(1)
             };
         }
 

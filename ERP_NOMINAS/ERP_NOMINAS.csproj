@@ -1341,6 +1341,7 @@
     <None Include="Resources\icons8-asistencia-28.png" />
     <None Include="Resources\icons8-aprobación-281.png" />
     <None Include="Resources\icons8-accede-redondeado-derecho-28.png" />
+    <None Include="Resources\icons8-conmutador-indeterminado-28.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

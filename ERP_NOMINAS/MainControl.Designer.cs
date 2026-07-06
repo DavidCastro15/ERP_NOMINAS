@@ -521,21 +521,21 @@
             // pensionAlimenticiaToolStripMenuItem
             // 
             this.pensionAlimenticiaToolStripMenuItem.Name = "pensionAlimenticiaToolStripMenuItem";
-            this.pensionAlimenticiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pensionAlimenticiaToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.pensionAlimenticiaToolStripMenuItem.Text = "Pension Alimenticia";
             this.pensionAlimenticiaToolStripMenuItem.Click += new System.EventHandler(this.pensionAlimenticiaToolStripMenuItem_Click);
             // 
             // infonavitToolStripMenuItem
             // 
             this.infonavitToolStripMenuItem.Name = "infonavitToolStripMenuItem";
-            this.infonavitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.infonavitToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.infonavitToolStripMenuItem.Text = "Infonavit";
             this.infonavitToolStripMenuItem.Click += new System.EventHandler(this.infonavitToolStripMenuItem_Click);
             // 
             // iSRVariable50ToolStripMenuItem
             // 
             this.iSRVariable50ToolStripMenuItem.Name = "iSRVariable50ToolStripMenuItem";
-            this.iSRVariable50ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.iSRVariable50ToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.iSRVariable50ToolStripMenuItem.Text = "ISR Variable(C50)";
             this.iSRVariable50ToolStripMenuItem.Click += new System.EventHandler(this.iSRVariable50ToolStripMenuItem_Click);
             // 

@@ -47,6 +47,7 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance.ListAttend
             {
                 kitForm1.Visible = false;
                 buttonPrint1.Visible = false;
+                buttonPrint2.Visible = false;
                 groupBox1.Visible = false;
                 groupBox2.Visible = false;
             }

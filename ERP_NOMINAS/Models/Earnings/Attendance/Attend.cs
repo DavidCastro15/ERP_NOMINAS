@@ -48,5 +48,10 @@ namespace ERP_NOMINAS.Models.Attendance
 
         [DisplayName("Tipo Empleado")]
         public string TypeEmployee { get; set; }
+        
+        [DisplayName("Estatus")]
+        public string StatusED => Status == "1" ? "Activo" : "Inactivo";
+
+        public string Status { get; set; }
     }
 }

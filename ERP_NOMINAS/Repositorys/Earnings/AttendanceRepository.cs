@@ -130,7 +130,7 @@ namespace ERP_NOMINAS.Repositorys
             try
             {
 
-                using (cmd = new SqlCommand("SELECT * FROM asistencia", Conex.nomi))
+                using (cmd = new SqlCommand("SELECT * FROM asistencia ORDER BY id_empleado", Conex.nomi))
                 {
                     Conex.OpenNomina();
 
@@ -188,7 +188,7 @@ namespace ERP_NOMINAS.Repositorys
         private int createDetailList(int NumberControl,string Status)
         {
             string query = "INSERT INTO listas_detalle (numero_control,asistencia,estatus,id_nomina,numero_empleado,uso,id_categoria,categoria_requerida,hora_entrada,hora_salida,turno_periodo,turno_trabajado) "+
-                           "SELECT @numero_control,@asistencia,@estatus,@id_nomina,id_empleado,uso_trabajado,categoria_original,categoria_trabajada,inicio,fin,turno_original,turno_trabajado FROM asistencia ";
+                           "SELECT @numero_control,@asistencia,@estatus,@id_nomina,id_empleado,uso_trabajado,categoria_original,categoria_trabajada,inicio,fin,turno_original,turno_trabajado FROM asistencia WHERE estatus =1";
 
             using (cmd = new SqlCommand(query, Conex.nomi))
             {
@@ -206,28 +206,28 @@ namespace ERP_NOMINAS.Repositorys
         public int GetListAttendByDetails(int ControlNumber)
         {
 
-            string query = "TRUNCATE TABLE asistencia "+
-         "INSERT INTO asistencia(id_empleado, nombre, apellidos, inicio, fin, fecha, tipo_empleado, " +
-         "uso_original, uso_trabajado, turno_original, turno_trabajado, categoria_original, categoria_trabajada) " +
+            string query = $@"TRUNCATE TABLE asistencia 
+         INSERT INTO asistencia(id_empleado, nombre, apellidos, inicio, fin, fecha, tipo_empleado, 
+         uso_original, uso_trabajado, turno_original, turno_trabajado, categoria_original, categoria_trabajada,estatus) 
 
-            "SELECT ld.numero_empleado AS id_empleado, " +
-            "e.nombre, " +
-            "CONCAT(e.apellido_paterno, ' ', e.apellido_materno) AS apellidos, " +
-            "CAST('00:00:00' AS TIME) AS inicio, " +
-            "CAST('00:00:00' AS TIME) AS fin, " +
-            "CAST(GETDATE() AS DATETIME) AS fecha, " +
-            "e.tipo, " +
-            "ld.uso AS uso_original, " +
-            "ld.uso AS uso_trabajado, " +
-            "ld.turno_periodo AS turno_original, " +
-            "ld.turno_trabajado AS turno_trabajado, " +
-            "ld.id_categoria AS categoria_original, " +
-            "ld.categoria_requerida AS categoria_trabajada " +
-
-            "FROM listas_detalle ld " +
-            "INNER JOIN empleados e " +
-            "ON ld.numero_empleado = e.numero_empleado " +
-            $"WHERE numero_control = { ControlNumber} ";
+            SELECT ld.numero_empleado AS id_empleado, 
+            e.nombre, 
+            CONCAT(e.apellido_paterno, ' ', e.apellido_materno) AS apellidos, 
+            CAST('00:00:00' AS TIME) AS inicio, 
+            CAST('00:00:00' AS TIME) AS fin, 
+            CAST(GETDATE() AS DATETIME) AS fecha, 
+            e.tipo, 
+            ld.uso AS uso_original, 
+            ld.uso AS uso_trabajado, 
+            ld.turno_periodo AS turno_original, 
+            ld.turno_trabajado AS turno_trabajado, 
+            ld.id_categoria AS categoria_original, 
+            ld.categoria_requerida AS categoria_trabajada,
+            1
+            FROM listas_detalle ld 
+            INNER JOIN empleados e 
+            ON ld.numero_empleado = e.numero_empleado 
+            WHERE numero_control = { ControlNumber} ";
 
             using (cmd = new SqlCommand(query, Conex.nomi))
             {
@@ -270,10 +270,10 @@ namespace ERP_NOMINAS.Repositorys
                 WHEN NOT MATCHED THEN
                     INSERT (id_empleado, nombre, apellidos, inicio, fin, fecha, tipo_empleado, 
                             uso_original, uso_trabajado, turno_original, turno_trabajado, 
-                            categoria_original, categoria_trabajada)
+                            categoria_original, categoria_trabajada,estatus)
                     VALUES (origen.id_empleado, origen.nombre, origen.apellidos, origen.inicio, origen.fin, origen.fecha, origen.tipo_empleado, 
                             origen.uso_original, origen.uso_trabajado, origen.turno_original, origen.turno_trabajado, 
-                            origen.categoria_original, origen.categoria_trabajada);";
+                            origen.categoria_original, origen.categoria_trabajada,1);";
 
             using (cmd = new SqlCommand(query, Conex.nomi))
             {
@@ -313,8 +313,8 @@ namespace ERP_NOMINAS.Repositorys
 
             Template getTempla = _repoTemplate.GetTemplate(a.NumberEmployee);
 
-            string query = "INSERT INTO asistencia(id_empleado,nombre,apellidos,categoria_original,categoria_trabajada,uso_original,uso_trabajado,turno_original,turno_trabajado,fecha,inicio,fin,tipo_empleado) " +
-                           "VALUES (@id_empleado,@nombre,@apellidos,@categoria_original,@categoria_trabajada,@uso_original,@uso_trabajado,@turno_original,@turno_trabajado,@fecha,@inicio,@fin,@tipo_empleado)";
+            string query = "INSERT INTO asistencia(id_empleado,nombre,apellidos,categoria_original,categoria_trabajada,uso_original,uso_trabajado,turno_original,turno_trabajado,fecha,inicio,fin,tipo_empleado,estatus) " +
+                           "VALUES (@id_empleado,@nombre,@apellidos,@categoria_original,@categoria_trabajada,@uso_original,@uso_trabajado,@turno_original,@turno_trabajado,@fecha,@inicio,@fin,@tipo_empleado,1)";
 
             using (cmd = new SqlCommand(query, Conex.nomi))
             {
@@ -340,7 +340,7 @@ namespace ERP_NOMINAS.Repositorys
 
         public int UpdateAtttend(Attend a)
         {
-            string query = "UPDATE asistencia SET categoria_trabajada=@categoria_trabajada,uso_trabajado=@uso_trabajado,turno_trabajado=@turno_trabajado,fecha=@fecha WHERE id_empleado=@id_empleado";
+            string query = "UPDATE asistencia SET categoria_trabajada=@categoria_trabajada,uso_trabajado=@uso_trabajado,turno_trabajado=@turno_trabajado,fecha=@fecha,estatus=1 WHERE id_empleado=@id_empleado";
 
             using (cmd = new SqlCommand(query, Conex.nomi))
             {
@@ -404,7 +404,7 @@ namespace ERP_NOMINAS.Repositorys
             NULL, 
             NULL, 
             NULL, 
-            NULL 
+            1
         FROM empleados t1 
         INNER JOIN incidencias t2 ON t2.numeroempleado = t1.NUMEROEMPLEADO 
         INNER JOIN azsja_nomina.dbo.empleados e ON e.numero_empleado = t1.NUMEROEMPLEADO 
@@ -579,7 +579,8 @@ namespace ERP_NOMINAS.Repositorys
                 EntryDate = Convert.ToDateTime(reader["fecha"]),
                 EntryTime = reader["inicio"] == DBNull.Value ? DateTime.Today : DateTime.Today.Add((TimeSpan)reader["inicio"]),
                 DepartureTime = reader["fin"] == DBNull.Value ? DateTime.Today : DateTime.Today.Add((TimeSpan)reader["fin"]),
-                TypeEmployee = Convert.ToString(reader["tipo_empleado"])
+                TypeEmployee = Convert.ToString(reader["tipo_empleado"]),
+                Status = Convert.ToString(reader["estatus"])
             };
         }
 
@@ -599,5 +600,24 @@ namespace ERP_NOMINAS.Repositorys
             };
         }
 
+        public int UpdateStatus(int NumberEmployee, bool Stat)
+        {
+            string st = Stat ? "1" : "0";
+
+            // 2. Usamos parámetros (@st, @id) para evitar Inyección SQL y errores de formato
+            string query = "UPDATE asistencia SET estatus = @st WHERE id_empleado = @id";
+
+            using (SqlCommand cmd = new SqlCommand(query, Conex.nomi))
+            {
+                // 3. Añadimos los parámetros de forma segura
+                cmd.Parameters.AddWithValue("@st", st);
+                cmd.Parameters.AddWithValue("@id", NumberEmployee);
+
+                Conex.OpenNomina();
+
+                // 4. ExecuteNonQuery devuelve las filas afectadas (1 si se actualizó, 0 si no)
+                return cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

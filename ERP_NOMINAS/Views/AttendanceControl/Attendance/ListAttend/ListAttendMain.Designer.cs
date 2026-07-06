@@ -239,7 +239,7 @@
             // buttonPrint2
             // 
             this.buttonPrint2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonPrint2.Location = new System.Drawing.Point(400, 482);
+            this.buttonPrint2.Location = new System.Drawing.Point(400, 479);
             this.buttonPrint2.Name = "buttonPrint2";
             this.buttonPrint2.Size = new System.Drawing.Size(74, 51);
             this.buttonPrint2.TabIndex = 3;
