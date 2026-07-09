@@ -265,15 +265,17 @@ namespace ERP_NOMINAS.Repositorys
                     UPDATE SET 
                         destino.uso_trabajado = origen.uso_trabajado,
                         destino.turno_trabajado = origen.turno_trabajado,
-                        destino.categoria_trabajada = origen.categoria_trabajada
+                        destino.categoria_trabajada = origen.categoria_trabajada;";
 
-                WHEN NOT MATCHED THEN
-                    INSERT (id_empleado, nombre, apellidos, inicio, fin, fecha, tipo_empleado, 
-                            uso_original, uso_trabajado, turno_original, turno_trabajado, 
-                            categoria_original, categoria_trabajada,estatus)
-                    VALUES (origen.id_empleado, origen.nombre, origen.apellidos, origen.inicio, origen.fin, origen.fecha, origen.tipo_empleado, 
-                            origen.uso_original, origen.uso_trabajado, origen.turno_original, origen.turno_trabajado, 
-                            origen.categoria_original, origen.categoria_trabajada,1);";
+
+
+            //WHEN NOT MATCHED THEN
+            //        INSERT(id_empleado, nombre, apellidos, inicio, fin, fecha, tipo_empleado,
+            //                uso_original, uso_trabajado, turno_original, turno_trabajado,
+            //                categoria_original, categoria_trabajada, estatus)
+            //        VALUES(origen.id_empleado, origen.nombre, origen.apellidos, origen.inicio, origen.fin, origen.fecha, origen.tipo_empleado,
+            //                origen.uso_original, origen.uso_trabajado, origen.turno_original, origen.turno_trabajado,
+            //                origen.categoria_original, origen.categoria_trabajada, 1)
 
             using (cmd = new SqlCommand(query, Conex.nomi))
             {
