@@ -1,4 +1,5 @@
-﻿using FormsMaster = ERP_NOMINAS.Views.Master;
+﻿using FormsAuth = ERP_NOMINAS.Views.Auth;
+using FormsMaster = ERP_NOMINAS.Views.Master;
 using FormsAttend = ERP_NOMINAS.Views.AttendanceControl;
 using FormsNonAutomatic = ERP_NOMINAS.Views.Non_AutomaticPerceptions;
 using FormsNonAutomaticDeduction = ERP_NOMINAS.Views.Non_AutomaticDeductions;
@@ -173,6 +174,8 @@ namespace ERP_NOMINAS
             }
         }
 
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsAuth.PermissionControlMain>();
+
         private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenForm<FormsMaster.Categories.CategoryMain>();
@@ -234,16 +237,12 @@ namespace ERP_NOMINAS
 
         private void iSRVariable50ToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.IsrVariable.IsrVariableMain>();
 
-        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsAttend.Attendance.AttendMain>();
-
-        // --- Formularios Con Parámetros (Plantillas) ---
         private void reparacionToolStripMenuItem_Click(object sender, EventArgs e) =>
             OpenForm<FormsMaster.Templates.TemplateMain>(f => f.cycleTable = "plantilla_reparacion");
 
         private void zafraToolStripMenuItem_Click(object sender, EventArgs e) =>
             OpenForm<FormsMaster.Templates.TemplateMain>(f => f.cycleTable = "plantilla_zafra");
 
-        // --- Formularios de Impuestos ---
         private void impuestoToolStripMenuItem_Click(object sender, EventArgs e) =>
             OpenForm<FormsMaster.TaxSubsidy.TaxRateMain>(f => { f._useTable = "tarifa_diaria_impuesto"; f.type = " Diaria"; });
 
@@ -253,7 +252,6 @@ namespace ERP_NOMINAS
         private void impuestoToolStripMenuItem2_Click(object sender, EventArgs e) =>
             OpenForm<FormsMaster.TaxSubsidy.TaxRateMain>(f => { f._useTable = "tarifa_mensual_impuesto"; f.type = " Mensual"; });
 
-        // --- Formularios de Subsidios ---
         private void subsidioToolStripMenuItem_Click(object sender, EventArgs e) =>
             OpenForm<FormsMaster.TaxSubsidy.SubsidyRateMain>(f => { f._useTable = "tarifa_diaria_subsidio"; f.type = " Diaria"; });
 
@@ -263,7 +261,6 @@ namespace ERP_NOMINAS
         private void subsidioToolStripMenuItem2_Click(object sender, EventArgs e) =>
             OpenForm<FormsMaster.TaxSubsidy.SubsidyRateMain>(f => { f._useTable = "tarifa_mensual_subsidio"; f.type = " Mensual"; });
 
-        //--- Formularios de Compensaciones y Gratificaciones ---
         private void compensacionesToolStripMenuItem_Click(object sender, EventArgs e) =>
            OpenForm<FormsNonAutomatic.OffsetsGratuities.OffsetGratuityMain>(f => { f.Table = "compensaciones"; });
 
@@ -305,6 +302,9 @@ namespace ERP_NOMINAS
                 MessageBox.Show($"Error al cerrar el sistema desde la X: {ex.Message}");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsAuth.PermissionControlMain>();
+
 
     }
 

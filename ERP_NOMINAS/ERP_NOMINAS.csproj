@@ -294,6 +294,9 @@
       <DependentUpon>SelectPayWeek.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuToolStripRender.cs" />
+    <Compile Include="Models\Auth\Catalog.cs" />
+    <Compile Include="Models\Auth\ControlPermission.cs" />
+    <Compile Include="Models\Auth\IControlPermission.cs" />
     <Compile Include="Models\Deductions\ChildSupport\CSupport.cs" />
     <Compile Include="Models\Deductions\ChildSupport\CSupportReport.cs" />
     <Compile Include="Models\Deductions\ChildSupport\ICSupport.cs" />
@@ -487,6 +490,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ViewsTablesPerceptionNonAuto.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Repositorys\Auth\ControlPermissionRepository.cs" />
     <Compile Include="Repositorys\Deductions\ChildSupportRepository.cs" />
     <Compile Include="Repositorys\Deductions\InfonavitRepository.cs" />
     <Compile Include="Repositorys\Deductions\IsrVariableRepository.cs" />
@@ -578,6 +582,18 @@
     </Compile>
     <Compile Include="BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Auth\PermissionControlMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Auth\PermissionControlMain.Designer.cs">
+      <DependentUpon>PermissionControlMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Auth\PermissionControlShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Auth\PermissionControlShow.Designer.cs">
+      <DependentUpon>PermissionControlShow.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Master\CategoriesTrained\CategoryTrainedMain.cs">
       <SubType>Form</SubType>
@@ -1103,6 +1119,12 @@
     <EmbeddedResource Include="BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Auth\PermissionControlMain.resx">
+      <DependentUpon>PermissionControlMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Auth\PermissionControlShow.resx">
+      <DependentUpon>PermissionControlShow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Master\CategoriesTrained\CategoryTrainedMain.resx">
       <DependentUpon>CategoryTrainedMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -1342,6 +1364,7 @@
     <None Include="Resources\icons8-aprobación-281.png" />
     <None Include="Resources\icons8-accede-redondeado-derecho-28.png" />
     <None Include="Resources\icons8-conmutador-indeterminado-28.png" />
+    <None Include="Resources\icons8-casilla-de-verificación-marcada-28.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

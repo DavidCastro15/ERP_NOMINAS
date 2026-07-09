@@ -31,8 +31,7 @@ namespace ERP_SHARED.Conexion
 
             _nomi = new SqlConnection($"Data Source={AppConstants.ServerIp};Initial Catalog={_nameBd};Persist Security Info=True;User ID={AppConstants.User};Password={AppConstants.Password};MultipleActiveResultSets=True;Max Pool Size=10024;Connection Timeout=999");
 
-            // 🟢 ASIGNACIÓN COMPLETA DIRECTA
-            _auth = new SqlConnection("Data Source=192.168.2.250;Initial Catalog=azsja_nombase;Persist Security Info=True;User ID=sa;Password=AsjaEvol19;MultipleActiveResultSets=True;Max Pool Size=10024;Connection Timeout=999");
+            _auth = new SqlConnection($"Data Source={AppConstants.ServerIp};Initial Catalog=azsja_nombase;Persist Security Info=True;User ID={AppConstants.User};Password={AppConstants.Password};MultipleActiveResultSets=True;Max Pool Size=10024;Connection Timeout=999");
         }
 
         public SqlConnection asis => _asis;

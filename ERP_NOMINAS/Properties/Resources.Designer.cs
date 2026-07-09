@@ -283,6 +283,16 @@ namespace ERP_NOMINAS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_casilla_de_verificación_marcada_28 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-casilla-de-verificación-marcada-28", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_combinar_archivos_28 {
             get {
                 object obj = ResourceManager.GetObject("icons8-combinar-archivos-28", resourceCulture);
