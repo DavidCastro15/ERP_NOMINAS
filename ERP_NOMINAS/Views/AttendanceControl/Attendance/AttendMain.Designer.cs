@@ -69,6 +69,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -425,7 +426,7 @@
             // 
             this.button8.Image = global::ERP_NOMINAS.Properties.Resources.icons8_imprimir_28;
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button8.Location = new System.Drawing.Point(644, 621);
+            this.button8.Location = new System.Drawing.Point(548, 621);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(112, 52);
             this.button8.TabIndex = 14;
@@ -451,7 +452,7 @@
             // 
             this.button6.Image = global::ERP_NOMINAS.Properties.Resources.icons8_folleto_encuadernado_en_espiral_28;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.Location = new System.Drawing.Point(762, 621);
+            this.button6.Location = new System.Drawing.Point(666, 621);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(110, 51);
             this.button6.TabIndex = 12;
@@ -464,14 +465,27 @@
             // 
             this.button1.Image = global::ERP_NOMINAS.Properties.Resources.icons8_conmutador_indeterminado_28;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(878, 619);
+            this.button1.Location = new System.Drawing.Point(878, 609);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 51);
+            this.button1.Size = new System.Drawing.Size(90, 61);
             this.button1.TabIndex = 16;
-            this.button1.Text = "Activo/Inactivo";
+            this.button1.Text = "Activo/Inactivo (1x1)";
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button10
+            // 
+            this.button10.Image = global::ERP_NOMINAS.Properties.Resources.icons8_conmutador_indeterminado_28;
+            this.button10.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button10.Location = new System.Drawing.Point(782, 609);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(90, 61);
+            this.button10.TabIndex = 17;
+            this.button10.Text = "Activo/Inactivo (Todos)";
+            this.button10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // AttendMain
             // 
@@ -479,6 +493,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1376, 684);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button8);
@@ -545,5 +560,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button10;
     }
 }

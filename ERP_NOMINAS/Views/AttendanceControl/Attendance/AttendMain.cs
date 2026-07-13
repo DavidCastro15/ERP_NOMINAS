@@ -317,7 +317,20 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance
 
         private void button1_Click(object sender, EventArgs e)
         {
+    
             if (_repository.UpdateStatus(NEmployee, StatusE ? false:true) >= 1)
+            {
+                LoadGrid();
+            }
+            else
+            {
+                MessageBox.Show("Ocurrio un error");
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (_repository.UpdateAllStatus() > 1)
             {
                 LoadGrid();
             }

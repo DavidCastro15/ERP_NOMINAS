@@ -25,6 +25,7 @@ namespace ERP_NOMINAS.Models.Attendance
         int CheckNextNumControl();
         int ChechNextNumberEmployee(int currentNumber = 0);
         int UpdateStatus(int NumberEmployee, bool Stat);
+        int UpdateAllStatus();
         List<AttendReport> GetAttendDataReport();
     }
 }
