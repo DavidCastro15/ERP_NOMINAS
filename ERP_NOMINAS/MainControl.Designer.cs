@@ -85,6 +85,7 @@
             this.pensionAlimenticiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infonavitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iSRVariable50ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajusteIsrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -97,7 +98,6 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "PRUEBAS";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
@@ -524,7 +524,8 @@
             this.deduccionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pensionAlimenticiaToolStripMenuItem,
             this.infonavitToolStripMenuItem,
-            this.iSRVariable50ToolStripMenuItem});
+            this.iSRVariable50ToolStripMenuItem,
+            this.ajusteIsrToolStripMenuItem});
             this.deduccionesToolStripMenuItem.Name = "deduccionesToolStripMenuItem";
             this.deduccionesToolStripMenuItem.Size = new System.Drawing.Size(135, 20);
             this.deduccionesToolStripMenuItem.Text = "Deducciones No Auto";
@@ -532,23 +533,30 @@
             // pensionAlimenticiaToolStripMenuItem
             // 
             this.pensionAlimenticiaToolStripMenuItem.Name = "pensionAlimenticiaToolStripMenuItem";
-            this.pensionAlimenticiaToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.pensionAlimenticiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pensionAlimenticiaToolStripMenuItem.Text = "Pension Alimenticia";
             this.pensionAlimenticiaToolStripMenuItem.Click += new System.EventHandler(this.pensionAlimenticiaToolStripMenuItem_Click);
             // 
             // infonavitToolStripMenuItem
             // 
             this.infonavitToolStripMenuItem.Name = "infonavitToolStripMenuItem";
-            this.infonavitToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.infonavitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.infonavitToolStripMenuItem.Text = "Infonavit";
             this.infonavitToolStripMenuItem.Click += new System.EventHandler(this.infonavitToolStripMenuItem_Click);
             // 
             // iSRVariable50ToolStripMenuItem
             // 
             this.iSRVariable50ToolStripMenuItem.Name = "iSRVariable50ToolStripMenuItem";
-            this.iSRVariable50ToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.iSRVariable50ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.iSRVariable50ToolStripMenuItem.Text = "ISR Variable(C50)";
             this.iSRVariable50ToolStripMenuItem.Click += new System.EventHandler(this.iSRVariable50ToolStripMenuItem_Click);
+            // 
+            // ajusteIsrToolStripMenuItem
+            // 
+            this.ajusteIsrToolStripMenuItem.Name = "ajusteIsrToolStripMenuItem";
+            this.ajusteIsrToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ajusteIsrToolStripMenuItem.Text = "Ajuste Isr(C58)";
+            this.ajusteIsrToolStripMenuItem.Click += new System.EventHandler(this.ajusteIsrToolStripMenuItem_Click);
             // 
             // MainControl
             // 
@@ -631,5 +639,6 @@
         private System.Windows.Forms.ToolStripMenuItem infonavitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iSRVariable50ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajusteIsrToolStripMenuItem;
     }
 }

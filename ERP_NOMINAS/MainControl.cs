@@ -303,9 +303,9 @@ namespace ERP_NOMINAS
             }
         }
 
-        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsAuth.PermissionControlMain>();
+        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.IsrAdjust.IsrAdjustMain>();
 
-
+        private void ajusteIsrToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.IsrAdjust.IsrAdjustMain>();
     }
 
 }

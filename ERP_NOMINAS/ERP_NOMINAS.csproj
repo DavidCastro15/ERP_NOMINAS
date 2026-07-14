@@ -302,6 +302,8 @@
     <Compile Include="Models\Deductions\ChildSupport\ICSupport.cs" />
     <Compile Include="Models\Deductions\Infonavit\DInfonavit.cs" />
     <Compile Include="Models\Deductions\Infonavit\IDInfonavit.cs" />
+    <Compile Include="Models\Deductions\IsrAdjust\IIsrA.cs" />
+    <Compile Include="Models\Deductions\IsrAdjust\IsrA.cs" />
     <Compile Include="Models\Deductions\IsrVariable\IIsrV.cs" />
     <Compile Include="Models\Deductions\IsrVariable\IsrV.cs" />
     <Compile Include="Models\Earnings\Attendance\Attend.cs" />
@@ -493,6 +495,7 @@
     <Compile Include="Repositorys\Auth\ControlPermissionRepository.cs" />
     <Compile Include="Repositorys\Deductions\ChildSupportRepository.cs" />
     <Compile Include="Repositorys\Deductions\InfonavitRepository.cs" />
+    <Compile Include="Repositorys\Deductions\IsrAdjustRepository.cs" />
     <Compile Include="Repositorys\Deductions\IsrVariableRepository.cs" />
     <Compile Include="Repositorys\Earnings\AttendanceRepository.cs" />
     <Compile Include="Repositorys\Earnings\AwardPPRepository.cs" />
@@ -810,6 +813,18 @@
     </Compile>
     <Compile Include="Views\Non-AutomaticDeductions\Infonavit\InfonavitShow.Designer.cs">
       <DependentUpon>InfonavitShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\IsrAdjust\IsrAdjustMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\IsrAdjust\IsrAdjustMain.Designer.cs">
+      <DependentUpon>IsrAdjustMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\IsrAdjust\IsrAdjustShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\IsrAdjust\IsrAdjustShow.Designer.cs">
+      <DependentUpon>IsrAdjustShow.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Non-AutomaticDeductions\IsrVariable\IsrVariableMain.cs">
       <SubType>Form</SubType>
@@ -1232,6 +1247,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Non-AutomaticDeductions\Infonavit\InfonavitShow.resx">
       <DependentUpon>InfonavitShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticDeductions\IsrAdjust\IsrAdjustMain.resx">
+      <DependentUpon>IsrAdjustMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticDeductions\IsrAdjust\IsrAdjustShow.resx">
+      <DependentUpon>IsrAdjustShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Non-AutomaticDeductions\IsrVariable\IsrVariableMain.resx">
       <DependentUpon>IsrVariableMain.cs</DependentUpon>
