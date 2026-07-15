@@ -239,46 +239,64 @@ namespace ERP_NOMINAS.Repositorys
         public int UpdateListAttendByDetails(int ControlNumber)
         {
             string query = @"
-                MERGE INTO asistencia AS destino
+MERGE INTO asistencia AS destino
 USING (
     SELECT 
         e.numero_empleado AS id_empleado,
-        e.nombre,
-        CONCAT(e.apellido_paterno, ' ', e.apellido_materno) AS apellidos,
-        CAST('00:00:00' AS TIME) AS inicio,
-        CAST('00:00:00' AS TIME) AS fin,
-        CAST(GETDATE() AS DATETIME) AS fecha,
-        e.tipo AS tipo_empleado,
-        ld.uso AS uso_original,
         ld.uso AS uso_trabajado,
-        ld.turno_periodo AS turno_original,
         ld.turno_trabajado AS turno_trabajado,
-        ld.id_categoria AS categoria_original,
         ld.categoria_requerida AS categoria_trabajada
     FROM listas_detalle ld
     INNER JOIN empleados e ON ld.numero_empleado = e.numero_empleado
     WHERE ld.numero_control = @numeroControl
 ) AS origen
-ON (destino.id_empleado = origen.id_empleado AND CAST(destino.fecha AS DATE) = CAST(GETDATE() AS DATE))
-
+ON (destino.id_empleado = origen.id_empleado) -- Quitamos la fecha temporalmente para probar
 WHEN MATCHED THEN
     UPDATE SET 
-        destino.uso_trabajado = CASE 
-            WHEN origen.uso_trabajado IS NULL OR origen.uso_trabajado = 0 THEN destino.uso_trabajado 
-            ELSE origen.uso_trabajado 
-        END,
-        
-        destino.turno_trabajado = CASE 
-            WHEN origen.turno_trabajado IS NULL OR origen.turno_trabajado = '' OR origen.turno_trabajado = '0' THEN destino.turno_trabajado 
-            ELSE origen.turno_trabajado 
-        END,
-        
-        destino.categoria_trabajada = CASE 
-            WHEN origen.categoria_trabajada IS NULL OR origen.categoria_trabajada = 0 THEN destino.categoria_trabajada 
-            ELSE origen.categoria_trabajada 
-        END;";
+        destino.uso_trabajado = origen.uso_trabajado,
+        destino.turno_trabajado = origen.turno_trabajado,
+        destino.categoria_trabajada = origen.categoria_trabajada; ";
+
+//            MERGE INTO asistencia AS destino
+//USING(
+//    SELECT
+//        e.numero_empleado AS id_empleado,
+//        e.nombre,
+//        CONCAT(e.apellido_paterno, ' ', e.apellido_materno) AS apellidos,
+//        CAST('00:00:00' AS TIME) AS inicio,
+//        CAST('00:00:00' AS TIME) AS fin,
+//        CAST(GETDATE() AS DATETIME) AS fecha,
+//        e.tipo AS tipo_empleado,
+//        ld.uso AS uso_original,
+//        ld.uso AS uso_trabajado,
+//        ld.turno_periodo AS turno_original,
+//        ld.turno_trabajado AS turno_trabajado,
+//        ld.id_categoria AS categoria_original,
+//        ld.categoria_requerida AS categoria_trabajada
+//    FROM listas_detalle ld
+//    INNER JOIN empleados e ON ld.numero_empleado = e.numero_empleado
+//    WHERE ld.numero_control = @numeroControl
+//) AS origen
+//ON(destino.id_empleado = origen.id_empleado AND CAST(destino.fecha AS DATE) = CAST(GETDATE() AS DATE))
+
+//WHEN MATCHED THEN
+//    UPDATE SET
+//        destino.uso_trabajado = CASE
+//            WHEN origen.uso_trabajado IS NULL OR origen.uso_trabajado = 0 THEN destino.uso_trabajado
+//            ELSE origen.uso_trabajado
+//        END,
 
 
+//        destino.turno_trabajado = CASE
+//            WHEN origen.turno_trabajado IS NULL OR origen.turno_trabajado = '' OR origen.turno_trabajado = '0' THEN destino.turno_trabajado
+//            ELSE origen.turno_trabajado
+//        END,
+
+
+//        destino.categoria_trabajada = CASE
+//            WHEN origen.categoria_trabajada IS NULL OR origen.categoria_trabajada = 0 THEN destino.categoria_trabajada
+//            ELSE origen.categoria_trabajada
+//        END;
 
             //WHEN NOT MATCHED THEN
             //        INSERT(id_empleado, nombre, apellidos, inicio, fin, fecha, tipo_empleado,
