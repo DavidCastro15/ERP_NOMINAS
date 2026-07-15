@@ -79,8 +79,9 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.checkBox40 = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.checkBox41 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -622,6 +623,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.checkBox41);
             this.groupBox5.Controls.Add(this.checkBox40);
             this.groupBox5.Controls.Add(this.checkBox37);
             this.groupBox5.Controls.Add(this.checkBox38);
@@ -632,6 +634,16 @@
             this.groupBox5.TabIndex = 55;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Deducciones No Auto";
+            // 
+            // checkBox40
+            // 
+            this.checkBox40.AutoSize = true;
+            this.checkBox40.Location = new System.Drawing.Point(6, 88);
+            this.checkBox40.Name = "checkBox40";
+            this.checkBox40.Size = new System.Drawing.Size(91, 17);
+            this.checkBox40.TabIndex = 45;
+            this.checkBox40.Text = "Ajuste Isr C58";
+            this.checkBox40.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -646,15 +658,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // checkBox40
+            // checkBox41
             // 
-            this.checkBox40.AutoSize = true;
-            this.checkBox40.Location = new System.Drawing.Point(6, 88);
-            this.checkBox40.Name = "checkBox40";
-            this.checkBox40.Size = new System.Drawing.Size(91, 17);
-            this.checkBox40.TabIndex = 45;
-            this.checkBox40.Text = "Ajuste Isr C58";
-            this.checkBox40.UseVisualStyleBackColor = true;
+            this.checkBox41.AutoSize = true;
+            this.checkBox41.Location = new System.Drawing.Point(6, 111);
+            this.checkBox41.Name = "checkBox41";
+            this.checkBox41.Size = new System.Drawing.Size(109, 17);
+            this.checkBox41.TabIndex = 46;
+            this.checkBox41.Text = "Omitir Ahorro 10%";
+            this.checkBox41.UseVisualStyleBackColor = true;
             // 
             // PermissionControlShow
             // 
@@ -745,5 +757,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox40;
+        private System.Windows.Forms.CheckBox checkBox41;
     }
 }

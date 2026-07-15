@@ -306,6 +306,8 @@
     <Compile Include="Models\Deductions\IsrAdjust\IsrA.cs" />
     <Compile Include="Models\Deductions\IsrVariable\IIsrV.cs" />
     <Compile Include="Models\Deductions\IsrVariable\IsrV.cs" />
+    <Compile Include="Models\Deductions\SkipSaving\ISSaving.cs" />
+    <Compile Include="Models\Deductions\SkipSaving\SSaving.cs" />
     <Compile Include="Models\Earnings\Attendance\Attend.cs" />
     <Compile Include="Models\Earnings\Attendance\AttendReport.cs" />
     <Compile Include="Models\Earnings\Attendance\IAttend.cs" />
@@ -497,6 +499,7 @@
     <Compile Include="Repositorys\Deductions\InfonavitRepository.cs" />
     <Compile Include="Repositorys\Deductions\IsrAdjustRepository.cs" />
     <Compile Include="Repositorys\Deductions\IsrVariableRepository.cs" />
+    <Compile Include="Repositorys\Deductions\SkipSavingRepository.cs" />
     <Compile Include="Repositorys\Earnings\AttendanceRepository.cs" />
     <Compile Include="Repositorys\Earnings\AwardPPRepository.cs" />
     <Compile Include="Repositorys\Earnings\CategoryRepository.cs" />
@@ -837,6 +840,18 @@
     </Compile>
     <Compile Include="Views\Non-AutomaticDeductions\IsrVariable\IsrVariableShow.Designer.cs">
       <DependentUpon>IsrVariableShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\SkipSaving\SkipSavingMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\SkipSaving\SkipSavingMain.Designer.cs">
+      <DependentUpon>SkipSavingMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\SkipSaving\SkipSavingShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\SkipSaving\SkipSavingShow.Designer.cs">
+      <DependentUpon>SkipSavingShow.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Non-AutomaticPerceptions\AwardPunctPre\AwardPPMain.cs">
       <SubType>Form</SubType>
@@ -1259,6 +1274,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Non-AutomaticDeductions\IsrVariable\IsrVariableShow.resx">
       <DependentUpon>IsrVariableShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticDeductions\SkipSaving\SkipSavingMain.resx">
+      <DependentUpon>SkipSavingMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticDeductions\SkipSaving\SkipSavingShow.resx">
+      <DependentUpon>SkipSavingShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Non-AutomaticPerceptions\AwardPunctPre\AwardPPMain.resx">
       <DependentUpon>AwardPPMain.cs</DependentUpon>

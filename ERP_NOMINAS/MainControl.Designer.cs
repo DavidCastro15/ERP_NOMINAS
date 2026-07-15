@@ -86,6 +86,7 @@
             this.infonavitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iSRVariable50ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajusteIsrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.omtirAhorro10ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -525,7 +526,8 @@
             this.pensionAlimenticiaToolStripMenuItem,
             this.infonavitToolStripMenuItem,
             this.iSRVariable50ToolStripMenuItem,
-            this.ajusteIsrToolStripMenuItem});
+            this.ajusteIsrToolStripMenuItem,
+            this.omtirAhorro10ToolStripMenuItem});
             this.deduccionesToolStripMenuItem.Name = "deduccionesToolStripMenuItem";
             this.deduccionesToolStripMenuItem.Size = new System.Drawing.Size(135, 20);
             this.deduccionesToolStripMenuItem.Text = "Deducciones No Auto";
@@ -557,6 +559,13 @@
             this.ajusteIsrToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ajusteIsrToolStripMenuItem.Text = "Ajuste Isr(C58)";
             this.ajusteIsrToolStripMenuItem.Click += new System.EventHandler(this.ajusteIsrToolStripMenuItem_Click);
+            // 
+            // omtirAhorro10ToolStripMenuItem
+            // 
+            this.omtirAhorro10ToolStripMenuItem.Name = "omtirAhorro10ToolStripMenuItem";
+            this.omtirAhorro10ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.omtirAhorro10ToolStripMenuItem.Text = "Omtir Ahorro 10%";
+            this.omtirAhorro10ToolStripMenuItem.Click += new System.EventHandler(this.omtirAhorro10ToolStripMenuItem_Click);
             // 
             // MainControl
             // 
@@ -640,5 +649,6 @@
         private System.Windows.Forms.ToolStripMenuItem iSRVariable50ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajusteIsrToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem omtirAhorro10ToolStripMenuItem;
     }
 }
