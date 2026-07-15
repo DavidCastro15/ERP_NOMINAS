@@ -565,8 +565,8 @@ WHEN MATCHED THEN
             try
             {
 
-                using (cmd = new SqlCommand("SELECT id_empleado,CONCAT(nombre,' ',apellidos) AS n_completo,estado_asistencia,fecha,inicio,uso_trabajado,turno_trabajado,categoria_trabajada,estatus "+
-                                             "FROM asistencia ORDER BY id_empleado", Conex.nomi))
+                using (cmd = new SqlCommand(@"SELECT id_empleado,CONCAT(nombre,' ',apellidos) AS n_completo,estado_asistencia,fecha,inicio,uso_trabajado,turno_trabajado,categoria_trabajada,estatus                                             
+                                             FROM asistencia WHERE estatus =1 ORDER BY id_empleado", Conex.nomi))
                 {
                     Conex.OpenNomina();
 
