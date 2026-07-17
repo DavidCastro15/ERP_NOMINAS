@@ -19,6 +19,7 @@ namespace ERP_NOMINAS.Reports.NonAutomaticPerception.AwardsPPF
         private AwardPPRepository _repository = new AwardPPRepository();
         public bool Temp;
         public int Payweek;
+
         public awardsPPFListView()
         {
             InitializeComponent();

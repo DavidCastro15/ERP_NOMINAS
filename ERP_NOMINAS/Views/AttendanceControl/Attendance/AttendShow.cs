@@ -168,6 +168,18 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance
             }
         }
 
+        private void AttendShow_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // 2. Ejecuta la misma función de guardado pasando parámetros vacíos
+                kitCrud1_Edit(this, EventArgs.Empty);
+
+                // 3. Detiene el sonido "beep" de Windows y evita que el Enter salte a otro control
+                e.SuppressKeyPress = true;
+            }
+        }
+
         private Attend ShowAttend()
         {
             return new Attend
@@ -198,5 +210,7 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance
                 ShiftWorked = Convert.ToInt32(searchTurn1.SelectedTurntId)
             };
         }
+
+       
     }
 }

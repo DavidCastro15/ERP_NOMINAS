@@ -112,6 +112,13 @@ namespace ERP_SHARED.GlobalFunctions
                     display = "n_concepto";
                     value = "id_concepto";
                     break;
+
+                case TypeCatalog.ConceptDiscount:
+                    query = @"SELECT de.id_concepto,CONCAT(de.id_concepto,'--',cpd.nombre_concepto) AS n_concepto FROM descuentos_encabezado de INNER JOIN conceptos_pd cpd	
+                                ON de.id_concepto = cpd.id_concepto";
+                    display = "n_concepto";
+                    value = "id_concepto";
+                    break;
                 case TypeCatalog.Equipment:
                     query = " SELECT equipo, CONCAT(equipo,'--',descripcion) AS equipos " +
                             $" FROM equipos ORDER BY equipo ASC ";
@@ -195,6 +202,13 @@ namespace ERP_SHARED.GlobalFunctions
                 case TypeCatalog.Concept:
                     query = " SELECT id_concepto, CONCAT(id_concepto,'--',nombre_concepto) AS n_concepto " +
                             $" FROM conceptos_pd WHERE nombre_concepto LIKE '%{param}%' ORDER BY id_concepto ASC ";
+                    display = "n_concepto";
+                    value = "id_concepto";
+                    break;
+
+                case TypeCatalog.ConceptDiscount:
+                    query = " SELECT de.id_concepto,CONCAT(de.id_concepto,'--',cpd.nombre_concepto) AS n_concepto FROM descuentos_encabezado de INNER JOIN conceptos_pd cpd " +
+                            $" ON de.id_concepto = cpd.id_concepto WHERE de.id_concepto LIKE '%{param}%' ORDER BY  de.id_concepto ASC ";
                     display = "n_concepto";
                     value = "id_concepto";
                     break;

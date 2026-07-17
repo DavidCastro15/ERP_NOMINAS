@@ -13,6 +13,7 @@ namespace ERP_SHARED.GlobalFunctions.Enums
         Category,
         Turn,
         Concept,
+        ConceptDiscount,
         Department,
         Management,
         Group,

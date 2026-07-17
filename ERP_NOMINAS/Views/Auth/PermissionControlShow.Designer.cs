@@ -79,9 +79,10 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.checkBox41 = new System.Windows.Forms.CheckBox();
             this.checkBox40 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.checkBox41 = new System.Windows.Forms.CheckBox();
+            this.checkBox42 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -623,6 +624,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.checkBox42);
             this.groupBox5.Controls.Add(this.checkBox41);
             this.groupBox5.Controls.Add(this.checkBox40);
             this.groupBox5.Controls.Add(this.checkBox37);
@@ -634,6 +636,16 @@
             this.groupBox5.TabIndex = 55;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Deducciones No Auto";
+            // 
+            // checkBox41
+            // 
+            this.checkBox41.AutoSize = true;
+            this.checkBox41.Location = new System.Drawing.Point(6, 111);
+            this.checkBox41.Name = "checkBox41";
+            this.checkBox41.Size = new System.Drawing.Size(109, 17);
+            this.checkBox41.TabIndex = 46;
+            this.checkBox41.Text = "Omitir Ahorro 10%";
+            this.checkBox41.UseVisualStyleBackColor = true;
             // 
             // checkBox40
             // 
@@ -658,15 +670,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // checkBox41
+            // checkBox42
             // 
-            this.checkBox41.AutoSize = true;
-            this.checkBox41.Location = new System.Drawing.Point(6, 111);
-            this.checkBox41.Name = "checkBox41";
-            this.checkBox41.Size = new System.Drawing.Size(109, 17);
-            this.checkBox41.TabIndex = 46;
-            this.checkBox41.Text = "Omitir Ahorro 10%";
-            this.checkBox41.UseVisualStyleBackColor = true;
+            this.checkBox42.AutoSize = true;
+            this.checkBox42.Location = new System.Drawing.Point(6, 134);
+            this.checkBox42.Name = "checkBox42";
+            this.checkBox42.Size = new System.Drawing.Size(115, 17);
+            this.checkBox42.TabIndex = 47;
+            this.checkBox42.Text = "Descuentos Varios";
+            this.checkBox42.UseVisualStyleBackColor = true;
             // 
             // PermissionControlShow
             // 
@@ -758,5 +770,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox40;
         private System.Windows.Forms.CheckBox checkBox41;
+        private System.Windows.Forms.CheckBox checkBox42;
     }
 }

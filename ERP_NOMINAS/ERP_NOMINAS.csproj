@@ -308,6 +308,9 @@
     <Compile Include="Models\Deductions\IsrVariable\IsrV.cs" />
     <Compile Include="Models\Deductions\SkipSaving\ISSaving.cs" />
     <Compile Include="Models\Deductions\SkipSaving\SSaving.cs" />
+    <Compile Include="Models\Deductions\VariousDiscounts\Discount.cs" />
+    <Compile Include="Models\Deductions\VariousDiscounts\DiscountReport.cs" />
+    <Compile Include="Models\Deductions\VariousDiscounts\IDiscount.cs" />
     <Compile Include="Models\Earnings\Attendance\Attend.cs" />
     <Compile Include="Models\Earnings\Attendance\AttendReport.cs" />
     <Compile Include="Models\Earnings\Attendance\IAttend.cs" />
@@ -422,6 +425,12 @@
     <Compile Include="Reports\Master\Employees\employeeListView.Designer.cs">
       <DependentUpon>employeeListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\NonAutomaticDeductions\VariousDiscounts\variousDiscountListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\NonAutomaticDeductions\VariousDiscounts\variousDiscountListView.Designer.cs">
+      <DependentUpon>variousDiscountListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\NonAutomaticPerception\AwardsPPF\awardsPPFListView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -478,6 +487,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ViewsTablesAttendance.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ViewsTablesDeductionNonAuto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewsTablesDeductionNonAuto.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ViewsTablesMaster.cs">
       <DependentUpon>ViewsTablesMaster.xsd</DependentUpon>
     </Compile>
@@ -496,6 +510,7 @@
     </Compile>
     <Compile Include="Repositorys\Auth\ControlPermissionRepository.cs" />
     <Compile Include="Repositorys\Deductions\ChildSupportRepository.cs" />
+    <Compile Include="Repositorys\Deductions\DiscountRepository.cs" />
     <Compile Include="Repositorys\Deductions\InfonavitRepository.cs" />
     <Compile Include="Repositorys\Deductions\IsrAdjustRepository.cs" />
     <Compile Include="Repositorys\Deductions\IsrVariableRepository.cs" />
@@ -853,6 +868,18 @@
     <Compile Include="Views\Non-AutomaticDeductions\SkipSaving\SkipSavingShow.Designer.cs">
       <DependentUpon>SkipSavingShow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\VariousDiscounts\DiscountMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\VariousDiscounts\DiscountMain.Designer.cs">
+      <DependentUpon>DiscountMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\VariousDiscounts\DiscountShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\VariousDiscounts\DiscountShow.Designer.cs">
+      <DependentUpon>DiscountShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Non-AutomaticPerceptions\AwardPunctPre\AwardPPMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1096,6 +1123,10 @@
     <EmbeddedResource Include="Reports\Master\Employees\employeeListView.resx">
       <DependentUpon>employeeListView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NonAutomaticDeductions\VariousDiscounts\variousDiscountList.rdlc" />
+    <EmbeddedResource Include="Reports\NonAutomaticDeductions\VariousDiscounts\variousDiscountListView.resx">
+      <DependentUpon>variousDiscountListView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\NonAutomaticPerception\AwardsPPF\awardsPPFList.rdlc" />
     <EmbeddedResource Include="Reports\NonAutomaticPerception\AwardsPPF\awardsPPFListView.resx">
       <DependentUpon>awardsPPFListView.cs</DependentUpon>
@@ -1281,6 +1312,12 @@
     <EmbeddedResource Include="Views\Non-AutomaticDeductions\SkipSaving\SkipSavingShow.resx">
       <DependentUpon>SkipSavingShow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticDeductions\VariousDiscounts\DiscountMain.resx">
+      <DependentUpon>DiscountMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticDeductions\VariousDiscounts\DiscountShow.resx">
+      <DependentUpon>DiscountShow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Non-AutomaticPerceptions\AwardPunctPre\AwardPPMain.resx">
       <DependentUpon>AwardPPMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -1373,6 +1410,17 @@
     </None>
     <None Include="Reports\ViewsTablesAttendance.xss">
       <DependentUpon>ViewsTablesAttendance.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\ViewsTablesDeductionNonAuto.xsc">
+      <DependentUpon>ViewsTablesDeductionNonAuto.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\ViewsTablesDeductionNonAuto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ViewsTablesDeductionNonAuto.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\ViewsTablesDeductionNonAuto.xss">
+      <DependentUpon>ViewsTablesDeductionNonAuto.xsd</DependentUpon>
     </None>
     <None Include="Reports\ViewsTablesMaster.xsc">
       <DependentUpon>ViewsTablesMaster.xsd</DependentUpon>

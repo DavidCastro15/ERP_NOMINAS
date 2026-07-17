@@ -239,23 +239,23 @@ namespace ERP_NOMINAS.Repositorys
         public int UpdateListAttendByDetails(int ControlNumber)
         {
             string query = @"
-MERGE INTO asistencia AS destino
-USING (
-    SELECT 
-        e.numero_empleado AS id_empleado,
-        ld.uso AS uso_trabajado,
-        ld.turno_trabajado AS turno_trabajado,
-        ld.categoria_requerida AS categoria_trabajada
-    FROM listas_detalle ld
-    INNER JOIN empleados e ON ld.numero_empleado = e.numero_empleado
-    WHERE ld.numero_control = @numeroControl
-) AS origen
-ON (destino.id_empleado = origen.id_empleado) -- Quitamos la fecha temporalmente para probar
-WHEN MATCHED THEN
-    UPDATE SET 
-        destino.uso_trabajado = origen.uso_trabajado,
-        destino.turno_trabajado = origen.turno_trabajado,
-        destino.categoria_trabajada = origen.categoria_trabajada; ";
+                            MERGE INTO asistencia AS destino
+                            USING (
+                                SELECT 
+                                    e.numero_empleado AS id_empleado,
+                                    ld.uso AS uso_trabajado,
+                                    ld.turno_trabajado AS turno_trabajado,
+                                    ld.categoria_requerida AS categoria_trabajada
+                                FROM listas_detalle ld
+                                INNER JOIN empleados e ON ld.numero_empleado = e.numero_empleado
+                                WHERE ld.numero_control = @numeroControl
+                            ) AS origen
+                            ON (destino.id_empleado = origen.id_empleado) -- Quitamos la fecha temporalmente para probar
+                            WHEN MATCHED THEN
+                                UPDATE SET 
+                                    destino.uso_trabajado = origen.uso_trabajado,
+                                    destino.turno_trabajado = origen.turno_trabajado,
+                                    destino.categoria_trabajada = origen.categoria_trabajada; ";
 
 //            MERGE INTO asistencia AS destino
 //USING(

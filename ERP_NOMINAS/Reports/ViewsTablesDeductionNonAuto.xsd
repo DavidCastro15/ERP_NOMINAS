@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ViewsTablesDeductionNonAuto" targetNamespace="http://tempuri.org/ViewsTablesDeductionNonAuto.xsd" xmlns:mstns="http://tempuri.org/ViewsTablesDeductionNonAuto.xsd" xmlns="http://tempuri.org/ViewsTablesDeductionNonAuto.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ViewsTablesDeductionNonAuto" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ViewsTablesDeductionNonAuto" msprop:Generator_UserDSName="ViewsTablesDeductionNonAuto">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="discountList" msprop:Generator_TableClassName="discountListDataTable" msprop:Generator_TableVarName="tablediscountList" msprop:Generator_TablePropName="discountList" msprop:Generator_RowDeletingName="discountListRowDeleting" msprop:Generator_RowChangingName="discountListRowChanging" msprop:Generator_RowEvHandlerName="discountListRowChangeEventHandler" msprop:Generator_RowDeletedName="discountListRowDeleted" msprop:Generator_UserTableName="discountList" msprop:Generator_RowChangedName="discountListRowChanged" msprop:Generator_RowEvArgName="discountListRowChangeEvent" msprop:Generator_RowClassName="discountListRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:string" minOccurs="0" />
+              <xs:element name="IdConcept" msprop:Generator_ColumnVarNameInTable="columnIdConcept" msprop:Generator_ColumnPropNameInRow="IdConcept" msprop:Generator_ColumnPropNameInTable="IdConceptColumn" msprop:Generator_UserColumnName="IdConcept" type="xs:string" minOccurs="0" />
+              <xs:element name="NumberEmployee" msprop:Generator_ColumnVarNameInTable="columnNumberEmployee" msprop:Generator_ColumnPropNameInRow="NumberEmployee" msprop:Generator_ColumnPropNameInTable="NumberEmployeeColumn" msprop:Generator_UserColumnName="NumberEmployee" type="xs:string" minOccurs="0" />
+              <xs:element name="FullName" msprop:Generator_ColumnVarNameInTable="columnFullName" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" msprop:Generator_UserColumnName="FullName" type="xs:string" minOccurs="0" />
+              <xs:element name="Discount" msprop:Generator_ColumnVarNameInTable="columnDiscount" msprop:Generator_ColumnPropNameInRow="Discount" msprop:Generator_ColumnPropNameInTable="DiscountColumn" msprop:Generator_UserColumnName="Discount" type="xs:string" minOccurs="0" />
+              <xs:element name="OutstandingBalance" msprop:Generator_ColumnVarNameInTable="columnOutstandingBalance" msprop:Generator_ColumnPropNameInRow="OutstandingBalance" msprop:Generator_ColumnPropNameInTable="OutstandingBalanceColumn" msprop:Generator_UserColumnName="OutstandingBalance" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

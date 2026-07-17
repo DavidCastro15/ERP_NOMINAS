@@ -36,8 +36,8 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.kitCrud1 = new ERP_NOMINAS.Components.Buttons.KitCrud();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,6 +47,7 @@
             this.searchCatalog1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.searchCatalog1.Location = new System.Drawing.Point(12, 22);
             this.searchCatalog1.Name = "searchCatalog1";
+            this.searchCatalog1.SelectedText = "";
             this.searchCatalog1.SelectedValue = null;
             this.searchCatalog1.Size = new System.Drawing.Size(428, 29);
             this.searchCatalog1.TabIndex = 2;
@@ -59,6 +60,7 @@
             this.searchCatalog2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.searchCatalog2.Location = new System.Drawing.Point(12, 57);
             this.searchCatalog2.Name = "searchCatalog2";
+            this.searchCatalog2.SelectedText = "";
             this.searchCatalog2.SelectedValue = null;
             this.searchCatalog2.Size = new System.Drawing.Size(428, 29);
             this.searchCatalog2.TabIndex = 3;
@@ -70,6 +72,7 @@
             this.searchCatalog3.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.searchCatalog3.Location = new System.Drawing.Point(12, 92);
             this.searchCatalog3.Name = "searchCatalog3";
+            this.searchCatalog3.SelectedText = "";
             this.searchCatalog3.SelectedValue = null;
             this.searchCatalog3.Size = new System.Drawing.Size(428, 29);
             this.searchCatalog3.TabIndex = 4;
@@ -126,6 +129,17 @@
             this.groupBox1.Text = "Estatus";
             this.groupBox1.Visible = false;
             // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(93, 18);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(95, 17);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Solo al 66.66%";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
@@ -137,17 +151,6 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Normal";
             this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(93, 18);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(95, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Solo al 66.66%";
-            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // AttendShow
             // 
@@ -162,10 +165,11 @@
             this.Controls.Add(this.searchCatalog3);
             this.Controls.Add(this.searchCatalog2);
             this.Controls.Add(this.searchCatalog1);
-            this.Location = new System.Drawing.Point(0, 0);
+            this.KeyPreview = true;
             this.Name = "AttendShow";
             this.Text = "Asistencia";
             this.Load += new System.EventHandler(this.AttendShow_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AttendShow_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

@@ -87,6 +87,8 @@
             this.iSRVariable50ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajusteIsrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omtirAhorro10ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.descuentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.descuentosVariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -527,7 +529,8 @@
             this.infonavitToolStripMenuItem,
             this.iSRVariable50ToolStripMenuItem,
             this.ajusteIsrToolStripMenuItem,
-            this.omtirAhorro10ToolStripMenuItem});
+            this.omtirAhorro10ToolStripMenuItem,
+            this.descuentosToolStripMenuItem});
             this.deduccionesToolStripMenuItem.Name = "deduccionesToolStripMenuItem";
             this.deduccionesToolStripMenuItem.Size = new System.Drawing.Size(135, 20);
             this.deduccionesToolStripMenuItem.Text = "Deducciones No Auto";
@@ -535,37 +538,52 @@
             // pensionAlimenticiaToolStripMenuItem
             // 
             this.pensionAlimenticiaToolStripMenuItem.Name = "pensionAlimenticiaToolStripMenuItem";
-            this.pensionAlimenticiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pensionAlimenticiaToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.pensionAlimenticiaToolStripMenuItem.Text = "Pension Alimenticia";
             this.pensionAlimenticiaToolStripMenuItem.Click += new System.EventHandler(this.pensionAlimenticiaToolStripMenuItem_Click);
             // 
             // infonavitToolStripMenuItem
             // 
             this.infonavitToolStripMenuItem.Name = "infonavitToolStripMenuItem";
-            this.infonavitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.infonavitToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.infonavitToolStripMenuItem.Text = "Infonavit";
             this.infonavitToolStripMenuItem.Click += new System.EventHandler(this.infonavitToolStripMenuItem_Click);
             // 
             // iSRVariable50ToolStripMenuItem
             // 
             this.iSRVariable50ToolStripMenuItem.Name = "iSRVariable50ToolStripMenuItem";
-            this.iSRVariable50ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.iSRVariable50ToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.iSRVariable50ToolStripMenuItem.Text = "ISR Variable(C50)";
             this.iSRVariable50ToolStripMenuItem.Click += new System.EventHandler(this.iSRVariable50ToolStripMenuItem_Click);
             // 
             // ajusteIsrToolStripMenuItem
             // 
             this.ajusteIsrToolStripMenuItem.Name = "ajusteIsrToolStripMenuItem";
-            this.ajusteIsrToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ajusteIsrToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.ajusteIsrToolStripMenuItem.Text = "Ajuste Isr(C58)";
             this.ajusteIsrToolStripMenuItem.Click += new System.EventHandler(this.ajusteIsrToolStripMenuItem_Click);
             // 
             // omtirAhorro10ToolStripMenuItem
             // 
             this.omtirAhorro10ToolStripMenuItem.Name = "omtirAhorro10ToolStripMenuItem";
-            this.omtirAhorro10ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.omtirAhorro10ToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.omtirAhorro10ToolStripMenuItem.Text = "Omtir Ahorro 10%";
             this.omtirAhorro10ToolStripMenuItem.Click += new System.EventHandler(this.omtirAhorro10ToolStripMenuItem_Click);
+            // 
+            // descuentosToolStripMenuItem
+            // 
+            this.descuentosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.descuentosVariosToolStripMenuItem});
+            this.descuentosToolStripMenuItem.Name = "descuentosToolStripMenuItem";
+            this.descuentosToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.descuentosToolStripMenuItem.Text = "Descuentos";
+            // 
+            // descuentosVariosToolStripMenuItem
+            // 
+            this.descuentosVariosToolStripMenuItem.Name = "descuentosVariosToolStripMenuItem";
+            this.descuentosVariosToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.descuentosVariosToolStripMenuItem.Text = "Descuentos Varios";
+            this.descuentosVariosToolStripMenuItem.Click += new System.EventHandler(this.descuentosVariosToolStripMenuItem_Click);
             // 
             // MainControl
             // 
@@ -650,5 +668,7 @@
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajusteIsrToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem omtirAhorro10ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem descuentosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem descuentosVariosToolStripMenuItem;
     }
 }
