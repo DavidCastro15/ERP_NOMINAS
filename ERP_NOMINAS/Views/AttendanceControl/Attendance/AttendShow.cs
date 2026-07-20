@@ -24,7 +24,7 @@ namespace ERP_NOMINAS.Views.AttendanceControl.Attendance
         private AttendanceRepository _repository = new AttendanceRepository();
         private ListAttendRepository _repoList = new ListAttendRepository();
         public bool Edit;
-        public int Id;
+        public int Id = 0;
         public int NEmployee = 0;
         public bool EditListExists;
         public int NumberControl;

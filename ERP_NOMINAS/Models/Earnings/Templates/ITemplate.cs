@@ -10,7 +10,7 @@ namespace ERP_NOMINAS.Models.Templates
     {
         List<Template> GetTemplates();
         List<Template> FilterByNameEmployee(string Name);
-        Template GetTemplate(int Id);
+        Template GetTemplate(int Id, string table);
         bool ExistsId(int Id);
         int CreateTemplate(Template template);
         int UpdateTemplate(Template template);

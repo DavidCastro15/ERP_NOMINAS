@@ -18,8 +18,8 @@ namespace ERP_NOMINAS
             ForceAssemblyLoading();
 
             // Se ejecuta SOLO en modo Desarrollo/Pruebas en Visual Studio
-            InitializeTestEnvironment();
-            //InitializeProductionEnvironment(args);
+            //InitializeTestEnvironment();
+           InitializeProductionEnvironment(args);
       
             Application.Run(new MainControl());
         }

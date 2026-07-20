@@ -342,7 +342,7 @@ namespace ERP_NOMINAS.Repositorys
             Cycle getCycl = _repoCycle.GetCycle();
             _repoTemplate.Cycle = getCycl._Cycle == "Zafra" ? "plantilla_zafra" : "plantilla_reparacion";
 
-            Template getTempla = _repoTemplate.GetTemplate(a.NumberEmployee);
+            Template getTempla = _repoTemplate.GetTemplate(a.NumberEmployee, _repoTemplate.Cycle);
 
             string query = "INSERT INTO asistencia(id_empleado,nombre,apellidos,categoria_original,categoria_trabajada,uso_original,uso_trabajado,turno_original,turno_trabajado,fecha,inicio,fin,tipo_empleado,estatus) " +
                            "VALUES (@id_empleado,@nombre,@apellidos,@categoria_original,@categoria_trabajada,@uso_original,@uso_trabajado,@turno_original,@turno_trabajado,@fecha,@inicio,@fin,@tipo_empleado,1)";
@@ -352,7 +352,7 @@ namespace ERP_NOMINAS.Repositorys
                 // Uso de parámetros para evitar inyección SQL //REVISAR COMO PASASR EL NUMERO DE EMPLEADO ME FALTA ESO
                 cmd.Parameters.AddWithValue("@id_empleado", a.NumberEmployee);
                 cmd.Parameters.AddWithValue("@nombre", getEmplo.Name);
-                cmd.Parameters.AddWithValue("@apellidos", getEmplo.LastnameFather + " " + getEmplo.LastnameMother);
+                cmd.Parameters.AddWithValue("@apellidos", $"{getEmplo.LastnameFather} {getEmplo.LastnameMother}");
                 cmd.Parameters.AddWithValue("@categoria_original", getEmplo.CategoryHarvest);
                 cmd.Parameters.AddWithValue("@categoria_trabajada", a.CategoryWorked);
                 cmd.Parameters.AddWithValue("@uso_original", getTempla.Use);

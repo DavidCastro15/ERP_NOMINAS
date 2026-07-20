@@ -242,11 +242,11 @@ namespace ERP_SHARED.GlobalFunctions
                     break;
 
                 case TypeCatalog.TrainedCategories:
-                    query = "SELECT C.nombre_categoria, CC.id_categoria,concat(CC.id_categoria,'--',C.nombre_categoria) as n_categoria " +
-                        "FROM categorias C " +
-                        "INNER JOIN categorias_capacitadas CC " +
-                        "ON " +
-                        $"C.id_categoria = CC.id_categoria WHERE CC.id_empleado = {nEmployee} ORDER BY CC.id_categoria ASC ";
+                    query = $@"SELECT C.nombre_categoria, CC.id_categoria,concat(CC.id_categoria,'--',C.nombre_categoria) as n_categoria 
+                        FROM categorias C 
+                        INNER JOIN categorias_capacitadas CC 
+                        ON 
+                        C.id_categoria = CC.id_categoria WHERE CC.id_empleado = {nEmployee} ORDER BY CC.id_categoria ASC ";
                     display = "n_categoria";
                     value = "id_categoria";
                     break;

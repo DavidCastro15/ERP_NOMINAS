@@ -92,12 +92,17 @@ namespace ERP_NOMINAS.Repositorys
             return list;
         }
 
-        public Template GetTemplate(int Id)
+        public Template GetTemplate(int Id,string table = "")
         {
+            // Valida si Cycle está vacío o es nulo, y le asigna el valor de table
+            if (string.IsNullOrEmpty(Cycle))
+            {
+                Cycle = table;
+            }
 
-            using (cmd = new SqlCommand("SELECT p.id,p.id_nomina,p.numero_empleado,CONCAT(e.nombre,' ',e.apellido_paterno,' ',e.apellido_materno) AS n_completo,p.categoria,p.categoria_requerida,p.turno_periodo, p.turno_trabajado, p.uso, p.estado " +
-                                           $" FROM {Cycle} p INNER JOIN empleados e" +
-                                           $" ON p.numero_empleado = e.numero_empleado WHERE p.id=@id", Conex.nomi))
+            using (cmd = new SqlCommand($@"SELECT p.id,p.id_nomina,p.numero_empleado,CONCAT(e.nombre,' ',e.apellido_paterno,' ',e.apellido_materno) AS n_completo,p.categoria,p.categoria_requerida,p.turno_periodo, p.turno_trabajado, p.uso, p.estado 
+                                            FROM {Cycle} p INNER JOIN empleados e
+                                            ON p.numero_empleado = e.numero_empleado WHERE p.id=@id", Conex.nomi))
             {
 
                 cmd.Parameters.AddWithValue("@id", Id);
