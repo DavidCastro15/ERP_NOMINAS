@@ -303,13 +303,15 @@ namespace ERP_NOMINAS
             }
         }
 
-        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.VariousDiscounts.DiscountMain>();
+        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.DiscountGlobal.DiscountGlobalMain>();
 
         private void ajusteIsrToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.IsrAdjust.IsrAdjustMain>();
 
         private void omtirAhorro10ToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.SkipSaving.SkipSavingMain>();
 
         private void descuentosVariosToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.VariousDiscounts.DiscountMain>();
+
+        private void descuentosToolStripMenuItem1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.DiscountGlobal.DiscountGlobalMain>();
     }
 
 }

@@ -300,6 +300,9 @@
     <Compile Include="Models\Deductions\ChildSupport\CSupport.cs" />
     <Compile Include="Models\Deductions\ChildSupport\CSupportReport.cs" />
     <Compile Include="Models\Deductions\ChildSupport\ICSupport.cs" />
+    <Compile Include="Models\Deductions\DiscountGlobal\DGlobal.cs" />
+    <Compile Include="Models\Deductions\DiscountGlobal\IDGlobal.cs" />
+    <Compile Include="Models\Deductions\DiscountGlobal\SkipDGlobal.cs" />
     <Compile Include="Models\Deductions\Infonavit\DInfonavit.cs" />
     <Compile Include="Models\Deductions\Infonavit\IDInfonavit.cs" />
     <Compile Include="Models\Deductions\IsrAdjust\IIsrA.cs" />
@@ -537,6 +540,7 @@
     <Compile Include="Repositorys\Earnings\CategoryTrainedRepository.cs" />
     <Compile Include="Repositorys\Earnings\CycleRepository.cs" />
     <Compile Include="Repositorys\Earnings\DepartmentRepository.cs" />
+    <Compile Include="Repositorys\Deductions\DiscountGlobalRepository.cs" />
     <Compile Include="Repositorys\Earnings\EmployeeRepository.cs" />
     <Compile Include="Repositorys\Earnings\EquipmentRepository.cs" />
     <Compile Include="Repositorys\Earnings\ExtraShiftRepository.cs" />
@@ -819,6 +823,18 @@
     </Compile>
     <Compile Include="Views\Non-AutomaticDeductions\ChildSupports\ChildSupportShow.Designer.cs">
       <DependentUpon>ChildSupportShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\DiscountGlobal\DiscountGlobalMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\DiscountGlobal\DiscountGlobalMain.Designer.cs">
+      <DependentUpon>DiscountGlobalMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\DiscountGlobal\DiscountGlobalShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Non-AutomaticDeductions\DiscountGlobal\DiscountGlobalShow.Designer.cs">
+      <DependentUpon>DiscountGlobalShow.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Non-AutomaticDeductions\Infonavit\InfonavitMain.cs">
       <SubType>Form</SubType>
@@ -1287,6 +1303,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Non-AutomaticDeductions\ChildSupports\ChildSupportShow.resx">
       <DependentUpon>ChildSupportShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticDeductions\DiscountGlobal\DiscountGlobalMain.resx">
+      <DependentUpon>DiscountGlobalMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Non-AutomaticDeductions\DiscountGlobal\DiscountGlobalShow.resx">
+      <DependentUpon>DiscountGlobalShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Non-AutomaticDeductions\Infonavit\InfonavitMain.resx">
       <DependentUpon>InfonavitMain.cs</DependentUpon>
