@@ -79,10 +79,13 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.checkBox44 = new System.Windows.Forms.CheckBox();
+            this.checkBox43 = new System.Windows.Forms.CheckBox();
+            this.checkBox42 = new System.Windows.Forms.CheckBox();
             this.checkBox41 = new System.Windows.Forms.CheckBox();
             this.checkBox40 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.checkBox42 = new System.Windows.Forms.CheckBox();
+            this.checkBox45 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -162,7 +165,7 @@
             // kitCrud1
             // 
             this.kitCrud1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.kitCrud1.Location = new System.Drawing.Point(666, 474);
+            this.kitCrud1.Location = new System.Drawing.Point(673, 474);
             this.kitCrud1.Name = "kitCrud1";
             this.kitCrud1.Size = new System.Drawing.Size(152, 52);
             this.kitCrud1.TabIndex = 5;
@@ -624,6 +627,9 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.checkBox45);
+            this.groupBox5.Controls.Add(this.checkBox44);
+            this.groupBox5.Controls.Add(this.checkBox43);
             this.groupBox5.Controls.Add(this.checkBox42);
             this.groupBox5.Controls.Add(this.checkBox41);
             this.groupBox5.Controls.Add(this.checkBox40);
@@ -632,10 +638,40 @@
             this.groupBox5.Controls.Add(this.checkBox39);
             this.groupBox5.Location = new System.Drawing.Point(618, 104);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(200, 364);
+            this.groupBox5.Size = new System.Drawing.Size(207, 364);
             this.groupBox5.TabIndex = 55;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Deducciones No Auto";
+            // 
+            // checkBox44
+            // 
+            this.checkBox44.AutoSize = true;
+            this.checkBox44.Location = new System.Drawing.Point(6, 180);
+            this.checkBox44.Name = "checkBox44";
+            this.checkBox44.Size = new System.Drawing.Size(195, 17);
+            this.checkBox44.TabIndex = 49;
+            this.checkBox44.Text = "Omitir Empleados Descuento Global";
+            this.checkBox44.UseVisualStyleBackColor = true;
+            // 
+            // checkBox43
+            // 
+            this.checkBox43.AutoSize = true;
+            this.checkBox43.Location = new System.Drawing.Point(6, 157);
+            this.checkBox43.Name = "checkBox43";
+            this.checkBox43.Size = new System.Drawing.Size(127, 17);
+            this.checkBox43.TabIndex = 48;
+            this.checkBox43.Text = "Descuentos Globales";
+            this.checkBox43.UseVisualStyleBackColor = true;
+            // 
+            // checkBox42
+            // 
+            this.checkBox42.AutoSize = true;
+            this.checkBox42.Location = new System.Drawing.Point(6, 134);
+            this.checkBox42.Name = "checkBox42";
+            this.checkBox42.Size = new System.Drawing.Size(115, 17);
+            this.checkBox42.TabIndex = 47;
+            this.checkBox42.Text = "Descuentos Varios";
+            this.checkBox42.UseVisualStyleBackColor = true;
             // 
             // checkBox41
             // 
@@ -661,7 +697,7 @@
             // 
             this.button1.Image = global::ERP_NOMINAS.Properties.Resources.icons8_casilla_de_verificación_marcada_28;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(729, 29);
+            this.button1.Location = new System.Drawing.Point(735, 29);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 53);
             this.button1.TabIndex = 56;
@@ -670,21 +706,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // checkBox42
+            // checkBox45
             // 
-            this.checkBox42.AutoSize = true;
-            this.checkBox42.Location = new System.Drawing.Point(6, 134);
-            this.checkBox42.Name = "checkBox42";
-            this.checkBox42.Size = new System.Drawing.Size(115, 17);
-            this.checkBox42.TabIndex = 47;
-            this.checkBox42.Text = "Descuentos Varios";
-            this.checkBox42.UseVisualStyleBackColor = true;
+            this.checkBox45.AutoSize = true;
+            this.checkBox45.Location = new System.Drawing.Point(6, 203);
+            this.checkBox45.Name = "checkBox45";
+            this.checkBox45.Size = new System.Drawing.Size(105, 17);
+            this.checkBox45.TabIndex = 50;
+            this.checkBox45.Text = "Restar Dias Imss";
+            this.checkBox45.UseVisualStyleBackColor = true;
             // 
             // PermissionControlShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(831, 530);
+            this.ClientSize = new System.Drawing.Size(837, 530);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -771,5 +807,8 @@
         private System.Windows.Forms.CheckBox checkBox40;
         private System.Windows.Forms.CheckBox checkBox41;
         private System.Windows.Forms.CheckBox checkBox42;
+        private System.Windows.Forms.CheckBox checkBox44;
+        private System.Windows.Forms.CheckBox checkBox43;
+        private System.Windows.Forms.CheckBox checkBox45;
     }
 }

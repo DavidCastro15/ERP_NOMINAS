@@ -44,12 +44,12 @@ namespace ERP_NOMINAS.Views.Auth
 
                 if (res.Catalogs != null && res.Catalogs.Count > 0)
                 {
-                    AsignarPermisosALosCheckboxes(this, res.Catalogs);
+                    AssignPermissionsCheckboxs(this, res.Catalogs);
                 }
             }
         }
 
-        private void AsignarPermisosALosCheckboxes(Control contenedorPadre, List<Catalog> catalogosPermitidos)
+        private void AssignPermissionsCheckboxs(Control contenedorPadre, List<Catalog> catalogosPermitidos)
         {
             foreach (Control control in contenedorPadre.Controls)
             {
@@ -62,7 +62,7 @@ namespace ERP_NOMINAS.Views.Auth
 
                 if (control.HasChildren)
                 {
-                    AsignarPermisosALosCheckboxes(control, catalogosPermitidos);
+                    AssignPermissionsCheckboxs(control, catalogosPermitidos);
                 }
             }
         }
