@@ -93,6 +93,8 @@
             this.descuentosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.omitirEmpleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restarDiasImssToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calculosDeNominaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aplicarDeduccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -125,7 +127,8 @@
             this.maestrosToolStripMenuItem,
             this.controlAsistenciaToolStripMenuItem,
             this.percepcionesNoAutoToolStripMenuItem,
-            this.deduccionesToolStripMenuItem});
+            this.deduccionesToolStripMenuItem,
+            this.calculosDeNominaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1164, 24);
@@ -617,9 +620,24 @@
             // restarDiasImssToolStripMenuItem
             // 
             this.restarDiasImssToolStripMenuItem.Name = "restarDiasImssToolStripMenuItem";
-            this.restarDiasImssToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.restarDiasImssToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.restarDiasImssToolStripMenuItem.Text = "Restar Dias Imss";
             this.restarDiasImssToolStripMenuItem.Click += new System.EventHandler(this.restarDiasImssToolStripMenuItem_Click);
+            // 
+            // calculosDeNominaToolStripMenuItem
+            // 
+            this.calculosDeNominaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aplicarDeduccionesToolStripMenuItem});
+            this.calculosDeNominaToolStripMenuItem.Name = "calculosDeNominaToolStripMenuItem";
+            this.calculosDeNominaToolStripMenuItem.Size = new System.Drawing.Size(126, 20);
+            this.calculosDeNominaToolStripMenuItem.Text = "Calculos de Nomina";
+            // 
+            // aplicarDeduccionesToolStripMenuItem
+            // 
+            this.aplicarDeduccionesToolStripMenuItem.Name = "aplicarDeduccionesToolStripMenuItem";
+            this.aplicarDeduccionesToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.aplicarDeduccionesToolStripMenuItem.Text = "Aplicar Deducciones";
+            this.aplicarDeduccionesToolStripMenuItem.Click += new System.EventHandler(this.aplicarDeduccionesToolStripMenuItem_Click);
             // 
             // MainControl
             // 
@@ -710,5 +728,7 @@
         private System.Windows.Forms.ToolStripMenuItem descuentosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem omitirEmpleadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restarDiasImssToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calculosDeNominaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aplicarDeduccionesToolStripMenuItem;
     }
 }

@@ -3,6 +3,7 @@ using FormsMaster = ERP_NOMINAS.Views.Master;
 using FormsAttend = ERP_NOMINAS.Views.AttendanceControl;
 using FormsNonAutomatic = ERP_NOMINAS.Views.Non_AutomaticPerceptions;
 using FormsNonAutomaticDeduction = ERP_NOMINAS.Views.Non_AutomaticDeductions;
+using FormsPayrollProcess = ERP_NOMINAS.Views.PayRollProcess;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -313,9 +314,11 @@ namespace ERP_NOMINAS
 
         private void omitirEmpleadosToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.DiscountGlobal.SkipEmployeeDiscountGlobalMain>();
 
-        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.ReduceDayImss.ReduceDayImssMain>();
+        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsPayrollProcess.ApplyDeductions.ApplyDeductionsMain>();
 
         private void restarDiasImssToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.ReduceDayImss.ReduceDayImssMain>();
+
+        private void aplicarDeduccionesToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsPayrollProcess.ApplyDeductions.ApplyDeductionsMain>();
     }
 
 }

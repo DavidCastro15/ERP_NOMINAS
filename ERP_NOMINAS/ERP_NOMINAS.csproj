@@ -401,6 +401,8 @@
     <Compile Include="Models\Earnings\UnionCommittee\UnionCom.cs" />
     <Compile Include="Models\Earnings\Uses\IUse.cs" />
     <Compile Include="Models\Earnings\Uses\Use.cs" />
+    <Compile Include="Models\PayRollProcess\ApplyDeductions\APDeduction.cs" />
+    <Compile Include="Models\PayRollProcess\ApplyDeductions\IAPDeduction.cs" />
     <Compile Include="Reports\Attendance\AddLists\addListView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -569,6 +571,7 @@
     <Compile Include="Repositorys\Earnings\TunnelRepository.cs" />
     <Compile Include="Repositorys\Earnings\UnionCommitteeRepository.cs" />
     <Compile Include="Repositorys\Earnings\UseRepository.cs" />
+    <Compile Include="Repositorys\PayRollProcess\ApplyDeductionRepository.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Views\AttendanceControl\Attendance\AttendMain.cs">
       <SubType>Form</SubType>
@@ -1044,6 +1047,12 @@
     <Compile Include="Reports\ReportForm.Designer.cs">
       <DependentUpon>ReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\PayRollProcess\ApplyDeductions\ApplyDeductionsMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PayRollProcess\ApplyDeductions\ApplyDeductionsMain.Designer.cs">
+      <DependentUpon>ApplyDeductionsMain.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Components\Buttons\buttonAdd.resx">
       <DependentUpon>buttonAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -1427,6 +1436,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportForm.resx">
       <DependentUpon>ReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PayRollProcess\ApplyDeductions\ApplyDeductionsMain.resx">
+      <DependentUpon>ApplyDeductionsMain.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
