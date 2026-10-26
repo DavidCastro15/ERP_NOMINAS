@@ -60,6 +60,7 @@ namespace ERP_NOMINAS.Models.PayRollProcess.CalculatedPayRolls.UnionWorker.Repar
         int FestivoNoLaborado(string Cycle, DateTime StartDate, DateTime EndDate, int NoWorkinDays);
         int GravadosExentos();
         int Gravadas100();
+        int Exentos100();
         int MixtasPrimaDominical(int PayWeek);
         int Mixtas(int PayWeek);
         int ApoyoTransporte(string Cycle, DateTime EndDate, int PayWeek);

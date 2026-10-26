@@ -91,6 +91,7 @@ namespace ERP_NOMINAS.Views.PayRollProcess.CalculationsPayRoll.TypePayRoll.Union
             ExecuteStep("Gravadas100", () => _repo.Gravadas100());
             ExecuteStep("MixtasPrimaDominical", () => _repo.MixtasPrimaDominical(payWeek));
             ExecuteStep("Mixtas", () => _repo.Mixtas(payWeek));
+            ExecuteStep("Exentos100", () => _repo.Exentos100());
 
             ExecuteStep("ApoyoTransporte", () => _repo.ApoyoTransporte(cycle, endDate, payWeek));
             ExecuteStep("ValesDespensa", () => _repo.ValesDespensa(cycle, endDate, payWeek));

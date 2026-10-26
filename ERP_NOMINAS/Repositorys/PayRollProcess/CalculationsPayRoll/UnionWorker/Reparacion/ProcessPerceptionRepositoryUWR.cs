@@ -405,17 +405,32 @@ namespace ERP_NOMINAS.Repositorys.PayRollProcess.CalculationsPayRoll.UnionWorker
                          id_concepto <> 3
                          and id_concepto <> 4
                          and id_concepto <> 5
-                         and id_concepto <> 9
+
                          and id_concepto <> 14
+
                          and id_concepto <> 22
                          and id_concepto <> 23
                          and id_concepto <> 24
+
                          and id_concepto <> 27
                          and id_concepto <> 29
                          and id_concepto <> 34
                          and id_concepto <> 39
                          and id_concepto <> 41
                          and id_concepto <> 44";
+
+                cmd.ExecuteNonQuery();
+            });
+        }
+
+        public int Exentos100()
+        {
+            return ExecuteQuery((cmd, tra) =>
+            {
+                cmd.CommandText = @"Update resultado_sind_indiv_det_previo set
+	                    total_percepciones = importe, Total_percepciones50 = 0, Umas = 0, gravado = 0, exento = importe, otros_pagos = 0
+                         where
+                         id_concepto = 9";
 
                 cmd.ExecuteNonQuery();
             });
@@ -501,7 +516,6 @@ namespace ERP_NOMINAS.Repositorys.PayRollProcess.CalculationsPayRoll.UnionWorker
                          where
                          id_concepto = 3
                          or id_concepto = 5
-                         or id_concepto = 9
 
                          Update resultado_sind_indiv_det_previo set
 	                    gravado = iif(total_percepciones50 > umas, ((total_percepciones - umas) * importe / total_percepciones), ((total_percepciones / 2) * importe / total_percepciones)), 
