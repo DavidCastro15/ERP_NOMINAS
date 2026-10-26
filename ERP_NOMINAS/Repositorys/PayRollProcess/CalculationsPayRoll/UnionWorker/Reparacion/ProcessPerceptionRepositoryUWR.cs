@@ -248,18 +248,21 @@ namespace ERP_NOMINAS.Repositorys.PayRollProcess.CalculationsPayRoll.UnionWorker
             });
         }
 
-        public int Comisiones(string Cycle, DateTime EndDate, int PayWeek)
+        public int Comisiones(string Cycle, DateTime EndDate, int PayWeek, int nominaExtra)
         {
             return ExecuteQuery((cmd, tra) =>
             {
-                cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
-                                (select 1, comi.numero_empleado, @semana, @ciclo, 0, 11, cate.salario * 3 *(comi.porcentaje/100), @fecha2, 0, comi.uso, 0, 1 from comite_sindical comi
-                                join categorias cate on comi.categoria_reparacion = cate.id_categoria where @ciclo = 'Reparación')";
+                if (nominaExtra == 0)
+                {
+                    cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
+                                    (select 1, comi.numero_empleado, @semana, @ciclo, 0, 11, cate.salario * 3 *(comi.porcentaje/100), @fecha2, 0, comi.uso, 0, 1 from comite_sindical comi
+                                    join categorias cate on comi.categoria_reparacion = cate.id_categoria where @ciclo = 'Reparación')";
 
-                cmd.Parameters.AddWithValue("@semana", PayWeek);
-                cmd.Parameters.AddWithValue("@ciclo", Cycle);
-                cmd.Parameters.AddWithValue("@fecha2", EndDate);
-                cmd.ExecuteNonQuery();
+                    cmd.Parameters.AddWithValue("@semana", PayWeek);
+                    cmd.Parameters.AddWithValue("@ciclo", Cycle);
+                    cmd.Parameters.AddWithValue("@fecha2", EndDate);
+                    cmd.ExecuteNonQuery();
+                }
             });
         }
 

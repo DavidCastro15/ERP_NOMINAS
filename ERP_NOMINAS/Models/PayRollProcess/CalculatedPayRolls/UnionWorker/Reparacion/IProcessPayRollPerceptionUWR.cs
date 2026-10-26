@@ -38,7 +38,7 @@ namespace ERP_NOMINAS.Models.PayRollProcess.CalculatedPayRolls.UnionWorker.Repar
         int AlturasTemperaturasDomingosTX1X2X3();
         int AlturasTemperaturasFestivosTX1X2X3();
         int Compensaciones(DateTime EndDate, int PayWeek);
-        int Comisiones(string Cycle,DateTime EndDate,int PayWeek);
+        int Comisiones(string Cycle,DateTime EndDate,int PayWeek, int nominaExtra);
         int PremioPPF(string Cycle, DateTime EndDate, int PayWeek);
         int PremioPP(string Cycle, DateTime EndDate, int PayWeek);
         int Destajos(int PayWeek);

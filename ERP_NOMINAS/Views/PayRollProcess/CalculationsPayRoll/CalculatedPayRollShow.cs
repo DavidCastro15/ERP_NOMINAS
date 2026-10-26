@@ -36,6 +36,7 @@ namespace ERP_NOMINAS.Views.PayRollProcess.CalculationsPayRoll
             DateTime _endDate = dateRange1.EndDate;
             int _efectiveDays = 0;
             int _noWorkingDays = 0;
+            int _nominaExtra = 0;
             listView1.Items.Clear();
             Cursor.Current = Cursors.WaitCursor;
             //btnProcesar.Enabled = false;
@@ -66,7 +67,7 @@ namespace ERP_NOMINAS.Views.PayRollProcess.CalculationsPayRoll
                 }
 
                 // 3. Ejecutar el procesamiento de forma polimórfica.
-                resultados = processor.Process(_cycle, _payWeek, _startDate, _endDate, _noWorkingDays, _efectiveDays);
+                resultados = processor.Process(_cycle, _payWeek, _startDate, _endDate, _noWorkingDays, _efectiveDays, _nominaExtra);
 
                 foreach (var res in resultados)
                 {

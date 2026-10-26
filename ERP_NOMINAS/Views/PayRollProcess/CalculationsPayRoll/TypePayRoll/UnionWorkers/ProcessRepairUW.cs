@@ -12,7 +12,7 @@ namespace ERP_NOMINAS.Views.PayRollProcess.CalculationsPayRoll.TypePayRoll.Union
     {
         private ProcessPerceptionRepositoryUWR _repo = new ProcessPerceptionRepositoryUWR();
 
-        public List<MethodResult> Process(string cycle, int payWeek, DateTime startDate, DateTime endDate, int noWorkingDays = 0, int efectiveDays = 0)
+        public List<MethodResult> Process(string cycle, int payWeek, DateTime startDate, DateTime endDate, int noWorkingDays = 0, int efectiveDays = 0, int nominaExtra = 0)
         {
             List<MethodResult> executionLog = new List<MethodResult>();
             int successfulMethodsCount = 0;
@@ -65,7 +65,7 @@ namespace ERP_NOMINAS.Views.PayRollProcess.CalculationsPayRoll.TypePayRoll.Union
             ExecuteStep("AlturasTemperaturasFestivosTX1X2X3", () => _repo.AlturasTemperaturasFestivosTX1X2X3());
 
             ExecuteStep("Compensaciones", () => _repo.Compensaciones(endDate, payWeek));
-            ExecuteStep("Comisiones", () => _repo.Comisiones(cycle, endDate, payWeek));
+            ExecuteStep("Comisiones", () => _repo.Comisiones(cycle, endDate, payWeek, nominaExtra));
             ExecuteStep("PremioPP", () => _repo.PremioPP(cycle, endDate, payWeek));
             ExecuteStep("PremioPPF", () => _repo.PremioPPF(cycle, endDate, payWeek));
             ExecuteStep("Destajos", () => _repo.Destajos(payWeek));

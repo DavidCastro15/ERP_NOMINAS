@@ -12,6 +12,6 @@ namespace ERP_NOMINAS.Models.PayRollProcess
 
     public interface IPayrollProcessor
     {
-        List<MethodResult> Process(string cycle, int payWeek, DateTime startDate, DateTime endDate, int noWorkingDays = 0, int efectiveDays = 0);
+        List<MethodResult> Process(string cycle, int payWeek, DateTime startDate, DateTime endDate, int noWorkingDays = 0, int efectiveDays = 0, int nominaExtra = 0);
     }
 }

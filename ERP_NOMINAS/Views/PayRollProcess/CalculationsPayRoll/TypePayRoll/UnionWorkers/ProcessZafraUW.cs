@@ -6,7 +6,7 @@ namespace ERP_NOMINAS.Views.PayRollProcess.CalculationsPayRoll.TypePayRoll.Union
 {
     public class ProcessZafraUW : IPayrollProcessor
     {
-        public List<MethodResult> Process(string cycle, int payWeek, DateTime startDate, DateTime endDate, int noWorkingDays = 0, int efectiveDays = 0)
+        public List<MethodResult> Process(string cycle, int payWeek, DateTime startDate, DateTime endDate, int noWorkingDays = 0, int efectiveDays = 0, int nominaExtra = 0)
         {
             List<MethodResult> executionLog = new List<MethodResult>();
 
