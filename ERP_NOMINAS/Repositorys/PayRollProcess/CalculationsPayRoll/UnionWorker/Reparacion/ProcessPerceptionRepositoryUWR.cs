@@ -1,4 +1,4 @@
-﻿using ERP_NOMINAS.Models.PayRollProcess.CalculatedPayRolls.UnionWorker.Reparacion;
+using ERP_NOMINAS.Models.PayRollProcess.CalculatedPayRolls.UnionWorker.Reparacion;
 using ERP_SHARED.Conexion;
 using ERP_SHARED.GlobalFunctions;
 using System;
@@ -53,8 +53,30 @@ namespace ERP_NOMINAS.Repositorys.PayRollProcess.CalculationsPayRoll.UnionWorker
                  (select 1, aguip.id_empleado, aguip.no_periodo, aguip.ciclo, 0, 15, aguip.importe_total, @fecha2, 0, 0, 0, 1 from aguinaldo_pagar aguip
                   where aguip.no_periodo = @semana)";
 
-                cmd.Parameters.AddWithValue("@fecha2", EndDate);
                 cmd.Parameters.AddWithValue("@semana", PayWeek);
+                cmd.Parameters.AddWithValue("@fecha2", EndDate);
+                cmd.ExecuteNonQuery();
+            });
+        }
+
+        public int LimpiarInfo()
+        {
+            return ExecuteQuery((cmd, tra) =>
+            {
+                cmd.CommandText = "TRUNCATE TABLE resultado_sind_indiv_det_previo";
+                cmd.ExecuteNonQuery();
+            });
+        }
+
+        public int ActualizandoPlazas()
+        {
+            return ExecuteQuery((cmd, tra) =>
+            {
+                cmd.CommandText = @"UPDATE rp SET rp.tipo_planta = e.tipo
+                                FROM resultado_sind_indiv_det_previo rp
+                                INNER JOIN empleados e
+                                ON rp.numero_empleado = e.numero_empleado
+                                AND rp.tipo_planta IS NULL;";
                 cmd.ExecuteNonQuery();
             });
         }
@@ -100,6 +122,20 @@ namespace ERP_NOMINAS.Repositorys.PayRollProcess.CalculationsPayRoll.UnionWorker
 
                 cmd.Parameters.AddWithValue("@ciclo", Cycle);
 
+                cmd.ExecuteNonQuery();
+            });
+        }
+
+        public int Devoluciones(string Cycle, DateTime EndDate, int PayWeek)
+        {
+            return ExecuteQuery((cmd, tra) =>
+            {
+                cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion, exento)
+                            (select 1, d.numero_empleado, @semana, @ciclo, 0, 9, d.importe, @fecha2, 0, 0, 0, 1, d.importe from devoluciones d
+                            where d.semana_pago =@semana )";
+                cmd.Parameters.AddWithValue("@ciclo", Cycle);
+                cmd.Parameters.AddWithValue("@fecha2", EndDate);
+                cmd.Parameters.AddWithValue("@semana", PayWeek);
                 cmd.ExecuteNonQuery();
             });
         }
@@ -220,9 +256,9 @@ namespace ERP_NOMINAS.Repositorys.PayRollProcess.CalculationsPayRoll.UnionWorker
                                 (select 1, comi.numero_empleado, @semana, @ciclo, 0, 11, cate.salario * 3 *(comi.porcentaje/100), @fecha2, 0, comi.uso, 0, 1 from comite_sindical comi
                                 join categorias cate on comi.categoria_reparacion = cate.id_categoria where @ciclo = 'Reparación')";
 
+                cmd.Parameters.AddWithValue("@semana", PayWeek);
                 cmd.Parameters.AddWithValue("@ciclo", Cycle);
                 cmd.Parameters.AddWithValue("@fecha2", EndDate);
-                cmd.Parameters.AddWithValue("@semana", PayWeek);
                 cmd.ExecuteNonQuery();
             });
         }
@@ -235,8 +271,8 @@ namespace ERP_NOMINAS.Repositorys.PayRollProcess.CalculationsPayRoll.UnionWorker
                         (select compen.id_nomina, compen.numero_empleado, compen.periodo, compen.ciclo, 0, 12, compen.importe, @fecha2, 0, compen.uso, 0, 1 from compensaciones compen
                         where compen.periodo = @semana)";
 
-                cmd.Parameters.AddWithValue("@fecha2", EndDate);
                 cmd.Parameters.AddWithValue("@semana", PayWeek);
+                cmd.Parameters.AddWithValue("@fecha2", EndDate);
                 cmd.ExecuteNonQuery();
             });
         }
@@ -254,11 +290,6 @@ namespace ERP_NOMINAS.Repositorys.PayRollProcess.CalculationsPayRoll.UnionWorker
             });
         }
 
-        //public int DiasFestivos(string Cycle, DateTime StartDate, DateTime EndDate, int EfectiveDays)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
         public int DomingosTrabajados(string Cycle, DateTime EndDate, int PayWeek)
         {
             return ExecuteQuery((cmd, tra) =>
@@ -270,6 +301,7 @@ namespace ERP_NOMINAS.Repositorys.PayRollProcess.CalculationsPayRoll.UnionWorker
                 cmd.Parameters.AddWithValue("@ciclo", Cycle);
                 cmd.Parameters.AddWithValue("@fecha2", EndDate);
                 cmd.Parameters.AddWithValue("@semana", PayWeek);
+
                 cmd.ExecuteNonQuery();
             });
         }
@@ -303,32 +335,30 @@ namespace ERP_NOMINAS.Repositorys.PayRollProcess.CalculationsPayRoll.UnionWorker
                         end 
 
                         Update resultado_sind_indiv_det_previo set
-                        festivo_no_lab_depto_flag = (iif(Exists(select * from resultado_sind_indiv_det_previo t2 where resid1.numero_empleado = t2.numero_empleado and t2.dias_depto_igual >= 3 AND Exists(select fest.fecha from festivos fest where fest.fecha between '@fecha1' AND '@fecha2')),1,0))
+                        festivo_no_lab_depto_flag = (iif(Exists(select * from resultado_sind_indiv_det_previo t2 where resid1.numero_empleado = t2.numero_empleado and t2.dias_depto_igual >= 3 AND Exists(select fest.fecha from festivos fest where fest.fecha between @fecha1 AND @fecha2)),1,0))
                         from resultado_sind_indiv_det_previo resid1
-                        where numero_empleado = resid1.numero_empleado and(id_concepto = 1 or id_concepto = 2)
+                        where numero_empleado = resid1.numero_empleado and (id_concepto = 1 or id_concepto = 2)
 
                         Update resultado_sind_indiv_det_previo set
-                        festivo_no_lab_categ_flag = (iif(Exists(select * from resultado_sind_indiv_det_previo t2 where resid1.numero_empleado = t2.numero_empleado and t2.dias_categoria_igual >= 3 AND Exists(select fest.fecha from festivos fest where fest.fecha between '@fecha1' AND '@fecha2')), 1, 0))
+                        festivo_no_lab_categ_flag = (iif(Exists(select * from resultado_sind_indiv_det_previo t2 where resid1.numero_empleado = t2.numero_empleado and t2.dias_categoria_igual >= 3 AND Exists(select fest.fecha from festivos fest where fest.fecha between @fecha1 AND @fecha2)),1,0))
                         from resultado_sind_indiv_det_previo resid1
-                        where numero_empleado = resid1.numero_empleado and(id_concepto = 1 or id_concepto = 2)
+                        where numero_empleado = resid1.numero_empleado and (id_concepto = 1 or id_concepto = 2)
 
-                        Update resultado_sind_indiv_det_previo set festivo_no_laborado = (
-                        iif(festivo_no_lab_depto_flag = 1 or festivo_no_lab_categ_flag = 1, iif(resid1.turno = 4 or resid1.turno = 5, resid1.importe / resid1.dias_normales, categ.salario_turno2 / resid1.dias_normales), 0))
+	                    Update resultado_sind_indiv_det_previo set festivo_no_laborado = (
+	                    iif(festivo_no_lab_depto_flag = 1 or festivo_no_lab_categ_flag = 1,iif(resid1.turno = 1 or resid1.turno = 4 or resid1.turno = 5, resid1.importe / resid1.dias_normales, categ.salario_turno2 / resid1.dias_normales),0))
+	                    from resultado_sind_indiv_det_previo resid1 join categorias categ on resid1.id_categoria = categ.id_categoria
+	                    where id_concepto = 1
 
-                        from resultado_sind_indiv_det_previo resid1 join categorias categ on resid1.id_categoria = categ.id_categoria
 
-                        where id_concepto = 1
+	                    Update resultado_sind_indiv_det_previo set festivo_no_laborado = (
+	                    iif(festivo_no_lab_depto_flag = 1 or festivo_no_lab_categ_flag = 1,(categ.salario_turno2 - resid1.importe) / resid1.dias_normales,0))
+	                    from resultado_sind_indiv_det_previo resid1 join categorias categ on resid1.id_categoria = categ.id_categoria
+	                    where id_concepto = 2
 
-                        Update resultado_sind_indiv_det_previo set festivo_no_laborado = (
-                        iif(festivo_no_lab_depto_flag = 1 or festivo_no_lab_categ_flag = 1, (categ.salario_turno2 - resid1.importe) / resid1.dias_normales, 0))
-
-                        from resultado_sind_indiv_det_previo resid1 join categorias categ on resid1.id_categoria = categ.id_categoria
-
-                        where id_concepto = 2
-
-                        insert into resultado_sind_indiv_det_previo(id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
+                        insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
                         (select resid.id_nomina, resid.numero_empleado, resid.semana_pago, resid.ciclo, resid.id_categoria, 38, resid.festivo_no_laborado, resid.fecha, resid.turno, resid.uso, 0, 1 from resultado_sind_indiv_det_previo resid
                         where (resid.id_concepto = 1 or resid.id_concepto = 2)  and resid.festivo_no_laborado > 0)
+
                         end";
 
                 cmd.Parameters.AddWithValue("@ciclo", Cycle);
@@ -377,11 +407,9 @@ namespace ERP_NOMINAS.Repositorys.PayRollProcess.CalculationsPayRoll.UnionWorker
                          and id_concepto <> 5
                          and id_concepto <> 9
                          and id_concepto <> 14
-                         
                          and id_concepto <> 22
                          and id_concepto <> 23
                          and id_concepto <> 24
-                         
                          and id_concepto <> 27
                          and id_concepto <> 29
                          and id_concepto <> 34
@@ -423,16 +451,6 @@ namespace ERP_NOMINAS.Repositorys.PayRollProcess.CalculationsPayRoll.UnionWorker
             return ExecuteQuery((cmd, tra) =>
             {
                 cmd.CommandText = @"Update resultado_sind_indiv_det_previo set id_concepto = 3, importe = (importe * 2) where datepart(dw,fecha) = 1 and (id_concepto = 1 or id_concepto = 2)";
-
-                cmd.ExecuteNonQuery();
-            });
-        }
-
-        public int LimpiarInfo()
-        {
-            return ExecuteQuery((cmd, tra) =>
-            {
-                cmd.CommandText = "TRUNCATE TABLE resultado_sind_indiv_det_previo";
 
                 cmd.ExecuteNonQuery();
             });
@@ -482,7 +500,7 @@ namespace ERP_NOMINAS.Repositorys.PayRollProcess.CalculationsPayRoll.UnionWorker
 	                    from resultado_sind_indiv_det_previo resid1
                          where
                          id_concepto = 3
-                         or id_concepto = 5                   
+                         or id_concepto = 5
                          or id_concepto = 9
 
                          Update resultado_sind_indiv_det_previo set
@@ -490,8 +508,7 @@ namespace ERP_NOMINAS.Repositorys.PayRollProcess.CalculationsPayRoll.UnionWorker
 	                    exento = importe - iif(total_percepciones50 > umas, ((total_percepciones - umas) * importe / total_percepciones), ((total_percepciones / 2) * importe / total_percepciones))
                          where
                          id_concepto = 3
-                         or id_concepto = 5                       
-                         or id_concepto = 9";
+                         or id_concepto = 5";
 
                 cmd.Parameters.AddWithValue("@semana", PayWeek);
                 cmd.ExecuteNonQuery();
@@ -827,6 +844,66 @@ namespace ERP_NOMINAS.Repositorys.PayRollProcess.CalculationsPayRoll.UnionWorker
             });
         }
 
+        public int TiempoLegalDomingosTrabajadosT2X6()
+        {
+            return ExecuteQuery((cmd, tra) =>
+            {
+                cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
+                        (select resid.id_nomina, resid.numero_empleado, resid.semana_pago, resid.ciclo, resid.id_categoria, 8, (cate.salario / 7.5), resid.fecha, resid.turno, resid.uso, 0, 1 from resultado_sind_indiv_det_previo resid
+                         join categorias cate on resid.id_categoria = cate.id_categoria where resid.id_concepto = 3 and (resid.turno = 2 or resid.turno = 6))";
+
+                cmd.ExecuteNonQuery();
+            });
+        }
+
+        public int TiempoLegalDomingosTrabajadosT3X7()
+        {
+            return ExecuteQuery((cmd, tra) =>
+            {
+                cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
+                        (select resid.id_nomina, resid.numero_empleado, resid.semana_pago, resid.ciclo, resid.id_categoria, 8, ((cate.salario / 7) * 2), resid.fecha, resid.turno, resid.uso, 0, 1 from resultado_sind_indiv_det_previo resid
+                         join categorias cate on resid.id_categoria = cate.id_categoria where resid.id_concepto = 6 and (resid.turno = 3 or resid.turno = 7))";
+
+                cmd.ExecuteNonQuery();
+            });
+        }
+
+        public int TiempoLegalDomingosTrabajadosT3X7_2()
+        {
+            return ExecuteQuery((cmd, tra) =>
+            {
+                cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
+                        (select resid.id_nomina, resid.numero_empleado, resid.semana_pago, resid.ciclo, resid.id_categoria, 8, ((cate.salario / 7) * 2), resid.fecha, resid.turno, resid.uso, 0, 1 from resultado_sind_indiv_det_previo resid
+                         join categorias cate on resid.id_categoria = cate.id_categoria where resid.id_concepto = 3 and (resid.turno = 3 or resid.turno = 7))";
+
+                cmd.ExecuteNonQuery();
+            });
+        }
+
+        public int TiempoLegalFestivoTrabajado2x6()
+        {
+            return ExecuteQuery((cmd, tra) =>
+            {
+                cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
+                        (select resid.id_nomina, resid.numero_empleado, resid.semana_pago, resid.ciclo, resid.id_categoria, 8, (cate.salario / 7.5), resid.fecha, resid.turno, resid.uso, 0, 1 from resultado_sind_indiv_det_previo resid
+                         join categorias cate on resid.id_categoria = cate.id_categoria where resid.id_concepto = 5 and (resid.turno = 2 or resid.turno = 6))";
+
+                cmd.ExecuteNonQuery();
+            });
+        }
+
+        public int TiempoLegalFestivosTrabajadoT3X7()
+        {
+            return ExecuteQuery((cmd, tra) =>
+            {
+                cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
+                        (select resid.id_nomina, resid.numero_empleado, resid.semana_pago, resid.ciclo, resid.id_categoria, 8, ((cate.salario / 7) * 2), resid.fecha, resid.turno, resid.uso, 0, 1 from resultado_sind_indiv_det_previo resid
+                         join categorias cate on resid.id_categoria = cate.id_categoria where resid.id_concepto = 5 and (resid.turno = 3 or resid.turno = 7))";
+
+                cmd.ExecuteNonQuery();
+            });
+        }
+
         public int TiempoLegalNormalT6()
         {
             return ExecuteQuery((cmd, tra) =>
@@ -851,66 +928,13 @@ namespace ERP_NOMINAS.Repositorys.PayRollProcess.CalculationsPayRoll.UnionWorker
             });
         }
 
-        public int Trecex7(DateTime EndDate, int PayWeek)
+        public int TiempoLegalSabadoTrabajadoT2X6()
         {
             return ExecuteQuery((cmd, tra) =>
             {
                 cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
-                            (select 1, trece.numero_empleado, trece.semana_pago, 'Reparación', 0, 31, trece.importe, @fecha2, 0, 0, 0, 1 from trece_siete trece
-                             where trece.semana_pago = @semana)";
-
-                cmd.Parameters.AddWithValue("@fecha2", EndDate);
-                cmd.Parameters.AddWithValue("@semana", PayWeek);
-                cmd.ExecuteNonQuery();
-            });
-        }
-
-        public int UtilesEscolares(string Cycle, DateTime EndDate, int PayWeek)
-        {
-            return ExecuteQuery((cmd, tra) =>
-            {
-                cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
-                                    (select 1, util.empleado, util.semana_pago, @ciclo, 0, 34, util.importe_total, @fecha2, 0, 0, 0, 1 from utiles_escolares_a_pagar util
-                                     where util.semana_pago = @semana)";
-
-                cmd.Parameters.AddWithValue("@ciclo", Cycle);
-                cmd.Parameters.AddWithValue("@fecha2", EndDate);
-                cmd.Parameters.AddWithValue("@semana", PayWeek);
-                cmd.ExecuteNonQuery();
-            });
-        }
-
-        public int ValesDespensa(string Cycle, DateTime EndDate, int PayWeek)
-        {
-            return ExecuteQuery((cmd, tra) =>
-            {
-                cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion, exento)
-        (select 1, valesd.numero_empleado, valesd.semana_pago, @ciclo, 0, 34, valesd.importe, @fecha2, 0, 0, 0, 1, valesd.importe from vales_despensa valesd
-         where valesd.semana_pago = @semana)";
-
-                cmd.Parameters.AddWithValue("@ciclo", Cycle);
-                cmd.Parameters.AddWithValue("@fecha2", EndDate);
-                cmd.Parameters.AddWithValue("@semana", PayWeek);
-                cmd.ExecuteNonQuery();
-            });
-        }
-
-        public int SabadosTrabajados()
-        {
-            return ExecuteQuery((cmd, tra) =>
-            {
-                cmd.CommandText = @"Update resultado_sind_indiv_det_previo set id_concepto = 6 where datepart(dw,fecha) = 7 and (id_concepto = 1 or id_concepto = 2)";
-
-                cmd.ExecuteNonQuery();
-            });
-        }
-
-        public int PrimaSabatina()
-        {
-            return ExecuteQuery((cmd, tra) =>
-            {
-                cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
-                        (select resid.id_nomina, resid.numero_empleado, resid.semana_pago, resid.ciclo, resid.id_categoria, 7, (importe * 0.40), resid.fecha, resid.turno, resid.uso, 0, 1 from resultado_sind_indiv_det_previo resid where resid.id_concepto = 6)";
+                        (select resid.id_nomina, resid.numero_empleado, resid.semana_pago, resid.ciclo, resid.id_categoria, 8, (cate.salario / 7.5), resid.fecha, resid.turno, resid.uso, 0, 1 from resultado_sind_indiv_det_previo resid
+                         join categorias cate on resid.id_categoria = cate.id_categoria where resid.id_concepto = 6 and (resid.turno = 2 or resid.turno = 6))";
 
                 cmd.ExecuteNonQuery();
             });
@@ -952,73 +976,66 @@ namespace ERP_NOMINAS.Repositorys.PayRollProcess.CalculationsPayRoll.UnionWorker
             });
         }
 
-        public int TiempoLegalSabadoTrabajadoT2X6()
+        public int Trecex7(DateTime EndDate, int PayWeek)
         {
             return ExecuteQuery((cmd, tra) =>
             {
                 cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
-                        (select resid.id_nomina, resid.numero_empleado, resid.semana_pago, resid.ciclo, resid.id_categoria, 8, (cate.salario / 7.5), resid.fecha, resid.turno, resid.uso, 0, 1 from resultado_sind_indiv_det_previo resid 
-                         join categorias cate on resid.id_categoria = cate.id_categoria where resid.id_concepto = 6 and (resid.turno = 2 or resid.turno = 6))";
+                            (select 1, trece.numero_empleado, trece.semana_pago, 'Reparación', 0, 31, trece.importe, @fecha2, 0, 0, 0, 1 from trece_siete trece
+                             where trece.semana_pago = @semana)";
+
+                cmd.Parameters.AddWithValue("@fecha2", EndDate);
+                cmd.Parameters.AddWithValue("@semana", PayWeek);
+                cmd.ExecuteNonQuery();
+            });
+        }
+
+        public int UtilesEscolares(string Cycle, DateTime EndDate, int PayWeek)
+        {
+            return ExecuteQuery((cmd, tra) =>
+            {
+                cmd.CommandText = @" insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
+        (select 1, util.empleado, util.semana_pago, @ciclo, 0, 34, util.importe_total, @fecha2, 0, 0, 0, 1 from utiles_escolares_a_pagar util
+         where util.semana_pago = @semana) ";
+
+                cmd.Parameters.AddWithValue("@fecha2", EndDate);
+                cmd.Parameters.AddWithValue("@ciclo", Cycle);
+                cmd.Parameters.AddWithValue("@semana", PayWeek);
+                cmd.ExecuteNonQuery();
+            });
+        }
+
+        public int ValesDespensa(string Cycle, DateTime EndDate, int PayWeek)
+        {
+            return ExecuteQuery((cmd, tra) =>
+            {
+                cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion, exento)
+        (select 1, valesd.numero_empleado, valesd.semana_pago, @ciclo, 0, 34, valesd.importe, @fecha2, 0, 0, 0, 1, valesd.importe from vales_despensa valesd
+         where valesd.semana_pago = @semana)";
+
+                cmd.Parameters.AddWithValue("@ciclo", Cycle);
+                cmd.Parameters.AddWithValue("@fecha2", EndDate);
+                cmd.Parameters.AddWithValue("@semana", PayWeek);
+                cmd.ExecuteNonQuery();
+            });
+        }
+
+        public int PrimaSabatina()
+        {
+            return ExecuteQuery((cmd, tra) =>
+            {
+                cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
+                        (select resid.id_nomina, resid.numero_empleado, resid.semana_pago, resid.ciclo, resid.id_categoria, 7, (importe * 0.40), resid.fecha, resid.turno, resid.uso, 0, 1 from resultado_sind_indiv_det_previo resid where resid.id_concepto = 6)";
 
                 cmd.ExecuteNonQuery();
             });
         }
 
-        public int TiempoLegalDomingosTrabajadosT3X7()
+        public int SabadosTrabajados()
         {
             return ExecuteQuery((cmd, tra) =>
             {
-                cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
-                        (select resid.id_nomina, resid.numero_empleado, resid.semana_pago, resid.ciclo, resid.id_categoria, 8, ((cate.salario / 7) * 2), resid.fecha, resid.turno, resid.uso, 0, 1 from resultado_sind_indiv_det_previo resid 
-                         join categorias cate on resid.id_categoria = cate.id_categoria where resid.id_concepto = 6 and (resid.turno = 3 or resid.turno = 7))";
-
-                cmd.ExecuteNonQuery();
-            });
-        }
-
-        public int TiempoLegalDomingosTrabajadosT2X6()
-        {
-            return ExecuteQuery((cmd, tra) =>
-            {
-                cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
-                        (select resid.id_nomina, resid.numero_empleado, resid.semana_pago, resid.ciclo, resid.id_categoria, 8, (cate.salario / 7.5), resid.fecha, resid.turno, resid.uso, 0, 1 from resultado_sind_indiv_det_previo resid 
-                         join categorias cate on resid.id_categoria = cate.id_categoria where resid.id_concepto = 3 and (resid.turno = 2 or resid.turno = 6))";
-
-                cmd.ExecuteNonQuery();
-            });
-        }
-
-        public int TiempoLegalDomingosTrabajadosT3X7_2()
-        {
-            return ExecuteQuery((cmd, tra) =>
-            {
-                cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
-                        (select resid.id_nomina, resid.numero_empleado, resid.semana_pago, resid.ciclo, resid.id_categoria, 8, ((cate.salario / 7) * 2), resid.fecha, resid.turno, resid.uso, 0, 1 from resultado_sind_indiv_det_previo resid 
-                         join categorias cate on resid.id_categoria = cate.id_categoria where resid.id_concepto = 3 and (resid.turno = 3 or resid.turno = 7))";
-
-                cmd.ExecuteNonQuery();
-            });
-        }
-
-        public int TiempoLegalFestivoTrabajado2x6()
-        {
-            return ExecuteQuery((cmd, tra) =>
-            {
-                cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
-                        (select resid.id_nomina, resid.numero_empleado, resid.semana_pago, resid.ciclo, resid.id_categoria, 8, (cate.salario / 7.5), resid.fecha, resid.turno, resid.uso, 0, 1 from resultado_sind_indiv_det_previo resid 
-                         join categorias cate on resid.id_categoria = cate.id_categoria where resid.id_concepto = 5 and (resid.turno = 2 or resid.turno = 6))";
-
-                cmd.ExecuteNonQuery();
-            });
-        }
-
-        public int TiempoLegalFestivosTrabajadoT3X7()
-        {
-            return ExecuteQuery((cmd, tra) =>
-            {
-                cmd.CommandText = @"insert into resultado_sind_indiv_det_previo (id_nomina, numero_empleado, semana_pago, ciclo, id_categoria, id_concepto, importe, fecha, turno, uso, doble_turno, percepcion_deduccion)
-                        (select resid.id_nomina, resid.numero_empleado, resid.semana_pago, resid.ciclo, resid.id_categoria, 8, ((cate.salario / 7) * 2), resid.fecha, resid.turno, resid.uso, 0, 1 from resultado_sind_indiv_det_previo resid 
-                         join categorias cate on resid.id_categoria = cate.id_categoria where resid.id_concepto = 5 and (resid.turno = 3 or resid.turno = 7))";
+                cmd.CommandText = @"Update resultado_sind_indiv_det_previo set id_concepto = 6 where datepart(dw,fecha) = 7 and (id_concepto = 1 or id_concepto = 2)";
 
                 cmd.ExecuteNonQuery();
             });

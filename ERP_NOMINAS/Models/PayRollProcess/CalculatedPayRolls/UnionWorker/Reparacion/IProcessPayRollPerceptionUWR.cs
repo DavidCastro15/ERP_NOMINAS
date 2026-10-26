@@ -9,6 +9,7 @@ namespace ERP_NOMINAS.Models.PayRollProcess.CalculatedPayRolls.UnionWorker.Repar
     public interface IProcessPayRollPerceptionUWR
     {
         int LimpiarInfo();
+        int ActualizandoPlazas();
         //int DiasFestivos(string Cycle,DateTime StartDate, DateTime EndDate, int EfectiveDays);
         int Listas1X2(DateTime StartDate, DateTime EndDate,int PayWeek);
         int Listas2X2(DateTime StartDate, DateTime EndDate, int PayWeek);
@@ -32,6 +33,7 @@ namespace ERP_NOMINAS.Models.PayRollProcess.CalculatedPayRolls.UnionWorker.Repar
         int AlimentosDiasNormalT1X2X3(string Cycle);
         int AlimentosDomingosT1X2X3(string Cycle);
         int AlimentosFestivosTrabajadosT1X2X3(string Cycle);
+        int Devoluciones(string Cycle, DateTime EndDate, int PayWeek);
         int AlturasTemperaturasDiasNormalesTX1X2X3();
         int AlturasTemperaturasDomingosTX1X2X3();
         int AlturasTemperaturasFestivosTX1X2X3();
