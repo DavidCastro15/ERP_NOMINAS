@@ -1,4 +1,5 @@
 ﻿using ERP_NOMINAS.Repositorys.PayRollProcess.CalculationsPayRoll.UnionWorker.Reparacion;
+using ERP_NOMINAS.Models.PayRollProcess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,16 +8,9 @@ using System.Threading.Tasks;
 
 namespace ERP_NOMINAS.Views.PayRollProcess.CalculationsPayRoll.TypePayRoll.UnionWorkers
 {
-    public class ProcessRepairUW
+    public class ProcessRepairUW : IPayrollProcessor
     {
         private ProcessPerceptionRepositoryUWR _repo = new ProcessPerceptionRepositoryUWR();
-
-        public class MethodResult
-        {
-            public string MethodName { get; set; }
-            public bool IsSuccess { get; set; }
-            public string ErrorMessage { get; set; }
-        }
 
         public List<MethodResult> Process(string _Cycle, int _PayWeek, DateTime _StartDate, DateTime _EndDate, int _NoWorkinDays = 0, int _EfectiveDays = 0)
         {

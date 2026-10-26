@@ -1,5 +1,6 @@
 ﻿using ERP_NOMINAS.Views.PayRollProcess.CalculationsPayRoll.TypePayRoll.UnionWorkers;
 using ERP_SHARED.GlobalFunctions;
+using ERP_NOMINAS.Models.PayRollProcess;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static ERP_NOMINAS.Views.PayRollProcess.CalculationsPayRoll.TypePayRoll.UnionWorkers.ProcessRepairUW;
 
 namespace ERP_NOMINAS.Views.PayRollProcess.CalculationsPayRoll
 {
@@ -44,35 +44,29 @@ namespace ERP_NOMINAS.Views.PayRollProcess.CalculationsPayRoll
             {
                 // 1. Declarar la lista al inicio del bloque try
                 List<MethodResult> resultados = null;
+                IPayrollProcessor processor = null;
 
-                // 2. Evaluar el nombre de la base de datos
-                switch (ERP_SHARED.Auth.Sesion.DataBaseName)
+                // 2. Factory logic: instanciar la estrategia en base a la nómina y el ciclo seleccionados.
+                // En el futuro, se puede evaluar también el tipo de nómina (ej. "Obreros", "Empleados", etc.) si está en un combobox.
+                switch (_cycle.ToLower())
                 {
-                    case "azsja_nomina":
-                        ProcessRepairUW processorUWR = new ProcessRepairUW();
-                        resultados = processorUWR.Process(_cycle, _payWeek, _startDate, _endDate, _noWorkingDays, _efectiveDays);
+                    case "reparacion":
+                    case "reparación":
+                        processor = new ProcessRepairUW();
                         break;
 
-                    case "base_nomina_dos":
-                        //var processor2 = new ProcessNominaDos();
-                        //resultados = processor2.Process(_cycle, _payWeek, _startDate, _endDate, _noWorkingDays, _efectiveDays);
-                        break;
-
-                    case "base_nomina_tres":
-                        //var processor3 = new ProcessNominaTres();
-                        //resultados = processor3.Process(_cycle, _payWeek, _startDate, _endDate, _noWorkingDays, _efectiveDays);
-                        break;
-
-                    case "base_nomina_ocho":
-                        //var processor8 = new ProcessNominaOcho();
-                        //resultados = processor8.Process(_cycle, _payWeek, _startDate, _endDate, _noWorkingDays, _efectiveDays);
+                    case "zafra":
+                        processor = new ProcessZafraUW();
                         break;
 
                     default:
-                        MessageBox.Show($"La base de datos '{ERP_SHARED.Auth.Sesion.DataBaseName}' no tiene un proceso de cálculo configurado.",
-                                        "Base de Datos No Soportada", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"El ciclo '{_cycle}' no tiene un proceso de cálculo configurado para esta nómina.",
+                                        "Ciclo No Soportado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return; 
                 }
+
+                // 3. Ejecutar el procesamiento de forma polimórfica.
+                resultados = processor.Process(_cycle, _payWeek, _startDate, _endDate, _noWorkingDays, _efectiveDays);
 
                 foreach (var res in resultados)
                 {
