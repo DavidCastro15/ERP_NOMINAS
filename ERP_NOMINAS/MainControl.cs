@@ -314,11 +314,13 @@ namespace ERP_NOMINAS
 
         private void omitirEmpleadosToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.DiscountGlobal.SkipEmployeeDiscountGlobalMain>();
 
-        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsPayrollProcess.ApplyDeductions.ApplyDeductionsMain>();
-
         private void restarDiasImssToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsNonAutomaticDeduction.ReduceDayImss.ReduceDayImssMain>();
 
         private void aplicarDeduccionesToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsPayrollProcess.ApplyDeductions.ApplyDeductionsMain>();
+
+        private void procesoDeNominaToolStripMenuItem_Click(object sender, EventArgs e) => OpenForm<FormsPayrollProcess.CalculationsPayRoll.CalculatedPayRollMain>();
+
+        private void button1_Click(object sender, EventArgs e) => OpenForm<FormsPayrollProcess.CalculationsPayRoll.CalculatedPayRollMain>();
     }
 
 }

@@ -79,18 +79,22 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.checkBox45 = new System.Windows.Forms.CheckBox();
             this.checkBox44 = new System.Windows.Forms.CheckBox();
             this.checkBox43 = new System.Windows.Forms.CheckBox();
             this.checkBox42 = new System.Windows.Forms.CheckBox();
             this.checkBox41 = new System.Windows.Forms.CheckBox();
             this.checkBox40 = new System.Windows.Forms.CheckBox();
+            this.checkBox46 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.checkBox45 = new System.Windows.Forms.CheckBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.checkBox47 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -125,7 +129,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Contrasena:";
+            this.label2.Text = "Contraseña:";
             // 
             // groupBox1
             // 
@@ -165,7 +169,7 @@
             // kitCrud1
             // 
             this.kitCrud1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.kitCrud1.Location = new System.Drawing.Point(673, 474);
+            this.kitCrud1.Location = new System.Drawing.Point(888, 474);
             this.kitCrud1.Name = "kitCrud1";
             this.kitCrud1.Size = new System.Drawing.Size(152, 52);
             this.kitCrud1.TabIndex = 5;
@@ -643,6 +647,16 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Deducciones No Auto";
             // 
+            // checkBox45
+            // 
+            this.checkBox45.AutoSize = true;
+            this.checkBox45.Location = new System.Drawing.Point(6, 203);
+            this.checkBox45.Name = "checkBox45";
+            this.checkBox45.Size = new System.Drawing.Size(105, 17);
+            this.checkBox45.TabIndex = 50;
+            this.checkBox45.Text = "Restar Dias Imss";
+            this.checkBox45.UseVisualStyleBackColor = true;
+            // 
             // checkBox44
             // 
             this.checkBox44.AutoSize = true;
@@ -693,6 +707,16 @@
             this.checkBox40.Text = "Ajuste Isr C58";
             this.checkBox40.UseVisualStyleBackColor = true;
             // 
+            // checkBox46
+            // 
+            this.checkBox46.AutoSize = true;
+            this.checkBox46.Location = new System.Drawing.Point(6, 19);
+            this.checkBox46.Name = "checkBox46";
+            this.checkBox46.Size = new System.Drawing.Size(124, 17);
+            this.checkBox46.TabIndex = 51;
+            this.checkBox46.Text = "Aplicar Deducciones";
+            this.checkBox46.UseVisualStyleBackColor = true;
+            // 
             // button1
             // 
             this.button1.Image = global::ERP_NOMINAS.Properties.Resources.icons8_casilla_de_verificación_marcada_28;
@@ -706,21 +730,33 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // checkBox45
+            // groupBox6
             // 
-            this.checkBox45.AutoSize = true;
-            this.checkBox45.Location = new System.Drawing.Point(6, 203);
-            this.checkBox45.Name = "checkBox45";
-            this.checkBox45.Size = new System.Drawing.Size(105, 17);
-            this.checkBox45.TabIndex = 50;
-            this.checkBox45.Text = "Restar Dias Imss";
-            this.checkBox45.UseVisualStyleBackColor = true;
+            this.groupBox6.Controls.Add(this.checkBox47);
+            this.groupBox6.Controls.Add(this.checkBox46);
+            this.groupBox6.Location = new System.Drawing.Point(840, 104);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(200, 364);
+            this.groupBox6.TabIndex = 57;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Proceso de Nomina";
+            // 
+            // checkBox47
+            // 
+            this.checkBox47.AutoSize = true;
+            this.checkBox47.Location = new System.Drawing.Point(6, 42);
+            this.checkBox47.Name = "checkBox47";
+            this.checkBox47.Size = new System.Drawing.Size(107, 17);
+            this.checkBox47.TabIndex = 52;
+            this.checkBox47.Text = "Procesar Nomina";
+            this.checkBox47.UseVisualStyleBackColor = true;
             // 
             // PermissionControlShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(837, 530);
+            this.ClientSize = new System.Drawing.Size(1051, 530);
+            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -745,6 +781,8 @@
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -810,5 +848,8 @@
         private System.Windows.Forms.CheckBox checkBox44;
         private System.Windows.Forms.CheckBox checkBox43;
         private System.Windows.Forms.CheckBox checkBox45;
+        private System.Windows.Forms.CheckBox checkBox46;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.CheckBox checkBox47;
     }
 }

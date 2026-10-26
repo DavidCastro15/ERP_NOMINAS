@@ -94,6 +94,7 @@
             this.omitirEmpleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restarDiasImssToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calculosDeNominaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.procesoDeNominaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aplicarDeduccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -627,10 +628,18 @@
             // calculosDeNominaToolStripMenuItem
             // 
             this.calculosDeNominaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.procesoDeNominaToolStripMenuItem,
             this.aplicarDeduccionesToolStripMenuItem});
             this.calculosDeNominaToolStripMenuItem.Name = "calculosDeNominaToolStripMenuItem";
             this.calculosDeNominaToolStripMenuItem.Size = new System.Drawing.Size(126, 20);
             this.calculosDeNominaToolStripMenuItem.Text = "Calculos de Nomina";
+            // 
+            // procesoDeNominaToolStripMenuItem
+            // 
+            this.procesoDeNominaToolStripMenuItem.Name = "procesoDeNominaToolStripMenuItem";
+            this.procesoDeNominaToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.procesoDeNominaToolStripMenuItem.Text = "Proceso de Nomina";
+            this.procesoDeNominaToolStripMenuItem.Click += new System.EventHandler(this.procesoDeNominaToolStripMenuItem_Click);
             // 
             // aplicarDeduccionesToolStripMenuItem
             // 
@@ -730,5 +739,6 @@
         private System.Windows.Forms.ToolStripMenuItem restarDiasImssToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem calculosDeNominaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aplicarDeduccionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem procesoDeNominaToolStripMenuItem;
     }
 }

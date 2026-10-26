@@ -233,6 +233,16 @@ namespace ERP_NOMINAS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_caja_registradora_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-caja-registradora-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_cambiar_15 {
             get {
                 object obj = ResourceManager.GetObject("icons8-cambiar-15", resourceCulture);
@@ -316,6 +326,26 @@ namespace ERP_NOMINAS.Properties {
         internal static System.Drawing.Bitmap icons8_comprobado_28 {
             get {
                 object obj = ResourceManager.GetObject("icons8-comprobado-28", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_confirmar_28 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-confirmar-28", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_confirmar_40 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-confirmar-40", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -656,6 +686,16 @@ namespace ERP_NOMINAS.Properties {
         internal static System.Drawing.Bitmap icons8_proceso_28 {
             get {
                 object obj = ResourceManager.GetObject("icons8-proceso-28", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_proceso_40 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-proceso-40", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
