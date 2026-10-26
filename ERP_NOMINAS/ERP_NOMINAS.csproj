@@ -1072,8 +1072,10 @@
     <Compile Include="Views\PayRollProcess\CalculationsPayRoll\CalculatedPayRollShow.Designer.cs">
       <DependentUpon>CalculatedPayRollShow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\PayRollProcess\IPayrollProcessor.cs" />
     <Compile Include="Views\PayRollProcess\CalculationsPayRoll\TypePayRoll\UnionWorkers\ProcessHarvest.cs" />
     <Compile Include="Views\PayRollProcess\CalculationsPayRoll\TypePayRoll\UnionWorkers\ProcessRepairUW.cs" />
+    <Compile Include="Views\PayRollProcess\CalculationsPayRoll\TypePayRoll\UnionWorkers\ProcessZafraUW.cs" />
     <EmbeddedResource Include="Components\Buttons\buttonAdd.resx">
       <DependentUpon>buttonAdd.cs</DependentUpon>
     </EmbeddedResource>
